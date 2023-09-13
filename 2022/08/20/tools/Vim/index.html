@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        Vim使用 | Chenpeel' World
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Regular.otf);
+        font-weight: NotoSerifSC-Regular;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Black.otf);
+        font-weight: NotoSerifSC-Black;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css" />
+  
+
+  </head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/tools/">Tools</a>
+            
+              <a class="nav-menu-item" href="/notes/">Notes</a>
+            
+              <a class="nav-menu-item" href="/literature">Literature</a>
+            
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">Vim使用</div>
+        <div class="post-info">
+          
+  <a href="/tags/CS%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-tag">#CS实用工具</a>
+
+
+          <span class="post-date">2022-08-20</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h4 id="模式">模式</h4>
+<ol type="1">
+<li><h6 id="普通模式">普通模式</h6>
+<p>打开文件时的默认模式，在其他模式<code>Esc</code>都可以返回此</p></li>
+<li><h6 id="插入模式">插入模式</h6>
+<p>按<code>i/o/a</code>键进入该模式，进行文本编辑操作，不同之处在于插入字符位置在光标前还是后</p></li>
+<li><h6 id="命令行模式">命令行模式</h6>
+<p>普通模式下输入<code>:</code>后会进入该模式，可输入命令，如
+<code>set number(set nu)</code> 可显示行号</p></li>
+<li><h6 id="可视化模式">可视化模式</h6>
+<p>在普通模式下按v键会进入可视化模式。该模式下光标可选中文本进行复制、剪切、删除、粘贴等文本操作</p></li>
+<li><h6 id="替换模式">替换模式</h6>
+<p>在普通模式下通过光标选中一个字符，然后r键，再输入一个字符，替换了原有字符</p></li>
+</ol>
+<h4 id="单个字符操作">单个字符操作</h4>
+<ul>
+<li><code>k</code>： 在1 下，k键，向上</li>
+<li><code>j</code>： 在1 下，j键，向下</li>
+<li><code>h</code> ： 在1下，h键，向左</li>
+<li><code>l</code>： 在1下，l键，向右</li>
+</ul>
+<h4 id="单词操作">单词操作</h4>
+<ul>
+<li><code>w</code> 下个单词开头</li>
+<li><code>b</code> 上个单词开头</li>
+<li><code>e</code> 下个单词尾部</li>
+<li><code>E</code> 下个单词尾（忽略标点符号）</li>
+<li><code>ge</code>上个单词尾部</li>
+<li><code>2w</code> 指定光标两次移动到下下个单词开头</li>
+</ul>
+<h4 id="行操作">行操作</h4>
+<ul>
+<li><code>$</code> 当前行尾</li>
+<li><code>0</code>当前行首</li>
+<li><code>^</code> 当前行首个非空字符</li>
+<li><code>2|</code> 当前行第二列</li>
+<li><code>fx</code> 第一个字符x上
+<ul>
+<li><code>3fx</code> 第三个字符x上</li>
+</ul></li>
+<li><code>%</code> 符号间的移动，在()、[]、{}之间跳跃</li>
+</ul>
+<h4 id="屏幕移动">屏幕移动</h4>
+<ul>
+<li><code>nG</code>跳转到指定行</li>
+<li><code>g+ g/G</code>跳转到文件的开头/结尾（的行首）</li>
+<li><code>L</code> 移动到当前屏幕显示的文本末尾（的行首）</li>
+<li><code>M</code> 移动到当前屏幕显示的文本中间（的行首）</li>
+<li><code>Ctrl + g</code> 光标查看当前位置</li>
+<li><code>Ctrl +  u/d</code> 光标向前/后滚动（+d不一定有效）</li>
+<li><code>Ctrl + f/b</code> 光标向前/后半屏滚动</li>
+</ul>
+<h4 id="文本的基本操作">文本的基本操作</h4>
+<ul>
+<li><code>i/a</code> 在当前光标前/后插入字符</li>
+<li><code>I/A</code> 在当前光标所在的行的行首/行尾插入字符</li>
+<li><code>o</code> 在下一行插入</li>
+<li><code>x</code> 删除当前光标所在处的字符</li>
+<li><code>X</code> 删除当前光标左侧的字符</li>
+<li><code>dw</code> 删除一个单词</li>
+<li><code>dd</code> 删除一整行</li>
+<li><code>2dd</code> 删除一整行及下一行</li>
+<li><code>yw</code> 复制一个单词</li>
+<li><code>yy</code> 复制光标所在整行</li>
+<li><code>p</code> 粘贴</li>
+<li><code>J</code> 删除一个分行符</li>
+</ul>
+<h4 id="文本查找于替换">文本查找于替换</h4>
+<ul>
+<li><code>/string</code> 在1模式下输入 课正香向下查找字符串string</li>
+<li><code>?string</code> 反向查找string</li>
+<li><code>:set hls</code> 高亮显示处的单词，敲击 n 浏览下一个</li>
+<li><code>s/old/new</code> <strong>当前行的第一个</strong>替换old
+为new</li>
+<li><code>s/old/new/g</code> <strong>当前行的所有</strong>old
+替换为new</li>
+<li><code>%s/old/new/g</code> <strong>文本中的所有的字符串</strong> old
+替换为new</li>
+<li><code>%s/^old/new/g</code>
+<strong>文本中所有的以old开头的字符串</strong>替换为new</li>
+</ul>
+<h4 id="文本的保存退出">文本的保存、退出</h4>
+<ul>
+<li><code>u</code> 撤销上步操作</li>
+<li><code>q</code>没有修改直接退出</li>
+<li><code>q!</code> 修改了放弃、退出</li>
+<li><code>wq</code> 保存退出</li>
+<li><code>e!</code> 若文件已修改，放弃修改，恢复打开时的状态</li>
+<li><code>w! sudo tee%</code>
+在shell的普通用户下保存root读写权限的文件</li>
+</ul>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2022/10/11/notes/shell/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>Shell语言</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2021/12/10/tools/Cmake/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+      </div>
+      Cmake
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">莫</div><div class="matts">愁</div><div class="matts">前</div><div class="matts">路</div><div class="matts">无</div><div class="matts">知</div><div class="matts">己</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">天</div><div class="matts">下</div><div class="matts">谁</div><div class="matts">人</div><div class="matts">不</div><div class="matts">识</div><div class="matts">君</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://yunjn.github.io">Samuel</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://DownsXu.github.io">DownsXu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51704612?type=lately">一夜落而知秋</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:nlxnbd@163.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/chenpeel">github</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ji-yu-82-94">知乎</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:nlxnbd@163.com">nlxnbd@163.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://zachary.world">Chenpeel' World</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+  
+
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        动态规划 | Chenpeel' World
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Regular.otf);
+        font-weight: NotoSerifSC-Regular;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Black.otf);
+        font-weight: NotoSerifSC-Black;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css" />
+  
+
+  </head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/tools/">Tools</a>
+            
+              <a class="nav-menu-item" href="/notes/">Notes</a>
+            
+              <a class="nav-menu-item" href="/literature">Literature</a>
+            
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">动态规划</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E7%AE%97%E6%B3%95/" class="post-tag">#算法</a>
+
+
+          <span class="post-date">2023-07-13</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <blockquote>
+<p>递推公式是动态规划的灵魂，dp的含义、初始化以及遍历的顺序也很关键，但最重要是分析问题的思想，在此，将动态规划划分为五个阶段，来自于<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.337.search-card.all.click&amp;vd_source=2ed772ef3c25dca43937d30b2e9c63c9">代码随想录</a></p>
+</blockquote>
+<h5 id="五个阶段">五个阶段</h5>
+<ul>
+<li>明确dp数组的含义</li>
+<li>对dp进行正确初始化</li>
+<li>找出递推公式</li>
+<li>明确遍历的次序和层级</li>
+<li>debug</li>
+</ul>
+<h5 id="动态规划的优劣">动态规划的优劣</h5>
+<ul>
+<li>其效率显然是高于单纯的递归算法和暴力枚举的</li>
+<li>每次动态规划都需要自定一个dp数组，甚至是二维、三维数组，未免太浪费空间</li>
+</ul>
+<h5 id="动态规划的案例">动态规划的案例</h5>
+<h6 id="n个矩阵连乘问题">N个矩阵连乘问题</h6>
+<ul>
+<li><p>描述：给定n个矩阵<span class="math inline">\(\lbrace
+A_1,A_2,...,An \rbrace\)</span> ，其中 <span
+class="math inline">\(A_i\)</span> 与<span
+class="math inline">\(A_{i+1}\)</span>是可乘的。
+如何确定矩阵连乘积的计算次序，使得依此次序计算矩阵连乘积所需要的数乘<strong>次数最少</strong></p></li>
+<li><p>分析：根据矩阵连乘的结合律，我们可以将其整个相乘划分为两块甚至更多块相乘，从而得到子问题</p>
+<ul>
+<li>我们维护一个数组<span class="math inline">\(dp[i:j]\)</span>
+表示其计算量从而可得到 (1) ：</li>
+<li>根据dp数组找到最优次数</li>
+<li>题解代码<a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/n_matrix.cpp">n_matrix.cpp</a></li>
+</ul>
+<p><span class="math display">\[
+dp(i,j) =\begin {cases} &amp;{0} &amp;\text{i=j}  \\
+&amp;\min_\limits{i\le k&lt;j} {\lbrace{dp(i,k)+dp(k+1,j)+ p_{i-1}\cdot
+p_k \cdot p_j }\rbrace} &amp;\text{i&lt;j} \end{cases}
+\]</span></p></li>
+<li></li>
+</ul>
+<h6 id="最长公共子序列">最长公共子序列</h6>
+<ul>
+<li><p>描述：给定两字符串<code>str1</code>，<code>str2</code>，找出其最长公共子序列，找出其最长公共子串</p>
+<ul>
+<li>子串：字符串中连续的子集</li>
+<li>子序列：将给定的字符串去掉n <span
+class="math inline">\((n≥0)\)</span>个之后的字符串</li>
+</ul></li>
+<li><p>分析：最长公共子串纯粹凑个热闹，O(n) 即可</p>
+<ul>
+<li><p>边界<code>str1.length()==0</code>
+或<code>str2.length()==0</code></p></li>
+<li><p>我们可以追究<code>str1</code>和<code>str2[0:n-1]</code>,<code>n=str2.length</code>的结果从而得到递推公式(2)：
+<span class="math display">\[
+dp(i,j) = \begin {cases} &amp;{0} &amp;\text{if}&amp;{i=0}&amp;\text or
+&amp;{j=0}  \\ &amp;{dp(i-1,j-1)+1} &amp;\text {if}&amp;{i,j&gt;0} &amp;
+and &amp;{x_i = y_j} \\ &amp; \max({dp(i-1,j),dp(i,j-1))}
+&amp;\text{if}&amp; {i,j&gt;0} &amp;\text{and}&amp; {x_i≠y_i}\end{cases}
+\]</span></p></li>
+</ul></li>
+<li><p>题目代码</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/max_length_2str.cpp">max_length_2str.cpp</a></li>
+</ul></li>
+</ul>
+<h6 id="最大子段和">最大子段和</h6>
+<ul>
+<li>描述：给定 <em>n</em> 个整数（可以为负数）的序列<span
+class="math inline">\((a_1,a_2,...,a_n)\)</span> ,求$ $ 实例：<span
+class="math inline">\([-2,11,-4,13,-5,-2]\)</span></li>
+<li>分析：我们维护一个数组dp[i],显然对于dp[i]有 <span
+class="math inline">\(dp[i] = \max{(dp[i-1]+ a[i-1],dp[i-1])}\)</span>
+，再定<code>res = max(dp[i],dp[i-1])</code> 遍历即可</li>
+<li>题目代码
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/max_subarray_sum.cpp">max_subarray_sum.cpp</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/pycodes/max_subarray_sum.py">max_subarray_sum.py</a></li>
+</ul></li>
+</ul>
+<h6 id="背包问题">0-1背包问题</h6>
+<ul>
+<li><p>描述：一个小偷在洗劫商铺时找到了n个物品：其中第i个物品价值<span
+class="math inline">\(v_i\)</span> 并且重量为<span
+class="math inline">\(w_i\)</span>（价值和重量整数），小偷背包只能承受<span
+class="math inline">\(W\)</span>
+,物品要么带走，要么留下，求如何才能价值最大化</p>
+<ul>
+<li>如果带走的一个物品可以拆分，即只带走一部分，如何价值最大化</li>
+</ul></li>
+<li><p>分析：考察前i个物品能获得的最高价值 <span
+class="math inline">\(V[i,w]\)</span> ,<span
+class="math inline">\(w\)</span> 为背包的承受力可有如(3) <span
+class="math display">\[
+V[i,w] = \begin{cases} &amp;\max{\lbrace V[i-1,w],
+V[i-1,w-w_i]+v_i\rbrace} &amp;\text{if}&amp; w_i&lt;w \\ &amp; V[i-1,w]
+&amp;\text{if}&amp; w_i&gt;w \end{cases}
+\]</span></p></li>
+<li><p>题目代码</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/knapsack.cpp">knapsack.cpp</a></li>
+</ul></li>
+</ul>
+<h6 id="资源分配问题">资源分配问题</h6>
+<ul>
+<li>描述：有资源n,分配给m个项目,<span
+class="math inline">\(g_i(x)\)</span> 为第i个项目分得资源x所得到的利润。
+求总利润最大的资源分配方案,即解下列问题：
+<ul>
+<li><span class="math inline">\(max_z =
+g_1(x_1)+g_2(x_2)+...+g_m(x_m),x_1+x_2+...+x_m =
+a,x_i≥0,i={1,2,3,...,m}\)</span></li>
+<li><span class="math inline">\(g_i(x)\)</span> 如下图
+<img src="../../pics/source_reloc.png"></li>
+</ul></li>
+<li>分析：很容易得到<span class="math inline">\(dp[i] = \max(dp[i],dp[
+j-w[i]+v[i] ])\)</span> ，其中 <span class="math inline">\(w[i]\)</span>
+和 <span class="math inline">\(v[i]\)</span> 是投入和收益</li>
+<li>题目代码：
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/resource_alloc.cpp">resource_alloc.cpp</a></li>
+</ul></li>
+</ul>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2023/07/13/notes/algorithms/analysis/recursion/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>递归(recursion)</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2023/05/15/notes/POCC/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+      </div>
+      计算机组成原理（Principle-of-Computer-Composition）
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">莫</div><div class="matts">愁</div><div class="matts">前</div><div class="matts">路</div><div class="matts">无</div><div class="matts">知</div><div class="matts">己</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">天</div><div class="matts">下</div><div class="matts">谁</div><div class="matts">人</div><div class="matts">不</div><div class="matts">识</div><div class="matts">君</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://yunjn.github.io">Samuel</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://DownsXu.github.io">DownsXu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51704612?type=lately">一夜落而知秋</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:nlxnbd@163.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/chenpeel">github</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ji-yu-82-94">知乎</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:nlxnbd@163.com">nlxnbd@163.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://zachary.world">Chenpeel' World</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+  
+
+  </body>
+</html>

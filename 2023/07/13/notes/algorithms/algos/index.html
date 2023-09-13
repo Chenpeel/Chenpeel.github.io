@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        算法小寄 | Chenpeel' World
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Regular.otf);
+        font-weight: NotoSerifSC-Regular;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Black.otf);
+        font-weight: NotoSerifSC-Black;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css" />
+  
+
+  </head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/tools/">Tools</a>
+            
+              <a class="nav-menu-item" href="/notes/">Notes</a>
+            
+              <a class="nav-menu-item" href="/literature">Literature</a>
+            
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">算法小寄</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E7%AE%97%E6%B3%95/" class="post-tag">#算法</a>
+
+
+          <span class="post-date">2023-07-13</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <blockquote>
+<p>算法虐我千百遍，我待算法如初恋</p>
+</blockquote>
+<ul>
+<li>把所有经典算法、数据结构手搓一遍</li>
+<li>理解源码 STL源码，各种库，推荐使用<a
+target="_blank" rel="noopener" href="https://zh.cppreference.com/w/">cppreference</a>、<a
+target="_blank" rel="noopener" href="https://cplusplus.com">cplusplus</a> 。
+（PS：你都不理解源码，还想让编译器理解你？ &lt;_&lt; ）</li>
+<li>看经典书籍 （《C++ Primer中文版》、《Essential C++》、《More
+Effective C++（中文版）》、《提高C++性能的编程技术》、《C++
+Templates中文版》、《STL源码剖析》等等）</li>
+<li>刷题 (主刷<a
+target="_blank" rel="noopener" href="https://leetcode.cn/u/chen___chen/">Leetcode</a>)</li>
+</ul>
+<blockquote>
+<p>时间复杂度</p>
+</blockquote>
+<p>$ O(1) &lt; O(log_2n)&lt;O(n) &lt; O(n) &lt; O(nlog_2 {n} &lt;
+O(n^c)&lt; O(c^n) &lt; O(n!) $</p>
+<h2>
+<center>
+算法设计思想
+</center>
+</h2>
+<ul>
+<li><a href="../analysis/recursion">递归</a></li>
+<li><a href="../analysis/divide_conquer">分治算法</a></li>
+<li><a href="../analysis/dynamic_programing">动态规划</a></li>
+<li><a href="../analysis/back_track">回溯法</a></li>
+<li><a href="../analysis/greedy">贪心算法</a></li>
+</ul>
+<h2>
+<center>
+基本数据结构和算法
+</center>
+</h2>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/">基本数据结构</a></p>
+<h4 id="链表"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/liner_list/">链表</a></h4>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/liner_list/singly_linked_list.hpp">单向链表</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/liner_list/doubly_linked_list.hpp">双向链表</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/liner_list/circular_linked_list.hpp">循环链表</a></li>
+</ul>
+<h4 id="线性表数组"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/liner_list/sequeue_list.hpp">线性表</a>、数组</h4>
+<blockquote>
+<p>数组是一种定长的线性表，数组和链表结构是基础结构，散列表、栈、队列、堆、树、图等等各种数据结构都基于数组和链表结构实现。</p>
+</blockquote>
+<ul>
+<li>遍历、元素统计、改变移动</li>
+<li>二维数组、滚动数组</li>
+<li>数组的旋转</li>
+<li>前缀和数组</li>
+</ul>
+<h4 id="队列"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/queue">队列</a></h4>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/queue/linear_queue.hpp">线性队列</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/queue/circular_queue.hpp">循环队列</a></li>
+</ul>
+<h4 id="栈"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/stack/">栈</a></h4>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/stack/sequeue_stack.hpp">线性栈</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/stack/linked_stack.hpp">链式栈</a></li>
+</ul>
+<h4 id="树"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/">树</a></h4>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/binary_tree.hpp">二叉树</a>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/quick_sort.h">快速排序</a>就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历<br />
+</li>
+</ul></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/binary_search_tree.hpp">二叉查找树BST</a>
+有序的二叉树，中序遍历结果是递增的</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/avl_tree.hpp">平衡二叉树
+AVL树</a> 绝对平衡二叉树；</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/redblack_tree.hpp">红黑树</a>
+弱平衡二叉树；使用广泛</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/b_tree.hpp">B树</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/bplus_tree.hpp">B+树</a>
+mysql 索引使用 B+树 的数据结构<br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/trie.hpp">字典树trie</a>
+字典树也叫前缀树，单词查找树</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/binary_heap.hpp">二叉堆</a><br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/splay_tree.hpp">伸展树</a></li>
+<li><a target="_blank" rel="noopener" href="https://oi-wiki.org/string/suffix-tree/">后缀树</a>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://cceh.github.io/suffix-tree/builder/ukkonen.html">Ukkonen's
+Algorithm</a> （<a
+target="_blank" rel="noopener" href="https://brenden.github.io/ukkonen-animation/">动画演示</a>）</li>
+<li><a
+target="_blank" rel="noopener" href="https://cceh.github.io/suffix-tree/builder/mccreight.html">McCreight's
+Algorithm</a></li>
+</ul></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/fibonacci_heap.hpp">斐波那契堆(Fibonacci
+Heap)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/tree/huffman_tree.hpp">最优二叉树（哈夫曼树）</a>
+<ul>
+<li><a href="./greedy.md/#huffman">哈夫曼编码</a></li>
+</ul></li>
+</ul>
+<h4 id="字符串"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/string">字符串</a></h4>
+<blockquote>
+<p>坑待填</p>
+</blockquote>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/struct/string/string.hpp">字符串</a></li>
+<li>子串查找
+<ul>
+<li>BF算法<br />
+</li>
+<li>KMP算法<br />
+</li>
+<li>BM算法<br />
+</li>
+</ul></li>
+<li>正则表达式</li>
+<li>数据压缩</li>
+<li>排序</li>
+</ul>
+<h4 id="哈希表-hashtable">哈希表 HashTable</h4>
+<ul>
+<li>散列函数</li>
+<li>碰撞解决</li>
+</ul>
+<h4 id="图">图</h4>
+<ul>
+<li>图的存储结构和基本操作（建立，遍历，删除节点，添加节点）<br />
+</li>
+<li>最小生成树<br />
+</li>
+<li>拓扑排序<br />
+</li>
+<li>关键路径<br />
+</li>
+<li>最短路径: Floyd,Dijkstra,bellman-ford,spfa</li>
+</ul>
+<h4 id="排序算法">排序算法</h4>
+<p><strong>交换排序算法</strong></p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/bubble_sort.h">冒泡排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/insert_sort.h">插入排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/selection_sort.h">选择排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/shell_sort.h">希尔排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/quick_sort.h">快速排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/merge_sort.h">归并排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/heap_sort.h">堆排序</a></li>
+</ul>
+<p><strong>线性排序算法</strong></p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/bucket_sort.h">桶排序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/counting_sort.h">计数排序</a></li>
+</ul>
+<p><strong>其他排序算法</strong></p>
+<ul>
+<li></li>
+</ul>
+<h4 id="查找算法">查找算法</h4>
+<ul>
+<li>哈希表： O(1) <a href="">hashtable实现参考这里</a></li>
+<li>有序表查找：二分查找</li>
+<li>顺序表查找：顺序查找, 复杂度O(N)<br />
+</li>
+<li>分块查找：
+块内无序，块之间有序；可以先二分查找定位到块，然后再到<code>块</code>中顺序查找<br />
+</li>
+<li>动态查找: 二叉排序树，AVL树，B- ，B+（这里之所以叫
+<code>动态查找表</code>，是因为表结构是查找的过程中动态生成的）</li>
+</ul>
+<h4 id="stl的容器分类">STL的容器分类：</h4>
+<figure>
+<img
+src="https://github.com/Chenpeel/Algorithms_notes/tree/master/pics/container.png"
+alt="container" />
+<figcaption aria-hidden="true">container</figcaption>
+</figure>
+<h2>
+<center>
+刷算法题目
+</center>
+</h2>
+<ul>
+<li>字符串</li>
+<li>堆和栈</li>
+<li>链表</li>
+<li>数值问题</li>
+<li>数组和数列问题</li>
+<li>矩阵问题</li>
+<li>二叉树</li>
+<li>图</li>
+<li>海量数据处理</li>
+<li>智力思维训练</li>
+<li>系统设计</li>
+</ul>
+<h2>
+<center>
+海量数据处理
+</center>
+</h2>
+<ul>
+<li>Hash映射/分而治之</li>
+<li>Bitmap</li>
+<li>Bloom filter(布隆过滤器)</li>
+<li>Trie树</li>
+<li>数据库索引</li>
+<li>倒排索引(Inverted Index)</li>
+<li>双层桶划分</li>
+<li>外排序</li>
+<li>simhash算法</li>
+<li>分布处理之Mapreduce</li>
+</ul>
+<h2>
+<center>
+开源项目中的算法
+</center>
+</h2>
+<ul>
+<li>YYCache</li>
+<li>cocos2d-objc</li>
+<li>bitcoin</li>
+<li>geohash</li>
+<li>kafka</li>
+<li>nginx</li>
+<li>zookeeper</li>
+<li>...</li>
+</ul>
+<h2>
+<center>
+15个经典基础算法
+</center>
+</h2>
+<ul>
+<li><a href="">KMP 字符串匹配算法</a></li>
+<li><a href="">Hash</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/sort/quick_sort.h">快速排序</a></li>
+<li>快速选择SELECT</li>
+<li><a href="">红黑树 （一种弱/自平衡的“二叉查找树”）</a></li>
+<li><a href="">BFS/DFS （广度/深度优先遍历）</a></li>
+<li><a href="">寻路算法： 求解最短路径</a></li>
+<li>Dijkstra：最短路径算法</li>
+<li><code>SPFA(Shortest Path Faster Algorithm)</code>
+单元最短路径算法<br />
+</li>
+<li>启发式搜索</li>
+<li>遗传算法 <code>GA</code><br />
+</li>
+<li><a href="./analysis/dynamic_programing.md">DP (动态规划 dynamic
+programming)</a></li>
+<li>图像特征提取之<code>SIFT</code> 算法 ,
+广泛的应用于图像识别，图像检索，3D重建等CV的各种领域</li>
+<li>傅立叶变换</li>
+</ul>
+<h2>
+<center>
+推荐阅读
+</center>
+</h2>
+<h3 id="刷题必备">刷题必备</h3>
+<ul>
+<li>《剑指offer》<br />
+</li>
+<li>《编程之美》<br />
+</li>
+<li>《编程之法:面试和算法心得》<br />
+</li>
+<li>《算法谜题》 都是思维题</li>
+</ul>
+<h3 id="基础">基础</h3>
+<ul>
+<li>《编程珠玑》Programming Pearls<br />
+</li>
+<li>《编程珠玑(续)》<br />
+</li>
+<li>《数据结构与算法分析》<br />
+</li>
+<li>《Algorithms》
+这本近千页的书只有6章,其中四章分别是排序，查找，图，字符串，足见介绍细致</li>
+</ul>
+<h3 id="算法设计">算法设计</h3>
+<ul>
+<li>《算法设计与分析基础》<br />
+</li>
+<li>《算法引论》 告诉你如何创造算法 断货<br />
+</li>
+<li>《Algorithm Design Manual》算法设计手册 红皮书<br />
+</li>
+<li>《算法导论》 是一本对算法介绍比较全面的经典书籍<br />
+</li>
+<li>《Algorithms on Strings,Trees and Sequences》<br />
+</li>
+<li>《Advanced Data Structures》 各种诡异高级的数据结构和算法
+如元胞自动机、斐波纳契堆、线段树 600块</li>
+</ul>
+<h3 id="延伸阅读">延伸阅读</h3>
+<ul>
+<li>《深入理解计算机系统》<br />
+</li>
+<li>《TCP/IP详解三卷》<br />
+</li>
+<li>《UNIX网络编程二卷》<br />
+</li>
+<li>《UNIX环境高级编程：第2版》<br />
+</li>
+<li>《The practice of programming》 Brian Kernighan和Rob Pike<br />
+</li>
+<li>《writing efficient programs》 优化<br />
+</li>
+<li>《The science of programming》 证明代码段的正确性 800块一本</li>
+</ul>
+<h2>
+<center>
+参考链接和学习网站
+</center>
+</h2>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/v_july_v">July 博客</a></p></li>
+<li><p>《数学建模十大经典算法》<br />
+</p></li>
+<li><p>《数据挖掘领域十大经典算法》<br />
+</p></li>
+<li><p>《十道海量数据处理面试题》<br />
+</p></li>
+<li><p>《数字图像处理领域的二十四个经典算法》<br />
+</p></li>
+<li><p>《精选微软等公司经典的算法面试100题》</p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://github.com/julycoding/The-Art-Of-Programming-By-July">The-Art-Of-Programming-By-July</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="http://blog.csdn.net/column/details/ms100.html">微软面试100题</a><br />
+</p></li>
+<li><p><a
+target="_blank" rel="noopener" href="http://blog.csdn.net/v_JULY_v/article/details/6460494">程序员编程艺术</a></p></li>
+</ul>
+<h3 id="基本算法演示">基本算法演示</h3>
+<ul>
+<li>http://www.cs.usfca.edu/~galles/visualization/Algorithms.html</li>
+</ul>
+<h3 id="编程网站">编程网站</h3>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://leetcode.cn/u/chen___chen/">leetcode</a>个人主页</li>
+<li><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/">AcWing</a> 刷题</li>
+<li><a target="_blank" rel="noopener" href="https://codetop.cc/home">codetop</a>
+企业高频面试题库，刷题必备</li>
+<li><a target="_blank" rel="noopener" href="http://openjudge.cn/">openjudge</a>
+开放在线程序评测平台，可以创建自己的OJ小组<br />
+</li>
+<li><a target="_blank" rel="noopener" href="http://ac.jobdu.com/index.php">九度OJ</a><br />
+</li>
+<li>这有个<a
+target="_blank" rel="noopener" href="http://www.java3z.com/cwbwebhome/article/article19/res041.html">ACM训练方案</a></li>
+</ul>
+<h3 id="竞赛网站">竞赛网站</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/contest/">leetcode竞赛</a></li>
+<li><a target="_blank" rel="noopener" href="https://atcoder.jp/">AtCoder</a>
+英国网站，作息阴间的可以一试</li>
+<li><a target="_blank" rel="noopener" href="https://codeforces.com/">ForceCd</a> 同上</li>
+</ul>
+<h3 id="网课">网课</h3>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fA4y1o715/?spm_id_from=333.788&amp;vd_source=2ed772ef3c25dca43937d30b2e9c63c9">代码随想录</a>：刷题思路讲解</li>
+<li><a
+target="_blank" rel="noopener" href="https://www.coursera.org/learn/gaoji-shuju-jiegou/">高级数据结构和算法</a>
+：北大教授张铭老师在coursera上的课程。完成这门课之时，你将掌握多维数组、广义表、Trie树、AVL树、伸展树等高级数据结构，并结合内排序、外排序、检索、索引有关的算法，高效地解决现实生活中一些比较复杂的应用问题。当然coursera上也还有很多其它算法方面的视频课程。</li>
+<li><a target="_blank" rel="noopener" href="https://www.coursera.org/learn/algorithms?">算法设计与分析
+Design and Analysis of Algorithms</a> ：由北大教授Wanling
+Qu在coursera讲授的一门算法课程。首先介绍一些与算法有关的基础知识，然后阐述经典的算法设计思想和分析技术，主要涉及的算法设计技术是：分治策略、动态规划、贪心法、回溯与分支限界等。每个视频都配有相应的讲义（pdf文件）以便阅读和复习。</li>
+</ul>
+<h3 id="其它">其它</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/24OI/OI-wiki/">OI Wiki</a> 主要内容是
+OI/ACM-ICPC 编程竞赛 (competitive programming) 相关的知识整理,
+包括基础知识、常见题型、解题思路以及常用工具等内容。</p>
+<p><a target="_blank" rel="noopener" href="https://labuladong.gitee.io/algo/">labuladong 的算法小抄</a>
+作者整理了很多的解题套路框架，看完获益良多</p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2023/07/20/literature/POEM/pre/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>毛诗序</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2023/07/13/notes/algorithms/analysis/back_track/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+      </div>
+      回溯
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">莫</div><div class="matts">愁</div><div class="matts">前</div><div class="matts">路</div><div class="matts">无</div><div class="matts">知</div><div class="matts">己</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">天</div><div class="matts">下</div><div class="matts">谁</div><div class="matts">人</div><div class="matts">不</div><div class="matts">识</div><div class="matts">君</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://yunjn.github.io">Samuel</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://DownsXu.github.io">DownsXu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51704612?type=lately">一夜落而知秋</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:nlxnbd@163.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/chenpeel">github</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ji-yu-82-94">知乎</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:nlxnbd@163.com">nlxnbd@163.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://zachary.world">Chenpeel' World</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+  
+
+  </body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        递归(recursion) | Chenpeel' World
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Regular.otf);
+        font-weight: NotoSerifSC-Regular;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Black.otf);
+        font-weight: NotoSerifSC-Black;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css" />
+  
+
+  </head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/tools/">Tools</a>
+            
+              <a class="nav-menu-item" href="/notes/">Notes</a>
+            
+              <a class="nav-menu-item" href="/literature">Literature</a>
+            
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">递归(recursion)</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E7%AE%97%E6%B3%95/" class="post-tag">#算法</a>
+
+
+          <span class="post-date">2023-07-13</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <blockquote>
+<p><a href="">什么是递归？</a></p>
+<p>递归是一种设计和描述算法的有力工具。也是回溯法和动态规划的基础。</p>
+<p>从皮亚诺（<a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%9A%AE%E4%BA%9A%E8%AF%BA%E5%85%AC%E7%90%86">Peano</a>）关于自然数的公理说起，皮亚诺的<span
+class="math inline">\(4^{\circ}\)</span>
+公理模式下的数学归纳法可以立即知道某一命题的真假，后继元的表达即类比于递推公式</p>
+</blockquote>
+<h5 id="两个阶段">两个阶段</h5>
+<ul>
+<li>递推：将大的问题分为小的子问题</li>
+<li>回归：获得最简单的解方案后，逐层返回</li>
+</ul>
+<p><code>(1)</code> 确定递归公式，如 斐波那契数列 中 <span
+class="math display">\[
+fib(n) = \begin{cases} fib(n-1)+fib(n-2)&amp;\text{, if } n \ge 2  \\ 1
+&amp;\text{, if } n = 1  \\ 0 , &amp;\text{, if } n =0 \end{cases}
+\]</span></p>
+<p><code>(2)</code>确定边界bad case，显然，<span
+class="math inline">\(fib(n)\)</span> 边界就是 <span
+class="math inline">\(n = 0 | n = 1\)</span></p>
+<p>关于编程人第一个接触的算法，<a
+href="">斐波那契数列</a>必定有一席之地，其数学表达式为 (2) <span
+class="math display">\[
+F_n = \cfrac{1}{\sqrt 5}\lbrack (\cfrac{1+\sqrt5}{2})^n-(\cfrac
+{1-\sqrt5}{2})^n \rbrack
+\]</span></p>
+<h5 id="递归的效率">递归的效率</h5>
+<ul>
+<li>递归的效率浪费，由于大量后级递归的重复调用，也可能造成栈溢出，python中就限制了递归的深度</li>
+<li>解决方案：重复的调用过程可用动态规划的dp数组记录，避免重复计算已经计算过的结果，也可以使用滚动记录来避免重复计算</li>
+</ul>
+<h5 id="递归案例">递归案例</h5>
+<h6 id="阶乘计算">阶乘计算</h6>
+<ul>
+<li>描述：计算整数的阶乘</li>
+<li>代码
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/factorial.cpp">cpp</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/updating.md">python</a></li>
+</ul></li>
+</ul>
+<h6 id="斐波那契数列"><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fibonacci_sequence">斐波那契数列</a></h6>
+<ul>
+<li>描述：<strong><em>fibonacci
+sequence</em></strong>美妙的数学数列，在自然界中无处不在，向日葵花的瓣数、树枝的分叉、鳞片的排列、黄金分割,给定任意整数n，求其对应的斐波那契数(
+<span class="math inline">\(n \in N_+ , fib(0) = 1\)</span> ).</li>
+<li>斐波那契数有着明显的递归，也可纯粹的<a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/math_optimize/math.md">数学解法</a>，另：数学解法上的优化让算法走捷径，而且计算机中，遍地都是数学，望重视
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/fib.cpp">fib.cpp</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/updating">fib.py</a></li>
+</ul></li>
+</ul>
+<h6 id="汉诺塔问题"><a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/汉诺塔">汉诺塔问题</a></h6>
+<ul>
+<li>描述：有三根杆子A，B，C。A杆上有 N 个 (N&gt;1)
+穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：
+<ol type="1">
+<li>每次只能移动一个圆盘；</li>
+<li>大盘不能叠在小盘上面。</li>
+<li>最少移动次数</li>
+</ol></li>
+<li>汉诺塔问题用递归的方法分解非常的简单
+<ul>
+<li><a href="">hanoi.cpp</a></li>
+<li><a href="">hanoi.py</a></li>
+</ul></li>
+</ul>
+<h6 id="全排列问题">全排列问题</h6>
+<ul>
+<li>描述：生成n个元素<span
+class="math inline">\({r_1,r_2,...,r_n}\)</span> 的全排列</li>
+<li>全排列递归求解
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/full_permutation.cpp">full_permutation.cpp</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/updating.md">full_permutation.py</a></li>
+</ul></li>
+</ul>
+<h6 id="分解数字n">分解数字n</h6>
+<ul>
+<li>描述：将非0自然数 <strong><em>n</em></strong>
+<strong>划分</strong>成一系列非0自然数之和<span class="math inline">\(n
+=
+n_1+n_2+...+n_k({n_1,n_2,...,n_k,k\ge1})\)</span>，求不同的划分的个数</li>
+<li>pass
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/sum_to_n.cpp">sum_to_n.cpp</a></li>
+</ul></li>
+</ul>
+<h6 id="快速排序"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/sort/quick_sort.h">快速排序</a></h6>
+<h6 id="归并排序"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/sort/merge_sort.h">归并排序</a></h6>
+<h6 id="链表反转"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/reverse_linked_list.cpp">链表反转</a></h6>
+<h6 id="二叉树相关算法"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_Notes/tree/master/codes/struct/tree">二叉树相关算法</a></h6>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2023/07/13/notes/algorithms/analysis/greedy/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>贪心</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2023/07/13/notes/algorithms/analysis/dynamic_programing/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+      </div>
+      动态规划
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">莫</div><div class="matts">愁</div><div class="matts">前</div><div class="matts">路</div><div class="matts">无</div><div class="matts">知</div><div class="matts">己</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">天</div><div class="matts">下</div><div class="matts">谁</div><div class="matts">人</div><div class="matts">不</div><div class="matts">识</div><div class="matts">君</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://yunjn.github.io">Samuel</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://DownsXu.github.io">DownsXu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51704612?type=lately">一夜落而知秋</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:nlxnbd@163.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/chenpeel">github</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ji-yu-82-94">知乎</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:nlxnbd@163.com">nlxnbd@163.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://zachary.world">Chenpeel' World</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+  
+
+  </body>
+</html>
