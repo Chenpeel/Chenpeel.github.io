@@ -345,6 +345,10 @@ h1 {
   text-indent: 2em;
   font-size: larger;
 }
+.main_center {
+  text-align: center;
+  font-size: larger;
+}
 .comment {
   font-size: smaller;
 }

@@ -342,6 +342,7 @@ mjx-container {
   padding: 8px;
 }
 /* animation */
+/* my adding */
 a {
   color: #5f88e0;
   text-decoration: none;
@@ -351,6 +352,10 @@ h1 {
 }
 .main {
   text-indent: 2em;
+  font-size: larger;
+}
+.main_center {
+  text-align: center;
   font-size: larger;
 }
 .comment {
