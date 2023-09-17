@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        MySQL速览 | Chenpeel' World
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Regular.otf);
+        font-weight: NotoSerifSC-Regular;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:NotoSerifSC-Regular;
+        src: url(/font/NotoSerifSC-Black.otf);
+        font-weight: NotoSerifSC-Black;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css" />
+  
+
+  </head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/tools/">Tools</a>
+            
+              <a class="nav-menu-item" href="/notes/">Notes</a>
+            
+              <a class="nav-menu-item" href="/literature">Literature</a>
+            
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">MySQL速览</div>
+        <div class="post-info">
+          
+  <a href="/tags/CS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-tag">#CS学习笔记</a>
+
+
+          <span class="post-date">2023-05-05</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <blockquote>
+<h4 id="写在前面">写在前面✍️</h4>
+<p>本篇是学习数据库的基本内容的信息，作为<strong>速览List</strong></p>
+</blockquote>
+<hr>
+<h2 id="sql分类">SQL分类：</h2>
+<h3 id="table">Table</h3>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 30%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">分类</th>
+<th style="text-align: center;">全称</th>
+<th style="text-align: center;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">DDL</td>
+<td style="text-align: center;">Data Definition Language</td>
+<td
+style="text-align: center;">数据定义语言，用来定义数据库中的对象（数据库、表、字段）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DML</td>
+<td style="text-align: center;">Data Manipulation Language</td>
+<td
+style="text-align: center;">数据操作语言，用来对数据库表中的数据进行增删改</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DQL</td>
+<td style="text-align: center;">Data Query Language</td>
+<td
+style="text-align: center;">数据查询语言，用来查询数据库中表的记录</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DCL</td>
+<td style="text-align: center;">Data Control Language</td>
+<td
+style="text-align: center;">数据控制语言，用来创建数据库用户、控制数据库的访问权限</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="sql语法">SQL语法：</h2>
+<h3 id="ddl">DDL</h3>
+<h5 id="数据库">数据库</h5>
+<ul>
+<li><p>查询</p></li>
+<li><p>```mysql show databases; --显示所有库 select database;
+--当前数据库 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">- 创建</span><br><span class="line"></span><br><span class="line">  ```mysql</span><br><span class="line">  create database ithema default charset utf8mb4 if not exists;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database if exists test</span><br></pre></td></tr></table></figure></li>
+<li><p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use database</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="查询创建">查询创建</h5>
+<ul>
+<li><p>查询所有表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables</span><br></pre></td></tr></table></figure></li>
+<li><p>查询表结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc table_name</span><br></pre></td></tr></table></figure></li>
+<li><p>查询指定表的建表语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table table_name</span><br></pre></td></tr></table></figure></li>
+<li><p>创建表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table test_user( </span><br><span class="line">	id int comment &#x27;编号&#x27;, </span><br><span class="line">	name varchar(50) comment &#x27;姓名&#x27;, </span><br><span class="line">	age tinyint unsigned comment &#x27;age&#x27;,</span><br><span class="line">	gender varchar(1) comment &#x27;sex&#x27; ,</span><br><span class="line">  entrydate date comment &#x27;入职时间&#x27;</span><br><span class="line">)comment &#x27;user_table&#x27;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="表操作-修改">表操作-修改</h5>
+<ul>
+<li><p>添加字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name add nick_name varchar(20) comment &#x27;昵称&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name modify nick_name varchar(21);</span><br></pre></td></tr></table></figure></li>
+<li><p>修改字段名和字段类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name change nick_name nickname varchar(20) ;</span><br></pre></td></tr></table></figure></li>
+<li><p>删除字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name drop nickname;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改表名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table old_table_name rename to new_table_name;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="表操作-删除">表操作-删除<a id="表操作-删除"></a></h5>
+<ul>
+<li><p>删除表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists table_name;</span><br></pre></td></tr></table></figure></li>
+<li><p>删除并重新创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate table table_name;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure>
+<img src="/images/article_use/image-20230422232140753.png"
+alt="image-20230422232140753" />
+<figcaption aria-hidden="true">image-20230422232140753</figcaption>
+</figure>
+<figure>
+<img src="/images/article_use/image-20230422232634397.png"
+alt="image-20230422232634397" />
+<figcaption aria-hidden="true">image-20230422232634397</figcaption>
+</figure>
+<figure>
+<img src="/images/article_use/image-20230422232846561.png"
+alt="image-20230422232846561" />
+<figcaption aria-hidden="true">image-20230422232846561</figcaption>
+</figure>
+<h3 id="dml">DML</h3>
+<h5 id="添加数据">添加数据</h5>
+<ul>
+<li><p>给指定字段添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (field1,field2,...) values(value1,value2,...);</span><br></pre></td></tr></table></figure></li>
+<li><p>给全部字段添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name values(value1,value2,...);</span><br></pre></td></tr></table></figure></li>
+<li><p>批量添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into table_name (field1,field2,...) values(value1,value2,...),(value1,value2,....),...;</span><br><span class="line">insert into table_name values(value1,value2,...),(value1,value2,..);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="修改数据">修改数据</h5>
+<ul>
+<li><p>修改数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update table_name set colum1 = value1,colum2 = value2,...[where confition];</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="删除数据">删除数据</h5>
+<ul>
+<li><p>删除数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name [where condition];</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="dql">DQL</h3>
+<h5 id="语法">语法</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select  	--基础查询 </span><br><span class="line">from 			--条件查询</span><br><span class="line">where   	--聚合查询</span><br><span class="line">group by 	--分组查询</span><br><span class="line">having 		</span><br><span class="line">order by 	--排序查询</span><br><span class="line">limit			--分页查询</span><br></pre></td></tr></table></figure>
+<h5 id="基本查询">基本查询</h5>
+<ul>
+<li><p>查询多个字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select field1,field2,... from table_name;</span><br><span class="line">select * from table_name;</span><br></pre></td></tr></table></figure></li>
+<li><p>设置别名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select field1 [as new_name1],field2 [as new_name2],... from table_name;</span><br></pre></td></tr></table></figure></li>
+<li><p>去重复记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct field_list from table_name;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="条件查询">条件查询</h5>
+<ul>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select field_list from table_name where conditions_list;</span><br></pre></td></tr></table></figure></li>
+<li><p>条件</p>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">比较运算符</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">大于</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&gt;=</td>
+<td style="text-align: center;">大于等于</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">&lt;</td>
+<td style="text-align: center;">小于</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&lt;=</td>
+<td style="text-align: center;">小于等于</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">=</td>
+<td style="text-align: center;">等于</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&lt;&gt; 或 !=</td>
+<td style="text-align: center;">不等于</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BETWEEN ... AND ...</td>
+<td style="text-align: center;">在某个范围之内（包括min、max）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IN(...)</td>
+<td style="text-align: center;">在in之后的列表中的值，多选一</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">LIKE</td>
+<td
+style="text-align: center;">模糊匹配(_匹配单个字符，%匹配任意个字符，可组合使用)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IS NULL</td>
+<td style="text-align: center;">是NULL（IS NOT NULL）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">AND 或 &amp;&amp;</td>
+<td style="text-align: center;">且</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">OR 或 ||</td>
+<td style="text-align: center;">或</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">NOT 或!</td>
+<td style="text-align: center;">非</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h5 id="聚合函数">聚合函数</h5>
+<ul>
+<li><p>将一列数据作为一个整体进行纵向计算</p></li>
+<li><p>常见的聚合函数 (所有的NULL不参与聚合函数查询)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">函数</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">count</td>
+<td style="text-align: center;">统计数量</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">max</td>
+<td style="text-align: center;">最大值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">min</td>
+<td style="text-align: center;">最小值</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">avg</td>
+<td style="text-align: center;">平均值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sum</td>
+<td style="text-align: center;">求和</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h5 id="分组查询">分组查询</h5>
+<ul>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select field_list from table_name [where condition] group by group_field_name [having condition]</span><br></pre></td></tr></table></figure></li>
+<li><p>where 和 having 区别</p>
+<ul>
+<li>判断时机不同: where
+是分组之前进行过滤，不满足where条件，不参与分组，而having
+是分组之后进行过滤</li>
+<li>判断条件不同: where 不能对聚合函数进行判断，而having可以</li>
+</ul></li>
+<li><p>执行顺序： where &gt; 聚合函数 &gt; having</p></li>
+<li><p>分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义</p></li>
+</ul>
+<h5 id="排序查询">排序查询</h5>
+<ul>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name ORDER BY age asc; --升序 可省略</span><br><span class="line">SELECT * FROM table_name ORDER BY age DESC;    --降序</span><br><span class="line">SELECT * FROM table_name ORDER BY age asc , entrydate ASC; --先按age 再按entrydate</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="分页查询">分页查询</h5>
+<ul>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name LIMIT begin , query_num_mark</span><br></pre></td></tr></table></figure></li>
+<li><p>不同的SQL有不同的此语法</p></li>
+</ul>
+<h5 id="执行顺序">执行顺序</h5>
+<ul>
+<li><p>```mysql select --4 from --1 where --2 group by having --3 order
+by --5 limit --6 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### DCL</span><br><span class="line"></span><br><span class="line">##### 管理用户</span><br><span class="line"></span><br><span class="line">- 查询用户</span><br><span class="line"></span><br><span class="line">  ```mysql</span><br><span class="line">  use mysql;</span><br><span class="line">  select * from user;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>创建用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user &#x27;user_name&#x27;@&#x27;host_name&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改用户密码</p></li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user &#x27;user_name&#x27;@&#x27;host_name&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;password&#x27;;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>删除用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user &#x27;user_name&#x27;@&#x27;host_name&#x27;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="权限控制">权限控制</h5>
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">权限</th>
+<th style="text-align: center;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ALL,ALL PRIVILEGES</td>
+<td style="text-align: center;">所有权限</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SELECT</td>
+<td style="text-align: center;">查询数据</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">INSERT</td>
+<td style="text-align: center;">插入数据</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">UPDATE</td>
+<td style="text-align: center;">修改数据</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DELETE</td>
+<td style="text-align: center;">删除数据</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ALTER</td>
+<td style="text-align: center;">修改表</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DROP</td>
+<td style="text-align: center;">删除数据库/表/视图</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CREATE</td>
+<td style="text-align: center;">创建数据库/表</td>
+</tr>
+</tbody>
+</table>
+<p>查询权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants for &#x27;user_name&#x27;@&#x27;host_name&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>授予权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant 权限列表 ON database_name.table_name from &#x27;user_name&#x27;@&#x27;host_name&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>撤销权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke 权限列表 ON database_name.table_name from &#x27;user_name&#x27;@&#x27;host_name&#x27;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="函数">函数：</h2>
+<h5 id="字符串函数">字符串函数</h5>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">函数</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">CONCAT(S1,S2,...Sn)</td>
+<td
+style="text-align: center;">字符串拼接，将S1,S2,...Sn拼接成一个字符串</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">LOWER(str)</td>
+<td style="text-align: center;">转小写</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">UPPER(str)</td>
+<td style="text-align: center;">转大写</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">LPAD(str,n,pad)</td>
+<td
+style="text-align: center;">左填充，用字符串pad对str左边进行填充，以达到n个字符长度</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">RPAD(str,n,pad)</td>
+<td
+style="text-align: center;">右填充，用字符串pad对str右边进行填充，以达到n个字符长度</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">TRIM(str)</td>
+<td style="text-align: center;">去掉字符串头尾的空格</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SUBSTRING(str,start,len)</td>
+<td
+style="text-align: center;">返回字符串str从start起len个长度字符串</td>
+</tr>
+</tbody>
+</table>
+<h4 id="数值函数">数值函数</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">函数</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">CEIL(x)</td>
+<td style="text-align: center;">向上取整</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">FLOOR(x)</td>
+<td style="text-align: center;">向下取整</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">MOD(x,y)</td>
+<td style="text-align: center;">返回x/y的模</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">RAND()</td>
+<td style="text-align: center;">返回0～1内的随机数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ROUND(x,y)</td>
+<td style="text-align: center;">求参数x的四舍五入值，保留y位小数</td>
+</tr>
+</tbody>
+</table>
+<h5 id="日期函数">日期函数</h5>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">函数</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">CURDATE()</td>
+<td style="text-align: center;">返回当前日期</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CURTIME()</td>
+<td style="text-align: center;">返回当前时间</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">NOW()</td>
+<td style="text-align: center;">返回当前日期和时间</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">YEAR(date)</td>
+<td style="text-align: center;">获取指定date的年份</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">MOUTH(date)</td>
+<td style="text-align: center;">获取指定date的月份</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DAY(date)</td>
+<td style="text-align: center;">获取指定date的日期</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DATE_ADD(data,INTERVAL expo type)</td>
+<td
+style="text-align: center;">返回一个日期/时间值加上一个时间间隔expr后的时间值</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DATEDIFF(date1,date2)</td>
+<td
+style="text-align: center;">返回起始时间date1和结束时间date2之间的天数</td>
+</tr>
+</tbody>
+</table>
+<h5 id="流程控制函数">流程控制函数</h5>
+<table>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">函数</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">IF(value,t,f)</td>
+<td style="text-align: center;">如果value为true，返回t，否则返回f</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IFNULL(value1,value2)</td>
+<td
+style="text-align: center;">如果value1不为空，返回value1，否则value2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CASE WHEN [val1] THEN [res1]...ELSE
+[default] END</td>
+<td
+style="text-align: center;">如果val1为true，返回res1,...，否则返回default</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CASE [expr] WHEN [val1] THEN
+[res1]...ELSE [default] END</td>
+<td
+style="text-align: center;">如果expr值等于val1，返回res1,...,否则返回default</td>
+</tr>
+</tbody>
+</table>
+<h2 id="约束">约束 ：</h2>
+<h5 id="概念">概念</h5>
+<ul>
+<li>约束是作用于表中字段上的规则，用于限制存储在表中的数据</li>
+</ul>
+<h5 id="目的">目的</h5>
+<ul>
+<li>保证数据库中数据的正确、有效性和完整性</li>
+</ul>
+<h5 id="分类">分类</h5>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 72%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">约束</th>
+<th style="text-align: center;">描述</th>
+<th style="text-align: center;">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">非空约束</td>
+<td style="text-align: center;">限制该字段的数据不能为null</td>
+<td style="text-align: center;">NOT NULL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">唯一约束</td>
+<td
+style="text-align: center;">保证该字段的所有数据都是唯一、不重复的</td>
+<td style="text-align: center;">UNQUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">主键约束</td>
+<td
+style="text-align: center;">主键是一行数据的唯一标识，要求非空且唯一</td>
+<td style="text-align: center;">PRIMARY KEY</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">默认约束</td>
+<td
+style="text-align: center;">保存数据时，如果为制定该字段的值，则采用默认值</td>
+<td style="text-align: center;">DEFAULT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">检查约束</td>
+<td style="text-align: center;">保证字段值满足某一个条件</td>
+<td style="text-align: center;">CHECK</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">外键约束</td>
+<td
+style="text-align: center;">用来让两张表之间建立连接，保证数据的一致性和完整性</td>
+<td style="text-align: center;">FOREIGN KEY</td>
+</tr>
+</tbody>
+</table>
+<h6 id="一般约束">一般约束</h6>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">CREATE Table key_user (</span><br><span class="line">    id INT PRIMARY KEY AUTO_INCREMENT COMMENT &#x27;ID 主键&#x27;,</span><br><span class="line">    name VARCHAR(10) UNIQUE NOT NULL COMMENT &#x27;姓名 非空唯一&#x27;,</span><br><span class="line">    age INT check(</span><br><span class="line">        age &gt; 0</span><br><span class="line">        and age &lt; 120</span><br><span class="line">    ) COMMENT &#x27;年龄 0-120&#x27;,</span><br><span class="line">    status char(1) DEFAULT &#x27;1&#x27; COMMENT &#x27;状态&#x27;,</span><br><span class="line">    gender CHAR(1) COMMENT &#x27;性别&#x27;</span><br><span class="line">) COMMENT &#x27;用户表&#x27;;</span><br><span class="line"></span><br><span class="line">INSERT INTO</span><br><span class="line">    key_user(name, age, status, gender)</span><br><span class="line">VALUES</span><br><span class="line">    (&#x27;Tom&#x27;, 19, &#x27;1&#x27;, &#x27;m&#x27;),</span><br><span class="line">    (&#x27;Jack&#x27;, 22, &#x27;1&#x27;, &#x27;m&#x27;),</span><br><span class="line">    (&#x27;Tomas&#x27;, 21, &#x27;0&#x27;, &#x27;m&#x27;);</span><br><span class="line"></span><br><span class="line">INSERT INTO</span><br><span class="line">    key_user (name, age, status, gender)</span><br><span class="line">VALUES</span><br><span class="line">    (&#x27;Mina&#x27;, 22, &#x27;1&#x27;, &#x27;f&#x27;),</span><br><span class="line">    (&#x27;Meys&#x27;, 21, &#x27;1&#x27;, &#x27;f&#x27;);</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<ul class="task-list">
+<li><label><input
+type="checkbox" />主键自增的正确性怎么保证？</label></li>
+</ul>
+<h6 id="外键约束">外键约束</h6>
+<ul>
+<li><p>用来建立两表之间的联系</p></li>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table table_name (</span><br><span class="line">		name varchar(10),</span><br><span class="line">		......</span><br><span class="line">		[constraint] [foreign_key_name] foreign key (外键字段名) references 主表(主表列名)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--添加外键</span><br><span class="line">alter table table_name add constraint foreign_key_name foreign key (外键字段名) references 主表(主表列名);</span><br><span class="line">--删除外键</span><br><span class="line">alter table table_name drop foreign key foreign_key_name;</span><br></pre></td></tr></table></figure></li>
+<li><p>删除、更新行为</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">行为</th>
+<th style="text-align: center;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">NO ACTION</td>
+<td
+style="text-align: center;">当在父表中删除/更新对应的记录时，首先检查记录是否有对应的外键，有则不允许删除/更新（=
+restrict）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">RESTRICT</td>
+<td
+style="text-align: center;">当在父表中删除/更新对应的记录时，首先检查记录是否有对应的外键，有则不允许删除/更新（=no
+action）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CASCADE</td>
+<td
+style="text-align: center;">当在父表中删除/更新对应的记录时，首先检查记录是否有对应的外键，有则也删除/更新外键在子表中的记录</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SET NULL</td>
+<td
+style="text-align: center;">当在父表中删除对应的记录时，首先检查记录是否有对应的外键，有则设置子表中的外键为null</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SET DEFAULT</td>
+<td
+style="text-align: center;">父表中有变更时，子表将外键列设置成一个默认值</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table_name add constraint </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="多表查询">多表查询：</h2>
+<h5 id="多表关系">多表关系</h5>
+<ul>
+<li>一对多（多对一）
+<ul>
+<li>部门和员工</li>
+</ul></li>
+<li>多对多
+<ul>
+<li>学生和课程（中间表 <span class="math inline">\(n\times
+m\)</span>）</li>
+</ul></li>
+<li>一对一
+<ul>
+<li>多用于单表的拆分（提升操作效率）</li>
+</ul></li>
+</ul>
+<h5 id="多表查询概述">多表查询概述</h5>
+<ul>
+<li>从多张表中查询数据</li>
+<li>笛卡尔积
+<ul>
+<li>数学中两个集合的组合总数</li>
+</ul></li>
+<li>分类
+<ul>
+<li>连接查询
+<ul>
+<li>内连接：相当于查询集合A、B的交集部分数据</li>
+<li>外连接：
+<ul>
+<li>左外连接：查询左表所有数据，以及两表交集部分</li>
+<li>右外连接：查询右表所有数据，以及两表交集部分</li>
+</ul></li>
+<li>自连接：当前表与自身的连接查询，自连接必须使用表的别名</li>
+</ul></li>
+<li>子查询</li>
+</ul></li>
+</ul>
+<h5 id="内连接">内连接</h5>
+<ul>
+<li><p>隐式内连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1，表2 where conditions;</span><br></pre></td></tr></table></figure></li>
+<li><p>显式内连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 [inner] join 表2  on 连接条件;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="外连接">外连接</h5>
+<ul>
+<li><p>左外连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 left [outer] join 表2 on conditions;</span><br></pre></td></tr></table></figure></li>
+<li><p>右外连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 right [outer] join 表2 on conditions;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="自连接">自连接</h5>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select colums from table_name join table_name  on conditions </span><br></pre></td></tr></table></figure></p>
+<h5 id="子查询">子查询</h5>
+<ul>
+<li><p>SQL语句中嵌套select语句，为嵌套查询（子查询）</p></li>
+<li><p>结果分类</p>
+<ul>
+<li><h6 id="标量子查询">标量子查询</h6>
+<ul>
+<li>返回单值（数字、日期、字符串等等）</li>
+<li>常见操作符 =,&lt;&gt;,&gt;,&gt;=,&lt;,&lt;=</li>
+</ul></li>
+<li><h6 id="列子查询">列子查询</h6>
+<ul>
+<li><p>返回的结果是一列（可以多行）</p></li>
+<li><p>操作符：<code>IN</code> <code>NOT IN</code> <code>ANY</code>
+<code>SOME</code> <code>ALL</code></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">操作符</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">IN</td>
+<td style="text-align: center;">在指定的集合范围之内，多选一</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">NOT IN</td>
+<td style="text-align: center;">不在指定的集合范围内</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ANY</td>
+<td style="text-align: center;">子查询返回列表中，任意一个满足即可</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SOME</td>
+<td style="text-align: center;">与<code>ANY</code>
+等同，使用<code>SOME</code> 的地方都可以使用<code>ANY</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ALL</td>
+<td style="text-align: center;">子查询返回列表所有值必须满足</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><h6 id="行子查询">行子查询</h6>
+<ul>
+<li>返回结果是一行（可多列）</li>
+<li>常用操作符：= 、&lt;&gt; 、IN、NOT IN</li>
+</ul></li>
+<li><h6 id="表子查询">表子查询</h6>
+<ul>
+<li>多行多列</li>
+<li>常用操作符：IN</li>
+</ul></li>
+</ul></li>
+<li><p>位置分类</p>
+<ul>
+<li>where 、from 、select之后</li>
+</ul></li>
+</ul>
+<h2 id="事务">事务：</h2>
+<p>简介：事务
+是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或者撤销操作请求，同时成功同时失败</p>
+<h5 id="事务操作">事务操作</h5>
+<ul>
+<li><p>查看/设置事务提交方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select @@autocommit;</span><br><span class="line">set @@autocommit = 0;</span><br></pre></td></tr></table></figure></li>
+<li><p>提交事务</p>
+<ul>
+<li><code>commit</code></li>
+</ul></li>
+<li><p>回滚事务</p>
+<ul>
+<li><code>rollback</code></li>
+</ul></li>
+</ul>
+<h5 id="事务的四大特性">事务的四大特性</h5>
+<ul>
+<li>原子性(Atomicity)
+<ul>
+<li>事务是不可分割的最小操作单元</li>
+</ul></li>
+<li>一致性(Consistency)
+<ul>
+<li>事务完成时，数据要保持一致</li>
+</ul></li>
+<li>隔离性(Isolation)
+<ul>
+<li>并发事务不会相互干扰</li>
+</ul></li>
+<li>持久性(Durability)
+<ul>
+<li>事务一旦提交或回滚，对数据库中的数据的改变就是永久的</li>
+</ul></li>
+</ul>
+<h5 id="并发事务的问题">并发事务的问题</h5>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">问题</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">脏读</td>
+<td
+style="text-align: center;">一个事务读到另外一个事务还没有提交的数据</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">不可重复读</td>
+<td
+style="text-align: center;">一个事务先后读取同一记录，但是两次读取的数据不同</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">幻读</td>
+<td
+style="text-align: center;">一个事务按照条件查询数据时，没有对应的数据行，但是在插入时，但发现这行数据已经存在了</td>
+</tr>
+</tbody>
+</table>
+<h5 id="事务的隔离级别">事务的隔离级别</h5>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">隔离级别</th>
+<th style="text-align: center;">脏读</th>
+<th style="text-align: center;">不可重复读</th>
+<th style="text-align: center;">幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">read uncommitted</td>
+<td style="text-align: center;">y</td>
+<td style="text-align: center;">y</td>
+<td style="text-align: center;">y</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">read committed</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">y</td>
+<td style="text-align: center;">y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">repeatable read</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">y</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">serializable</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>查看事务隔离级别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@transaction_isolation; </span><br></pre></td></tr></table></figure></li>
+<li><p>设置事务隔离级别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set [session global] transaction isolation level &#123;read uncommitted | read committed | repeatable read | serializable &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2023/05/15/notes/POCC/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>计算机组成原理</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2023/04/08/notes/assembly/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
+        </svg>
+      </div>
+      汇编语言
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">莫</div><div class="matts">愁</div><div class="matts">前</div><div class="matts">路</div><div class="matts">无</div><div class="matts">知</div><div class="matts">己</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">天</div><div class="matts">下</div><div class="matts">谁</div><div class="matts">人</div><div class="matts">不</div><div class="matts">识</div><div class="matts">君</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://yunjn.github.io">Samuel</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://DownsXu.github.io">DownsXu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51704612?type=lately">一夜落而知秋</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:nlxnbd@163.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/chenpeel">github</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ji-yu-82-94">知乎</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:nlxnbd@163.com">nlxnbd@163.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://zachary.world">Chenpeel' World</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+  
+
+  </body>
+</html>

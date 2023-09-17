@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>
       
-        关雎 | Chenpeel' World
+        Python机器学习 | Chenpeel' World
       
     </title>
     <meta name="description" content="" />
@@ -88,13 +88,13 @@
   <article class="post-content">
     <div class="post-inner">
       <div class="post-content__head">
-        <div class="post-title">关雎</div>
+        <div class="post-title">Python机器学习</div>
         <div class="post-info">
           
-  <a href="/tags/%E3%80%8A%E8%AF%97%E7%BB%8F%E3%80%8B/" class="post-tag">#《诗经》</a>
+  <a href="/tags/CS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-tag">#CS学习笔记</a>
 
 
-          <span class="post-date">2023-07-21</span>
+          <span class="post-date">2023-08-11</span>
         </div>
       </div>
       
@@ -104,45 +104,36 @@
             
           </div>
         
-        
-<!doctype html>
-<html>
-<head>
+        <blockquote>
+<h2 id="pdf-reading"><a
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/machine_learn_pdf">PDF
+reading</a></h2>
+</blockquote>
+<h1 id="knn">KNN</h1>
+<p>—— K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。</p>
+<ul>
+<li>可以用于分类和回归</li>
+</ul>
+<h5 id="过程">过程</h5>
+<ul>
+<li>从训练集中选择离待预测样本最近的K个样本</li>
+<li>更具K个样本计算待预测样本的值</li>
+</ul>
+<h5 id="实现">实现</h5>
+<p><a href="https://github.com/Chenpeel/Code_Learning/tree/master/Python/jupyter/KNN" target="_blank">KNN</a></p>
+<h1 id="线性回归">线性回归</h1>
+<p>—— 线性拟合自变量与因变量之间的关系 $y= w^0 +
+w<sup>1x</sup>1+w<sup>2x</sup>2 ++w<sup>nx</sup>n =
+_{i=0}<sup>{n}w</sup>{i}x^{i} = W^{T}X $</p>
+<h5 id="目标函数">目标函数</h5>
+<p>$J(w) = _{i=1}<sup>{n}(y</sup>{(i)} - <sup>{(i)})</sup>2 $</p>
+<h5 id="求解方式">求解方式</h5>
+<ul>
+<li><p>最小二乘法 通过矩阵乘法来计算权重
+<a target="_blank" rel="noopener" href="https://github.com/Chenpeel/Code_Learning/tree/master/Python/jupyter/OLS">OSL</a></p></li>
+<li><p>梯度下降法</p></li>
+</ul>
 
-</head>
-<body>
-    <h1>关雎</h1>
-    <p class="main_center">关关雎鸠<a href="#1"><sup>[1]</sup></a>, 在河之洲<a href="#2"><sup>[2]</sup></a>。</p>
-    <p class="main_center">窈窕淑女<a href="#3"><sup>[3]</sup></a>, 君子好逑<a href="#4"><sup>[4]</sup></a>。</p>
-    <p class="main_center">参差荇菜<a href="#5"><sup>[5]</sup></a>, 左右流之<a href="#6"><sup>[6]</sup></a>。</p>
-    <p class="main_center">窈窕淑女, 寤寐求之<a href="#7"><sup>[7]</sup></a>。</p>
-    <p class="main_center">求之不得, 寤寐思服<a href="#8"><sup>[8]</sup></a>。</p>
-    <p class="main_center">悠哉悠哉<a href="#9"><sup>[9]</sup></a>, 辗转反侧<a href="#10"><sup>[10]</sup></a>。</p>
-    <p class="main_center">参差荇菜, 左右采之。</p>
-    <p class="main_center">窈窕淑女, 琴瑟友之<a href="#11"><sup>[10]</sup></a>。</p>
-    <p class="main_center">参差荇菜, 左右芼之<a href="#12"><sup>[11]</sup></a>。</p>
-    <p class="main_center">窈窕淑女, 钟鼓乐之<a href="#13"><sup>[12]</sup></a>。</p>
-    <br>
-    <hr>
-    <hr>
-    <h6>注释</h6>
-    <p class="comment"><a id="1">[1]</a> 关关:鸟的和鸣声。雎鸠(jū jiu):一种水鸟,相传此鸟雌雄情意专一 。</p>
-    <p class="comment"><a id="2">[2]</a> 洲：水中陆地。</p>
-    <p class="comment"><a id="3">[3]</a> 窈窕（yǎo tiǎo）：美好的样子。</p>
-    <p class="comment"><a id="4">[4]</a> 好逑（qiú）：好配偶。 </p>
-    <p class="comment"><a id="5">[5]</a> 参差（cēn cī）：长短不齐。荇（xìnɡ）菜：一种水生植物，叶子浮在水面，可食。</p>
-    <p class="comment"><a id="6">[6]</a> 流：顺着水流采摘。 </p>
-    <p class="comment"><a id="7">[7]</a> 寤寐（wù mèi）：醒着为“寤”，睡着为“寐”。</p>
-    <p class="comment"><a id="8">[8]</a> 思服：思念。 </p>
-    <p class="comment"><a id="9">[9]</a> 悠哉：忧思不绝。</p>
-    <p class="comment"><a id="10">[10]</a> 辗（zhǎn）转反侧：翻来覆去，无法入眠。</p>
-    <p class="comment"><a id="11">[11]</a> 友：亲爱，友好。</p>
-    <p class="comment"><a id="12">[12]</a> 芼（mào）：采摘。</p>
-    <p class="comment"><a id="13">[13]</a> 乐之：使她快乐。</p>
-
-</body>
-
-</html>
       </div>
     </div>
   </article>
@@ -150,7 +141,7 @@
     
     <div class="post-nav">
   
-    <a class="post-nav-item-left" href="/2023/08/11/notes/machine_learn/">
+    <a class="post-nav-item-left" href="/2023/09/11/notes/web/">
       <div class="text-align">
         <svg t="1670570876164"
              class="icon"
@@ -161,12 +152,12 @@
         </svg>
         <span class="text-small">上一篇</span>
       </div>
-      <div>Python机器学习</div>
+      <div>web前端</div>
     </a>
   
   <div class="vhr"></div>
   
-    <a class="post-nav-item-right" href="/2023/07/20/literature/POEM/pre/">
+    <a class="post-nav-item-right" href="/2023/07/21/literature/POEM/%E5%85%B3%E9%9B%8E/">
       <div class="text-align">
         <span class="text-small">下一篇</span>
         <svg t="1670570876164"
@@ -178,7 +169,7 @@
           <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
         </svg>
       </div>
-      毛诗序
+      关雎
     </a>
   
 </div>
