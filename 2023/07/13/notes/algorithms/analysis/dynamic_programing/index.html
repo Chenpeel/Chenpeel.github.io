@@ -135,7 +135,7 @@ class="math inline">\(A_{i+1}\)</span>是可乘的。
 表示其计算量从而可得到 (1) ：</li>
 <li>根据dp数组找到最优次数</li>
 <li>题解代码<a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/n_matrix.cpp">n_matrix.cpp</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/n_matrix.cpp">n_matrix.cpp</a></li>
 </ul>
 <p><span class="math display">\[
 dp(i,j) =\begin {cases} &amp;{0} &amp;\text{i=j}  \\
@@ -167,7 +167,7 @@ and &amp;{x_i = y_j} \\ &amp; \max({dp(i-1,j),dp(i,j-1))}
 <li><p>题目代码</p>
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/max_length_2str.cpp">max_length_2str.cpp</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/max_length_2str.cpp">max_length_2str.cpp</a></li>
 </ul></li>
 </ul>
 <h6 id="最大子段和">最大子段和</h6>
@@ -181,9 +181,9 @@ class="math inline">\(dp[i] = \max{(dp[i-1]+ a[i-1],dp[i-1])}\)</span>
 <li>题目代码
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/max_subarray_sum.cpp">max_subarray_sum.cpp</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/max_subarray_sum.cpp">max_subarray_sum.cpp</a></li>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/pycodes/max_subarray_sum.py">max_subarray_sum.py</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Python/algo_codes/max_subarray_sum.py">max_subarray_sum.py</a></li>
 </ul></li>
 </ul>
 <h6 id="背包问题">0-1背包问题</h6>
@@ -207,7 +207,7 @@ V[i-1,w-w_i]+v_i\rbrace} &amp;\text{if}&amp; w_i&lt;w \\ &amp; V[i-1,w]
 <li><p>题目代码</p>
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/knapsack.cpp">knapsack.cpp</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/knapsack.cpp">knapsack.cpp</a></li>
 </ul></li>
 </ul>
 <h6 id="资源分配问题">资源分配问题</h6>
@@ -220,7 +220,7 @@ class="math inline">\(g_i(x)\)</span> 为第i个项目分得资源x所得到的�
 g_1(x_1)+g_2(x_2)+...+g_m(x_m),x_1+x_2+...+x_m =
 a,x_i≥0,i={1,2,3,...,m}\)</span></li>
 <li><span class="math inline">\(g_i(x)\)</span> 如下图
-<img src="../../pics/source_reloc.png"></li>
+<img src="/images/article_use/source_reloc.png"></li>
 </ul></li>
 <li>分析：很容易得到<span class="math inline">\(dp[i] = \max(dp[i],dp[
 j-w[i]+v[i] ])\)</span> ，其中 <span class="math inline">\(w[i]\)</span>
@@ -228,7 +228,7 @@ j-w[i]+v[i] ])\)</span> ，其中 <span class="math inline">\(w[i]\)</span>
 <li>题目代码：
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_notes/tree/master/codes/resource_alloc.cpp">resource_alloc.cpp</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/resource_alloc.cpp">resource_alloc.cpp</a></li>
 </ul></li>
 </ul>
 
@@ -239,7 +239,7 @@ target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_note
     
     <div class="post-nav">
   
-    <a class="post-nav-item-left" href="/2023/07/13/notes/algorithms/analysis/back_track/">
+    <a class="post-nav-item-left" href="/2023/07/13/notes/algorithms/analysis/divide_conquer/">
       <div class="text-align">
         <svg t="1670570876164"
              class="icon"
@@ -250,12 +250,12 @@ target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_note
         </svg>
         <span class="text-small">上一篇</span>
       </div>
-      <div>回溯</div>
+      <div>分治</div>
     </a>
   
   <div class="vhr"></div>
   
-    <a class="post-nav-item-right" href="/2023/07/13/notes/algorithms/analysis/divide_conquer/">
+    <a class="post-nav-item-right" href="/2023/07/13/notes/algorithms/analysis/greedy/">
       <div class="text-align">
         <span class="text-small">下一篇</span>
         <svg t="1670570876164"
@@ -267,7 +267,7 @@ target="_blank" rel="noopener" href="https://github.com/Chenpeel/Algorithms_note
           <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596"/>
         </svg>
       </div>
-      分治
+      贪心
     </a>
   
 </div>

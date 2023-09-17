@@ -341,6 +341,10 @@ a {
 h1 {
   text-align: center;
 }
+.pre {
+  text-indent: 2em;
+  font-size: small;
+}
 .main {
   text-indent: 2em;
   font-size: larger;

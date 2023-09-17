@@ -348,8 +348,8 @@ class="math inline">\(M\times16+N\)</span>开始读取一条指令并执行</li>
 ]"说明操作对象是一个内存单元，"address"表示内存单元的<strong>偏移地址</strong>是'address'</li>
 </ul></li>
 <li>在执行指令时，CPU自动取DS中的数据作为段地址</li>
-<li>另外，8086CPU不支持直接将数据送入段寄存器的操作（可能是硬件层面问题，<a
-target="_blank" rel="noopener" href="https://www.zhihu.com/question/43608287">见知乎大佬解答</a>）</li>
+<li>另外，8086CPU不支持直接将数据送入段寄存器的操作（可能是硬件层面问题，见<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/43608287">知乎大佬解答</a>）</li>
 </ul>
 <h6 id="字的传送">字的传送</h6>
 <ul>
@@ -1070,8 +1070,7 @@ id="bxsiidata和bxdiidata"><code>[bx+si+idata]</code>和<code>[bx+di+idata]</cod
 </ul>
 <h6 id="中断过程">中断过程</h6>
 <ul>
-<li>CPU在收到中断信息后，先引发中断过程，由<a
-href="./POCC.md/#">硬件在完成中断过程</a>后，<code>CS:IP</code>
+<li>CPU在收到中断信息后，先引发中断过程，由硬件在完成中断过程后，<code>CS:IP</code>
 指向中断处理程序入口</li>
 <li>与<code>call</code>指令类似的，执行中断后，要恢复原来程序运行，就需要将原本的<code>CS:IP</code>进行入栈操作，如下
 <ul>
@@ -1156,14 +1155,14 @@ target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tre
 <li>求word型数据的平方
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/asm_code/word%5E2.asm">word^2.asm</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/blob/master/Asm/word%5E2.asm">word^2.asm</a></li>
 </ul></li>
 <li>将全是字母，以0结尾的字符串转为大写
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/asm_code/capital_7ch.asm">capital_7ch.asm</a>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/blob/master/Asm/capital_7ch.asm">capital_7ch.asm</a>
 &amp; <a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/asm_code/ts_capital_7ch.asm">ts_capital_7ch.asm</a></li>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/blob/master/Asm/ts_capital_7ch.asm">ts_capital_7ch.asm</a></li>
 </ul></li>
 </ul>
 <h6 id="对int-iret-栈的深入理解">对<code>int</code> <code>iret</code>
@@ -1335,14 +1334,19 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/xiaobai_2511/article/
 </ul></li>
 </ul>
 <hr>
+<br><br><br> <br><br><br>
+<hr>
 <h2 id="apple-silion-m">Apple Silion M</h2>
 <blockquote>
 <p>ps:我使用的是M系列芯片的Mac,
 学习8086CPU的汇编语言时，相关文件见files中的<a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/dosbox_for_MacOS">dosbox_for_MacOS</a></p>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Asm/dosbox_for_MacOS">dosbox_for_MacOS</a></p>
 </blockquote>
+<hr>
+<br><br><br><br><br><br>
+<hr>
 <h2 id="汇编语言代码"><a
-target="_blank" rel="noopener" href="https://github.com/Chenpeel/Notes-of-CS/tree/master/files/asm_code/">汇编语言代码</a></h2>
+target="_blank" rel="noopener" href="https://github.com/Chenpeel/Codes/tree/master/Asm">汇编语言代码</a></h2>
 
       </div>
     </div>
