@@ -71,9 +71,21 @@
 }
 .mathbeauty {
   position: absolute;
-  top: calc(10% + 200px);
-  right: 30%;
+  top: calc(2% + 200px);
+  right: 37%;
+  opacity: 0.6;
+}
+.sum_1_devide_n2 {
+  position: absolute;
+  top: calc(30%);
+  right: 20%;
   opacity: 0.8;
+}
+.expX2 {
+  position: absolute;
+  top: calc(10% + 30px);
+  right: 10%;
+  opacity: 0.9;
 }
 .motto {
   font-size: 28px;
