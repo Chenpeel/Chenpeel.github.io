@@ -116,10 +116,13 @@ class="math inline">\(S\)</span>, 若<span
 class="math inline">\(X\)</span>和<span
 class="math inline">\(S\)</span>满足</p>
 <ul>
-<li><span class="math inline">\(x \in X\)</span></li>
-<li><span class="math inline">\(x \notin S(X)\)</span></li>
-<li><span class="math inline">\(S\)</span>是一个单射</li>
-<li>设 <span class="math inline">\(A \subseteq X\)</span> 若<span
+<li><span class="math inline">\(1^{\circ} \quad x \in X\)</span></li>
+<li><span class="math inline">\(2^{\circ} \quad x \notin
+S(X)\)</span></li>
+<li><span class="math inline">\(3^{\circ} \quad
+S\)</span>是一个单射</li>
+<li><span class="math inline">\(4^{\circ} \quad\)</span> 设 <span
+class="math inline">\(A \subseteq X\)</span> 若<span
 class="math inline">\(x \in A\)</span>且对任一<span
 class="math inline">\(a \in A\)</span>都有<span
 class="math inline">\(S(a) \in A\)</span>,则<span
@@ -132,6 +135,35 @@ class="math inline">\(x\)</span>称 为初始元素 (initial element). <span
 class="math inline">\(S(x)\)</span> 称为 <span
 class="math inline">\(x\)</span> 的后继元 (successor), 其中<span
 class="math inline">\(S\)</span> 称为后继映射 (successor map).</p>
+<blockquote>
+<p><span class="math inline">\(1^{\circ} \ 2^{\circ} \
+3^{\circ}\)</span>可以确定: 在从 <span class="math inline">\(x\to
+?\)</span>
+的路上,不会出现<strong>某个元素的后继元</strong>在这个元素<strong>之前就已经出现</strong>的现象
+<br>也就是不可能形成循环 <br>而<span
+class="math inline">\(4^{\circ}\)</span>,则是用来确定<span
+class="math inline">\(A\)</span>的唯一性, 即确定: 起点 <span
+class="math inline">\(x\)</span>的唯一性 <br>从而实现<span
+class="math inline">\(\ 0 \to \infty\)</span>,而不是<span
+class="math inline">\(\ ? \to \infty\)</span></p>
+</blockquote>
+<h4 id="数学归纳">数学归纳</h4>
+<p>公理 <span class="math inline">\(4^{\circ}\)</span>
+被称为数学归纳公理 , 实际上其是一条公理模式 ,
+即可以用来证明和自然数有关的命题的公理</p>
+<p>设自然数集<span class="math inline">\(\N\)</span>,<span
+class="math inline">\(S\)</span>是<span
+class="math inline">\(\N\)</span>上的后继映射. <span
+class="math inline">\(x \in \N\)</span> 且 <span
+class="math inline">\(x\notin S(\N)\)</span>. 若满足</p>
+<ul>
+<li><span class="math inline">\(1^{\circ}\quad\)</span>当<span
+class="math inline">\(n=x\)</span>时, 命题P成立.</li>
+<li><span class="math inline">\(2^{\circ}\quad\)</span>当<span
+class="math inline">\(n=k\)</span>时命题P成立,则当<span
+class="math inline">\(n=S(k)\)</span>时命题P也成立.</li>
+</ul>
+<p>则对于一切<span class="math inline">\(n \in \N\)</span>命题都成立</p>
 
       </div>
     </div>
