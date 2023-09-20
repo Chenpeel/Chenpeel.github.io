@@ -6,6 +6,7 @@ a {
 
 h1 {
     text-align: center;
+    font-size: large;
 }
 
 .pre{
@@ -17,7 +18,7 @@ h1 {
     font-size: larger;
 }
 .main_center{
-    text-align:center;
+    text-align: center;
     font-size: larger;
 }
 

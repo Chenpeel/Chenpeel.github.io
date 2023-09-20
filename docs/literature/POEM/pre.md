@@ -1,4 +1,32 @@
-<link rel="stylesheet" href="./static.css">
+<style>
+a {
+    color: rgb(95, 136, 224);
+    font-size: small;
+    text-decoration: none;
+  }
+
+h1 {
+    text-align: center;
+    font-size: large;
+}
+
+.pre{
+  text-indent: 2em;
+  font-size: small; 
+}
+.main {
+    text-indent: 2em;
+    font-size: larger;
+}
+.main_center{
+    text-align: center;
+    font-size: larger;
+}
+
+.comment {
+    font-size: smaller;
+}  
+</style>
 
 # 《诗经》
 
