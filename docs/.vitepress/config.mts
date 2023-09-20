@@ -81,6 +81,7 @@ export default defineConfig({
               { text: '《诗经》', link: '/literature/POEM/pre',},
               { text: '《毛诗序》', link: '/literature/POEM/毛诗序',},
               { text: '《关雎》', link: '/literature/POEM/关雎',},
+              { text: '《葛覃》', link: '/literature/POEM/葛覃'},
             ]
           }
         ]
