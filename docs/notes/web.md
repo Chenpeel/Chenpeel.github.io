@@ -47,7 +47,7 @@
   | :-------: | :-------: | :------------------------------------: |
   |  content  | some_text | 定义与http-equiv或name属性相关的元信息 |
 
-  ```html
+```html
   
   <meta name = "keywords" content = "CONTENT">
   <!-- 网页关键词 -->
@@ -65,7 +65,7 @@
   <!-- 页面版权信息 -->
   
   <meta name = "robots" content = "CONTENT">
-  ```
+```
   
 
   - robots告诉搜素引擎机器人抓取哪些页面
@@ -82,7 +82,7 @@
 - `<mata http-equiv>`
 
 - 用于提供http协议的响应头报文
-  ```html
+```html
   
   <meta http-equiv = "cache-control " content = "no-cache">
   <!-- 设置限制，仅从服务器获取资源而不是从本地cache中 -->
@@ -92,7 +92,7 @@
   <!-- 指定编码字符集 -->
   <meta http-equiv = "expires" content="Sat, 26 Feb 2022 08:00:00 GMT"/>
   <!-- 指定到期时间 -->
-  ```
+```
   
 
 
@@ -130,22 +130,22 @@
 
 - 主体样式
 
-  ```html
+```html
   
   <body>
   <!-- 主体内容 -->
   </body>
-  ```
+```
   
 
 - 标记属性
 
   - 设置body的标记属性可以改变页面的样式
 
-  ```html
+```html
   
   <body leftmargin="50px" topmargin="50px" text="#000000" bgcolor="#339999" link="red" alink="black" vlink="blue" background="../imags/1.jpg">
-  ```
+```
   
 
   - 属性详情
@@ -246,7 +246,7 @@
   | &divide; |     除号     | `&divide;` |
 - 拼音格式
 
-  ```html
+```html
   
   <ruby>
     中<rt>
@@ -256,7 +256,7 @@
     		guo
     	</rt>
   </ruby>
-  ```
+```
   
 
 
@@ -370,7 +370,7 @@
     | framename | 在指定的框架或浮动的框架内打开链接，框架名称可以自定义 |
   
 - 链接也可用于下载文件、访问FTP服务器、打开图片详情、发送电子邮件，如下
-  ```html
+```html
   
   <a href="ftp://chenpeel.xyz"> chenpeel </a> <!-- FTP链接 仅示例 -->
   
@@ -383,7 +383,7 @@
     点击发送邮件
   </a>
   
-  ```
+```
   
 
 
@@ -408,14 +408,14 @@
 
 - 无序列表（unordered list）
 
-  ```html
+```html
   
   <ul type="">
     <li type=""> name </li>
     <li type=""> name </li>
     ...
   </ul>
-  ```
+```
   
 
   
@@ -429,14 +429,14 @@
 
 - 有序列表（ordered list）
 
-  ```html
+```html
   
   <ol type="" start="" >
     <li type=""> name1 </li>
     <li type=""> name2 </li>
     ...
   </ol>
-  ```
+```
   
 
   - `start` ：数值，有序列表中的起始数值
@@ -454,7 +454,7 @@
 
 - 定义列表（difined list）
 
-  ```html
+```html
   
   <dl>
     <dt>product1</dt>
@@ -464,7 +464,7 @@
     	<dd>describ1</dd>
   	  <dd>describ2</dd>
   </dl>
-  ```
+```
   
 
 ## 表格
@@ -612,13 +612,13 @@
   |  usemap   |                     URL                      | 将图像定义为客户端图像映射 |
 
   - usemap 可以映像跳转到其他，如下
-    ```html
-    
-    <img src="../pics/1.jpeg" usemap="#example">
-    <map name="example">
-    	<area shape="circle" croods="0,0,100" href="http://example.com" alt="example">
-    </map>
-    ```
+```html
+  
+  <img src="../pics/1.jpeg" usemap="#example">
+  <map name="example">
+  	<area shape="circle" croods="0,0,100" href="http://example.com" alt="example">
+  </map>
+```
     
 
     | shap Value | Explaination | coords Value                          | Explaination           |
@@ -657,11 +657,11 @@
 > 表单元素
 
 - input
-  ```html
-  
-  <input type="">
-  ```
-  
+```html
+
+<input type="">
+```
+
 
   > type属性值和描述如下：
 
@@ -689,34 +689,33 @@
   
   >  label标签和input共同作用
   
-  ```html
+```html
   
   <label for="text"> 用户名：</label><input type="text" id = "text"> 
-  ```
+```
   
 ![](/imgs/image-20230723193656094.jpg)
   
   点击“用户名”三字就可输入文字等等
 
 - select
-  ```html
-  
-  <select>
-    <option selected="selected">default</option>
-    <option>选项1</option>
-    <option>选项2</option>
-  	<option>选项3</option>
-  </select>
-  ```
+```html
+
+<select>
+  <option selected="selected">default</option>
+  <option>选项1</option>
+  <option>选项2</option>
+	<option>选项3</option>
+</select>
+```
   
 
 ![](/imgs/image-20230723194536444.jpg)
 
 - textarea
-  ```html
-  
-  <textarea cols="100" rows="20">点击输入文字……</textarea>
-  ```
+```html
+<textarea cols="100" rows="20">点击输入文字……</textarea>
+```
   
 
 ![](/imgs/image-20230723195005236.jpg)
@@ -785,10 +784,10 @@
 
 - 外部样式通过link的方式，从另外的、非html文件而是css文件来表现样式
 
-  ```html
+```html
   
   <link rel="stylesheet" src="source_path">
-  ```
+```
   
 
 - 一个css文件可以作用于多个html
@@ -809,7 +808,7 @@
 
 - 可重复使用，对多个作用，可以联合使用
 
-  ```html
+```html
   
   <!DOCTYPE html>
   <html>
@@ -843,7 +842,7 @@
       </div>
   </body>
   </html>
-  ```
+```
   
 
   
@@ -862,7 +861,7 @@
 ## 后代选择器
 
 - 在层级关系中逐层选择 
-  ```html
+```html
   
   <!DOCTYPE html>
   <html>
@@ -891,7 +890,7 @@
   </body>
   
   </html>
-  ```
+```
   
 
   
@@ -900,7 +899,7 @@
 
 - 在层级关系中只选择最近的一层 使用 `elem1 > elem2 {}`
 
-  ```html
+```html
   
   <!DOCTYPE html>
   <html>
@@ -923,13 +922,13 @@
   </body>
   
   </html>
-  ```
+```
   
 
 ## 并集选择器
 
 - 即类似于类选择器的复用，通过`,` 分隔
-  ```html
+```html
   
   <!DOCTYPE html>
   <html>
@@ -951,7 +950,7 @@
   </body>
   
   </html>
-  ```
+```
   
 
   
@@ -971,7 +970,7 @@
   | first-child  |       设置第一个子标记的样式        |
   |     lang     |    设置具有lang属性的标记的样式     |
 
-  ```html
+```html
   
   <!DOCTYPE html>
   <html>
@@ -1014,7 +1013,7 @@
   </body>
   
   </html>
-  ```
+```
   
 
 - 值的注意的是：关于链接伪类的使用是有先后次序的，一般按照LVHA的次序即`link->visited->hover->active`

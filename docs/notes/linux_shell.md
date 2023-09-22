@@ -267,14 +267,14 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
 
 - `ls -l` : 以更加规整的方式显示输出
 
-  ```bash
+```bash
   ❯ ls -l
   total 8
   -rw-r--r--@  1 alpha  staff   90 Jun 14 01:30 README.md
   drwxr-xr-x@ 23 alpha  staff  736 May 25 15:49 fuckZHS
   drwxr-xr-x@  8 alpha  staff  256 Sep 14 21:14 qck_py
   drwxr-xr-x@  8 alpha  staff  256 Sep 14 21:48 qck_sh
-  ```
+```
 
   可以看到,参数l输出时显示了读写权限,当前用户,大小, 时间,文件等信息,十分规整
 
@@ -289,22 +289,22 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
 - 下载:
 
   - Mac OS使用包管理工具Homebrew
-    ```bash 
+```bash 
     brew install tree
-    ```
+```
 
   - Linux 使用apt、yum或者pacman等等, 下载即可
-    ```bash
+```bash
     sudo apt install tree
     sudo yum -y install tree
     sudo pacman -S tree 
-    ```
+```
 
 - 使用:
 
   - 在任意目录下直接输入tree
 
-    ```bash
+```bash
     ❯ tree
     .
     ├── qck_py
@@ -323,7 +323,7 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
         └── x86asm_releasa.sh
     
     2 directories, 12 files
-    ```
+```
 
     如⬆️输出了一个目录树,你可以清楚的看到层级关系
 
@@ -645,9 +645,9 @@ zip是1952年出现的一个划时代性产物,大大提升了文件的传输效
 
   > zip命令非常的简单明了
 
-  ``` bash
+``` bash
   zip target.zip source_file/dir 
-  ```
+```
 
   解压同样使用unzip即可
 
@@ -657,9 +657,9 @@ zip是1952年出现的一个划时代性产物,大大提升了文件的传输效
 - tar
   tar命令则与上两个不一样
 
-  ```bash
+```bash
   tar [参数] file
-  ```
+```
 
   | options |     functions      |
   | :-----: | :----------------: |
@@ -1299,7 +1299,7 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 
   - 将如下change_source.sh复制到本地
 
-    ```shell
+```shell
     #!/bin/bash
     # change_source.sh
     
@@ -1315,7 +1315,7 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
     deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse" > /etc/apt/source.list
     echo "if not succeed please see http://mirrors.ustc.edu.cn"
-    ```
+```
 
   - 执行脚本再键入`sudo apt update && sudo apt upgrade `即可
   
@@ -1387,15 +1387,15 @@ echo "This is the ${num}nd" #加在$所引用的变量前
 
 - 由于变量都是字符串，那么直接尝试加肯定不会如意
 
-  ```shell
+```shell
   var=1
   var=$var+1
   echo ${var}  # 这里的输出是"1+1"
-  ```
+```
 
   > “好孩子写法”----C语言风格
 
-  ```shell
+```shell
   var=0
   ((var += 1))
   ((var++))
@@ -1407,17 +1407,17 @@ echo "This is the ${num}nd" #加在$所引用的变量前
   echo $((var+=2)) # 3
   var=$((var-1))
   echo $var    # 2
-  ```
+```
 
   > 甚至有人用expr之类的外部程序，杀鸡焉用牛刀。。
 
-  ```shell
+```shell
   var=1
   var=$(expr "$var"+1)
   echo $var #然而输出是"1+1"
   echo var=`expr "$var"+1`
   echo $var #然而是"1+1+1"
-  ```
+```
 
 ### <a id="contr">流程控制</a>
 

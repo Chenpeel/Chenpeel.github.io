@@ -161,9 +161,9 @@
 
 - 指令：
 
-  ```
+```
   JMP  CS:IP 
-  ```
+```
 
 - 须是合法的寄存器
 
@@ -173,12 +173,12 @@
 
 - 根据需要，可将一组内存单元定义为一个段
 
-  ```
+```
   MOV AX,0000H
   ADD AX,0123H
   MOV BX,AX
   JMP BX
-  ```
+```
 
   - 此段长度为10Byte的指令，存放在123B0H～123B9H的一组内存单元，即为代码段
 
@@ -209,33 +209,33 @@
 
 - mov     register,                    data
 
-  ```
+```
   mov ax ,8
-  ```
+```
 
 - mov     register,                    register
 
-  ```
+```
   mov ax,bx
-  ```
+```
 
 - mov     register,                    memory-unit
 
-  ```
+```
   mov ax,[0]
-  ```
+```
 
 - mov     memory-unit,            register
 
-  ```
+```
   mov [0],ax
-  ```
+```
 
 - mov     segment-register,     register
 
-  ```
+```
   mov ds,ax
-  ```
+```
 
 - add和sub 与mov指令一样
 
@@ -270,7 +270,7 @@
 
 - PUSH and POP
 
-  ```
+```
   push register
   pop regiter
   
@@ -279,7 +279,7 @@
   
   push memary
   pop memary 
-  ```
+```
 
   
 
@@ -314,7 +314,7 @@
 
   - 
 
-    ```
+```
     assume cs:abc
     abc segment
     mov ax,2
@@ -322,7 +322,7 @@
     add ax,ax
     abc ends
     end
-    ```
+```
 
     
 
@@ -330,10 +330,10 @@
 
   - 
 
-    ```
+```
     mov ax ,4c00H
     int 21H
-    ```
+```
 
     
 
@@ -382,9 +382,9 @@ mov [bx],ax
 
 - `bx`内容自动加1
 
-  ```
+```
   inc bx
-  ```
+```
 
 ###### loop
 
@@ -397,13 +397,13 @@ mov [bx],ax
   - `(cx) = (cx)-1`
   - 判断`cx`中值，不为0则转至标号处执行指令
 
-  ```
+```
   mov cx ,5
   mov ax ,2
   s:
   	add ax,ax
   loop s
-  ```
+```
 
 - 在汇编程序中，数据不能以字母开头即`ffffH`应为`0ffffH`
 
@@ -447,7 +447,7 @@ mov ax, cs:[0]
 
 - 使用`start`和`end start` 来隔绝数据和代码
 
-  ```
+```
   assume cs : code 
   
   code segment 
@@ -466,7 +466,7 @@ mov ax, cs:[0]
   code ends
   
   end start
-  ```
+```
 
 ###### 代码段中使用栈
 
@@ -485,19 +485,19 @@ mov ax, cs:[0]
 
 - `and`逻辑与，按位与运算
 
-  ```
+```
   mov al ,01100011B
   and al ,00010010B
-  ```
+```
 
   
 
 - `or`  逻辑或，按位或运算
 
-  ```
+```
   mov al,01100011B
   or al,00010010B
-  ```
+```
 
 ###### ASCII码（美国标准信息交换码）（常见的）
 
@@ -564,13 +564,13 @@ mov ax, cs:[0]
 
 - 如下的指令是错误的指令
 
-  ```
+```
   mov ax,[cx]
   mov ax,[ax]
   mov ax,[dx]
   mov ax,[ds]
   
-  ```
+```
 
 - 即，在`[...]`中只能出现`bx,si,di,bp,idata`
 
@@ -594,18 +594,18 @@ mov ax, cs:[0]
 
 - 立即数（`idata` ）
 
-  ```
+```
   mov ax,1
   add bx,2000h
   or bx,00010000b
   mov al,'a'
-  ```
+```
 
   
 
 - 寄存器（...）
 
-  ```
+```
   mov ax,bx
   mov ds,ax
   push bx
@@ -613,7 +613,7 @@ mov ax, cs:[0]
   push ds
   mov ss,ax
   mov sp,ax
-  ```
+```
 
   
 
@@ -621,22 +621,22 @@ mov ax, cs:[0]
 
   - 默认存储在`ds`中
 
-    ```
+```
     mov ax,[0]
     mov ax,[di]
     mov ax,[bx+8]
     mov ax,[bx+si]
     mov ax,[bx+si+8]
-    ```
+```
 
   - 默认存储在`ss`中
 
-    ```
+```
     mov ax ,ds:[bp]
     mov ax, es:[bx]
     mov ax,ss:[bx+si]
     mov ax,cs:[bx+si+8]
-    ```
+```
 
   ###### 寻址方式
 
@@ -664,21 +664,21 @@ mov ax, cs:[0]
   
     -  `byte ptr`
   
-      ```
+```
       mov byte ptr ds:[0],1
       inc byte ptr [bx]
       inc byte ptr ds:[0]
       add byte ptr [bx],2
-      ```
+```
   
     - `word ptr`
   
-      ```
+```
       mov word ptr ds:[0],1
       inc word ptr [bx]
       inc word ptr ds:[0]
       add word ptr [bx],2
-      ```
+```
 
 ###### 寻址方式的综合
 
@@ -748,12 +748,12 @@ mov byte ptr [bx].10h[si],'X'
 
 - eg: 
 
-  ```
+```
   mov dx,1
   mov ax,86A1h
   mov bx,100
   div bx
-  ```
+```
 
   执行后`(ax) = 03E8H ,(dx)=1`
 
@@ -763,13 +763,13 @@ mov byte ptr [bx].10h[si],'X'
 
 - `dd` 用来定义双字数据
 
-  ```
+```
   data segment 
   dd 100001
   dw 100
   db 0
   data ends
-  ```
+```
 
 - `db` ` dw` 用来定义字节型数据和字型数据
 
@@ -779,12 +779,12 @@ mov byte ptr [bx].10h[si],'X'
 
 - 减少重复输入数据的冗余
 
-  ```
+```
   ;times是数据的重复次数
   db times dup (0,1,2)
   dw times dup (0,1,2)
   dd times dup (0,1,2)
-  ```
+```
 
 
 
@@ -802,7 +802,7 @@ mov byte ptr [bx].10h[si],'X'
 
 -  `s: mov ax,offset s`  相当于`mov ax,3`
 
-  ```
+```
   assume cs:code 
   code segment
   
@@ -812,7 +812,7 @@ mov byte ptr [bx].10h[si],'X'
   code ends
   
   end start 
-  ```
+```
 
   - `start `  和 `s` 就是其标号
 
@@ -1079,11 +1079,11 @@ mov byte ptr [bx].10h[si],'X'
 
   - ss寄存器传送数据的指令后，ss:sp联合指向栈顶，而对它们的设置应该连续完成，因此：
 
-    ```
+```
     mov ax,1000h
     mov ss,ax
     mov sp,0
-    ```
+```
 
 - 注意即可
 

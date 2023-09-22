@@ -35,7 +35,7 @@ cmake的定义是什么 ？
 
 1. 步骤一：写一个Hello Word
 
-   ```cpp
+```cpp
 
    // main.cpp
 
@@ -44,12 +44,12 @@ cmake的定义是什么 ？
    int main(){
    std::cout <<  "hello word" << std::endl;
    }
-   ```
+``` 
 
    
    
-2. 步骤二：写CMakeLists.txt
-   ```
+1. 步骤二：写CMakeLists.txt
+``` cmake
 
    #CMakeLists.txt
    
@@ -62,13 +62,13 @@ cmake的定义是什么 ？
    MESSAGE(STATUS "This is SOURCE dir "${HELLO_SOURCE_DIR})
    
    ADD_EXECUTABLE(hello ${SRC_LIST})
-   ```
+``` 
 
    
    
-3. 步骤三：使用`cmake .`生成makefile文件
+1. 步骤三：使用`cmake .`生成makefile文件
 
-   ```bash
+```bash
 
    cmake .
    
@@ -97,16 +97,16 @@ cmake的定义是什么 ？
    -- Configuring done
    -- Generating done
    -- Build files have been written to: /root/cmake
-   ```
+ ``` 
 
 
    目录下就生成了这些文件-CMakeFiles, CMakeCache.txt, cmake_install.cmake 等文件，并且生成了Makefile.现在不需要理会这些文件的作用，以后你也可以不去理会。最关键的是，它自动生成了Makefile.
 
    
 
-4. 使用make命令编译
+1. 使用make命令编译
 
-   ```bash
+```bash
 
    root@localhost cmake]# make
    Scanning dependencies of target hello
@@ -114,13 +114,13 @@ cmake的定义是什么 ？
    Linking CXX executable hello
    [100%] Built target hello
    
-   ```
+``` 
 
    
 
    
 
-5. 最终生成了Hello的可执行程序
+1. 最终生成了Hello的可执行程序
 
    太神奇辣 🤌
 
