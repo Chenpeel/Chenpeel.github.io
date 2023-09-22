@@ -26,6 +26,7 @@ cmake的定义是什么 ？
 # CMake安装
 
 1. 绝大多数的linux系统已经安装了CMake
+
 2. Windows或某些没有安装过的linux系统,可以在此[下载安装](http://www.cmake.org/HTML/Download.html)
 
 
@@ -33,9 +34,11 @@ cmake的定义是什么 ？
 # CMake一个Hello Word
 
 1. 步骤一：写一个Hello Word
+
    ```cpp
-   #main.cpp
-   
+
+   // main.cpp
+
    #include <iostream>
    
    int main(){
@@ -47,6 +50,7 @@ cmake的定义是什么 ？
    
 2. 步骤二：写CMakeLists.txt
    ```
+
    #CMakeLists.txt
    
    PROJECT (HELLO)
@@ -65,6 +69,7 @@ cmake的定义是什么 ？
 3. 步骤三：使用`cmake .`生成makefile文件
 
    ```bash
+
    cmake .
    
    输出：
@@ -102,11 +107,13 @@ cmake的定义是什么 ？
 4. 使用make命令编译
 
    ```bash
+
    root@localhost cmake]# make
    Scanning dependencies of target hello
    [100%] Building CXX object CMakeFiles/hello.dir/main.cpp.o
    Linking CXX executable hello
    [100%] Built target hello
+   
    ```
 
    
@@ -220,6 +227,7 @@ ADD_EXECUTABLE(hello main.cpp)
 ## 外部构建方式举例
 
 ```bash
+
 //例子目录，CMakeLists.txt和上面例子一致
 [root@localhost cmake]# pwd
 /root/cmake
@@ -227,6 +235,7 @@ ADD_EXECUTABLE(hello main.cpp)
 total 8
 -rw-r--r--. 1 root root 198 Dec 28 20:59 CMakeLists.txt
 -rw-r--r--. 1 root root  76 Dec 28 00:18 main.cpp
+
 ```
 
 1、建立一个build目录，可以在任何地方，建议在当前目录下
@@ -259,6 +268,7 @@ total 8
 每个目录下都要有一个CMakeLists.txt说明
 
 ```bash
+
 [root@localhost cmake]# tree
 .
 ├── build
@@ -266,19 +276,24 @@ total 8
 └── src
     ├── CMakeLists.txt
     └── main.cpp
+
 ```
 
 外层CMakeLists.txt
 
 ```cmake
+
 PROJECT(HELLO)
 ADD_SUBDIRECTORY(src bin)
+
 ```
 
 src下的CMakeLists.txt
 
 ```cmake
+
 ADD_EXECUTABLE(hello main.cpp)
+
 ```
 
 
@@ -327,6 +342,7 @@ INSTALL的安装可以包括：二进制、动态库、静态库以及文件、�
 使用CMAKE一个新的变量：CMAKE_INSTALL_PREFIX
 
 ```bash
+
 // 目录树结构
 [root@localhost cmake]# tree
 .
@@ -342,6 +358,7 @@ INSTALL的安装可以包括：二进制、动态库、静态库以及文件、�
     └── main.cpp
 
 3 directories, 7 files
+
 ```
 
 ### 安装文件COPYRIGHT和README
@@ -386,12 +403,13 @@ DIRECTORY 后面连接的是所在 Source 目录的相对路径
 
 ### 安装过程
 
+```bash
+
 cmake ..
-
 make
-
 make install
 
+```
 
 
 # 静态库和动态库的构建
@@ -413,6 +431,7 @@ make install
 ## 构建实例
 
 ```bash
+
 [root@localhost cmake2]# tree
 .
 ├── build
@@ -421,41 +440,50 @@ make install
     ├── CMakeLists.txt
     ├── hello.cpp
     └── hello.h
+
 ```
 
 hello.h中的内容
 
 ```cpp
+
 #ifndef HELLO_H
 #define Hello_H
 
 void HelloFunc();
 
 #endif
+
 ```
 
 hello.cpp中的内容
 
 ```cpp
+
 #include "hello.h"
 #include <iostream>
 void HelloFunc(){
     std::cout << "Hello World" << std::endl;
 }
+
 ```
 
 项目中的cmake内容
 
 ```cmake
+
 PROJECT(HELLO)
 ADD_SUBDIRECTORY(lib bin)
+
 ```
 
 lib中CMakeLists.txt中的内容
 
 ```cmake
+
 SET(LIBHELLO_SRC hello.cpp)
 ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
+
 ```
 
 ### ADD_LIBRARY
@@ -471,6 +499,7 @@ ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
 ### 同时构建静态和动态库
 
 ```cmake
+
 // 如果用这种方式，只会构建一个动态库，不会构建出静态库，虽然静态库的后缀是.a
 ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
 ADD_LIBRARY(hello STATIC ${LIBHELLO_SRC})
@@ -478,6 +507,7 @@ ADD_LIBRARY(hello STATIC ${LIBHELLO_SRC})
 // 修改静态库的名字，这样是可以的，但是我们往往希望他们的名字是相同的，只是后缀不同而已
 ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
 ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
+
 ```
 
 
@@ -489,6 +519,7 @@ ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
 同时构建静态和动态库
 
 ```cmake
+
 SET(LIBHELLO_SRC hello.cpp)
 
 ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
@@ -511,10 +542,12 @@ SET_TARGET_PROPERTIES(hello PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 一般动态库都有一个版本号的关联
 
-```cmake
+```bash
+
 libhello.so.1.2
-libhello.so ->libhello.so.1
+libhello.so->libhello.so.1
 libhello.so.1->libhello.so.1.2
+
 ```
 
 CMakeLists.txt 插入如下
@@ -532,12 +565,14 @@ VERSION 指代动态库版本，SOVERSION 指代 API 版本。
 将 hello.h 安装到prefix/include/hello 目录
 
 ```cmake
+
 //文件放到该目录下
 INSTALL(FILES hello.h DESTINATION include/hello)
 
 //二进制，静态库，动态库安装都用TARGETS
 //ARCHIVE 特指静态库，LIBRARY 特指动态库，RUNTIME 特指可执行目标二进制。
 INSTALL(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+
 ```
 
 注意：
@@ -553,6 +588,7 @@ INSTALL(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION l
 准备工作，新建一个目录来使用外部共享库和头文件
 
 ```bash
+
 [root@MiWiFi-R4CM-srv cmake3]# tree
 .
 ├── build
@@ -560,16 +596,19 @@ INSTALL(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION l
 └── src
     ├── CMakeLists.txt
     └── main.cpp
+
 ```
 
 main.cpp
 
 ```cpp
+
 #include <hello.h>
 
 int main(){
 	HelloFunc();
 }
+
 ```
 
 
@@ -603,6 +642,7 @@ TARGET_LINK_LIBRARIES的时候，只需要给出动态链接库的名字就行�
 查看main的链接情况
 
 ```bash
+
 [root@MiWiFi-R4CM-srv bin]# ldd main 
 	linux-vdso.so.1 =>  (0x00007ffedfda4000)
 	libhello.so => /lib64/libhello.so (0x00007f41c0d8f000)
@@ -611,6 +651,7 @@ TARGET_LINK_LIBRARIES的时候，只需要给出动态链接库的名字就行�
 	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f41c035c000)
 	libc.so.6 => /lib64/libc.so.6 (0x00007f41bff8e000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007f41c0b7c000)
+
 ```
 
 链接静态库

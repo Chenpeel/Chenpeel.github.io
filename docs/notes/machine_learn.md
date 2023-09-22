@@ -2,8 +2,6 @@
 
 > ## [PDF reading](https://github.com/Chenpeel/Codes/tree/master/Jupyter/ML/machine_learn_pdf)
 
-
-
 ## KNN
 
 —— K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
@@ -38,3 +36,5 @@ $J(w) = \cfrac{1}{2} \Sigma_{i=1}^{n}(y^{(i)} - \hat{y}^{(i)})^2$
   <a href="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/OLS.ipynb">OLS</a>
   
 - 梯度下降法
+  如果矩阵不是满秩,没有逆矩阵,就无法使用最小二乘法
+  

@@ -26,55 +26,69 @@
 ##### 数据库
 
 - 查询
+  ```
 
-- ```
   show databases;		--显示所有库
   select database;	--当前数据库
   ```
+
 
   
   
 - 创建
 
   ```
+
   create database ithema default charset utf8mb4 if not exists;
   ```
+
 
 - 删除
 
   ```
+
   drop database if exists test
   ```
+
 
 - 使用
 
   ```
+
   use database
   ```
+
 
 ##### 查询创建
 
 - 查询所有表
 
   ```
+
   show tables
   ```
+
 
 - 查询表结构
 
   ```
+
   desc table_name
   ```
+
 
 - 查询指定表的建表语句
 
   ```
+
   show create table table_name
   ```
+
 
 - 创建表
 
   ```
+
   create table test_user( 
   	id int comment '编号', 
   	name varchar(50) comment '姓名', 
@@ -84,51 +98,66 @@
   )comment 'user_table';
   ```
 
+
 ##### 表操作-修改
 
 - 添加字段
 
   ```
+
   alter table table_name add nick_name varchar(20) comment '昵称';
   ```
+
 
 - 修改字段
 
   ```
+
   alter table table_name modify nick_name varchar(21);
   ```
+
 
 - 修改字段名和字段类型
 
   ```
+
   alter table table_name change nick_name nickname varchar(20) ;
   ```
+
 
 - 删除字段
 
   ```
+
   alter table table_name drop nickname;
   ```
+
 
 - 修改表名
 
   ```
+
   alter table old_table_name rename to new_table_name;
   ```
+
 
 ##### 表操作-删除<a id="表操作-删除"></a>
 
 - 删除表
 
   ```
+
   drop table if exists table_name;
   ```
+
 
 - 删除并重新创建
 
   ```
+
   truncate table table_name;
   ```
+
 
 ![](/imgs/image-20230422232140753.jpg)
 
@@ -143,37 +172,47 @@
 - 给指定字段添加数据
 
   ```
+
   insert into table_name (field1,field2,...) values(value1,value2,...);
   ```
+
 
 - 给全部字段添加数据
 
   ```
+
   insert into table_name values(value1,value2,...);
   ```
+
 
 - 批量添加数据
 
   ```
+
   insert into table_name (field1,field2,...) values(value1,value2,...),(value1,value2,....),...;
   insert into table_name values(value1,value2,...),(value1,value2,..);
   ```
+
 
 ##### 修改数据
 
 - 修改数据
 
   ```
+
   update table_name set colum1 = value1,colum2 = value2,...[where confition];
   ```
+
 
 ##### 删除数据
 
 - 删除数据
 
   ```
+
   delete from table_name [where condition];
   ```
+
 
 
 
@@ -182,6 +221,7 @@
 ##### 语法
 
 ```
+
 select  	--基础查询 
 from 			--条件查询
 where   	--聚合查询
@@ -191,34 +231,43 @@ order by 	--排序查询
 limit			--分页查询
 ```
 
+
 ##### 基本查询
 
 - 查询多个字段
 
   ```
+
   select field1,field2,... from table_name;
   select * from table_name;
   ```
 
+
 - 设置别名
 
   ```
+
   select field1 [as new_name1],field2 [as new_name2],... from table_name;
   ```
+
 
 - 去重复记录
 
   ```
+
   select distinct field_list from table_name;
   ```
+
 
 ##### 条件查询
 
 - 语法
 
   ```
+
   select field_list from table_name where conditions_list;
   ```
+
 
 - 条件
 
@@ -259,8 +308,10 @@ limit			--分页查询
 - 语法
 
   ```
+
   select field_list from table_name [where condition] group by group_field_name [having condition]
   ```
+
 
 - where 和 having 区别
 
@@ -276,24 +327,29 @@ limit			--分页查询
 - 语法
 
   ```
+
   SELECT * FROM table_name ORDER BY age asc; --升序 可省略
   SELECT * FROM table_name ORDER BY age DESC;    --降序
   SELECT * FROM table_name ORDER BY age asc , entrydate ASC; --先按age 再按entrydate
   ```
+
 
 ##### 分页查询
 
 - 语法
 
   ```
+
   select * from table_name LIMIT begin , query_num_mark
   ```
+
 
 - 不同的SQL有不同的此语法  
 
 ##### 执行顺序
 
 - ```
+
   select 						--4
   from							--1
   where 						--2
@@ -304,6 +360,7 @@ limit			--分页查询
 
 
 
+
 ### DCL
 
 ##### 管理用户
@@ -311,28 +368,36 @@ limit			--分页查询
 - 查询用户
 
   ```
+
   use ;
   select * from user;
   
   ```
 
+
 - 创建用户
 
   ```
+
   create user 'user_name'@'host_name' IDENTIFIED BY 'password';
   ```
+
 
 -  修改用户密码
 
   ```
+
   alter user 'user_name'@'host_name' IDENTIFIED WITH _native_password BY 'password';
   ```
+
 
 - 删除用户
 
   ``` 
+
   drop user 'user_name'@'host_name';
   ```
+
 
 ##### 权限控制
 
@@ -350,20 +415,26 @@ limit			--分页查询
   查询权限
 
   ```
+
   show grants for 'user_name'@'host_name';
   ```
+
 
 - 授予权限
 
   ```
+
   grant 权限列表 ON database_name.table_name from 'user_name'@'host_name';
   ```
+
 
 - 撤销权限
 
   ```
+
   revoke 权限列表 ON database_name.table_name from 'user_name'@'host_name';
   ```
+
 
   
 
@@ -451,6 +522,7 @@ limit			--分页查询
 ###### 一般约束
 
 ```
+
 CREATE Table key_user (
     id INT PRIMARY KEY AUTO_INCREMENT COMMENT 'ID 主键',
     name VARCHAR(10) UNIQUE NOT NULL COMMENT '姓名 非空唯一',
@@ -477,6 +549,7 @@ VALUES
     
 ```
 
+
 - [ ] 主键自增的正确性怎么保证？
 
 
@@ -488,6 +561,7 @@ VALUES
 - 语法
 
   ```
+
   create table table_name (
   		name varchar(10),
   		......
@@ -495,12 +569,15 @@ VALUES
   );
   ```
 
+
   ```
+
   --添加外键
   alter table table_name add constraint foreign_key_name foreign key (外键字段名) references 主表(主表列名);
   --删除外键
   alter table table_name drop foreign key foreign_key_name;
   ```
+
 
 - 删除、更新行为
 
@@ -513,8 +590,10 @@ VALUES
   | SET DEFAULT |         父表中有变更时，子表将外键列设置成一个默认值         |
 
   ```
+
   alter table table_name add constraint 
   ```
+
 
 ## 多表查询：
 
@@ -547,16 +626,20 @@ VALUES
 - 隐式内连接
 
   ```
+
   select 字段列表 from 表1，表2 where conditions;
   ```
+
 
   
 
 - 显式内连接
 
   ```
+
   select 字段列表 from 表1 [inner] join 表2  on 连接条件;
   ```
+
 
   
 
@@ -565,24 +648,30 @@ VALUES
 - 左外连接
 
   ```
+
   select 字段列表 from 表1 left [outer] join 表2 on conditions;
   ```
+
 
   
 
 - 右外连接
 
   ```
+
   select 字段列表 from 表1 right [outer] join 表2 on conditions;
   ```
+
 
   
 
 ##### 自连接
 
   ```
+
   select colums from table_name join table_name  on conditions 
   ```
+
   
 
   
@@ -641,9 +730,11 @@ VALUES
 - 查看/设置事务提交方式
 
   ```
+
   select @@autocommit;
   set @@autocommit = 0;
   ```
+
 
   
 
@@ -686,13 +777,17 @@ VALUES
 - 查看事务隔离级别：
 
   ```
+
   select @@transaction_isolation; 
   ```
+
 
 - 设置事务隔离级别：
 
   ```
+
   set [session global] transaction isolation level {read uncommitted | read committed | repeatable read | serializable }
   ```
+
 
   

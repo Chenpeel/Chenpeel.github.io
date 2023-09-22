@@ -48,6 +48,7 @@
   |  content  | some_text | 定义与http-equiv或name属性相关的元信息 |
 
   ```html
+  
   <meta name = "keywords" content = "CONTENT">
   <!-- 网页关键词 -->
   
@@ -65,6 +66,7 @@
   
   <meta name = "robots" content = "CONTENT">
   ```
+  
 
   - robots告诉搜素引擎机器人抓取哪些页面
 
@@ -81,6 +83,7 @@
 
 - 用于提供http协议的响应头报文
   ```html
+  
   <meta http-equiv = "cache-control " content = "no-cache">
   <!-- 设置限制，仅从服务器获取资源而不是从本地cache中 -->
   <meta http-equiv = "refresh" content = "5; url = http://zachary.world">
@@ -90,6 +93,7 @@
   <meta http-equiv = "expires" content="Sat, 26 Feb 2022 08:00:00 GMT"/>
   <!-- 指定到期时间 -->
   ```
+  
 
 
 
@@ -127,18 +131,22 @@
 - 主体样式
 
   ```html
+  
   <body>
   <!-- 主体内容 -->
   </body>
   ```
+  
 
 - 标记属性
 
   - 设置body的标记属性可以改变页面的样式
 
   ```html
+  
   <body leftmargin="50px" topmargin="50px" text="#000000" bgcolor="#339999" link="red" alink="black" vlink="blue" background="../imags/1.jpg">
   ```
+  
 
   - 属性详情
     
@@ -239,6 +247,7 @@
 - 拼音格式
 
   ```html
+  
   <ruby>
     中<rt>
     		zhong
@@ -248,6 +257,7 @@
     	</rt>
   </ruby>
   ```
+  
 
 
 
@@ -361,6 +371,7 @@
   
 - 链接也可用于下载文件、访问FTP服务器、打开图片详情、发送电子邮件，如下
   ```html
+  
   <a href="ftp://chenpeel.xyz"> chenpeel </a> <!-- FTP链接 仅示例 -->
   
   <a href="https://github.com/Chenpeel/Chenpeel.github.io/blob/master/imags/2.jpeg">
@@ -373,6 +384,7 @@
   </a>
   
   ```
+  
 
 
 
@@ -397,12 +409,14 @@
 - 无序列表（unordered list）
 
   ```html
+  
   <ul type="">
     <li type=""> name </li>
     <li type=""> name </li>
     ...
   </ul>
   ```
+  
 
   
 
@@ -416,12 +430,14 @@
 - 有序列表（ordered list）
 
   ```html
+  
   <ol type="" start="" >
     <li type=""> name1 </li>
     <li type=""> name2 </li>
     ...
   </ol>
   ```
+  
 
   - `start` ：数值，有序列表中的起始数值
   - `typr` ：可以是 数字、大小写的字母、大小写的罗马字母
@@ -439,6 +455,7 @@
 - 定义列表（difined list）
 
   ```html
+  
   <dl>
     <dt>product1</dt>
     	<dd>describ1</dd>
@@ -448,6 +465,7 @@
   	  <dd>describ2</dd>
   </dl>
   ```
+  
 
 ## 表格
 
@@ -595,11 +613,13 @@
 
   - usemap 可以映像跳转到其他，如下
     ```html
+    
     <img src="../pics/1.jpeg" usemap="#example">
     <map name="example">
     	<area shape="circle" croods="0,0,100" href="http://example.com" alt="example">
     </map>
     ```
+    
 
     | shap Value | Explaination | coords Value                          | Explaination           |
     | ---------- | ------------ | ------------------------------------- | ---------------------- |
@@ -638,8 +658,10 @@
 
 - input
   ```html
+  
   <input type="">
   ```
+  
 
   > type属性值和描述如下：
 
@@ -668,14 +690,17 @@
   >  label标签和input共同作用
   
   ```html
+  
   <label for="text"> 用户名：</label><input type="text" id = "text"> 
   ```
+  
 ![](/imgs/image-20230723193656094.jpg)
   
   点击“用户名”三字就可输入文字等等
 
 - select
   ```html
+  
   <select>
     <option selected="selected">default</option>
     <option>选项1</option>
@@ -683,13 +708,16 @@
   	<option>选项3</option>
   </select>
   ```
+  
 
 ![](/imgs/image-20230723194536444.jpg)
 
 - textarea
   ```html
+  
   <textarea cols="100" rows="20">点击输入文字……</textarea>
   ```
+  
 
 ![](/imgs/image-20230723195005236.jpg)
 
@@ -758,8 +786,10 @@
 - 外部样式通过link的方式，从另外的、非html文件而是css文件来表现样式
 
   ```html
+  
   <link rel="stylesheet" src="source_path">
   ```
+  
 
 - 一个css文件可以作用于多个html
 
@@ -780,6 +810,7 @@
 - 可重复使用，对多个作用，可以联合使用
 
   ```html
+  
   <!DOCTYPE html>
   <html>
   <head>
@@ -813,6 +844,7 @@
   </body>
   </html>
   ```
+  
 
   
 
@@ -831,6 +863,7 @@
 
 - 在层级关系中逐层选择 
   ```html
+  
   <!DOCTYPE html>
   <html>
   
@@ -859,6 +892,7 @@
   
   </html>
   ```
+  
 
   
 
@@ -867,6 +901,7 @@
 - 在层级关系中只选择最近的一层 使用 `elem1 > elem2 {}`
 
   ```html
+  
   <!DOCTYPE html>
   <html>
   
@@ -889,11 +924,13 @@
   
   </html>
   ```
+  
 
 ## 并集选择器
 
 - 即类似于类选择器的复用，通过`,` 分隔
   ```html
+  
   <!DOCTYPE html>
   <html>
   
@@ -915,6 +952,7 @@
   
   </html>
   ```
+  
 
   
 
@@ -934,6 +972,7 @@
   |     lang     |    设置具有lang属性的标记的样式     |
 
   ```html
+  
   <!DOCTYPE html>
   <html>
   
@@ -976,6 +1015,7 @@
   
   </html>
   ```
+  
 
 - 值的注意的是：关于链接伪类的使用是有先后次序的，一般按照LVHA的次序即`link->visited->hover->active`
 

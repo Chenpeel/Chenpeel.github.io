@@ -11,7 +11,7 @@ hero:
       alt: Chenpeel
   actions:
     - theme: brand
-      text: '不可方思'
+      text: 不可方思
       link: /about
     
 

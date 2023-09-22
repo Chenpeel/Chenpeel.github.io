@@ -1,8 +1,5 @@
----
-title: 贴吧老哥流浪贴的整理
-copyright: false
-tag: 转载
----
+
+# 贴吧老哥流浪贴的整理
 
 > 转载于百度贴吧 [传送门](http://tieba.baidu.com/p/8024076584?&share=9105&fr=sharewise&is_video=false&unique=0DBACD36EB7528713993335DB58634B1&st=1664766525&client_type=1&client_version=12.26.5.0&sfc=copy&share_from=post&source=12_16_sharecard_a)
 
