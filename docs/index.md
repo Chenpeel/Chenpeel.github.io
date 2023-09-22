@@ -3,15 +3,15 @@
 layout: home
 
 hero:
-  name: "Chenpeel"
-  text: "乐只君子,福履将之"
+  name: Chenpeel
+  text: 乐只君子,福履将之
   tagline: 料峭春风吹酒醒,微冷,山头斜照却相迎
   image:
-      src: "/logo.png"
+      src: /logo.png
       alt: Chenpeel
   actions:
     - theme: brand
-      text: "不可方思"
+      text: '不可方思'
       link: /about
     
 features:

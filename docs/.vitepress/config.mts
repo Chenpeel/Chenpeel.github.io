@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Chenpeel",
-  description: "Chenpeel's blog",
   lang: 'zh-CN',
   base: '/',
   lastUpdated: true,
