@@ -11,10 +11,9 @@ hero:
       alt: Chenpeel
   actions:
     - theme: brand
-      text: 不可方思
+      text: "不可方思"
       link: /about
     
-
 features:
   - title: 开源代码
     link: https://github.com/chenpeel/Codes
@@ -23,4 +22,3 @@ features:
   - title: 通过Telegram联系
     link: https://t.me/Chenpeel
 ---
-
