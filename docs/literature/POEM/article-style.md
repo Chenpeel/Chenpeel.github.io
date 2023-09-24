@@ -8,22 +8,22 @@
     text-align: center;
     font-size: large;
 }
-.pre {
+.aritcle-pre {
     text-indent: 2em;
     font-size: small;
 }
-.main {
+.article-main{
     text-indent: 2em;
     font-size: larger;
 }
-.main_center {
+.article-center {
     text-align: center;
     font-size: larger;
 }
-.comment{
+.article-comment{
     font-size: smaller;
 }
-.img-responsive {
+.inline-img-responsive {
     display:inline;
     width: 1em;
     height: 1em;
@@ -42,4 +42,4 @@
 
 <p class=comment> comment </p>
 
-<img src="../../public/imgs/yi.png" class="img-responsive" />
+<img src="../../public/imgs/yi.png" class="inline-img-responsive" />
