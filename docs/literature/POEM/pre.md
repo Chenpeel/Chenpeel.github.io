@@ -1,39 +1,5 @@
-<head>
-    <style>
-    a {
-        color: rgb(95, 136, 224);
-        font-size: small;
-        text-decoration: none;
-    }
-    h1 {
-        text-align: center;
-        font-size: large;
-    }
-    .pre {
-        text-indent: 2em;
-        font-size: small;
-    }
-    .main {
-        text-indent: 2em;
-        font-size: larger;
-    }
-    .main_center {
-        text-align: center;
-        font-size: larger;
-    }
-    .comment {
-        font-size: smaller;
-    }
-    .img-responsive {
-        display: inline;
-        width: 1em;
-        height: 1em;
-    }
-    </style>
-</head>
 
-<body>
-<h1> 《诗经》 </h1>
+<h1 class="article-title"> 《诗经》 </h1>
 
 <p class="pre">《诗经》是我国最早的一部诗歌总集，是我国诗歌的生命起点。它收集和保存了古代诗歌305首（另有6篇只存篇名而无诗文的“笙诗”不包括在内）。</p>
 
@@ -62,4 +28,3 @@
 <p>
 “小子何莫学夫《诗》，《诗》可以兴，可以观，可以群，可以怨，迩之事父，远之事君，多识于鸟兽虫鱼之名。” ——孔子
 </p>
-</body>
