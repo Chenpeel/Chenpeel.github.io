@@ -1,27 +1,7 @@
 > #### 写在前面✍️
 >
 > 本篇是学习数据库的基本内容的信息，作为**速览List** 
-<style>
-.to-center {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  margin:auto;
-}
 
-table {
-  border-collapse: collapse;
-  align: center;
-  text-align: center;
-}
-
-table, tr, th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-}
-
-</style>
 
 
 

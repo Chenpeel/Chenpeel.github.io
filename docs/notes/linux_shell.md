@@ -1,26 +1,3 @@
-<style>
-.to-center {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  margin:  auto;
-}
-
-table {
-  border-collapse: collapse;
-  align: center;
-  text-align: center;
-
-}
-
-table, tr, th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-}
-
-</style>
-
 ## <a id="linux_basic">Linux命令基础</a>
 
 <hr>
