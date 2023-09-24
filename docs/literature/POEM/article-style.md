@@ -1,5 +1,5 @@
 <style>
-.link {
+.article-link {
     color: rgb(95, 136, 224);
     font-size: small;
     text-decoration:none;
@@ -32,7 +32,7 @@
 
 <h1 class="article-title"> Title </h1>
 
-<a href="https://chenpeel.github.io" clas="link"> XYZ </a>
+<a href="https://chenpeel.github.io" clas="article-link"> XYZ </a>
 
 <p class="pre"> pre in article </p>
 
