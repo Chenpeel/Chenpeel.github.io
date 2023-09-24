@@ -34,12 +34,12 @@
 
 <a href="https://chenpeel.github.io" clas="article-link"> XYZ </a>
 
-<p class="pre"> pre in article </p>
+<p class="artcle-pre"> pre in article </p>
 
-<p class="main"> MAIN </p>
+<p class="article-main"> MAIN </p>
 
-<p class="main_center"> MAIN_CENTER </p>
+<p class="article-center"> MAIN_CENTER </p>
 
-<p class=comment> comment </p>
+<p class=article-comment> comment </p>
 
 <img src="../../public/imgs/yi.png" class="inline-img-responsive" />
