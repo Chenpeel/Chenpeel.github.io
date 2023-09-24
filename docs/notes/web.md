@@ -1,7 +1,28 @@
+<style>
+.to-center {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin:auto;
+}
+
+table {
+  border-collapse: collapse;
+  align: center;
+  text-align: center;
+}
+
+table, tr, th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+</style>
 
 <h1>Web前端</h1>
 <br>
 <hr>
+
 > Web标准
 
 1. **结构** ：<a href="#html">HTML</a> -> 页面元素
@@ -35,17 +56,55 @@
 ## 元信息标记
 
 - `<meta name="NAME" content="CONTENT">`
+<div class="to-center">
+    <table>
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>author</td>
+                <td>网页作者</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>网页简短描述</td>
+            </tr>
+            <tr>
+                <td>keywords</td>
+                <td>网页关键词</td>
+            </tr>
+            <tr>
+                <td>generator</td>
+                <td>编辑器</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-  |    Value    | Explaination |
-  | :---------: | :----------: |
-  |   author    |   网页作者   |
-  | description | 网页简短描述 |
-  |  keywords   |  网页关键词  |
-  |  generator  |    编辑器    |
+<div class="to-center">
+  <table>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+          <th>Explaination</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>content</td>
+          <td>some_text</td>
+          <td>定义与http-equiv或name属性相关的元信息</td>
+      </tr>
+  </tbody>
+  </table>
 
-  | Attribute |   Value   |              Explaination              |
-  | :-------: | :-------: | :------------------------------------: |
-  |  content  | some_text | 定义与http-equiv或name属性相关的元信息 |
+</div>
+
 
 ```html
   
@@ -70,14 +129,44 @@
 
   - robots告诉搜素引擎机器人抓取哪些页面
 
-    |  Value   |                 Explain                  |
-    | :------: | :--------------------------------------: |
-    |   all    |  文件将被检索，且页面上的链接可以被查询  |
-    |   none   | 文件将不被检索，网页上的链接不可以被查询 |
-    |  index   |               文件将被检索               |
-    | noindex  | 文件将不被检索，但网页上的链接可以被查询 |
-    |  follow  |          页面上的链接可以被查询          |
-    | nofollow | 文件将被检索，但页面上的链接不可以被查询 |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Value</th>
+        <th>Explain</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>all</td>
+        <td>文件将被检索，且页面上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>none</td>
+        <td>文件将不被检索，网页上的链接不可以被查询</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>文件将被检索</td>
+    </tr>
+    <tr>
+        <td>noindex</td>
+        <td>文件将不被检索，但网页上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>follow</td>
+        <td>页面上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>nofollow</td>
+        <td>文件将被检索，但页面上的链接不可以被查询</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+
 
 - `<mata http-equiv>`
 
@@ -86,7 +175,7 @@
   
   <meta http-equiv = "cache-control " content = "no-cache">
   <!-- 设置限制，仅从服务器获取资源而不是从本地cache中 -->
-  <meta http-equiv = "refresh" content = "5; url = http://zachary.world">
+  <meta http-equiv = "refresh" content = "5; url = https://chenpeel.github.io">
   <!-- 5s后重定向到指定的网页 -->
   <meta http-equiv = "content-type" content="text/html;charset=utf-8"/>
   <!-- 指定编码字符集 -->
@@ -103,14 +192,42 @@
 
 - 语言标签，向浏览器指明网页主要使用的语言
 
-  | `lang` | Explaination |
-  | :----: | :----------: |
-  | zh-CN  |   简体中文   |
-  | zh-TW  |   繁体中文   |
-  |   en   |     英语     |
-  |   ru   |     俄语     |
-  |   ja   |     日语     |
-  |   fr   |     法语     |
+<div class="to-center"> 
+    <table>
+        <thead>
+            <tr>
+                <th><code>lang</code></th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>zh-CN</td>
+                <td>简体中文</td>
+            </tr>
+            <tr>
+                <td>zh-TW</td>
+                <td>繁体中文</td>
+            </tr>
+            <tr>
+                <td>en</td>
+                <td>英语</td>
+            </tr>
+            <tr>
+                <td>ru</td>
+                <td>俄语</td>
+            </tr>
+            <tr>
+                <td>ja</td>
+                <td>日语</td>
+            </tr>
+            <tr>
+                <td>fr</td>
+                <td>法语</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
   - 更多编码跳转维基百科[ISO_639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 
 
@@ -149,18 +266,63 @@
   
 
   - 属性详情
-    
-    | Attribute  |                            Value                             |                         Explaination                         |
-    | :--------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-    |    text    | <a href="#color">rgb(r,g,b)<br />rgb(r%,g%,b%)<br />#rrggbb或#rgb<br />colorname</a> | rgb函数（Int，取值0～255）<br />rgb函数（percent，取值0～100）<br />十六进制数（6位或3位，0～9，A～F）<br />颜色英文名（red,green,blue etc. ） |
-    |  bgcolor   |                             同上                             |                规定文档的背景颜色，不建议使用                |
-    |   alink    |                             同上                             |                   规定文档中的活动链接颜色                   |
-    |    link    |                             同上                             |                  规定未访问的链接的默认颜色                  |
-    |   vlink    |                             同上                             |                   规定已被访问的链接的颜色                   |
-    | background |                             URL                              |          规定文档的背景图像（图像过大影响访问速度）          |
-    | topmargin  |                            pixel                             |                   规定文档中的上边距的大小                   |
-    | leftmargin |                            pixel                             |                    规定文档中左边距的大小                    |
 
+<div class="to-center"> 
+  <table>
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td><a
+                        href="#color">rgb(r,g,b)<br />rgb(r%,g%,b%)<br />#rrggbb或#rgb<br />colorname</a></td>
+                <td>
+                    rgb函数（Int，取值0～255）<br />rgb函数（percent，取值0～100）<br />十六进制数（6位或3位，0～9，A～F）<br />颜色英文名（red,green,blue
+                    etc. ）</td>
+            </tr>
+            <tr>
+                <td>bgcolor</td>
+                <td>同上</td>
+                <td>规定文档的背景颜色，不建议使用</td>
+            </tr>
+            <tr>
+                <td>alink</td>
+                <td>同上</td>
+                <td>规定文档中的活动链接颜色</td>
+            </tr>
+            <tr>
+                <td>link</td>
+                <td>同上</td>
+                <td>规定未访问的链接的默认颜色</td>
+            </tr>
+            <tr>
+                <td>vlink</td>
+                <td>同上</td>
+                <td>规定已被访问的链接的颜色</td>
+            </tr>
+            <tr>
+                <td>background</td>
+                <td>URL</td>
+                <td>规定文档的背景图像（图像过大影响访问速度）</td>
+            </tr>
+            <tr>
+                <td>topmargin</td>
+                <td>pixel</td>
+                <td>规定文档中的上边距的大小</td>
+            </tr>
+            <tr>
+                <td>leftmargin</td>
+                <td>pixel</td>
+                <td>规定文档中左边距的大小</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 ## 标记类型
@@ -214,36 +376,135 @@
 - `<br>` or `<br/>`
 - `<hr width="" size="" color="">`
 
-  | Attribute |            Value            |  Explaination  |
-  | :-------: | :-------------------------: | :------------: |
-  |   width   |     像素（px）或百分比      | 设置水平线宽度 |
-  |   size    |       整数（单位px）        | 设置水平线高度 |
-  |   color   | 同<a href="#color">颜色</a> |    设置颜色    |
-  |   align   |   left \| center \| right   |    设置位置    |
+<div class="to-center">
+<table>
+<thead>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>width</td>
+        <td>像素（px）或百分比</td>
+        <td>设置水平线宽度</td>
+    </tr>
+    <tr>
+        <td>size</td>
+        <td>整数（单位px）</td>
+        <td>设置水平线高度</td>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>同<a href="#color">颜色</a></td>
+        <td>设置颜色</td>
+    </tr>
+    <tr>
+        <td>align</td>
+        <td>left | center | right</td>
+        <td>设置位置</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 ## 文本格式
 
 - 文本位置
 
-  |    key    | Explanation |
-  | :-------: | :---------: |
-  |  `left`   |   左对齐    |
-  | `center`  |    居中     |
-  |  `right`  |   右对齐    |
-  | `justify` |  两端对齐   |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>key</th>
+        <th>Explanation</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><code>left</code></td>
+        <td>左对齐</td>
+    </tr>
+    <tr>
+        <td><code>center</code></td>
+        <td>居中</td>
+    </tr>
+    <tr>
+        <td><code>right</code></td>
+        <td>右对齐</td>
+    </tr>
+    <tr>
+        <td><code>justify</code></td>
+        <td>两端对齐</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
 - 特殊字符
 
-  | Display  | Explaination |    Code    |
-  | :------: | :----------: | :--------: |
-  |  &nbsp;  | 显示一个空格 |  `&nbsp;`  |
-  |   &lt;   |     小于     |   `&lt;`   |
-  |   &gt;   |     大于     |   `&gt;`   |
-  |  &amp;   |    &符号     |  `&amp;`   |
-  |  &quot;  |    双引号    |  `&quot;`  |
-  |  &copy;  |     版权     |  `&copy;`  |
-  |  &reg;   |   注册商标   |  `&reg;`   |
-  | &times;  |     乘号     | `&times;`  |
-  | &divide; |     除号     | `&divide;` |
+<div class="to-center"> 
+<table>
+            <thead>
+                <tr>
+                    <th>Display</th>
+                    <th>Explaination</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>显示一个空格</td>
+                    <td><code>&amp;nbsp;</code></td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>小于</td>
+                    <td><code>&amp;lt;</code></td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>大于</td>
+                    <td><code>&amp;gt;</code></td>
+                </tr>
+                <tr>
+                    <td>&amp;</td>
+                    <td>&amp;符号</td>
+                    <td><code>&amp;amp;</code></td>
+                </tr>
+                <tr>
+                    <td>&quot;</td>
+                    <td>双引号</td>
+                    <td><code>&amp;quot;</code></td>
+                </tr>
+                <tr>
+                    <td>&copy;</td>
+                    <td>版权</td>
+                    <td><code>&amp;copy;</code></td>
+                </tr>
+                <tr>
+                    <td>&reg;</td>
+                    <td>注册商标</td>
+                    <td><code>&amp;reg;</code></td>
+                </tr>
+                <tr>
+                    <td>&times;</td>
+                    <td>乘号</td>
+                    <td><code>&amp;times;</code></td>
+                </tr>
+                <tr>
+                    <td>&divide;</td>
+                    <td>除号</td>
+                    <td><code>&amp;divide;</code></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+
 - 拼音格式
 
 ```html
@@ -263,36 +524,137 @@
 
 - 文本修饰
 
-  | Explaination |        key        |         key         |
-  | :----------: | :---------------: | :-----------------: |
-  |     加粗     |     `<b></b>`     | `<strong></strong>` |
-  |    下划线    |     `<u></u>`     |    `<ins></ins>`    |
-  |     倾斜     |     `<i></i>`      |     `<em></em>`     |
-  |    删除线    |     `<s></s>`     |    `<del></del>`    |
-  |     变大     |   `<big></big>`   |                     |
-  |     变小     | `<small></small>` |                     |
-  |     上标     |   `<sup></sup>`   |                     |
-  |     下标     |   `<sub></sub>`   |                     |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Explaination</th>
+        <th>key</th>
+        <th>key</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>加粗</td>
+        <td><code>&lt;b&gt;&lt;/b&gt;</code></td>
+        <td><code>&lt;strong&gt;&lt;/strong&gt;</code></td>
+    </tr>
+    <tr>
+        <td>下划线</td>
+        <td><code>&lt;u&gt;&lt;/u&gt;</code></td>
+        <td><code>&lt;ins&gt;&lt;/ins&gt;</code></td>
+    </tr>
+    <tr>
+        <td>倾斜</td>
+        <td><code>&lt;i&gt;&lt;/i&gt;</code></td>
+        <td><code>&lt;em&gt;&lt;/em&gt;</code></td>
+    </tr>
+    <tr>
+        <td>删除线</td>
+        <td><code>&lt;s&gt;&lt;/s&gt;</code></td>
+        <td><code>&lt;del&gt;&lt;/del&gt;</code></td>
+    </tr>
+    <tr>
+        <td>变大</td>
+        <td><code>&lt;big&gt;&lt;/big&gt;</code></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>变小</td>
+        <td><code>&lt;small&gt;&lt;/small&gt;</code></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>上标</td>
+        <td><code>&lt;sup&gt;&lt;/sup&gt;</code></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>下标</td>
+        <td><code>&lt;sub&gt;&lt;/sub&gt;</code></td>
+        <td>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
 - 引用和术语
 
-  |                 key                  |  Explaination  |
-  | :----------------------------------: | :------------: |
-  |        `<abbr> etc. </abbr>`         |    定义缩写    |
-  | `<address> Beijing China </address>` |    定义地址    |
-  | `<blockquote> 长引用 </blockquote>`  |   定义长引用   |
-  |     `<cite> 引用、引证 </cite>`      |  定义引用引证  |
-  |         `<q> 短语引用 </q>`          |  定义短引用语  |
-  |       `<dfn> 定义项目 </dfn>`        | 定义个定义项目 |
+<div class="to-center"> 
+<table>
+            <thead>
+                <tr>
+                    <th>key</th>
+                    <th>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>&lt;abbr&gt; etc. &lt;/abbr&gt;</code></td>
+                    <td>定义缩写</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;address&gt; Beijing China &lt;/address&gt;</code></td>
+                    <td>定义地址</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;blockquote&gt; 长引用 &lt;/blockquote&gt;</code></td>
+                    <td>定义长引用</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;cite&gt; 引用、引证 &lt;/cite&gt;</code></td>
+                    <td>定义引用引证</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;q&gt; 短语引用 &lt;/q&gt;</code></td>
+                    <td>定义短引用语</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;dfn&gt; 定义项目 &lt;/dfn&gt;</code></td>
+                    <td>定义个定义项目</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
 - 计算机输出标记
 
-  |             key              |    Explaination    |
-  | :--------------------------: | :----------------: |
-  |    `<code> code </code>`     |   定义计算机代码   |
-  | `<kbd> keyboard code </kbd>` |     定义键盘码     |
-  |   `<samp> sample </samp>`    | 定义计算机代码样本 |
-  |  `<tt> printer code </tt>`   |   定义打印机代码   |
-  |   `<var> variable </var>`    |      定义变量      |
-  |   `<pre> pre text </pre>`    |    定义预格式化    |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>key</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><code>&lt;code&gt; code &lt;/code&gt;</code></td>
+        <td>定义计算机代码</td>
+    </tr>
+    <tr>
+        <td><code>&lt;kbd&gt; keyboard code &lt;/kbd&gt;</code></td>
+        <td>定义键盘码</td>
+    </tr>
+    <tr>
+        <td><code>&lt;samp&gt; sample &lt;/samp&gt;</code></td>
+        <td>定义计算机代码样本</td>
+    </tr>
+    <tr>
+        <td><code>&lt;tt&gt; printer code &lt;/tt&gt;</code></td>
+        <td>定义打印机代码</td>
+    </tr>
+    <tr>
+        <td><code>&lt;var&gt; variable &lt;/var&gt;</code></td>
+        <td>定义变量</td>
+    </tr>
+    <tr>
+        <td><code>&lt;pre&gt; pre text &lt;/pre&gt;</code></td>
+        <td>定义预格式化</td>
+    </tr>
+</tbody>
+</table>
+</div>
   
   
 
@@ -302,11 +664,34 @@
 
 - 字体属性标记：
 
-  | Attribute |            Value            |                         Explaination                         |
-  | :-------: | :-------------------------: | :----------------------------------------------------------: |
-  |   size    |    +1～+7，1～7，-1～-7     |                       同数值大小相匹配                       |
-  |   color   | 同<a href="#color">颜色</a> |                 同<a href="#color">颜色</a>                  |
-  |   face    |     字体1,字体2,......      | 可以有多个值，用逗号分隔。从左到右依此选用，都不存在，默认为宋体 |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>size</td>
+        <td>+1～+7，1～7，-1～-7</td>
+        <td>同数值大小相匹配</td>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>同<a href="#color">颜色</a></td>
+        <td>同<a href="#color">颜色</a></td>
+    </tr>
+    <tr>
+        <td>face</td>
+        <td>字体1,字体2,......</td>
+        <td>可以有多个值，用逗号分隔。从左到右依此选用，都不存在，默认为宋体</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 ## 滚动文字
 
@@ -352,22 +737,69 @@
 
   如<a href= "#html" >Go to HTML</a> 跳转到HTML篇首
 
-  |   Key   |    Explaination    |
-  | :-----: | :----------------: |
-  |  href   |      指向锚点      |
-  | name/id |      锚点名称      |
-  |  title  |   链接的提示信息   |
-  | target  | 指定打开的目标窗口 |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Key</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>href</td>
+        <td>指向锚点</td>
+    </tr>
+    <tr>
+        <td>name/id</td>
+        <td>锚点名称</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>链接的提示信息</td>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>指定打开的目标窗口</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
   - target有五种值
 
-    |   Value   |                      Explaination                      |
-    | :-------: | :----------------------------------------------------: |
-    |   _self   |                  在当前框架中打开链接                  |
-    |  _blank   |                 在新的空白页中打开链接                 |
-    |   _top    |                  在顶层框架中打开链接                  |
-    |  _parent  |                   在上层框架打开链接                   |
-    | framename | 在指定的框架或浮动的框架内打开链接，框架名称可以自定义 |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Value</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>_self</td>
+        <td>在当前框架中打开链接</td>
+    </tr>
+    <tr>
+        <td>_blank</td>
+        <td>在新的空白页中打开链接</td>
+    </tr>
+    <tr>
+        <td>_top</td>
+        <td>在顶层框架中打开链接</td>
+    </tr>
+    <tr>
+        <td>_parent</td>
+        <td>在上层框架打开链接</td>
+    </tr>
+    <tr>
+        <td>framename</td>
+        <td>在指定的框架或浮动的框架内打开链接，框架名称可以自定义</td>
+    </tr>
+</tbody>
+</table>
+</div>
   
 - 链接也可用于下载文件、访问FTP服务器、打开图片详情、发送电子邮件，如下
 ```html
@@ -398,13 +830,39 @@
 
 > 为网页进行合理布局，有序列表和无序列表组合嵌套使用，使页面层次分明
 
-|   Type   |             Key             |
-| :------: | :-------------------------: |
-| 无序列表 | `<ul> unordered list </ul>` |
-| 有序列表 |  `<ol> ordered list </ol>`  |
-| 定义列表 |  `<dl> defined list </dl>`  |
-| 菜单列表 |    `<menu> menu </menu>`    |
-| 目录列表 |  `<dir> directory </dir>`   |
+
+<div class="to-center">
+<table>
+<thead>
+    <tr>
+        <th>Type</th>
+        <th>Key</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>无序列表</td>
+        <td><code>&lt;ul&gt; unordered list &lt;/ul&gt;</code></td>
+    </tr>
+    <tr>
+        <td>有序列表</td>
+        <td><code>&lt;ol&gt; ordered list &lt;/ol&gt;</code></td>
+    </tr>
+    <tr>
+        <td>定义列表</td>
+        <td><code>&lt;dl&gt; defined list &lt;/dl&gt;</code></td>
+    </tr>
+    <tr>
+        <td>菜单列表</td>
+        <td><code>&lt;menu&gt; menu &lt;/menu&gt;</code></td>
+    </tr>
+    <tr>
+        <td>目录列表</td>
+        <td><code>&lt;dir&gt; directory &lt;/dir&gt;</code></td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 - 无序列表（unordered list）
 
@@ -420,12 +878,34 @@
 
   
 
-  |  Key   | Explaination |
-  | :----: | :----------: |
-  |  disc  |   实心圆圈   |
-  | circle |   空心圆圈   |
-  | square |  实心正方形  |
-  |  none  |    不使用    |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Key</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>disc</td>
+        <td>实心圆圈</td>
+    </tr>
+    <tr>
+        <td>circle</td>
+        <td>空心圆圈</td>
+    </tr>
+    <tr>
+        <td>square</td>
+        <td>实心正方形</td>
+    </tr>
+    <tr>
+        <td>none</td>
+        <td>不使用</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 - 有序列表（ordered list）
 
@@ -442,13 +922,34 @@
   - `start` ：数值，有序列表中的起始数值
   - `typr` ：可以是 数字、大小写的字母、大小写的罗马字母
 
-    |     Key     |         Explaination          |
-    | :---------: | :---------------------------: |
-    |   decimal   |          数字123...           |
-    | lower-roman | 小写罗马数字$ I , ii, iii...$ |
-    | upper-roman | 大写罗马数字$I,II,III,IV...$  |
-    | lower-alpha |        小写字母abc...         |
-    | upper-alpha |        大写字母ABC...         |
+<div class="to-center"> 
+<table>
+    <tr>
+      <th>Key</th>
+      <th>Explanation</th>
+    </tr>
+    <tr>
+      <td>decimal</td>
+      <td>数字 123...</td>
+    </tr>
+    <tr>
+      <td>lower-roman</td>
+      <td>小写罗马数字 i, ii, iii...</td>
+    </tr>
+    <tr>
+      <td>upper-roman</td>
+      <td>大写罗马数字 I,II,III,IV...</td>
+    </tr>
+    <tr>
+      <td>lower-alpha</td>
+      <td>小写字母 abc...</td>
+    </tr>
+    <tr>
+      <td>upper-alpha</td>
+      <td>大写字母 ABC...</td>
+    </tr>
+  </table>
+</div>
 
     
 
@@ -545,20 +1046,79 @@
 
 > 设置style的属性
 
-|    Attribute     |                Key                |                         Explaination                         |
-| :--------------: | :-------------------------------: | :----------------------------------------------------------: |
-|     position     | static\|absolute\|relative\|fixed |                静态、绝对、相对位置、图层固定                |
-|      border      |       线粗细、线型、线颜色        |                           边框设置                           |
-| background-color |    同<a href="#color">颜色</a>    |                           背景颜色                           |
-|       left       |             pixes\|%              |                          图层左边距                          |
-|       top        |             pixes\|%              |                         图层与顶边距                         |
-|      width       |             pixes\|%              |                           图层宽度                           |
-|      height      |             pixes\|%              |                           图层高度                           |
-|      float       |         left\|right\|none         |               允许浮动元素在左边、右边、不浮动               |
-|      clear       |      left\|right\|both\|none      |                清除左、右、左右浮动和允许浮动                |
-|     z-index      |            auto\|数字             |            子图层按照父图层显示、无单位整数或负数            |
-|     overflow     |   scroll\|visible\|auto\|hidden   | 内容溢出控制，始终显示滚动条、不显示，但超出部分可见、内容超出时显示、超出时隐藏内容 |
-|     display      |        block\|inline\|none        |            表示按照块元素显示、行内方式显示和隐藏            |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Attribute</th>
+        <th>Key</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>position</td>
+        <td>static|absolute|relative|fixed</td>
+        <td>静态、绝对、相对位置、图层固定</td>
+    </tr>
+    <tr>
+        <td>border</td>
+        <td>线粗细、线型、线颜色</td>
+        <td>边框设置</td>
+    </tr>
+    <tr>
+        <td>background-color</td>
+        <td>同<a href="#color">颜色</a></td>
+        <td>背景颜色</td>
+    </tr>
+    <tr>
+        <td>left</td>
+        <td>pixes|%</td>
+        <td>图层左边距</td>
+    </tr>
+    <tr>
+        <td>top</td>
+        <td>pixes|%</td>
+        <td>图层与顶边距</td>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>pixes|%</td>
+        <td>图层宽度</td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td>pixes|%</td>
+        <td>图层高度</td>
+    </tr>
+    <tr>
+        <td>float</td>
+        <td>left|right|none</td>
+        <td>允许浮动元素在左边、右边、不浮动</td>
+    </tr>
+    <tr>
+        <td>clear</td>
+        <td>left|right|both|none</td>
+        <td>清除左、右、左右浮动和允许浮动</td>
+    </tr>
+    <tr>
+        <td>z-index</td>
+        <td>auto|数字</td>
+        <td>子图层按照父图层显示、无单位整数或负数</td>
+    </tr>
+    <tr>
+        <td>overflow</td>
+        <td>scroll|visible|auto|hidden</td>
+        <td>内容溢出控制，始终显示滚动条、不显示，但超出部分可见、内容超出时显示、超出时隐藏内容</td>
+    </tr>
+    <tr>
+        <td>display</td>
+        <td>block|inline|none</td>
+        <td>表示按照块元素显示、行内方式显示和隐藏</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 > div 图层可以嵌套和层叠使用
 >
@@ -578,13 +1138,38 @@
 
 - display可以转化块标记和行
 
-  |     Key      |             Explaination             |
-  | :----------: | :----------------------------------: |
-  |     none     |           此元素不会被显示           |
-  |    inline    |      设置为行内元素，在行内显示      |
-  |    block     | 设置为块级元素，以块状显示，自动换行 |
-  | inline-block |           设置为行内块标记           |
-  |   inherit    |   规定应该从父元素继承display属性    |
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Key</th>
+        <th>Explaination</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>none</td>
+        <td>此元素不会被显示</td>
+    </tr>
+    <tr>
+        <td>inline</td>
+        <td>设置为行内元素，在行内显示</td>
+    </tr>
+    <tr>
+        <td>block</td>
+        <td>设置为块级元素，以块状显示，自动换行</td>
+    </tr>
+    <tr>
+        <td>inline-block</td>
+        <td>设置为行内块标记</td>
+    </tr>
+    <tr>
+        <td>inherit</td>
+        <td>规定应该从父元素继承display属性</td>
+    </tr>
+</tbody>
+</table>
+</div>
 
   
 
@@ -598,18 +1183,69 @@
 
 - `<img src="" alt="" >`
 
-  | Attribute |                    Value                     |        Explaination        |
-  | :-------: | :------------------------------------------: | :------------------------: |
-  |    alt    |                     text                     |   图像显示错误的替代文本   |
-  |    src    |                   URL/PATH                   |          显示的源          |
-  |   name    |                     text                     |          图像名称          |
-  |  height   |                   pixels/%                   |            图高            |
-  |   width   |                   pixels/%                   |            图宽            |
-  |   align   | top\|middle\|bottom<br />left\|center\|right |      如何在文本中排布      |
-  |  border   |                    pixels                    |          周围边框          |
-  |  hspace   |                    pexels                    |         左右侧空白         |
-  |  vspace   |                    pixels                    |       顶部和底部空白       |
-  |  usemap   |                     URL                      | 将图像定义为客户端图像映射 |
+<div class="to-center"> 
+<table>
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                    <th>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>alt</td>
+                    <td>text</td>
+                    <td>图像显示错误的替代文本</td>
+                </tr>
+                <tr>
+                    <td>src</td>
+                    <td>URL/PATH</td>
+                    <td>显示的源</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>text</td>
+                    <td>图像名称</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>pixels/%</td>
+                    <td>图高</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>pixels/%</td>
+                    <td>图宽</td>
+                </tr>
+                <tr>
+                    <td>align</td>
+                    <td>top|middle|bottom<br />left|center|right</td>
+                    <td>如何在文本中排布</td>
+                </tr>
+                <tr>
+                    <td>border</td>
+                    <td>pixels</td>
+                    <td>周围边框</td>
+                </tr>
+                <tr>
+                    <td>hspace</td>
+                    <td>pexels</td>
+                    <td>左右侧空白</td>
+                </tr>
+                <tr>
+                    <td>vspace</td>
+                    <td>pixels</td>
+                    <td>顶部和底部空白</td>
+                </tr>
+                <tr>
+                    <td>usemap</td>
+                    <td>URL</td>
+                    <td>将图像定义为客户端图像映射</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
 
   - usemap 可以映像跳转到其他，如下
 ```html
@@ -621,12 +1257,34 @@
 ```
     
 
-    | shap Value | Explaination | coords Value                          | Explaination           |
-    | ---------- | ------------ | ------------------------------------- | ---------------------- |
-    | rect       | 矩形         | $x_1,y_1,x_2,y_2$                     | 矩形的两个顶点坐标     |
-    | circle     | 圆形         | $x_o,y_o,radius$                      | 圆心坐标和半径         |
-    | poly       | 多边形       | $x_1,y_1,x_2,y_2,...,x_n,y_n,x_1,y_1$ | 各顶点坐标（首尾相同） |
-
+<div class="to-center"> 
+<table>
+<tr>
+  <th>Shape Value</th>
+  <th>Explanation</th>
+  <th>Coords Value</th>
+  <th>Explanation</th>
+</tr>
+<tr>
+  <td>rect</td>
+  <td>矩形</td>
+  <td>$x_1, y_1, x_2, y_2$</td>
+  <td>矩形的两个顶点坐标</td>
+</tr>
+<tr>
+  <td>circle</td>
+  <td>圆形</td>
+  <td>$x_o, y_o, radius$</td>
+  <td>圆心坐标和半径</td>
+</tr>
+<tr>
+  <td>poly</td>
+  <td>多边形</td>
+  <td>$x_1, y_1, x_2, y_2, ..., x_n, y_n, x_1, y_1$</td>
+  <td>各顶点坐标（首尾相同）</td>
+</tr>
+</table>
+</div>
 
 ## 音频
 

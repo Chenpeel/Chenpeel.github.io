@@ -1,3 +1,26 @@
+<style>
+.to-center {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin:  auto;
+}
+
+table {
+  border-collapse: collapse;
+  align: center;
+  text-align: center;
+
+}
+
+table, tr, th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+</style>
+
 ## <a id="linux_basic">Linux命令基础</a>
 
 <hr>
@@ -660,16 +683,38 @@ zip是1952年出现的一个划时代性产物,大大提升了文件的传输效
 ```bash
   tar [参数] file
 ```
-
-  | options |     functions      |
-  | :-----: | :----------------: |
-  |  `-z`   |    打包同时压缩    |
-  |  `-c`   |  产生.tar打包文件  |
-  |  `-v`   |    显示详细信息    |
-  |  `-f`   | 指定压缩后的文件名 |
-  |  `-x`   |    解包.tar文件    |
-  |  `-C`   |   解压到指定目录   |
-
+<div class="to-center">
+  <table>
+    <tr>
+      <th>选项</th>
+      <th>功能</th>
+    </tr>
+    <tr>
+      <td>-z</td>
+      <td>打包同时压缩</td>
+    </tr>
+    <tr>
+      <td>-c</td>
+      <td>产生.tar打包文件</td>
+    </tr>
+    <tr>
+      <td>-v</td>
+      <td>显示详细信息</td>
+    </tr>
+    <tr>
+      <td>-f</td>
+      <td>指定压缩后的文件名</td>
+    </tr>
+    <tr>
+      <td>-x</td>
+      <td>解包.tar文件</td>
+    </tr>
+    <tr>
+      <td>-C</td>
+      <td>解压到指定目录</td>
+    </tr>
+  </table>
+</div>
 
 
 ###### <a id="ln">LN</a>
@@ -1049,16 +1094,42 @@ path=( /opt/homebrew/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /
 - 系统运行级别
 
   - `0~7`
-
-    | levels |                   explainations                   |
-    | :----: | :-----------------------------------------------: |
-    |   0    |                   系统停机状态                    |
-    |   1    | 但用户工作状态，root，用于系统维护，禁止远程登录  |
-    |   2    |          多用户状态（无NFS），不支持网络          |
-    |   3    | 完全多用户模式（NFS），登陆后进入控制台命令行模式 |
-    |   4    |                     保留状态                      |
-    |   5    |           X11控制台，登入后进入GUI界面            |
-    |   6    |                系统正常关闭并重启                 |
+<div class="to-center">
+  <table>
+    <tr>
+      <th>级别</th>
+      <th>解释</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>系统停机状态</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>单用户工作状态，root，用于系统维护，禁止远程登录</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>多用户状态（无NFS），不支持网络</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>完全多用户模式（NFS），登陆后进入控制台命令行模式</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>保留状态</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>X11控制台，登入后进入GUI界面</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>系统正常关闭并重启</td>
+    </tr>
+  </table>
+</div>
 
   - `multi-user.target `  级别3
 
@@ -1223,15 +1294,39 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 - 查看进程`ps` (process status)
 
   - `ps [] | grep key `
-
-    | options |                 functions                  |
-    | :-----: | :----------------------------------------: |
-    |    a    |        列出带有终端的所有用户的进程        |
-    |    u    | 列出当前用户的所有进程，包括没有终端的进程 |
-    |    x    |          面向用户的友好型风格显示          |
-    |   -e    |                列出所有进程                |
-    |   -u    |         列出某个用户关联的所有进程         |
-    |   -f    |           显示完整格式的进程列表           |
+  
+    <div class="to-center">
+      <table>
+        <tr>
+          <th>选项</th>
+          <th>功能</th>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>列出带有终端的所有用户的进程</td>
+        </tr>
+        <tr>
+          <td>u</td>
+          <td>列出当前用户的所有进程，包括没有终端的进程</td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>面向用户的友好型风格显示</td>
+        </tr>
+        <tr>
+          <td>-e</td>
+          <td>列出所有进程</td>
+        </tr>
+        <tr>
+          <td>-u</td>
+          <td>列出某个用户关联的所有进程</td>
+        </tr>
+        <tr>
+          <td>-f</td>
+          <td>显示完整格式的进程列表</td>
+        </tr>
+      </table>
+    </div>
 
     - uid用户名
     - pid 进程ID
@@ -1697,57 +1792,206 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
 
 ## <a id="special">特殊符号</a>
 
-| <a id ="para">参数处理</a> |                             说明                             |
-| :------------------------: | :----------------------------------------------------------: |
-|            `$#`            |                     传递到脚本的参数个数                     |
-|            `$*`            |            以一个单字符串显示所有向脚本传递的参数            |
-|            `$$`            |                    当前脚本运行的进程ID号                    |
-|            `$!`            |                     后台最后一个进程ID号                     |
-|            `$@`            |        同`$*`但是使用时加引号，并在引号中返回每个参数        |
-|            `$-`            | 显示shell使用的当前选项，与<a href="set">set</a>命令功能相同 |
-|            `$?`            | 显示最后命令的退出状态。0表示没有错误，其他任何值表示有错误。 |
-|        `''` 和`""`         |                   使用引号防止通配符的扩展                   |
-|                            |                                                              |
+<h2>参数处理</h2>
+<div class="to-center">
+  <table>
+    <tr>
+      <th>参数</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>$#</td>
+      <td>传递到脚本的参数个数</td>
+    </tr>
+    <tr>
+      <td>$*</td>
+      <td>以一个单字符串显示所有向脚本传递的参数</td>
+    </tr>
+    <tr>
+      <td>$$</td>
+      <td>当前脚本运行的进程ID号</td>
+    </tr>
+    <tr>
+      <td>$!</td>
+      <td>后台最后一个进程ID号</td>
+    </tr>
+    <tr>
+      <td>$@</td>
+      <td>同$*但是使用时加引号，并在引号中返回每个参数</td>
+    </tr>
+    <tr>
+      <td>$-</td>
+      <td>显示shell使用的当前选项，与set命令功能相同</td>
+    </tr>
+    <tr>
+      <td>$?</td>
+      <td>显示最后命令的退出状态。0表示没有错误，其他任何值表示有错误。</td>
+    </tr>
+    <tr>
+      <td>'' 和 ""</td>
+      <td>使用引号防止通配符的扩展</td>
+    </tr>
+  </table>
+</div>
 
-| 关系运算符 |   说明   |
-| :--------: | :------: |
-|   `-eq`    |   相等   |
-|   `-ne`    |  不相等  |
-|   `-gt`    |   大于   |
-|   `-lt`    |   小于   |
-|   `-ge`    | 大于等于 |
-|   `-le`    | 小于等于 |
-
-| 布尔运算符 | 说明 |
-| :--------: | :--: |
-|     ！     |  非  |
-|     -o     |  或  |
-|     -a     |  与  |
-
-| 字符串运算符 |        说明         |
-| :----------: | :-----------------: |
-|      =       |   字符串是否相等    |
-|      !=      |  字符串是否不相等   |
-|      -z      |  字符串长度是否为0  |
-|      -n      | 字符串长度是否不为0 |
-|      $       |  字符串是否不为空   |
-
-| 操作符  |                             说明                             | 举例                      |
-| ------- | :----------------------------------------------------------: | :------------------------ |
-| -b file |     检测文件是否是块设备文件<br />如果是，则返回 true。      | [ -b $file ] 返回 false。 |
-| -c file |    检测文件是否是字符设备文件<br />如果是，则返回 true。     | [ -c $file ] 返回 false。 |
-| -d file |        检测文件是否是目录<br />如果是，则返回 true。         | [ -d $file ] 返回 false。 |
-| -f file | 检测文件是否是普通文件（不是目录、设备文件）<br />如果是，则返回 true。 | [ -f $file ] 返回 true。  |
-| -g file |    检测文件是否设置了 SGID 位<br />如果是，则返回 true。     | [ -g $file ] 返回 false。 |
-| -k file | 检测文件是否设置了粘着位(Sticky Bit)<br />如果是，则返回 true。 | [ -k $file ] 返回 false。 |
-| -p file |      检测文件是否是有名管道<br />如果是，则返回 true。       | [ -p $file ] 返回 false。 |
-| -u file |    检测文件是否设置了 SUID 位<br />如果是，则返回 true。     | [ -u $file ] 返回 false。 |
-| -r file |         检测文件是否可读<br />如果是，则返回 true。          | [ -r $file ] 返回 true。  |
-| -w file |         检测文件是否可写<br />如果是，则返回 true。          | [ -w $file ] 返回 true。  |
-| -x file |        检测文件是否可执行<br />如果是，则返回 true。         | [ -x $file ] 返回 true。  |
-| -s file | 检测文件是否为空（文件大小是否大于0）<br />不为空返回 true。 | [ -s $file ] 返回 true。  |
-| -e file |   检测文件（包括目录）是否存在<br />如果是，则返回 true。    | [ -e $file ] 返回 true。  |
-
+  <h2>关系运算符</h2>
+<div class="to-center">
+  <table>
+    <tr>
+      <th>关系运算符</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>-eq</td>
+      <td>相等</td>
+    </tr>
+    <tr>
+      <td>-ne</td>
+      <td>不相等</td>
+    </tr>
+    <tr>
+      <td>-gt</td>
+      <td>大于</td>
+    </tr>
+    <tr>
+      <td>-lt</td>
+      <td>小于</td>
+    </tr>
+    <tr>
+      <td>-ge</td>
+      <td>大于等于</td>
+    </tr>
+    <tr>
+      <td>-le</td>
+      <td>小于等于</td>
+    </tr>
+  </table>
+</div>
+  <h2>布尔运算符</h2>
+<div class="to-center">
+  <table>
+    <tr>
+      <th>布尔运算符</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>!</td>
+      <td>非</td>
+    </tr>
+    <tr>
+      <td>-o</td>
+      <td>或</td>
+    </tr>
+    <tr>
+      <td>-a</td>
+      <td>与</td>
+    </tr>
+  </table>
+</div>
+  <h2>字符串运算符</h2>
+<div class="to-center">
+  <table>
+    <tr>
+      <th>字符串运算符</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>=</td>
+      <td>字符串是否相等</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>字符串是否不相等</td>
+    </tr>
+    <tr>
+      <td>-z</td>
+      <td>字符串长度是否为0</td>
+    </tr>
+    <tr>
+      <td>-n</td>
+      <td>字符串长度是否不为0</td>
+    </tr>
+    <tr>
+      <td>$</td>
+      <td>字符串是否不为空</td>
+    </tr>
+  </table>
+</div>
+  <h2>操作符</h2>
+<div class="to-center">
+  <table>
+    <tr>
+      <th>操作符</th>
+      <th>说明</th>
+      <th>举例</th>
+    </tr>
+    <tr>
+      <td>-b file</td>
+      <td>检测文件是否是块设备文件</td>
+      <td>[ -b $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-c file</td>
+      <td>检测文件是否是字符设备文件</td>
+      <td>[ -c $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-d file</td>
+      <td>检测文件是否是目录</td>
+      <td>[ -d $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-f file</td>
+      <td>检测文件是否是普通文件（不是目录、设备文件）</td>
+      <td>[ -f $file ] 返回 true。</td>
+    </tr>
+    <tr>
+      <td>-g file</td>
+      <td>检测文件是否设置了 SGID 位</td>
+      <td>[ -g $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-k file</td>
+      <td>检测文件是否设置了粘着位(Sticky Bit)</td>
+      <td>[ -k $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-p file</td>
+      <td>检测文件是否是有名管道</td>
+      <td>[ -p $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-u file</td>
+      <td>检测文件是否设置了 SUID 位</td>
+      <td>[ -u $file ] 返回 false。</td>
+    </tr>
+    <tr>
+      <td>-r file</td>
+      <td>检测文件是否可读</td>
+      <td>[ -r $file ] 返回 true。</td>
+    </tr>
+    <tr>
+      <td>-w file</td>
+      <td>检测文件是否可写</td>
+      <td>[ -w $file ] 返回 true。</td>
+    </tr>
+    <tr>
+      <td>-x file</td>
+      <td>检测文件是否可执行</td>
+      <td>[ -x $file ] 返回 true。</td>
+    </tr>
+    <tr>
+      <td>-s file</td>
+      <td>检测文件是否为空（文件大小是否大于0）</td>
+      <td>[ -s $file ] 返回 true。</td>
+    </tr>
+    <tr>
+      <td>-e file</td>
+      <td>检测文件（包括目录）是否存在</td>
+      <td>[ -e $file ] 返回 true。</td>
+    </tr>
+  </table>
+</div>  
 其他检查符：
 
 - `-S` 判断某文件是否socket
@@ -1756,118 +2000,723 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
 
 
 ## <a id="re">重定向</a>
-
-| 命令            | 说明                                               |
-| :-------------- | :------------------------------------------------- |
-| command > file  | 将输出重定向到 file。                              |
-| command < file  | 将输入重定向到 file。                              |
-| command >> file | 将输出以追加的方式重定向到 file。                  |
-| n > file        | 将文件描述符为 n 的文件重定向到 file。             |
-| n >> file       | 将文件描述符为 n 的文件以追加的方式重定向到 file。 |
-| n >& m          | 将输出文件 m 和 n 合并。                           |
-| n <& m          | 将输入文件 m 和 n 合并。                           |
-| << tag          | 将开始标记 tag 和结束标记 tag 之间的内容作为输入。 |
-
+<div class="to-center">
+  <table>
+    <tr>
+      <th>命令</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>command &gt; file</td>
+      <td>将输出重定向到 file。</td>
+    </tr>
+    <tr>
+      <td>command &lt; file</td>
+      <td>将输入重定向到 file。</td>
+    </tr>
+    <tr>
+      <td>command &gt;&gt; file</td>
+      <td>将输出以追加的方式重定向到 file。</td>
+    </tr>
+    <tr>
+      <td>n &gt; file</td>
+      <td>将文件描述符为 n 的文件重定向到 file。</td>
+    </tr>
+    <tr>
+      <td>n &gt;&gt; file</td>
+      <td>将文件描述符为 n 的文件以追加的方式重定向到 file。</td>
+    </tr>
+    <tr>
+      <td>n &gt;& m</td>
+      <td>将输出文件 m 和 n 合并。</td>
+    </tr>
+    <tr>
+      <td>n &lt;& m</td>
+      <td>将输入文件 m 和 n 合并。</td>
+    </tr>
+    <tr>
+      <td>&lt;&lt; tag</td>
+      <td>将开始标记 tag 和结束标记 tag 之间的内容作为输入。</td>
+    </tr>
+  </table>
+</div>
 
 
 
 ## <a id = "All_Commands">Linux 命令大全</a>
-<hr>
 
-|                         1. 文件管理                          |                                                              |                                                              |                                                              |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|   [cat](https://www.runoob.com/linux/linux-comm-cat.html)    | [chattr](https://www.runoob.com/linux/linux-comm-chattr.html) | [chgrp](https://www.runoob.com/linux/linux-comm-chgrp.html)  | [chmod](https://www.runoob.com/linux/linux-comm-chmod.html)  |
-| [chown](https://www.runoob.com/linux/linux-comm-chown.html)  | [cksum](https://www.runoob.com/linux/linux-comm-cksum.html)  |   [cmp](https://www.runoob.com/linux/linux-comm-cmp.html)    |  [diff](https://www.runoob.com/linux/linux-comm-diff.html)   |
-| [diffstat](https://www.runoob.com/linux/linux-comm-diffstat.html) |  [file](https://www.runoob.com/linux/linux-comm-file.html)   |  [find](https://www.runoob.com/linux/linux-comm-find.html)   |   [git](https://www.runoob.com/linux/linux-comm-git.html)    |
-| [gitview](https://www.runoob.com/linux/linux-comm-gitview.html) | [indent](https://www.runoob.com/linux/linux-comm-indent.html) |   [cut](https://www.runoob.com/linux/linux-comm-cut.html)    |    [ln](https://www.runoob.com/linux/linux-comm-ln.html)     |
-|  [less](https://www.runoob.com/linux/linux-comm-less.html)   | [locate](https://www.runoob.com/linux/linux-comm-locate.html) | [lsattr](https://www.runoob.com/linux/linux-comm-lsattr.html) | [mattrib](https://www.runoob.com/linux/linux-comm-mattrib.html) |
-|    [mc](https://www.runoob.com/linux/linux-comm-mc.html)     |  [mdel](https://www.runoob.com/linux/linux-comm-mdel.html)   |  [mdir](https://www.runoob.com/linux/linux-comm-mdir.html)   | [mktemp](https://www.runoob.com/linux/linux-comm-mktemp.html) |
-|  [more](https://www.runoob.com/linux/linux-comm-more.html)   | [mmove](https://www.runoob.com/linux/linux-comm-mmove.html)  | [mread](https://www.runoob.com/linux/linux-comm-mread.html)  |  [mren](https://www.runoob.com/linux/linux-comm-mren.html)   |
-| [mtools](https://www.runoob.com/linux/linux-comm-mtools.html) | [mtoolstest](https://www.runoob.com/linux/linux-comm-mtoolstest.html) |    [mv](https://www.runoob.com/linux/linux-comm-mv.html)     |    [od](https://www.runoob.com/linux/linux-comm-od.html)     |
-| [paste](https://www.runoob.com/linux/linux-comm-paste.html)  | [patch](https://www.runoob.com/linux/linux-comm-patch.html)  |   [rcp](https://www.runoob.com/linux/linux-comm-rcp.html)    |    [rm](https://www.runoob.com/linux/linux-comm-rm.html)     |
-| [slocate](https://www.runoob.com/linux/linux-comm-slocate.html) | [split](https://www.runoob.com/linux/linux-comm-split.html)  |   [tee](https://www.runoob.com/linux/linux-comm-tee.html)    | [tmpwatch](https://www.runoob.com/linux/linux-comm-tmpwatch.html) |
-| [touch](https://www.runoob.com/linux/linux-comm-touch.html)  | [umask](https://www.runoob.com/linux/linux-comm-umask.html)  | [which](https://www.runoob.com/linux/linux-comm-which.html)  |    [cp](https://www.runoob.com/linux/linux-comm-cp.html)     |
-| [whereis](https://www.runoob.com/linux/linux-comm-whereis.html) | [mcopy](https://www.runoob.com/linux/linux-comm-mcopy.html)  | [mshowfat](https://www.runoob.com/linux/linux-comm-mshowfat.html) | [rhmask](https://www.runoob.com/linux/linux-comm-rhmask.html) |
-|   [scp](https://www.runoob.com/linux/linux-comm-scp.html)    |   [awk](https://www.runoob.com/linux/linux-comm-awk.html)    |  [read](https://www.runoob.com/linux/linux-comm-read.html)   | [updatedb](https://www.runoob.com/linux/linux-comm-updatedb.html) |
-|                       **2. 文档编辑**                        |                                                              |                                                              |                                                              |
-|   [col](https://www.runoob.com/linux/linux-comm-col.html)    | [colrm](https://www.runoob.com/linux/linux-comm-colrm.html)  |  [comm](https://www.runoob.com/linux/linux-comm-comm.html)   | [csplit](https://www.runoob.com/linux/linux-comm-csplit.html) |
-|    [ed](https://www.runoob.com/linux/linux-comm-ed.html)     | [egrep](https://www.runoob.com/linux/linux-comm-egrep.html)  |    [ex](https://www.runoob.com/linux/linux-comm-ex.html)     | [fgrep](https://www.runoob.com/linux/linux-comm-fgrep.html)  |
-|   [fmt](https://www.runoob.com/linux/linux-comm-fmt.html)    |  [fold](https://www.runoob.com/linux/linux-comm-fold.html)   |  [grep](https://www.runoob.com/linux/linux-comm-grep.html)   | [ispell](https://www.runoob.com/linux/linux-comm-ispell.html) |
-|   [jed](https://www.runoob.com/linux/linux-comm-jed.html)    |   [joe](https://www.runoob.com/linux/linux-comm-joe.html)    |  [join](https://www.runoob.com/linux/linux-comm-join.html)   |  [look](https://www.runoob.com/linux/linux-comm-look.html)   |
-| [mtype](https://www.runoob.com/linux/linux-comm-mtype.html)  |  [pico](https://www.runoob.com/linux/linux-comm-pico.html)   | [rgrep](https://www.runoob.com/linux/linux-comm-rgrep.html)  |   [sed](https://www.runoob.com/linux/linux-comm-sed.html)    |
-|  [sort](https://www.runoob.com/linux/linux-comm-sort.html)   | [spell](https://www.runoob.com/linux/linux-comm-spell.html)  |    [tr](https://www.runoob.com/linux/linux-comm-tr.html)     |  [expr](https://www.runoob.com/linux/linux-comm-expr.html)   |
-|  [uniq](https://www.runoob.com/linux/linux-comm-uniq.html)   |    [wc](https://www.runoob.com/linux/linux-comm-wc.html)     |   [let](https://www.runoob.com/linux/linux-comm-let.html)    |                                                              |
-|                       **3. 文件传输**                        |                                                              |                                                              |                                                              |
-|  [lprm](https://www.runoob.com/linux/linux-comm-lprm.html)   |   [lpr](https://www.runoob.com/linux/linux-comm-lpr.html)    |   [lpq](https://www.runoob.com/linux/linux-comm-lpq.html)    |   [lpd](https://www.runoob.com/linux/linux-comm-lpd.html)    |
-|   [bye](https://www.runoob.com/linux/linux-comm-bye.html)    |   [ftp](https://www.runoob.com/linux/linux-comm-ftp.html)    |  [uuto](https://www.runoob.com/linux/linux-comm-uuto.html)   | [uupick](https://www.runoob.com/linux/linux-comm-uupick.html) |
-|  [uucp](https://www.runoob.com/linux/linux-comm-uucp.html)   | [uucico](https://www.runoob.com/linux/linux-comm-uucico.html) |  [tftp](https://www.runoob.com/linux/linux-comm-tftp.html)   | [ncftp](https://www.runoob.com/linux/linux-comm-ncftp.html)  |
-| [ftpshut](https://www.runoob.com/linux/linux-comm-ftpshut.html) | [ftpwho](https://www.runoob.com/linux/linux-comm-ftpwho.html) | [ftpcount](https://www.runoob.com/linux/linux-comm-ftpcount.html) |                                                              |
-|                       **4. 磁盘管理**                        |                                                              |                                                              |                                                              |
-|    [cd](https://www.runoob.com/linux/linux-comm-cd.html)     |    [df](https://www.runoob.com/linux/linux-comm-df.html)     |  [dirs](https://www.runoob.com/linux/linux-comm-dirs.html)   |    [du](https://www.runoob.com/linux/linux-comm-du.html)     |
-| [edquota](https://www.runoob.com/linux/linux-comm-edquota.html) | [eject](https://www.runoob.com/linux/linux-comm-eject.html)  |   [mcd](https://www.runoob.com/linux/linux-comm-mcd.html)    | [mdeltree](https://www.runoob.com/linux/linux-comm-mdeltree.html) |
-|   [mdu](https://www.runoob.com/linux/linux-comm-mdu.html)    | [mkdir](https://www.runoob.com/linux/linux-comm-mkdir.html)  | [mlabel](https://www.runoob.com/linux/linux-comm-mlabel.html) |   [mmd](https://www.runoob.com/linux/linux-comm-mmd.html)    |
-|   [mrd](https://www.runoob.com/linux/linux-comm-mrd.html)    |  [mzip](https://www.runoob.com/linux/linux-comm-mzip.html)   |   [pwd](https://www.runoob.com/linux/linux-comm-pwd.html)    | [quota](https://www.runoob.com/linux/linux-comm-quota.html)  |
-| [mount](https://www.runoob.com/linux/linux-comm-mount.html)  | [mmount](https://www.runoob.com/linux/linux-comm-mmount.html) | [rmdir](https://www.runoob.com/linux/linux-comm-rmdir.html)  |   [rmt](https://www.runoob.com/linux/linux-comm-rmt.html)    |
-|  [stat](https://www.runoob.com/linux/linux-comm-stat.html)   |  [tree](https://www.runoob.com/linux/linux-comm-tree.html)   | [umount](https://www.runoob.com/linux/linux-comm-umount.html) |    [ls](https://www.runoob.com/linux/linux-comm-ls.html)     |
-| [quotacheck](https://www.runoob.com/linux/linux-comm-quotacheck.html) | [quotaoff](https://www.runoob.com/linux/linux-comm-quotaoff.html) | [lndir](https://www.runoob.com/linux/linux-comm-lndir.html)  | [repquota](https://www.runoob.com/linux/linux-comm-repquota.html) |
-| [quotaon](https://www.runoob.com/linux/linux-comm-quotaon.html) |                                                              |                                                              |                                                              |
-|                       **5. 磁盘维护**                        |                                                              |                                                              |                                                              |
-| [badblocks](https://www.runoob.com/linux/linux-comm-badblocks.html) | [cfdisk](https://www.runoob.com/linux/linux-comm-cfdisk.html) |    [dd](https://www.runoob.com/linux/linux-comm-dd.html)     | [e2fsck](https://www.runoob.com/linux/linux-comm-e2fsck.html) |
-| [ext2ed](https://www.runoob.com/linux/linux-comm-ext2ed.html) |  [fsck](https://www.runoob.com/linux/linux-comm-fsck.html)   | [fsck.minix](https://www.runoob.com/linux/linux-comm-fsck-minix.html) | [fsconf](https://www.runoob.com/linux/linux-comm-fsconf.html) |
-| [fdformat](https://www.runoob.com/linux/linux-comm-fdformat.html) | [hdparm](https://www.runoob.com/linux/linux-comm-hdparm.html) | [mformat](https://www.runoob.com/linux/linux-comm-mformat.html) | [mkbootdisk](https://www.runoob.com/linux/linux-comm-mkbootdisk.html) |
-| [mkdosfs](https://www.runoob.com/linux/linux-comm-mkdosfs.html) | [mke2fs](https://www.runoob.com/linux/linux-comm-mke2fs.html) | [mkfs.ext2](https://www.runoob.com/linux/linux-comm-mkfs-ext2.html) | [mkfs.msdos](https://www.runoob.com/linux/linux-comm-mkfs-msdos.html) |
-| [mkinitrd](https://www.runoob.com/linux/linux-comm-mkinitrd.html) | [mkisofs](https://www.runoob.com/linux/linux-comm-mkisofs.html) | [mkswap](https://www.runoob.com/linux/linux-comm-mkswap.html) | [mpartition](https://www.runoob.com/linux/linux-comm-mpartition.html) |
-| [swapon](https://www.runoob.com/linux/linux-comm-swapon.html) | [symlinks](https://www.runoob.com/linux/linux-comm-symlinks.html) |  [sync](https://www.runoob.com/linux/linux-comm-sync.html)   | [mbadblocks](https://www.runoob.com/linux/linux-comm-mbadblocks.html) |
-| [mkfs.minix](https://www.runoob.com/linux/linux-comm-mkfs-minix.html) | [fsck.ext2](https://www.runoob.com/linux/linux-comm-fsck-ext2.html) | [fdisk](https://www.runoob.com/linux/linux-comm-fdisk.html)  | [losetup](https://www.runoob.com/linux/linux-comm-losetup.html) |
-|  [mkfs](https://www.runoob.com/linux/linux-comm-mkfs.html)   | [sfdisk](https://www.runoob.com/linux/linux-comm-sfdisk.html) | [swapoff](https://www.runoob.com/linux/linux-comm-swapoff.html) |                                                              |
-|                       **6. 网络通讯**                        |                                                              |                                                              |                                                              |
-| [apachectl](https://www.runoob.com/linux/linux-comm-apachectl.html) | [arpwatch](https://www.runoob.com/linux/linux-comm-arpwatch.html) |   [dip](https://www.runoob.com/linux/linux-comm-dip.html)    | [getty](https://www.runoob.com/linux/linux-comm-getty.html)  |
-| [mingetty](https://www.runoob.com/linux/linux-comm-mingetty.html) |   [uux](https://www.runoob.com/linux/linux-comm-uux.html)    | [telnet](https://www.runoob.com/linux/linux-comm-telnet.html) | [uulog](https://www.runoob.com/linux/linux-comm-uulog.html)  |
-| [uustat](https://www.runoob.com/linux/linux-comm-uustat.html) | [ppp-off](https://www.runoob.com/linux/linux-comm-ppp-off.html) | [netconfig](https://www.runoob.com/linux/linux-comm-netconfig.html) |    [nc](https://www.runoob.com/linux/linux-comm-nc.html)     |
-| [httpd](https://www.runoob.com/linux/linux-comm-httpd.html)  | [ifconfig](https://www.runoob.com/linux/linux-comm-ifconfig.html) | [minicom](https://www.runoob.com/linux/linux-comm-minicom.html) |  [mesg](https://www.runoob.com/linux/linux-comm-mesg.html)   |
-| [dnsconf](https://www.runoob.com/linux/linux-comm-dnsconf.html) |  [wall](https://www.runoob.com/linux/linux-comm-wall.html)   | [netstat](https://www.runoob.com/linux/linux-comm-netstat.html) |  [ping](https://www.runoob.com/linux/linux-comm-ping.html)   |
-| [pppstats](https://www.runoob.com/linux/linux-comm-pppstats.html) | [samba](https://www.runoob.com/linux/linux-comm-samba.html)  | [setserial](https://www.runoob.com/linux/linux-comm-setserial.html) |  [talk](https://www.runoob.com/linux/linux-comm-talk.html)   |
-| [traceroute](https://www.runoob.com/linux/linux-comm-traceroute.html) |   [tty](https://www.runoob.com/linux/linux-comm-tty.html)    | [newaliases](https://www.runoob.com/linux/linux-comm-newaliases.html) | [uuname](https://www.runoob.com/linux/linux-comm-uuname.html) |
-| [netconf](https://www.runoob.com/linux/linux-comm-netconf.html) | [write](https://www.runoob.com/linux/linux-comm-write.html)  | [statserial](https://www.runoob.com/linux/linux-comm-statserial.html) |  [efax](https://www.runoob.com/linux/linux-comm-efax.html)   |
-| [pppsetup](https://www.runoob.com/linux/linux-comm-pppsetup.html) | [tcpdump](https://www.runoob.com/linux/linux-comm-tcpdump.html) | [ytalk](https://www.runoob.com/linux/linux-comm-ytalk.html)  |    [cu](https://www.runoob.com/linux/linux-comm-cu.html)     |
-|  [smbd](https://www.runoob.com/linux/linux-comm-smbd.html)   | [testparm](https://www.runoob.com/linux/linux-comm-testparm.html) | [smbclient](https://www.runoob.com/linux/linux-comm-smbclient.html) | [shapecfg](https://www.runoob.com/linux/linux-comm-shapecfg.html) |
-|                       **7. 系统管理**                        |                                                              |                                                              |                                                              |
-| [adduser](https://www.runoob.com/linux/linux-comm-adduser.html) |  [chfn](https://www.runoob.com/linux/linux-comm-chfn.html)   | [useradd](https://www.runoob.com/linux/linux-comm-useradd.html) |  [date](https://www.runoob.com/linux/linux-comm-date.html)   |
-|  [exit](https://www.runoob.com/linux/linux-comm-exit.html)   | [finger](https://www.runoob.com/linux/linux-comm-finger.html) | [fwhios](https://www.runoob.com/linux/linux-comm-fwhios.html) | [sleep](https://www.runoob.com/linux/linux-comm-sleep.html)  |
-| [suspend](https://www.runoob.com/linux/linux-comm-suspend.html) | [groupdel](https://www.runoob.com/linux/linux-comm-groupdel.html) | [groupmod](https://www.runoob.com/linux/linux-comm-groupmod.html) |  [halt](https://www.runoob.com/linux/linux-comm-halt.html)   |
-|  [kill](https://www.runoob.com/linux/linux-comm-kill.html)   |  [last](https://www.runoob.com/linux/linux-comm-last.html)   | [lastb](https://www.runoob.com/linux/linux-comm-lastb.html)  | [login](https://www.runoob.com/linux/linux-comm-login.html)  |
-| [logname](https://www.runoob.com/linux/linux-comm-logname.html) | [logout](https://www.runoob.com/linux/linux-comm-logout.html) |    [ps](https://www.runoob.com/linux/linux-comm-ps.html)     |  [nice](https://www.runoob.com/linux/linux-comm-nice.html)   |
-| [procinfo](https://www.runoob.com/linux/linux-comm-procinfo.html) |   [top](https://www.runoob.com/linux/linux-comm-top.html)    | [pstree](https://www.runoob.com/linux/linux-comm-pstree.html) | [reboot](https://www.runoob.com/linux/linux-comm-reboot.html) |
-| [rlogin](https://www.runoob.com/linux/linux-comm-rlogin.html) |   [rsh](https://www.runoob.com/linux/linux-comm-rsh.html)    | [sliplogin](https://www.runoob.com/linux/linux-comm-sliplogin.html) | [screen](https://www.runoob.com/linux/linux-comm-screen.html) |
-| [shutdown](https://www.runoob.com/linux/linux-comm-shutdown.html) |  [rwho](https://www.runoob.com/linux/linux-comm-rwho.html)   |  [sudo](https://www.runoob.com/linux/linux-comm-sudo.html)   | [gitps](https://www.runoob.com/linux/linux-comm-gitps.html)  |
-| [swatch](https://www.runoob.com/linux/linux-comm-swatch.html) | [tload](https://www.runoob.com/linux/linux-comm-tload.html)  | [logrotate](https://www.runoob.com/linux/linux-comm-logrotate.html) | [uname](https://www.runoob.com/linux/linux-comm-uname.html)  |
-|  [chsh](https://www.runoob.com/linux/linux-comm-chsh.html)   | [userconf](https://www.runoob.com/linux/linux-comm-userconf.html) | [userdel](https://www.runoob.com/linux/linux-comm-userdel.html) | [usermod](https://www.runoob.com/linux/linux-comm-usermod.html) |
-| [vlock](https://www.runoob.com/linux/linux-comm-vlock.html)  |   [who](https://www.runoob.com/linux/linux-comm-who.html)    | [whoami](https://www.runoob.com/linux/linux-comm-whoami.html) | [whois](https://www.runoob.com/linux/linux-comm-whois.html)  |
-| [newgrp](https://www.runoob.com/linux/linux-comm-newgrp.html) | [renice](https://www.runoob.com/linux/linux-comm-renice.html) |    [su](https://www.runoob.com/linux/linux-comm-su.html)     | [skill](https://www.runoob.com/linux/linux-comm-skill.html)  |
-|     [w](https://www.runoob.com/linux/linux-comm-w.html)      |    [id](https://www.runoob.com/linux/linux-comm-id.html)     | [groupadd](https://www.runoob.com/linux/linux-comm-groupadd.html) |  [free](https://www.runoob.com/linux/linux-comm-free.html)   |
-|                       **8. 系统设置**                        |                                                              |                                                              |                                                              |
-| [reset](https://www.runoob.com/linux/linux-comm-reset.html)  | [clear](https://www.runoob.com/linux/linux-comm-clear.html)  | [alias](https://www.runoob.com/linux/linux-comm-alias.html)  | [dircolors](https://www.runoob.com/linux/linux-comm-dircolors.html) |
-| [aumix](https://www.runoob.com/linux/linux-comm-aumix.html)  |  [bind](https://www.runoob.com/linux/linux-comm-bind.html)   | [chroot](https://www.runoob.com/linux/linux-comm-chroot.html) | [clock](https://www.runoob.com/linux/linux-comm-clock.html)  |
-| [crontab](https://www.runoob.com/linux/linux-comm-crontab.html) | [declare](https://www.runoob.com/linux/linux-comm-declare.html) | [depmod](https://www.runoob.com/linux/linux-comm-depmod.html) | [dmesg](https://www.runoob.com/linux/linux-comm-dmesg.html)  |
-| [enable](https://www.runoob.com/linux/linux-comm-enable.html) |  [eval](https://www.runoob.com/linux/linux-comm-eval.html)   | [export](https://www.runoob.com/linux/linux-comm-export.html) | [pwunconv](https://www.runoob.com/linux/linux-comm-pwunconv.html) |
-| [grpconv](https://www.runoob.com/linux/linux-comm-grpconv.html) |   [rpm](https://www.runoob.com/linux/linux-comm-rpm.html)    | [insmod](https://www.runoob.com/linux/linux-comm-insmod.html) | [kbdconfig](https://www.runoob.com/linux/linux-comm-kbdconfig.html) |
-|  [lilo](https://www.runoob.com/linux/linux-comm-lilo.html)   | [liloconfig](https://www.runoob.com/linux/linux-comm-liloconfig.html) | [lsmod](https://www.runoob.com/linux/linux-comm-lsmod.html)  | [minfo](https://www.runoob.com/linux/linux-comm-minfo.html)  |
-|   [set](https://www.runoob.com/linux/linux-comm-set.html)    | [modprobe](https://www.runoob.com/linux/linux-comm-modprobe.html) | [ntsysv](https://www.runoob.com/linux/linux-comm-ntsysv.html) | [mouseconfig](https://www.runoob.com/linux/linux-comm-mouseconfig.html) |
-| [passwd](https://www.runoob.com/linux/linux-comm-passwd.html) | [pwconv](https://www.runoob.com/linux/linux-comm-pwconv.html) | [rdate](https://www.runoob.com/linux/linux-comm-rdate.html)  | [resize](https://www.runoob.com/linux/linux-comm-resize.html) |
-| [rmmod](https://www.runoob.com/linux/linux-comm-rmmod.html)  | [grpunconv](https://www.runoob.com/linux/linux-comm-grpunconv.html) | [modinfo](https://www.runoob.com/linux/linux-comm-modinfo.html) |  [time](https://www.runoob.com/linux/linux-comm-time.html)   |
-| [setup](https://www.runoob.com/linux/linux-comm-setup.html)  | [sndconfig](https://www.runoob.com/linux/linux-comm-sndconfig.html) | [setenv](https://www.runoob.com/linux/linux-comm-setenv.html) | [setconsole](https://www.runoob.com/linux/linux-comm-setconsole.html) |
-| [timeconfig](https://www.runoob.com/linux/linux-comm-timeconfig.html) | [ulimit](https://www.runoob.com/linux/linux-comm-ulimit.html) | [unset](https://www.runoob.com/linux/linux-comm-unset.html)  | [chkconfig](https://www.runoob.com/linux/linux-comm-chkconfig.html) |
-|  [apmd](https://www.runoob.com/linux/linux-comm-apmd.html)   | [hwclock](https://www.runoob.com/linux/linux-comm-hwclock.html) | [mkkickstart](https://www.runoob.com/linux/linux-comm-mkkickstart.html) | [fbset](https://www.runoob.com/linux/linux-comm-fbset.html)  |
-| [unalias](https://www.runoob.com/linux/linux-comm-unalias.html) | [SVGATextMode](https://www.runoob.com/linux/linux-comm-svgatextmode.html) | [gpasswd](https://www.runoob.com/linux/linux-comm-gpasswd.html) |                                                              |
-|                       **9. 备份压缩**                        |                                                              |                                                              |                                                              |
-|    [ar](https://www.runoob.com/linux/linux-comm-ar.html)     | [bunzip2](https://www.runoob.com/linux/linux-comm-bunzip2.html) | [bzip2](https://www.runoob.com/linux/linux-comm-bzip2.html)  | [bzip2recover](https://www.runoob.com/linux/linux-comm-bzip2recover.html) |
-| [gunzip](https://www.runoob.com/linux/linux-comm-gunzip.html) | [unarj](https://www.runoob.com/linux/linux-comm-unarj.html)  | [compress](https://www.runoob.com/linux/linux-comm-compress.html) |  [cpio](https://www.runoob.com/linux/linux-comm-cpio.html)   |
-|  [dump](https://www.runoob.com/linux/linux-comm-dump.html)   | [uuencode](https://www.runoob.com/linux/linux-comm-uuencode.html) | [gzexe](https://www.runoob.com/linux/linux-comm-gzexe.html)  |  [gzip](https://www.runoob.com/linux/linux-comm-gzip.html)   |
-|   [lha](https://www.runoob.com/linux/linux-comm-lha.html)    | [restore](https://www.runoob.com/linux/linux-comm-restore.html) |   [tar](https://www.runoob.com/linux/linux-comm-tar.html)    | [uudecode](https://www.runoob.com/linux/linux-comm-uudecode.html) |
-| [unzip](https://www.runoob.com/linux/linux-comm-unzip.html)  |   [zip](https://www.runoob.com/linux/linux-comm-zip.html)    | [zipinfo](https://www.runoob.com/linux/linux-comm-zipinfo.html) |                                                              |
-|                       **10. 设备管理**                       |                                                              |                                                              |                                                              |
-| [setleds](https://www.runoob.com/linux/linux-comm-setleds.html) | [loadkeys](https://www.runoob.com/linux/linux-comm-loadkeys.html) |  [rdev](https://www.runoob.com/linux/linux-comm-rdev.html)   | [dumpkeys](https://www.runoob.com/linux/linux-comm-dumpkeys.html) |
-| [MAKEDEV](https://www.runoob.com/linux/linux-comm-makedev.html) | [poweroff](https://www.runoob.com/linux/linux-comm-poweroff.html) |                                                              |                                                              |
+<div class="to-center">
+    <table>
+        <tr>
+            <th>1. 文件管理</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cat.html'>cat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chattr.html'>chattr</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chgrp.html'>chgrp</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chmod.html'>chmod</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chown.html'>chown</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cksum.html'>cksum</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cmp.html'>cmp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-diff.html'>diff</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-diffstat.html'>diffstat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-file.html'>file</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-find.html'>find</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-git.html'>git</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gitview.html'>gitview</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-indent.html'>indent</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cut.html'>cut</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ln.html'>ln</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-less.html'>less</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-locate.html'>locate</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lsattr.html'>lsattr</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mattrib.html'>mattrib</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mc.html'>mc</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mdel.html'>mdel</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mdir.html'>mdir</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mktemp.html'>mktemp</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-more.html'>more</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mmove.html'>mmove</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mread.html'>mread</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mren.html'>mren</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mtools.html'>mtools</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mtoolstest.html'>mtoolstest</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mv.html'>mv</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-od.html'>od</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-paste.html'>paste</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-patch.html'>patch</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rcp.html'>rcp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rm.html'>rm</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-slocate.html'>slocate</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-split.html'>split</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tee.html'>tee</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tmpwatch.html'>tmpwatch</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-touch.html'>touch</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-umask.html'>umask</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-which.html'>which</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cp.html'>cp</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-whereis.html'>whereis</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mcopy.html'>mcopy</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mshowfat.html'>mshowfat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rhmask.html'>rhmask</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-scp.html'>scp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-awk.html'>awk</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-read.html'>read</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-updatedb.html'>updatedb</a></td>
+        </tr>
+        <tr>
+            <td><strong>2. 文档编辑</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-col.html'>col</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-colrm.html'>colrm</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-comm.html'>comm</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-csplit.html'>csplit</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ed.html'>ed</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-egrep.html'>egrep</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ex.html'>ex</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fgrep.html'>fgrep</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fmt.html'>fmt</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fold.html'>fold</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-grep.html'>grep</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ispell.html'>ispell</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-jed.html'>jed</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-joe.html'>joe</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-join.html'>join</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-look.html'>look</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mtype.html'>mtype</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pico.html'>pico</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rgrep.html'>rgrep</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sed.html'>sed</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sort.html'>sort</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-spell.html'>spell</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tr.html'>tr</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-expr.html'>expr</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uniq.html'>uniq</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-wc.html'>wc</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-let.html'>let</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>3. 文件传输</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lprm.html'>lprm</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lpr.html'>lpr</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lpq.html'>lpq</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lpd.html'>lpd</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-bye.html'>bye</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ftp.html'>ftp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uuto.html'>uuto</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uupick.html'>uupick</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uucp.html'>uucp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uucico.html'>uucico</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tftp.html'>tftp</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ncftp.html'>ncftp</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ftpshut.html'>ftpshut</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ftpwho.html'>ftpwho</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ftpcount.html'>ftpcount</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>4. 磁盘管理</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cd.html'>cd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-df.html'>df</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dirs.html'>dirs</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-du.html'>du</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-edquota.html'>edquota</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-eject.html'>eject</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mcd.html'>mcd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mdeltree.html'>mdeltree</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mdu.html'>mdu</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkdir.html'>mkdir</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mlabel.html'>mlabel</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mmd.html'>mmd</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mrd.html'>mrd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mzip.html'>mzip</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pwd.html'>pwd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-quota.html'>quota</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mount.html'>mount</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mmount.html'>mmount</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rmdir.html'>rmdir</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rmt.html'>rmt</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-stat.html'>stat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tree.html'>tree</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-umount.html'>umount</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ls.html'>ls</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-quotacheck.html'>quotacheck</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-quotaoff.html'>quotaoff</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lndir.html'>lndir</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-repquota.html'>repquota</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-quotaon.html'>quotaon</a></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>5. 磁盘维护</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-badblocks.html'>badblocks</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cfdisk.html'>cfdisk</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dd.html'>dd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-e2fsck.html'>e2fsck</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ext2ed.html'>ext2ed</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fsck.html'>fsck</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fsck-minix.html'>fsck.minix</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fsconf.html'>fsconf</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fdformat.html'>fdformat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-hdparm.html'>hdparm</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mformat.html'>mformat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkbootdisk.html'>mkbootdisk</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkdosfs.html'>mkdosfs</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mke2fs.html'>mke2fs</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkfs-ext2.html'>mkfs.ext2</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkfs-msdos.html'>mkfs.msdos</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkinitrd.html'>mkinitrd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkisofs.html'>mkisofs</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkswap.html'>mkswap</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mpartition.html'>mpartition</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-swapon.html'>swapon</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-symlinks.html'>symlinks</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sync.html'>sync</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mbadblocks.html'>mbadblocks</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkfs-minix.html'>mkfs.minix</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fsck-ext2.html'>fsck.ext2</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fdisk.html'>fdisk</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-losetup.html'>losetup</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkfs.html'>mkfs</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sfdisk.html'>sfdisk</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-swapoff.html'>swapoff</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>6. 网络通讯</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-apachectl.html'>apachectl</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-arpwatch.html'>arpwatch</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dip.html'>dip</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-getty.html'>getty</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mingetty.html'>mingetty</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uux.html'>uux</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-telnet.html'>telnet</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uulog.html'>uulog</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uustat.html'>uustat</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ppp-off.html'>ppp-off</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-netconfig.html'>netconfig</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-nc.html'>nc</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-httpd.html'>httpd</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ifconfig.html'>ifconfig</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-minicom.html'>minicom</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mesg.html'>mesg</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dnsconf.html'>dnsconf</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-wall.html'>wall</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-netstat.html'>netstat</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ping.html'>ping</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pppstats.html'>pppstats</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-samba.html'>samba</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-setserial.html'>setserial</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-talk.html'>talk</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-traceroute.html'>traceroute</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tty.html'>tty</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-newaliases.html'>newaliases</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uuname.html'>uuname</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-netconf.html'>netconf</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-write.html'>write</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-statserial.html'>statserial</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-efax.html'>efax</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pppsetup.html'>pppsetup</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tcpdump.html'>tcpdump</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ytalk.html'>ytalk</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cu.html'>cu</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-smbd.html'>smbd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-testparm.html'>testparm</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-smbclient.html'>smbclient</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-shapecfg.html'>shapecfg</a></td>
+        </tr>
+        <tr>
+            <td><strong>7. 系统管理</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-adduser.html'>adduser</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chfn.html'>chfn</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-useradd.html'>useradd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-date.html'>date</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-exit.html'>exit</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-finger.html'>finger</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fwhios.html'>fwhios</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sleep.html'>sleep</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-suspend.html'>suspend</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-groupdel.html'>groupdel</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-groupmod.html'>groupmod</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-halt.html'>halt</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-kill.html'>kill</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-last.html'>last</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lastb.html'>lastb</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-login.html'>login</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-logname.html'>logname</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-logout.html'>logout</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ps.html'>ps</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-nice.html'>nice</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-procinfo.html'>procinfo</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-top.html'>top</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pstree.html'>pstree</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-reboot.html'>reboot</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rlogin.html'>rlogin</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rsh.html'>rsh</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sliplogin.html'>sliplogin</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-screen.html'>screen</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-shutdown.html'>shutdown</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rwho.html'>rwho</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sudo.html'>sudo</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gitps.html'>gitps</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-swatch.html'>swatch</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tload.html'>tload</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-logrotate.html'>logrotate</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uname.html'>uname</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chsh.html'>chsh</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-userconf.html'>userconf</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-userdel.html'>userdel</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-usermod.html'>usermod</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-vlock.html'>vlock</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-who.html'>who</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-whoami.html'>whoami</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-whois.html'>whois</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-newgrp.html'>newgrp</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-renice.html'>renice</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-su.html'>su</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-skill.html'>skill</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-w.html'>w</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-id.html'>id</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-groupadd.html'>groupadd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-free.html'>free</a></td>
+        </tr>
+        <tr>
+            <td><strong>8. 系统设置</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-reset.html'>reset</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-clear.html'>clear</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-alias.html'>alias</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dircolors.html'>dircolors</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-aumix.html'>aumix</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-bind.html'>bind</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chroot.html'>chroot</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-clock.html'>clock</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-crontab.html'>crontab</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-declare.html'>declare</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-depmod.html'>depmod</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dmesg.html'>dmesg</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-enable.html'>enable</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-eval.html'>eval</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-export.html'>export</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pwunconv.html'>pwunconv</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-grpconv.html'>grpconv</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rpm.html'>rpm</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-insmod.html'>insmod</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-kbdconfig.html'>kbdconfig</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lilo.html'>lilo</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-liloconfig.html'>liloconfig</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lsmod.html'>lsmod</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-minfo.html'>minfo</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-set.html'>set</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-modprobe.html'>modprobe</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ntsysv.html'>ntsysv</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mouseconfig.html'>mouseconfig</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-passwd.html'>passwd</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-pwconv.html'>pwconv</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rdate.html'>rdate</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-resize.html'>resize</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rmmod.html'>rmmod</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-grpunconv.html'>grpunconv</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-modinfo.html'>modinfo</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-time.html'>time</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-setup.html'>setup</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-sndconfig.html'>sndconfig</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-setenv.html'>setenv</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-setconsole.html'>setconsole</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-timeconfig.html'>timeconfig</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ulimit.html'>ulimit</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-unset.html'>unset</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-chkconfig.html'>chkconfig</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-apmd.html'>apmd</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-hwclock.html'>hwclock</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-mkkickstart.html'>mkkickstart</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-fbset.html'>fbset</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-unalias.html'>unalias</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-svgatextmode.html'>SVGATextMode</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gpasswd.html'>gpasswd</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>9. 备份压缩</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-ar.html'>ar</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-bunzip2.html'>bunzip2</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-bzip2.html'>bzip2</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-bzip2recover.html'>bzip2recover</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gunzip.html'>gunzip</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-unarj.html'>unarj</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-compress.html'>compress</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-cpio.html'>cpio</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dump.html'>dump</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uuencode.html'>uuencode</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gzexe.html'>gzexe</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-gzip.html'>gzip</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-lha.html'>lha</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-restore.html'>restore</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-tar.html'>tar</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-uudecode.html'>uudecode</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-unzip.html'>unzip</a>
+            </td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-zip.html'>zip</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-zipinfo.html'>zipinfo</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>10. 设备管理</strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-setleds.html'>setleds</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-loadkeys.html'>loadkeys</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-rdev.html'>rdev</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-dumpkeys.html'>dumpkeys</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.runoob.com/linux/linux-comm-makedev.html'>MAKEDEV</a></td>
+            <td><a href='https://www.runoob.com/linux/linux-comm-poweroff.html'>poweroff</a></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+
 
 ------
 

@@ -1,3 +1,23 @@
+<style>
+.to-center {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin:auto;
+}
+
+table {
+  border-collapse: collapse;
+  align: center;
+  text-align: center;
+}
+
+table, tr, th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+</style>
 
 # 8086CPU汇编
 
@@ -109,13 +129,44 @@
 
 ###### 几条简单的汇编指令
 
-| 汇编指令  | 控制CPU完成的操作            | 高级语言描述 |
-| --------- | ---------------------------- | ------------ |
-| MOV AX,18 | 将18存入寄存器AX             | AX=18        |
-| MOV AH,78 | 将78送进寄存器AH             | AH=78        |
-| ADD AX,8  | 将寄存器AX中的数值加8        | AX=AX+8      |
-| MOV AX,BX | 将寄存器BX中的数据送入AX     | AX = BX      |
-| ADD AX,BX | 将AX和BX中的数值相加，存入AX | AX=AX+BX     |
+<div class="to-center">
+  <table>
+      <thead>
+          <tr>
+              <th>汇编指令</th>
+              <th>控制CPU完成的操作</th>
+              <th>高级语言描述</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>MOV AX,18</td>
+              <td>将18存入寄存器AX</td>
+              <td>AX=18</td>
+          </tr>
+          <tr>
+              <td>MOV AH,78</td>
+              <td>将78送进寄存器AH</td>
+              <td>AH=78</td>
+          </tr>
+          <tr>
+              <td>ADD AX,8</td>
+              <td>将寄存器AX中的数值加8</td>
+              <td>AX=AX+8</td>
+          </tr>
+          <tr>
+              <td>MOV AX,BX</td>
+              <td>将寄存器BX中的数据送入AX</td>
+              <td>AX = BX</td>
+          </tr>
+          <tr>
+              <td>ADD AX,BX</td>
+              <td>将AX和BX中的数值相加，存入AX</td>
+              <td>AX=AX+BX</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
 
 - 一般来说汇编语言使用的数值偏向于16进制，便于表示
 
@@ -500,11 +551,26 @@ mov ax, cs:[0]
 ```
 
 ###### ASCII码（美国标准信息交换码）（常见的）
-
-| Hex Code | Normal Language |
-| :------: | :-------------: |
-|   41H    |        A        |
-|   61H    |        a        |
+<div class="to-center">
+    <table>
+        <thead>
+            <tr>
+                <th style='text-align:center;'>Hex Code</th>
+                <th style='text-align:center;'>Normal Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style='text-align:center;'>41H</td>
+                <td style='text-align:center;'>A</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>61H</td>
+                <td style='text-align:center;'>a</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ###### 以字符的形式给出数据
 
@@ -583,12 +649,35 @@ mov ax, cs:[0]
 - 只要在`[...]`使用`bp` 而指令没有显式的给出段地址，段地址就默认存储在`ss`中
 
 ###### 处理的数据在什么地方
+<div class="to-center">
+  <table>
+      <thead>
+          <tr>
+              <th style='text-align:center;'>机器码</th>
+              <th>汇编指令</th>
+              <th style='text-align:center;'>执行前数据的位置</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style='text-align:center;'>8E1E0000</td>
+              <td>mov bx,[0]</td>
+              <td style='text-align:center;'>内存，ds:0单元</td>
+          </tr>
+          <tr>
+              <td style='text-align:center;'>89C3</td>
+              <td>mov bx,ax</td>
+              <td style='text-align:center;'>CPU内部，ax寄存器</td>
+          </tr>
+          <tr>
+              <td style='text-align:center;'>BB0100</td>
+              <td>mov bx,1</td>
+              <td style='text-align:center;'>CPU内部，指令缓冲器</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
 
-|  机器码  | 汇编指令   |  执行前数据的位置   |
-| :------: | ---------- | :-----------------: |
-| 8E1E0000 | mov bx,[0] |   内存，ds:0单元    |
-|   89C3   | mov bx,ax  |  CPU内部，ax寄存器  |
-|  BB0100  | mov bx,1   | CPU内部，指令缓冲器 |
 
 ###### 三种数据位置表达
 
@@ -1215,17 +1304,46 @@ CPU外部的中断请求
 
 
 ## Dosbox 实操
-
-| 命令 | 内容                                                         |
-| ---- | ------------------------------------------------------------ |
-| R    | 查看、改变CPU寄存器内容                                      |
-| D    | 查看内存中的内容                                             |
-| E    | 改写内存中的内容                                             |
-| U    | 将内存中的内容单一为汇编指令                                 |
-| T    | 执行一条机器指令                                             |
-| A    | 以汇编指令格式在内存中写入一条机器指令                       |
-| P    | debug 一个可执行的程序中断（int 21h）时，以结束程序（仍在debug内） |
-
+<div class="to-center">
+  <table>
+    <thead>
+        <tr>
+            <th>命令</th>
+            <th>内容</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>R</td>
+            <td>查看、改变CPU寄存器内容</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>查看内存中的内容</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>改写内存中的内容</td>
+        </tr>
+        <tr>
+            <td>U</td>
+            <td>将内存中的内容单一为汇编指令</td>
+        </tr>
+        <tr>
+            <td>T</td>
+            <td>执行一条机器指令</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>以汇编指令格式在内存中写入一条机器指令</td>
+        </tr>
+        <tr>
+            <td>P</td>
+            <td>debug 一个可执行的程序中断（int 21h）时，以结束程序（仍在debug内）</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 
 ###  实验九
