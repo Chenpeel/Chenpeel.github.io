@@ -32,7 +32,7 @@ NFL定理: 具体问题, 具体分析.
 - Underfitting(欠拟合)
 - Overfitting(过拟合)
 
-![image-20230925213330855](../imgs/image-20230925213330855.png) 
+![image-20230925213330855](../public/imgs/image-20230925213330855.png) 
 
 
 
@@ -94,7 +94,7 @@ $$
 
 
 
- ![image-20230925224501316](../imgs/image-20230925224501316.png)
+ ![image-20230925224501316](../public/imgs/image-20230925224501316.png)
 
 - 查准率: $P=\cfrac{TP}{TP+FP}$
 - 查全率: $R=\cfrac{TP}{TP+FN}$
