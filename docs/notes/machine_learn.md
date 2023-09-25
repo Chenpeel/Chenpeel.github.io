@@ -7,12 +7,10 @@
     overflow: hidden;
     border-radius: 10px;
   }
-
   #pdf-content {
     width: 100%;
     height: 100%;
   }
-
   #page-number {
     text-align: center;
     margin-top: 10px;
@@ -20,20 +18,19 @@
 </style>
 
 <div id="pdf-container">
-    <embed id="pdf-content" src="./ml.pdf" type="application/pdf" width="100%" height="200%">
+    <embed id="pdf-content" src="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/machine_learn_pdf/All-in-one.pdf" type="application/pdf" width="100%" height="200%">
 </div>
+
 <div id="page-number">Math Foundations PDF</div>
 
-
-<center>Download DIVIDED & MERGED PDF on  <a href="https://github.com/Chenpeel/Codes/tree/master/Jupyter/ML/machine_learn_pdf" text-indent="none">GitHub</a>  /  <a href="https://gitee.com/chenyh43/ML/tree/master/machine_learn_pdf" text-indent="none">Gitee</a></center>
+<center>Download DIVIDED & MERGED PDF on  <a href="https://github.com/Chenpeel/Codes/tree/master/Jupyter/ML/machine_learn_pdf" text-indent="none">GitHub</a>  /  <a href="https://gitee.com/chenyh43/ML/tree/master/machine_learn_pdf" text-indent="none">Gitee</a> </center>
 
 <hr>
 <br><br>
 
 # Living Examples
 ## KNN
-
-—— K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
+——K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
 
 - 可以用于分类和回归
 
@@ -48,15 +45,15 @@
 
 ##### Codes
 
-<a href="https://github.com/Chenpeel/Code_Learning/tree/master/jupyter/KNN">KNN Python</a>
+<a href="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/KNN.ipynb"> KNN Python </a>
 
-<a href="./">KNN C++</a>
+<!-- <a href="./"> KNN C++ </a> -->
 
 
 
 ## 线性回归
 
-—— 线性拟合自变量与因变量之间的关系 $y= w^0 + w^1x^1+w^2x^2 +\cdot\cdot\cdot+w^nx^n =\displaystyle \sum_{i=0}^{n}w^{i}x^{i} = W^{T}X$
+——线性拟合自变量与因变量之间的关系 $y= w^0 + w^1x^1+w^2x^2 +\cdot\cdot\cdot+w^nx^n =\displaystyle \sum_{i=0}^{n}w^{i}x^{i} = W^{T}X$
 
 ##### 目标函数
 
