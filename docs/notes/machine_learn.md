@@ -32,7 +32,7 @@ NFL定理: 具体问题, 具体分析.
 - Underfitting(欠拟合)
 - Overfitting(过拟合)
 
-![image-20230925213330855](../public/imgs/image-20230925213330855.png) 
+![image-20230925213330855](/imgs/image-20230925213330855.png) 
 
 
 
@@ -89,12 +89,12 @@ $$
 
 $$
 A(f,X) = \cfrac{1}{m}\displaystyle \sum \limits_{i=1}^{m}  I \cdot (f(x_i) = y_i) 
-\ = 1-E(f,X)
+\ \\= 1-E(f,X)
 $$
 
 
 
- ![image-20230925224501316](../public/imgs/image-20230925224501316.png)
+ ![image-20230925224501316](/imgs/image-20230925224501316.png)
 
 - 查准率: $P=\cfrac{TP}{TP+FP}$
 - 查全率: $R=\cfrac{TP}{TP+FN}$
@@ -102,7 +102,7 @@ $$
 - $F_{\beta}$度量:
 
 $$
-\cfrac{1}{F_{\beta}} = \cfrac{1}{1+{\beta}^2} \cdot \left(\cfrac{1}{P} + \cfrac{{\beta}^2}{R}\right), \quad \text{当} \begin{cases}
+\cfrac{1}{F_{\beta}} = \cfrac{1}{1+{\beta}^2} \cdot \left(\cfrac{1}{P} + \cfrac{{\beta}^2}{R}\right) \\ \text{当} \begin{cases}
 \beta < 1, & \text{查准率影响更大} \\
 \beta > 1, & \text{查全率影响更大}
 \end{cases}
@@ -128,7 +128,7 @@ $$
 
 #### 1. 线性回归
 
-$y \backsimeq \displaystyle \sum_{i=1}^{m} w_ix_i + b = w^Tx+b $
+$y \backsimeq \displaystyle \sum_{i=1}^{m} w_ix_i + b = w^Tx+b$
 
 - 离散变量
   - 有序: 0,1,2
@@ -136,7 +136,7 @@ $y \backsimeq \displaystyle \sum_{i=1}^{m} w_ix_i + b = w^Tx+b $
 
 令均方误差最小化:
 $$
-(w^*,b^*) = \arg\min_\limits{(w,b)} \displaystyle \sum_\limits{i=1}^{m} (f(x_i)-y_i)^2 = 
+(w^*,b^*) = \arg\min_\limits{(w,b)} \displaystyle \sum_\limits{i=1}^{m} (f(x_i)-y_i)^2 \\ = 
 \arg \min_\limits{(w,b)} \displaystyle \sum_{i=1}^{m} (wx_i + b - y_i)^2
 $$
 对$E(w,b)= \displaystyle \sum_{i=1}^{m}(wx_i+b-y_i)^2$ 
@@ -149,24 +149,24 @@ $\cfrac {\partial E(w,b)}{\partial b} = 2 \left( mb- \displaystyle\sum_{i=1}^{m}
 
 令导数为0,得到闭式(closed-form)解:
 
-$w = \cfrac {\displaystyle\sum_{i=1}^{m} y_i(x_i-\overline {x})} {\displaystyle\sum_{i=1}^{m}x_i^2 - \cfrac{1}{m}\left(\displaystyle\sum_{i=1}^{m}x_i \right)^2},\quad b =\cfrac{1}{m}\displaystyle\sum_{i=1}^{m}(y_i -wx_i)$
+$w = \cfrac {\displaystyle\sum_{i=1}^{m} y_i(x_i-\overline {x})} {\displaystyle\sum_{i=1}^{m}x_i^2 - \cfrac{1}{m}\left(\displaystyle\sum_{i=1}^{m}x_i \right)^2} \\ b =\cfrac{1}{m}\displaystyle\sum_{i=1}^{m}(y_i -wx_i)$
 
 
 
 #### 2. 多元(multi-variate)线性回归
 
-$y \backsimeq  w_0 + w^1x^1+w^2x^2 +\cdot \cdot \cdot+w^nx^n =\displaystyle \sum_{i=0}^{m}w^{i}x^{i} = W^{T}X$
+$y \backsimeq  w_0 + w^1x^1+w^2x^2 +\cdot \cdot \cdot+w^nx^n $
+
+$=\displaystyle \sum_{i=0}^{m}w^{i}x^{i} = W^{T}X$
 
 后面我们对观测集,采用下面记号:
 
-$$
-X : \text{data} \longrightarrow X_{N \times p} = \begin{bmatrix}
+$X : \text{data} \\ X_{N \times p} = \begin{bmatrix}
 x_{11} & x_{12} & \dots & x_{1p} \\
 x_{21} & x_{22} & \dots & x_{2p} \\
 \vdots & \vdots & \ddots & \vdots \\
 x_{N1} & x_{N2} & \dots & x_{Np}
-\end{bmatrix} = (x_1,x_2,x_3,\cdots,x_N)^T
-$$
+\end{bmatrix} \\ = (x_1,x_2,x_3,\cdots,x_N)^T$
 
 其中$x_i = (x_{i1},x_{i2},\cdots,x_{ip})^T \quad (i \in N)$
 
@@ -192,6 +192,42 @@ $\hat w^* = \arg\min_\limits{\hat w} (y-X\hat w)^T(y-X\hat w)$
 $$
 y = g^{-1} (W^TX)
 $$
+
+例如对于$f(x) = e^{W^TX}$ 可以通过对其求$\ln$ 来降幂从而达到线性拟合,如下图
+
+<img src="/imgs/func1.png" />
+
+
+
+#### 4. 对率回归:
+
+> 对数几率回归(logistic regression) 简称对率回归
+>
+> $ \cfrac{y}{1-y} \longrightarrow  \cfrac{P(postive |X)}{P(negetive|X)}$ :几率(odds) 即 log odds $\longrightarrow$ logit 
+
+对于线性回归模型产生的实值输出$z = W^TX$和期望输出$y\in \{0,1\}$
+
+理想函数 $y(z) = \begin{cases} 0,& z<0 \\ 0.5, &z =0 \\ 1 ,& z>0 \end {cases}$的函数性质较差,因此寻找如下替代函数$y = \cfrac{1}{1+e^{-z}}$
+
+<img src="/imgs/func.png" />
+
+相比之下,替代函数的性质更好
+
+- 对率函数(logistic function)与逻辑没有任何关系
+- 实值函数,在$y \in (0,1)$ 连续
+- 用回归模型做分类
+
+因此对 $y =\cfrac{1}{1+e^{-z}},\quad z =W^TX \\ \Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y} = W^TX$
+
+- 无需事先进行假设数据分布
+- 可以得到“类别”的近似概率预测
+- 可直接应用现有数值优化算法求取最优解
+
+
+
+
+
+
 
 
 
