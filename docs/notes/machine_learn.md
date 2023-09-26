@@ -87,10 +87,9 @@ $$
 
 - 精度Acc:
 
-$$
-A(f,X) = \cfrac{1}{m}\displaystyle \sum \limits_{i=1}^{m}  I \cdot (f(x_i) = y_i) 
-\ \\= 1-E(f,X)
-$$
+$A(f,X) = \cfrac{1}{m}\displaystyle \sum \limits_{i=1}^{m}  I \cdot (f(x_i) = y_i)$
+
+$= 1-E(f,X)$
 
 
 
@@ -101,14 +100,12 @@ $$
 - $F_1$度量: $\cfrac{1}{F_1} = \cfrac{1}{2} \cdot (\cfrac{1}{P} + \cfrac{1}{R})$
 - $F_{\beta}$度量:
 
-$$
-\cfrac{1}{F_{\beta}} = \cfrac{1}{1+{\beta}^2} \cdot \left(\cfrac{1}{P} + \cfrac{{\beta}^2}{R}\right) \\ \text{当} \begin{cases}
+$\cfrac{1}{F_{\beta}} = \cfrac{1}{1+{\beta}^2} \cdot \left(\cfrac{1}{P} + \cfrac{{\beta}^2}{R}\right)$
+
+$\text{当} \begin{cases}
 \beta < 1, & \text{查准率影响更大} \\
 \beta > 1, & \text{查全率影响更大}
-\end{cases}
-$$
-
-
+\end{cases}$
 
 ###  3. 比较检验
 
@@ -135,10 +132,11 @@ $y \backsimeq \displaystyle \sum_{i=1}^{m} w_ix_i + b = w^Tx+b$
   - 无序: 001,010,100 (k维向量)
 
 令均方误差最小化:
-$$
-(w^*,b^*) = \arg\min_\limits{(w,b)} \displaystyle \sum_\limits{i=1}^{m} (f(x_i)-y_i)^2 \\ = 
-\arg \min_\limits{(w,b)} \displaystyle \sum_{i=1}^{m} (wx_i + b - y_i)^2
-$$
+
+$(w^*,b^*) = \arg\min_\limits{(w,b)} \displaystyle \sum_\limits{i=1}^{m} (f(x_i)-y_i)^2$
+
+$=\arg \min_\limits{(w,b)} \displaystyle \sum_{i=1}^{m} (wx_i + b - y_i)^2$
+
 对$E(w,b)= \displaystyle \sum_{i=1}^{m}(wx_i+b-y_i)^2$ 
 
 - 最小二乘法估计
@@ -149,7 +147,9 @@ $\cfrac {\partial E(w,b)}{\partial b} = 2 \left( mb- \displaystyle\sum_{i=1}^{m}
 
 令导数为0,得到闭式(closed-form)解:
 
-$w = \cfrac {\displaystyle\sum_{i=1}^{m} y_i(x_i-\overline {x})} {\displaystyle\sum_{i=1}^{m}x_i^2 - \cfrac{1}{m}\left(\displaystyle\sum_{i=1}^{m}x_i \right)^2} \\ b =\cfrac{1}{m}\displaystyle\sum_{i=1}^{m}(y_i -wx_i)$
+$w = \cfrac {\displaystyle\sum_{i=1}^{m} y_i(x_i-\overline {x})} {\displaystyle\sum_{i=1}^{m}x_i^2 - \cfrac{1}{m}\left(\displaystyle\sum_{i=1}^{m}x_i \right)^2}$
+
+$b =\cfrac{1}{m}\displaystyle\sum_{i=1}^{m}(y_i -wx_i)$
 
 
 
@@ -166,7 +166,9 @@ x_{11} & x_{12} & \dots & x_{1p} \\
 x_{21} & x_{22} & \dots & x_{2p} \\
 \vdots & \vdots & \ddots & \vdots \\
 x_{N1} & x_{N2} & \dots & x_{Np}
-\end{bmatrix} \\ = (x_1,x_2,x_3,\cdots,x_N)^T$
+\end{bmatrix}$
+
+$= (x_1,x_2,x_3,\cdots,x_N)^T$
 
 其中$x_i = (x_{i1},x_{i2},\cdots,x_{ip})^T \quad (i \in N)$
 
@@ -217,7 +219,9 @@ $$
 - 实值函数,在$y \in (0,1)$ 连续
 - 用回归模型做分类
 
-因此对 $y =\cfrac{1}{1+e^{-z}},\quad z =W^TX \\ \Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y} = W^TX$
+因此对 $y =\cfrac{1}{1+e^{-z}},\quad z =W^TX$
+
+$\Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y} = W^TX$
 
 - 无需事先进行假设数据分布
 - 可以得到“类别”的近似概率预测
