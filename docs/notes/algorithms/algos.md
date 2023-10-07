@@ -12,7 +12,8 @@
 
 > 时间复杂度
 
-$O(1) < O(log_2n)<O(n) < O(\sqrt n) < O(nlog_2 {n} < O(n^c)< O(c^n) < O(n!)$
+$O(1) < O(log_2n)<O(n) < O(\sqrt n)$
+$<O(nlog_2^{n}) < O(n^c)< O(c^n) < O(n!)$
 
 
 

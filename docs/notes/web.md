@@ -105,7 +105,7 @@
   
   <meta name = "robots" content = "CONTENT">
 ```
-  
+
 
   - robots告诉搜素引擎机器人抓取哪些页面
 
@@ -162,7 +162,7 @@
   <meta http-equiv = "expires" content="Sat, 26 Feb 2022 08:00:00 GMT"/>
   <!-- 指定到期时间 -->
 ```
-  
+
 
 
 
@@ -233,7 +233,7 @@
   <!-- 主体内容 -->
   </body>
 ```
-  
+
 
 - 标记属性
 
@@ -243,7 +243,7 @@
   
   <body leftmargin="50px" topmargin="50px" text="#000000" bgcolor="#339999" link="red" alink="black" vlink="blue" background="../imags/1.jpg">
 ```
-  
+
 
   - 属性详情
 
@@ -498,7 +498,7 @@
     	</rt>
   </ruby>
 ```
-  
+
 
 
 
@@ -636,7 +636,7 @@
 </table>
 </div>
   
-  
+
 
 ## 字体
 
@@ -780,7 +780,7 @@
 </tbody>
 </table>
 </div>
-  
+
 - 链接也可用于下载文件、访问FTP服务器、打开图片详情、发送电子邮件，如下
 ```html
   
@@ -796,7 +796,7 @@
   </a>
   
 ```
-  
+
 
 
 
@@ -854,9 +854,9 @@
     ...
   </ul>
 ```
-  
 
-  
+
+
 
 <div class="to-center"> 
 <table>
@@ -897,7 +897,7 @@
     ...
   </ol>
 ```
-  
+
 
   - `start` ：数值，有序列表中的起始数值
   - `typr` ：可以是 数字、大小写的字母、大小写的罗马字母
@@ -931,7 +931,7 @@
   </table>
 </div>
 
-    
+​    
 
 - 定义列表（difined list）
 
@@ -946,7 +946,7 @@
   	  <dd>describ2</dd>
   </dl>
 ```
-  
+
 
 ## 表格
 
@@ -1151,7 +1151,7 @@
 </table>
 </div>
 
-  
+
 
 
 
@@ -1235,7 +1235,7 @@
   	<area shape="circle" croods="0,0,100" href="http://example.com" alt="example">
   </map>
 ```
-    
+
 
 <div class="to-center"> 
 <table>
@@ -1324,16 +1324,16 @@
   |   value   |   自定义   |          规定input元素的值          |
   |  checked  |  checked   | 规定此input元素首次加载时应当被选中 |
   | maxlength | $$ \Z_+ $$ |     规定输入字段的最大字符长度      |
-  
+
   >  label标签和input共同作用
-  
+
 ```html
   
   <label for="text"> 用户名：</label><input type="text" id = "text"> 
 ```
-  
+
 ![](/imgs/image-20230723193656094.jpg)
-  
+
   点击“用户名”三字就可输入文字等等
 
 - select
@@ -1346,7 +1346,7 @@
 	<option>选项3</option>
 </select>
 ```
-  
+
 
 ![](/imgs/image-20230723194536444.jpg)
 
@@ -1354,7 +1354,7 @@
 ```html
 <textarea cols="100" rows="20">点击输入文字……</textarea>
 ```
-  
+
 
 ![](/imgs/image-20230723195005236.jpg)
 
@@ -1426,7 +1426,7 @@
   
   <link rel="stylesheet" src="source_path">
 ```
-  
+
 
 - 一个css文件可以作用于多个html
 
@@ -1481,9 +1481,9 @@
   </body>
   </html>
 ```
-  
 
-  
+
+
 
 ## <a id="id">id选择器</a>
 
@@ -1529,9 +1529,9 @@
   
   </html>
 ```
-  
 
-  
+
+
 
 ## 子元素选择器
 
@@ -1561,7 +1561,7 @@
   
   </html>
 ```
-  
+
 
 ## 并集选择器
 
@@ -1589,9 +1589,9 @@
   
   </html>
 ```
-  
 
-  
+
+
 
 ## 伪类选择器
 
@@ -1652,7 +1652,7 @@
   
   </html>
 ```
-  
+
 
 - 值的注意的是：关于链接伪类的使用是有先后次序的，一般按照LVHA的次序即`link->visited->hover->active`
 

@@ -29,7 +29,8 @@ export default defineConfig({
         items: [
           { text: 'Vim', link: '/tools/Vim' },
           { text: 'Cmake', link: '/tools/Cmake' },
-          { text: 'Markdown', link: '/tools/Markdown' }
+          { text: 'Markdown', link: '/tools/Markdown' },
+          { text: 'Text-Input', link: '/tools/wubi' }
         ]
       },
       {
@@ -81,6 +82,7 @@ export default defineConfig({
               { text: '《毛诗序》', link: '/literature/POEM/毛诗序',},
               { text: '《关雎》', link: '/literature/POEM/关雎',},
               { text: '《葛覃》', link: '/literature/POEM/葛覃'},
+              { text: '《苍耳》', link: '/literature/POEM/苍耳'},
             ]
           }
         ]

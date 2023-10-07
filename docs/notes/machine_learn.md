@@ -79,9 +79,7 @@ $$
 
 - 错误率Err:
 
-$$
-E(f,X) = \cfrac{1}{m} \displaystyle \sum \limits_{i=1}^{m} I \cdot (f(x_i)\ne y_i)
-$$
+$E(f,X) = \cfrac{1}{m} \displaystyle \sum \limits_{i=1}^{m} I \cdot (f(x_i)\ne y_i)$
 
 
 
@@ -161,7 +159,7 @@ $=\displaystyle \sum_{i=0}^{m}w^{i}x^{i} = W^{T}X$
 
 后面我们对观测集,采用下面记号:
 
-$X : \text{data} \\ X_{N \times p} = \begin{bmatrix}
+$X_{N \times p} = \begin{bmatrix}
 x_{11} & x_{12} & \dots & x_{1p} \\
 x_{21} & x_{22} & \dots & x_{2p} \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -205,7 +203,7 @@ $$
 
 > 对数几率回归(logistic regression) 简称对率回归
 >
-> $ \cfrac{y}{1-y} \longrightarrow  \cfrac{P(postive |X)}{P(negetive|X)}$ :几率(odds) 即 log odds $\longrightarrow$ logit 
+> $\cfrac{y}{1-y} \longrightarrow  \cfrac{P(postive |X)}{P(negetive|X)}$ :几率(odds) 即 log odds $\longrightarrow$ logit 
 
 对于线性回归模型产生的实值输出$z = W^TX$和期望输出$y\in \{0,1\}$
 
