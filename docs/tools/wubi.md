@@ -38,7 +38,7 @@
 
 一级简码：一
 
-<img src="../public/imgs/image-20231007223058428.png" class="inline-img-responsive">
+<img src="../public/imgs/image-20231007223058428.png" >
 
 ###### 12F
 
@@ -46,7 +46,7 @@
 
 一级简码：地
 
-<img  src="../public/imgs/image-20231007223810114.png" class="inline-img-responsive">
+<img  src="../public/imgs/image-20231007223810114.png">
 
 ###### 13D
 
@@ -54,7 +54,7 @@
 
 一级简码：在
 
-<img src="../public/imgs/image-20231007224536846.png" class="inline-img-responsive">
+<img src="../public/imgs/image-20231007224536846.png">
 
 ###### 14S
 
@@ -62,7 +62,7 @@
 
 一级简码：要
 
-<img src="../public/imgs/image-20231007224916995.png" class="inline-img-responsive">
+<img src="../public/imgs/image-20231007224916995.png">
 
 ###### 15A
 
@@ -70,7 +70,7 @@
 
 一级简码：工
 
-<img src="../public/imgs/image-20231007225610315.png" class="inline-img-responsive"> 
+<img src="../public/imgs/image-20231007225610315.png"> 
 
 
 
