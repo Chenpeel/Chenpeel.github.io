@@ -337,7 +337,7 @@
 
 - `<h1></h1>`
 
-- `## `
+- `<h2></h2>`
 
 - `<h3></h3>`
 
@@ -1164,67 +1164,67 @@
 - `<img src="" alt="" >`
 
 <div class="to-center"> 
-<table>
-            <thead>
-                <tr>
-                    <th>Attribute</th>
-                    <th>Value</th>
-                    <th>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>alt</td>
-                    <td>text</td>
-                    <td>图像显示错误的替代文本</td>
-                </tr>
-                <tr>
-                    <td>src</td>
-                    <td>URL/PATH</td>
-                    <td>显示的源</td>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>text</td>
-                    <td>图像名称</td>
-                </tr>
-                <tr>
-                    <td>height</td>
-                    <td>pixels/%</td>
-                    <td>图高</td>
-                </tr>
-                <tr>
-                    <td>width</td>
-                    <td>pixels/%</td>
-                    <td>图宽</td>
-                </tr>
-                <tr>
-                    <td>align</td>
-                    <td>top|middle|bottom<br />left|center|right</td>
-                    <td>如何在文本中排布</td>
-                </tr>
-                <tr>
-                    <td>border</td>
-                    <td>pixels</td>
-                    <td>周围边框</td>
-                </tr>
-                <tr>
-                    <td>hspace</td>
-                    <td>pexels</td>
-                    <td>左右侧空白</td>
-                </tr>
-                <tr>
-                    <td>vspace</td>
-                    <td>pixels</td>
-                    <td>顶部和底部空白</td>
-                </tr>
-                <tr>
-                    <td>usemap</td>
-                    <td>URL</td>
-                    <td>将图像定义为客户端图像映射</td>
-                </tr>
-            </tbody>
-        </table>
+  <table>
+      <thead>
+          <tr>
+              <th>Attribute</th>
+              <th>Value</th>
+              <th>Explaination</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>alt</td>
+              <td>text</td>
+              <td>图像显示错误的替代文本</td>
+          </tr>
+          <tr>
+              <td>src</td>
+              <td>URL/PATH</td>
+              <td>显示的源</td>
+          </tr>
+          <tr>
+              <td>name</td>
+              <td>text</td>
+              <td>图像名称</td>
+          </tr>
+          <tr>
+              <td>height</td>
+              <td>pixels/%</td>
+              <td>图高</td>
+          </tr>
+          <tr>
+              <td>width</td>
+              <td>pixels/%</td>
+              <td>图宽</td>
+          </tr>
+          <tr>
+              <td>align</td>
+              <td>top|middle|bottom<br />left|center|right</td>
+              <td>如何在文本中排布</td>
+          </tr>
+          <tr>
+              <td>border</td>
+              <td>pixels</td>
+              <td>周围边框</td>
+          </tr>
+          <tr>
+              <td>hspace</td>
+              <td>pexels</td>
+              <td>左右侧空白</td>
+          </tr>
+          <tr>
+              <td>vspace</td>
+              <td>pixels</td>
+              <td>顶部和底部空白</td>
+          </tr>
+          <tr>
+              <td>usemap</td>
+              <td>URL</td>
+              <td>将图像定义为客户端图像映射</td>
+          </tr>
+        </tbody>
+    </table>
 </div>
 
   - usemap 可以映像跳转到其他，如下
@@ -1303,27 +1303,92 @@
 
   > type属性值和描述如下：
 
-  |   Key    |                  Explaination                  |
-  | :------: | :--------------------------------------------: |
-  |  button  |        定义点击按钮，用于通过js启动脚本        |
-  | checkbox |                     复选框                     |
-  |   file   |      定义输入字段和“浏览”按钮，供文件上传      |
-  |  hidden  |               定义隐藏的输入字段               |
-  |  image   |             定义图像形式的提交按钮             |
-  | password |               定义密码字段，隐文               |
-  |  radio   |                  定义单选按钮                  |
-  |  reset   |       定义重置按钮，以清除表单的所有数据       |
-  |  submit  |        定义提交按钮，将数据发送给服务器        |
-  |   text   | 定义单行的输入字段，用户可输入文本，默认20字符 |
+<div class="to-center">
+<table>
+    <thead>
+        <tr>
+            <th style='text-align:center;'>Key</th>
+            <th style='text-align:center;'>Explaination</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style='text-align:center;'>button</td>
+            <td style='text-align:center;'>定义点击按钮，用于通过js启动脚本</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>checkbox</td>
+            <td style='text-align:center;'>复选框</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>file</td>
+            <td style='text-align:center;'>定义输入字段和“浏览”按钮，供文件上传</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>hidden</td>
+            <td style='text-align:center;'>定义隐藏的输入字段</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>image</td>
+            <td style='text-align:center;'>定义图像形式的提交按钮</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>password</td>
+            <td style='text-align:center;'>定义密码字段，隐文</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>radio</td>
+            <td style='text-align:center;'>定义单选按钮</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>reset</td>
+            <td style='text-align:center;'>定义重置按钮，以清除表单的所有数据</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>submit</td>
+            <td style='text-align:center;'>定义提交按钮，将数据发送给服务器</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>text</td>
+            <td style='text-align:center;'>定义单行的输入字段，用户可输入文本，默认20字符</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+> 其他属性
 
-  > 其他属性：
+<table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Attribute</th>
+                    <th style='text-align:center;'>Key</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>name</td>
+                    <td style='text-align:center;'>自定义</td>
+                    <td style='text-align:center;'>定义input元素的名称</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>value</td>
+                    <td style='text-align:center;'>自定义</td>
+                    <td style='text-align:center;'>规定input元素的值</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>checked</td>
+                    <td style='text-align:center;'>checked</td>
+                    <td style='text-align:center;'>规定此input元素首次加载时应当被选中</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>maxlength</td>
+                    <td style='text-align:center;'> $\Z_+$  </td>
+                    <td style='text-align:center;'>规定输入字段的最大字符长度</td>
+                </tr>
+            </tbody>
+        </table>
 
-  | Attribute |    Key     |            Explaination             |
-  | :-------: | :--------: | :---------------------------------: |
-  |   name    |   自定义   |         定义input元素的名称         |
-  |   value   |   自定义   |          规定input元素的值          |
-  |  checked  |  checked   | 规定此input元素首次加载时应当被选中 |
-  | maxlength | $$ \Z_+ $$ |     规定输入字段的最大字符长度      |
 
   >  label标签和input共同作用
 
@@ -1355,8 +1420,7 @@
 <textarea cols="100" rows="20">点击输入文字……</textarea>
 ```
 
-
-![](/imgs/image-20230723195005236.jpg)
+<img src="/imgs/image-20230723195005236.jpg">
 
 
 
@@ -1366,9 +1430,8 @@
 
 ```html
 <body>
-  <iframe src="https://github.com/Chenpeel/Notes-of-CS/tree/master/pics/1.jpeg" name="test" width="1400" height="1100" frameborder="1" marginwidth="300" marginheight="100" scolling="yes">
-    
-  </iframe>
+	<iframe src="https://chenpeel.github.io/notes/web" name="test" width="1400" height="1100" frameborder="1" marginwidth="300" marginheight="100" scrolling="yes">
+	</iframe>
 </body>
 ```
 
@@ -1597,17 +1660,53 @@
 
 - 使用`:`来表示常用的有链接伪类、结构伪类等
 
-  |     Name     |            Explaination             |
-  | :----------: | :---------------------------------: |
-  |     link     |     设置a标记在未被访问前的样式     |
-  |    hover     |     设置a标记在鼠标悬停时的样式     |
-  |    active    | 设置a标记在被点击和释放之间时的样式 |
-  |   visited    |      设置a标记在被访问后的样式      |
-  | first-letter |   作用于块，设置第一个字符的样式    |
-  |  first-line  |     作用于块，设置第一行的样式      |
-  | first-child  |       设置第一个子标记的样式        |
-  |     lang     |    设置具有lang属性的标记的样式     |
 
+<div class="to-center">
+    <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Name</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>link</td>
+                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hover</td>
+                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>active</td>
+                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>visited</td>
+                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-letter</td>
+                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-line</td>
+                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-child</td>
+                    <td style='text-align:center;'>设置第一个子标记的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>lang</td>
+                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+​        
 ```html
   
   <!DOCTYPE html>
@@ -1667,9 +1766,172 @@
 
 
 
+## CSS盒模型
+
+>  网页中的每一个元素都可以看作一个矩形盒子，通常使用DIV+ CSS的方式来定义一个盒子的元素和样式
+
+- CSS盒模型，将特定的元素描述为盒子，并实现对这个盒子包装进行美化，其中重要的概念**MBPC**
+  - Margin：外边界，多个盒子、或盒子与其他物体堆放其之间的间隔
+  - Border：边界，盒子的实在的边界，如纸盒子的纸皮（纸皮厚度可以是0，假想皮）
+  - Padding：填充，承载玻璃时，盒子里常用泡沫或减压泡泡减震，这些泡沫减压层就是填充物
+  - Content：内容，每一个盒子，都是为了包装存在，没有了被包装物，盒子也就不存在了
+  - 四周：每个盒子都是完整的包围content的，即MBPC有四个基本边界属性（top、right、bottom、left），他们都可以使用长度单位、百分比单位、auto这样的样式值调整边界宽度
+
+#### Margin
+
+>  一般是盒子外面的那一层空气，只有厚度没有颜色
+
+#### Border
+
+> 可以使用不同颜色、不同材质的材料的盒子将内容包装起来
+
+同样的，可以使用诸如样式、颜色、宽度等来设置border边界
+
+###### border
+
+> 可以使用一个复合定义粗细、样式、颜色
+
+```css
+#default{
+  border: /* border-width */ 2px /* border-style */ thin  /* border-color */ red;
+}
+```
+
+###### border-style
+
+<div class="to-center">
+  <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Key</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>none</td>
+                    <td style='text-align:center;'>定义无边框</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hidden</td>
+                    <td style='text-align:center;'>与none相同，用于表时例外，用于解决边界冲突</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>dotted</td>
+                    <td style='text-align:center;'>定义点状边框</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>dashed</td>
+                    <td style='text-align:center;'>定义虚线</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>solid</td>
+                    <td style='text-align:center;'>定义实线</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>double</td>
+                    <td style='text-align:center;'>定义双线。宽度等于border-width</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>groove</td>
+                    <td style='text-align:center;'>定义3D凹槽边框。效果取决于border-color</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>ridge</td>
+                    <td style='text-align:center;'>定义山脊状边框。效果取决于border-color</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>inset</td>
+                    <td style='text-align:center;'>定义使页面沉入感边框。效果取决于border-color</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>outset</td>
+                    <td style='text-align:center;'>定义使页面浮出感边框。效果取决于border-color</td>
+                </tr>
+            </tbody>
+      </table>
+</div>
+
+###### border-color
+
+<a href="#color">颜色</a>
+
+> 可以指定单独一边的颜色
+
+```css
+#default{
+  border-color:pink;
+}
+#side-color-set{
+  border-top-color:red;
+  border-left-color:rgb(254,20,35);
+  .
+  .
+  .
+}
+```
+
+###### border-width
+
+> 设置边框宽度
+
+默认medium，thin小于默认、thick大于默认、length可见<a href="unit">单位</a>
+
+#### Padding
+
+> 盒子的填充物样式也可控制
 
 
-## 单位
+
+## 页面布局
+
+> 规整的页面布局看上去十分赏心悦目
+
+- 经典的布局方式是三行模式（header、main、footer）、三列模式（sidebar、main、info）
+
+- 两者可以相结合（header、main{main_leftside、main_content、main_rightside}、footer），即三行三列
+- 三行两列模式是三行三列去除leftside或rightside列的结果
+
+> 在一些网站，会有多行多列的样式
+
+这里是三行三列的基本元素定义
+
+```html
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>cache</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="logo"></div>
+            <div id="nav"></div> /* 导航栏 */
+        </div>
+        <div id="main">
+            <div id="left"></div>
+            <div id="content"></div>
+            <div id="right"></div>
+        </div>
+
+        <div class="clearfloat"></div> /*清除浮动*/
+        
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+## <a id="unit">单位</a>
 
 ## 绝对单位
 
@@ -1696,26 +1958,97 @@
 
 ## 文字
 
-|  Attribute   |            Key            |               Explaination               |
-| :----------: | :-----------------------: | :--------------------------------------: |
-| font-family  | "Microsoft YaHei" , Arial | 默认使用第一个，本地无此字体则使用下一个 |
-|  font-size   |        number + px        |               定义文字大小               |
-|  font-style  |        number + px        |            字体样式，倾斜 ...            |
-| font-weight  | number \|  normal \| ...  |                 字体宽度                 |
-| font-variant |   normal \| small-caps    |       正常字体/小型的大写字母字体        |
-|     font     |         复合使用          |    综合上述属性，最少要有size和family    |
+<div class="to-center">
+      <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Name</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>link</td>
+                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hover</td>
+                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>active</td>
+                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>visited</td>
+                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-letter</td>
+                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-line</td>
+                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-child</td>
+                    <td style='text-align:center;'>设置第一个子标记的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>lang</td>
+                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>        
+
 ## 文本
 
-|    Attribute    |                             Key                              |                         Explaination                         |
-| :-------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|      color      | 直接使用英文如red/blue<br>或者使用`#ff00ff`<br>或者使用`rgb(255,0,0)`<br>同<a href="#color">颜色</a> |                           文本颜色                           |
-|   text-align    |                      left/center/right                       |                   左对齐，居中对齐，右对齐                   |
-| text-decoration |             none/underline/overline/line-through             |               取消划线，下划线，上划线，删除线               |
-|   text-indent   |                 number + px \| number  + em                  |               缩进像素大小/缩进多少个文字大小                |
-|   line-height   |                         number + px                          |                    文字上下两行之间的距离                    |
-| letter-spacing  |                      normal \| em/ex...                      |                           字符间距                           |
-| text-transform  |         capitalize \| uppercase \| lowercase \| none         |              首字母大写、转大写、转小写、不转换              |
-| vertical-align  |      top \| middle \| bottom \| text-top \| text-bottom      | 元素顶端与行中最高元素顶端对齐 、<br/>元素放置在父元素中部、<br/>元素顶端与行中最低元素的顶端对齐、<br/>元素顶端与父元素字体顶端对齐、<br/>元素底端与父元素字体底端对齐 |
+<div class="to-center">
+    <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Name</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>link</td>
+                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hover</td>
+                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>active</td>
+                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>visited</td>
+                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-letter</td>
+                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-line</td>
+                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-child</td>
+                    <td style='text-align:center;'>设置第一个子标记的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>lang</td>
+                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
 
 
 
@@ -1727,37 +2060,165 @@
 >
 > 常用颜色编码如下
 
-|  Name   | Hexadecimal |   rgb  Percentage   |   rgb  Integer   |
-| :-----: | :---------: | :-----------------: | :--------------: |
-|  black  |   #000000   |    rgb(0%,0%,0%)    |    rgb(0,0,0)    |
-|  white  |   #FFFFFF   | rgb(100%,100%,100%) | rgb(255,255,255) |
-|   red   |   #FF0000   |   rgb(100%,0%,0%)   |   rgb(255,0,0)   |
-| yellow  |   #FFFF00   |  rgb(100%,100%,0%)  |  rgb(255,255,0)  |
-|  lime   |   #00FF00   |   rgb(0%,100%,0%)   |   rgb(0,255,0)   |
-|  aqua   |   #00FFFF   |  rgb(0%,100%,100%)  |  rgb(0,255,255)  |
-|  blue   |   #0000FF   |   rgb(0%,0%,100%)   |  rgb(0,255,255)  |
-| fuchsia |   #FF00FF   |  rgb(100%,0%,100%)  |  rgb(255,0,255)  |
-|  gray   |   #808080   |  rgb(50%,50%,50%)   | rgb(128,128,128) |
-| silver  |   #c0c0c0   |  rgb(75%,75%,75%)   | rgb(192,192,192) |
-| maroon  |   #800000   |   rgb(50%,0%,0%)    |   rgb(128,0,0)   |
-|  olive  |   #808000   |   rgb(50%,50%,0%)   |  rgb(128,128,0)  |
-|  green  |   #008000   |   rgb(0%,50%,0%)    |   rgb(0,128,0)   |
-|  teal   |   #008080   |   rgb(0%,50%,50%)   |  rgb(0,128,128)  |
+<div class="to-center">
+      <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Name</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>link</td>
+                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hover</td>
+                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>active</td>
+                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>visited</td>
+                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-letter</td>
+                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-line</td>
+                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-child</td>
+                    <td style='text-align:center;'>设置第一个子标记的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>lang</td>
+                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
 
 ## 背景
 
 > 指定背景色彩、图案等，可以直接使用复合属性background
 
-|       Attribute       |                             Key                              |                Explaination                |
-| :-------------------: | :----------------------------------------------------------: | :----------------------------------------: |
-|   background-color    |                  <a href="#color">如上</a>                   |                  背景颜色                  |
-|   background-image    |                         url \| none                          |                  背景图案                  |
-|   background-repeat   |         repeat \| repeat-x \| repeat-y \| no-repeat          | 在背景图小于指定元素的情况下，是否充分填充 |
-| background-attachment |                       scroll \| fixed                        |          背景图案是否跟随元素滚动          |
-|  background-position  | left\|center\|right<br />top\|center\|bottom<br />x%\|y%<br />xpos\|ypos |             背景图案的起始位置             |
+<div class="to-center">
+    <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Name</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>link</td>
+                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>hover</td>
+                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>active</td>
+                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>visited</td>
+                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-letter</td>
+                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-line</td>
+                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>first-child</td>
+                    <td style='text-align:center;'>设置第一个子标记的样式</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>lang</td>
+                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+###### background-image
 
+> 设置背景图片
 
+```css
+#default{
+  background-image:url("Path");
+}
+```
 
+###### background-repeat
+
+> 背景重复
+
+<div class="to-center">
+    <table>
+            <thead>
+                <tr>
+                    <th style='text-align:center;'>Key</th>
+                    <th style='text-align:center;'>Explaination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style='text-align:center;'>repeat</td>
+                    <td style='text-align:center;'>使用背景图完全覆盖</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>repeat-x</td>
+                    <td style='text-align:center;'>背景水平方向从左到右重叠覆盖</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>repeat-y</td>
+                    <td style='text-align:center;'>背景垂直方向从上到下重叠覆盖</td>
+                </tr>
+                <tr>
+                    <td style='text-align:center;'>no-repeat</td>
+                    <td style='text-align:center;'>不使用重复方式</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+###### background-attachment
+
+> 背景附件，是否随着图像一起滚动
+
+```css
+#default{
+  background-attachment:scroll /* 文字页面滚动时，跟随滚动 */ ;
+}
+#static{
+  background-attachment:fixed /* 固定 */;
+}
+
+```
+
+###### background-position
+
+> 定位方式可以是百分比、px、两者混用等方式
+
+```css
+#default{
+  background: 50%px/* 横向 */ 50%-100px /* 纵向 */
+}
+```
 
 
 
