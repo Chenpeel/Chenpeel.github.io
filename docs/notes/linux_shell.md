@@ -812,46 +812,7 @@ PID    COMMAND      %CPU  TIME     #TH   #WQ  #PORT MEM    PURG   CMPRS  PGRP  P
 
 
 
-###### <a id="grep">GREP</a>
 
-grep用于查找文件或文件中符合条件的字符串或正则表达式
-
-如果某个目录下文件太多,或某个文件字符信息太多就可以使用
-
-```bash
-❯ grep -r python=python3
-./.zshrc:alias python=python3
-
-❯ time grep -r "alias python=python3"
-./.zshrc:alias python=python3
-^C
-grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox} -r   11.67s user 0.44s system 97% cpu 12.470 total
-
-
-❯ cat python/basic_learn/basic_lan/*.py  | grep import
-from math import pow
-count(text)import math
-import turtle
-from  turtle import *
-done()from turtle import*
-done()from turtle import *
-from datetime import datetime
-from PIL import Image
-from PIL import ImageFilter
-# The most important function is the  ** turtle.write() **
-from turtle import *
-from math import sqrt
-from math import radians
-from turtle import *
-import turtle
-
-```
-
-其中的`|` 为管道符,就是将上一条命令的输出通过管道流向下一条命令作为输入
-
-不要轻易使用`-r`递归查找,system 占用97% 😧
-
-正则的水很深,要好好把握🫴,值得细细学习
 
 
 
@@ -1769,7 +1730,7 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
 
 ## <a id="special">特殊符号</a>
 
-<h2>参数处理</h2>
+### 参数处理
 <div class="to-center">
   <table>
     <tr>
@@ -1811,7 +1772,7 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
   </table>
 </div>
 
-  <h2>关系运算符</h2>
+### 关系运算符
 <div class="to-center">
   <table>
     <tr>
@@ -1844,7 +1805,8 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
     </tr>
   </table>
 </div>
-  <h2>布尔运算符</h2>
+
+### 布尔运算符
 <div class="to-center">
   <table>
     <tr>
@@ -1865,7 +1827,7 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
     </tr>
   </table>
 </div>
-  <h2>字符串运算符</h2>
+### 字符串运算符
 <div class="to-center">
   <table>
     <tr>
@@ -1894,7 +1856,8 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
     </tr>
   </table>
 </div>
-  <h2>操作符</h2>
+
+### 操作符
 <div class="to-center">
   <table>
     <tr>
@@ -1969,6 +1932,7 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
     </tr>
   </table>
 </div>  
+
 其他检查符：
 
 - `-S` 判断某文件是否socket
@@ -2017,6 +1981,335 @@ funWithFib 1 1 2 3 5 8 13 21 34 55 89 144
     </tr>
   </table>
 </div>
+
+
+## <a id="RegExp">正则表达式</a>
+
+> regual expression，用于处理大量字符串和文本文件
+>
+> 在linux中仅有**sed**、**awk**、**grep**支持正则表达式，而通配符则是大部分普通命令所支持的
+
+- grep：文本过滤工具，（模式：pattern）工具
+- sed：stream editor，流编辑器，文本编辑工具
+- awk：（GNU awk）Linux的文本报告生成器（格式化文本）
+
+
+
+#### 基本正则表达式
+
+> BRE
+
+- 匹配字符
+- 匹配次数
+- 位置锚定
+
+<div class="to-center">
+<table>
+    <tr>
+      <th>符号</th>
+      <th>作用</th>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>用于模式的最左侧，匹配以特定字符开头的行</td>
+    </tr>
+    <tr>
+    	<td>$</td>
+      <td>用于模式的最右侧，匹配以特定字符结尾的行</td>
+    </tr>
+    <tr>
+      <td>^$</td>
+      <td>组合符，表示空行</td>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>匹配任意一个且有且只有一个字符，不能匹配空行</td>
+    </tr>
+    <tr>
+      <td>\</td>
+      <td>转义字符，还原特殊字符本意</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>匹配前一个字符（连续出现）0次或1次以上，重复0次代表空，即匹配所有内容</td>
+    </tr>
+    <tr>
+      <td>.*</td>
+      <td>匹配所有内容</td>
+    </tr>
+    <tr>
+      <td>^.*</td>
+      <td>匹配任意多个字符开头的内容</td>
+    </tr>
+    <tr>
+      <td>.*$</td>
+      <td>匹配任意多个字符结尾的内容</td>
+    </tr>
+    <tr>
+      <td>[abc]</td>
+      <td>匹配[]集合内的任意一个字符([a-c]也可)</td>
+    </tr>
+    <tr>
+      <td>[^abc]</td>
+      <td>匹配除了^后面的任意字符，^表示对[abc]的取反，等同于[d-z]</td>
+    </tr>
+  </table>
+</div>
+
+
+
+#### 拓展正则表达式
+
+> ERE
+
+扩展的正则表达式必须使用`grep -E`才能生效
+
+<div class="to-center">
+<table>
+    <tr>
+      <th>符号</th>
+      <th>作用</th>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td>匹配前一个字符1次或多次</td>
+    </tr>
+    <tr>
+    	<td>[:/]+</td>
+      <td>匹配括号内的":"或者"/"一次或多次</td>
+    </tr>
+    <tr>
+      <td>?</td>
+      <td>匹配前一个字符0次或1次</td>
+    </tr>
+    <tr>
+      <td>｜</td>
+      <td>表示或者，同时过滤多个字符串</td>
+    </tr>
+    <tr>
+      <td>()</td>
+      <td>分组过滤，被括起来内容代表一个整体</td>
+    </tr>
+    <tr>
+      <td>a{n,m}</td>
+      <td>匹配前一个字符最少n次最多m次</td>
+    </tr>
+    <tr>
+      <td>a{n,}</td>
+      <td>匹配前一个字符最少n次</td>
+    </tr>
+    <tr>
+      <td>a{n}</td>
+      <td>匹配前一个字符恰好n次</td>
+    </tr>
+    <tr>
+      <td>a{,m}</td>
+      <td>匹配前一个字符最多m次</td>
+    </tr>
+  </table>
+</div>
+
+
+
+##### <a id="grep">GREP</a>
+
+> Global search REgular expression and Print out the line
+
+作用：文本搜索工具，根据指定的pattern对目标进行逐行匹配检查，打印匹配到的行信息
+
+pattern： 由正则表达式的元字符及文本字符所编写的过滤条件
+
+```bash
+# 语法
+# grep [options] "pattern" file
+# 命令 参数 匹配模式 文件数据
+grep     -n -i       ^A        file
+# -i：ignorecase，忽略字符大小写
+# -o：仅显示匹配到的字符本身
+# -w：斤匹配过滤的单词
+# -v,--invert-match：显示不能被模式匹配到的行
+# -E：支持使用扩展的正则表达式元字符
+# -q,--quiet,--silent：静默模式，即不输出任何信息
+# -r: recursion，递归查找
+# -n：娴熟匹配行与行号
+# --color=auto：为过滤结果添加颜色
+# -c：止痛剂匹配的行数
+```
+
+> 它可以从文本文件或管道流中，筛选匹配的行和数据
+
+```bash
+grep -n -i ^grep  linux_shell.md
+1494:grep "^From " $message
+2122:grep     -n -i       ^A        file
+```
+
+##### <a id="sed">SED</a>
+
+> Stream EDitor流编辑
+
+```bash
+# 语法
+# sed [options] "sed内置命令字符" file
+
+# [options]
+# -n：取消默认sed输出，常与内置命令p一起使用
+# -i：直接修改源文件，不用-i，修改的是内存数据
+# -e：多次编辑，无需管道符了
+# -r：支持正则扩展
+
+# [sed内置命令字符]
+# a：append，对文本进行追加，在指定的行后面添加一行或多行文本
+# d：delete，删除匹配行
+# i：insert，表示插入文本，在指定行前添加一行或多行
+# p：print，打印匹配行的内容
+# s/正则/替换内容/g： 替换符合的所有字符，g表global，也可以使用s###、s@@@，在vim中只可以用/
+```
+
+sed匹配范围
+
+<div class="to-center">
+<table>
+    <tr>
+      <th>范围</th>
+      <th>解释</th>
+    </tr>
+    <tr>
+      <td>空地址</td>
+      <td>全文处理</td>
+    </tr>
+    <tr>
+    	<td>单地址</td>
+      <td>指定文件的某一行</td>
+    </tr>
+    <tr>
+      <td>/pattern/</td>
+      <td>被模式匹配到的每一行</td>
+    </tr>
+    <tr>
+      <td>范围区间</td>
+      <td>10,20 十到二十行； 10,+5第十行向下五行；/pattern1/,/pattern2/多个模式</td>
+    </tr>
+    <tr>
+      <td>步长</td>
+      <td>1~2表示1、3、5、7、9；2~2表示2、4、6、8、10行</td>
+    </tr>
+  </table>
+</div>
+
+
+
+##### <a id="awk">AWK</a>
+
+> 由 Alfred Aho、Peter Weinberger 和 Brian Kernighan 首字母命名的文本处理工具和编程语言
+>
+> 支持判断、数组、循环、函数等功能
+
+```bash
+# 语法
+
+# awk [options] "pattern" {action} file
+```
+
+```bash
+cat test.txt
+test_awk1 test_awk2 test_awk3 test_awk4 test_awk5 test_awk6 test_awk7 test_awk8 test_awk9 test_awk10
+test_awk11 test_awk12 test_awk13 test_awk14 test_awk15 test_awk16 test_awk17 test_awk18 test_awk19 test_awk20
+test_awk21 test_awk22 test_awk23 test_awk24 test_awk25 test_awk26 test_awk27 test_awk28 test_awk29 test_awk30
+test_awk31 test_awk32 test_awk33 test_awk34 test_awk35 test_awk36 test_awk37 test_awk38 test_awk39 test_awk40
+test_awk41 test_awk42 test_awk43 test_awk44 test_awk45 test_awk46 test_awk47 test_awk48 test_awk49 test_awk50
+
+
+awk '{print $1}' test.txt 
+#输出第一列
+test_awk1
+test_awk11
+test_awk21
+test_awk31
+test_awk41
+
+awk '{print $0}' test.txt
+#输出所有列
+test_awk1 test_awk2 test_awk3 test_awk4 test_awk5 test_awk6 test_awk7 test_awk8 test_awk9 test_awk10
+test_awk11 test_awk12 test_awk13 test_awk14 test_awk15 test_awk16 test_awk17 test_awk18 test_awk19 test_awk20
+test_awk21 test_awk22 test_awk23 test_awk24 test_awk25 test_awk26 test_awk27 test_awk28 test_awk29 test_awk30
+test_awk31 test_awk32 test_awk33 test_awk34 test_awk35 test_awk36 test_awk37 test_awk38 test_awk39 test_awk40
+test_awk41 test_awk42 test_awk43 test_awk44 test_awk45 test_awk46 test_awk47 test_awk48 test_awk49 test_awk50
+
+
+awk '{print $NF}' test.txt
+#输出最后一列 Number of Fields
+test_awk10
+test_awk20
+test_awk30
+test_awk40
+test_awk50
+
+awk 'NF>=2 {print $(NF-1)}' test.txt
+# 输出倒数第二列
+test_awk9
+test_awk19
+test_awk29
+test_awk39
+test_awk49
+
+
+awk '{print $NR}' test.txt
+# 输出当前记录 Number of Records
+test_awk2
+test_awk13
+test_awk24
+test_awk35
+test_awk46
+
+awk 'NR==4,NR==5{print$0}' test.txt
+test_awk31 test_awk32 test_awk33 test_awk34 test_awk35 test_awk36 test_awk37 test_awk38 test_awk39 test_awk40
+test_awk41 test_awk42 test_awk43 test_awk44 test_awk45 test_awk46 test_awk47 test_awk48 test_awk49 test_awk50
+
+awk '{print NR":", $0}' test.txt
+# cat -n test.txt
+1: test_awk1 test_awk2 test_awk3 test_awk4 test_awk5 test_awk6 test_awk7 test_awk8 test_awk9 test_awk10
+2: test_awk11 test_awk12 test_awk13 test_awk14 test_awk15 test_awk16 test_awk17 test_awk18 test_awk19 test_awk20
+3: test_awk21 test_awk22 test_awk23 test_awk24 test_awk25 test_awk26 test_awk27 test_awk28 test_awk29 test_awk30
+4: test_awk31 test_awk32 test_awk33 test_awk34 test_awk35 test_awk36 test_awk37 test_awk38 test_awk39 test_awk40
+5: test_awk41 test_awk42 test_awk43 test_awk44 test_awk45 test_awk46 test_awk47 test_awk48 test_awk49 test_awk50
+```
+
+- 内层字符串用双引号，外层用单引号，否则外层会被识别为字符串
+
+```bash
+awk '{print "第一列:" $1, "第二列:" $2}' test.txt
+第一列:test_awk1 第二列:test_awk2
+第一列:test_awk11 第二列:test_awk12
+第一列:test_awk21 第二列:test_awk22
+第一列:test_awk31 第二列:test_awk32
+第一列:test_awk41 第二列:test_awk42
+```
+
+awk参数
+
+<div class="to-center">
+<table>
+    <tr>
+      <th>参数</th>
+      <th>解释</th>
+    </tr>
+    <tr>
+      <td>-F</td>
+      <td>指定分割字段符</td>
+    </tr>
+    <tr>
+    	<td>-V</td>
+      <td>定义或修改一个awk内部变量</td>
+    </tr>
+    <tr>
+      <td>-f</td>
+      <td>从脚本文件中读取awk命令</td>
+    </tr>
+  </table>
+</div>
+
+
 
 
 
