@@ -327,11 +327,11 @@
 <body></body>
 ```
 
-### 行
+## 行
 
 > 个人记忆标记，非正式
 
-## H系列 
+### H系列 
 
 > 六种标题
 
@@ -347,11 +347,11 @@
 
 - `<h6></h6>`
 
-## 段落
+### 段落
 
 - `<p align = center> central paragraph </p>`
 
-## 换行&水平线
+### 换行&水平线
 
 - `<br>` or `<br/>`
 - `<hr width="" size="" color="">`
@@ -390,7 +390,7 @@
 </table>
 </div>
 
-## 文本格式
+### 文本格式
 
 - 文本位置
 
@@ -638,7 +638,7 @@
   
 
 
-## 字体
+### 字体
 
 - `<font key1="" key2="" ...> ... </>`
 
@@ -673,7 +673,7 @@
 </table>
 </div>
 
-## 滚动文字
+### 滚动文字
 
 > 为文字添加滚动的效果，丰富页面内容
 
@@ -699,7 +699,7 @@
 
 
 
-## 链接
+### 链接
 
 - 链接的路径
 
@@ -800,13 +800,13 @@
 
 
 
-### 块
+## 块
 
 > 个人记忆方式，非正式
 
 
 
-## 列表
+### 列表
 
 > 为网页进行合理布局，有序列表和无序列表组合嵌套使用，使页面层次分明
 
@@ -948,7 +948,7 @@
 ```
 
 
-## 表格
+### 表格
 
 - 表：`<table> </table>`
 - 表题：`<caption> name </caption>`
@@ -1016,7 +1016,7 @@
 
 
 
-## <a id="div">div图层</a>
+### <a id="div">div图层</a>
 
 > 分区/分节，会自动开始新一行，与<a href="#span">span标记</a> 向对照
 >
@@ -1106,7 +1106,7 @@
 
 
 
-## <a id="span">span</a>标记
+### <a id="span">span</a>标记
 
 > span标记是行内标记，不回自动换行。 与<a href="#div">div图层</a>相对应
 >
@@ -1157,7 +1157,7 @@
 
 
 
-## 图片
+### 图片
 
 - 单标记
 
@@ -1266,19 +1266,19 @@
 </table>
 </div>
 
-## 音频
+### 音频
 
 - `<audio src="" alt="">`
 - 同img
 
-## 视频
+### 视频
 
 - `<video src="" alt="">`
 - 显示播放的控件：Control 
 - 自动播放：autoplay 
 - 循环播放：loop 
 
-## 多媒体
+### 多媒体
 
 - 包含Midi、Mav、AIFF、SWF、AV、MP3、MOV、AVI等等
 - `<embed src="" ... > </embed>`
@@ -1286,11 +1286,54 @@
 - 循环播放：loop（true/false）
 
 
-### 域
+## 域
 
 > 个人记忆标记，非正式
 
-## 表单
+
+
+### 结构元素
+
+> HTML5中新增了一些结构元素，用于给页面布局
+
+<div class="to-center">
+<table>
+    <thead>
+        <tr>
+            <th style='text-align:center;'>Element</th>
+            <th style='text-align:center;'>Explaination</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style='text-align:center;'>header</td>
+            <td style='text-align:center;'>页面或页面中的某一个区块的页眉，通常是引导和导航信息</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>nav</td>
+            <td style='text-align:center;'>可以作为页面引导的链接组</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>section</td>
+            <td style='text-align:center;'>页面中的一个内容区块，通常由内容和标题组成</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>article</td>
+            <td style='text-align:center;'>代表一个独立的、完整的相关内容的块，可独立于页面其他元素使用</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>aside</td>
+            <td style='text-align:center;'>非正文内容，与页面的主要元素是分开的，可独立于页面其他元素独立使用</td>
+        </tr>
+        <tr>
+            <td style='text-align:center;'>footer</td>
+            <td style='text-align:center;'>页面或页面中某一个区域的页脚</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+### 表单
 
 > 表单元素
 
@@ -1424,7 +1467,7 @@
 
 
 
-## 浮动框架
+### 浮动框架
 
 > 内嵌框架可以在网页中直接插入其他网页或内容
 
