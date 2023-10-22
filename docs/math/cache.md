@@ -7,7 +7,6 @@ f_Z(z)=
  \cfrac{z}{\sigma ^2}\cdot e^{-\cfrac{z^2}{2\sigma^2}} , &\text {if}\quad z > 0 ,  
 \\ 0, &\text{others}.
 \end{cases}
-
 $$
 我们称$Z$ 服从参数$\sigma (\sigma>0)$  的Rayleigh分布
 

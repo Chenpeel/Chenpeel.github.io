@@ -83,7 +83,8 @@ export default defineConfig({
               { text: '《关雎》', link: '/literature/POEM/关雎',},
               { text: '《葛覃》', link: '/literature/POEM/葛覃'},
               { text: '《苍耳》', link: '/literature/POEM/苍耳'},
-              { text: '《樛木》', link: '/literature/POEM/樛木'}
+              { text: '《樛木》', link: '/literature/POEM/樛木'},
+              { text: '《螽斯》', link: '/literature/POEM/螽斯'}
             ]
           }
         ]
