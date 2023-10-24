@@ -28,6 +28,7 @@ export default defineConfig({
         text: 'Tools',
         items: [
           { text: 'Vim', link: '/tools/Vim' },
+          { text: 'make', link: '/tools/make'},
           { text: 'Cmake', link: '/tools/Cmake' },
           { text: 'Markdown', link: '/tools/Markdown' },
           { text: 'Text-Input', link: '/tools/wubi' }
