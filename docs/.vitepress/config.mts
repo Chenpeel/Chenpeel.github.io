@@ -92,7 +92,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Booksssss',
+        text: 'Boooooook',
         collapsed:true,
         items:[
         ]
