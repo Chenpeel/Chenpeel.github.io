@@ -90,6 +90,13 @@ export default defineConfig({
             ]
           }
         ]
+      },
+      {
+        text: 'Booksssss',
+        collapsed:true,
+        items:[
+        ]
+
       }
 
     ],

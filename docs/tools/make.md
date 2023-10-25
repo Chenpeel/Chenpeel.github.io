@@ -10,7 +10,8 @@
 
 PDF目录可跳转
 
-<embed src="/imgs/Makefile.pdf" type="application/pdf" width="100%" height="1000">
+<iframe src="https://drive.google.com/file/d/1xSS2JFO3zd2N9StvCbJ3nLpyFZgY0BlV/preview?usp=drive_link" width="100%" height="1000"></iframe>
+
 
 
 
