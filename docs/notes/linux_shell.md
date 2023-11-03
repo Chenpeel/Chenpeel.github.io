@@ -2,7 +2,7 @@
 
 <hr>
 
-#### <a id="basic">**最基础命令** </a>: `man  *`
+##### <a id="basic">**最基础命令** </a>: `man  *`
 
 > 解释命令
 
@@ -146,9 +146,7 @@ man页面一般可以分为8种命令类型
 
 <hr>
 
-#### <a id="files">文件系统</a>
-
-
+##### <a id="files">文件系统</a>
 
 ###### <a id="which&whereis">WHICH & WHEREIS</a>
 
@@ -811,141 +809,6 @@ PID    COMMAND      %CPU  TIME     #TH   #WQ  #PORT MEM    PURG   CMPRS  PGRP  P
 ```
 
 
-
-
-
-
-
-###### <a id="ping">PING</a>
-
-ping指令经常用于测试网络状况,通过ping其他主机来排除自己主机的一些网络问题
-
-使用ICMP传输协议,发出要求回应的信息
-
-```bash
-❯ ping -i 1 -c 10  -R baidu.com
-PING baidu.com (39.156.66.10): 56 data bytes
-64 bytes from 39.156.66.10: icmp_seq=0 ttl=50 time=23.591 ms
-64 bytes from 39.156.66.10: icmp_seq=1 ttl=50 time=23.733 ms
-64 bytes from 39.156.66.10: icmp_seq=2 ttl=50 time=23.670 ms
-64 bytes from 39.156.66.10: icmp_seq=3 ttl=50 time=23.742 ms
-64 bytes from 39.156.66.10: icmp_seq=4 ttl=50 time=23.639 ms
-64 bytes from 39.156.66.10: icmp_seq=5 ttl=50 time=23.683 ms
-64 bytes from 39.156.66.10: icmp_seq=6 ttl=50 time=23.661 ms
-64 bytes from 39.156.66.10: icmp_seq=7 ttl=50 time=23.666 ms
-64 bytes from 39.156.66.10: icmp_seq=8 ttl=50 time=23.708 ms
-64 bytes from 39.156.66.10: icmp_seq=9 ttl=50 time=23.692 ms
-
---- baidu.com ping statistics ---
-10 packets transmitted, 10 packets received, 0.0% packet loss
-round-trip min/avg/max/stddev = 23.591/23.678/23.742/0.042 ms
-
-
-ping google.com
-```
-
-笔者通常ping两个主机以确定网络状况
-
-
-
-###### <a id="ifconfig">IFCONFIG</a>
-
-可以设置网络设备的状态或者显示当前的设置
-
-在查看自己的IP是经常用到
-
-```bash
-❯ ifconfig
-eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C 
-     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0
-     inet6 addr: fe80::250:56ff:fe0a:b0c/64 Scope:Link
-     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
-     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0
-     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0
-     collisions:0 txqueuelen:1000 
-     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)
-     Interrupt:185 Base address:0x2024 
-
-lo    Link encap:Local Loopback 
-     inet addr:127.0.0.1 Mask:255.0.0.0
-     inet6 addr: ::1/128 Scope:Host
-     UP LOOPBACK RUNNING MTU:16436 Metric:1
-     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0
-     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0
-     collisions:0 txqueuelen:0 
-     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)
-
-❯ ifconfig eth0 down
-	# 关闭网卡
-	...
-	
-❯ ifconfig eth0 192.168.1.56 
-	# 配置IP地址
-```
-
-
-
-###### <a id="ssh">SSH</a>
-
-笔者经常在服务器提供商查看服务器IP,再使用本地主机进行ssh远程登录
-
-这样就不用登录提供商网页即可使用服务器整花活
-
-```bash
-❯ ssh beta@192.168.31.2
-beta@192.168.31.2's password:*******
-    _              _      ____  ___   ___  ____      _
-   / \   _ __ ___ | |    / ___|/ _ \ / _ \| ___|  __| |
-  / _ \ | '_ ` _ \| |____\___ \ (_) | | | |___ \ / _` |
- / ___ \| | | | | | |_____|__) \__, | |_| |___) | (_| |
-/_/   \_\_| |_| |_|_|    |____/  /_/ \___/|____/ \__,_|
-
-Welcome to Armbian 23.08.0-trunk Jammy with Linux 5.15.117-ophub
-
-System load:   2%           	Up time:       2 days 16:54
-Memory usage:  10% of 1.77G  	IP:	       172.31.0.1 192.168.31.2
-CPU temp:      49°C           	Usage of /:    89% of 6.4G
-RX today:      631.1 KiB
-
-[ 48 security updates available, 61 updates total: apt upgrade ]
-Last check: 2023-09-16 00:00
-```
-
-如上beta是用户名也可以使用root用户进行登录
-
-###### <a id="netstat">NETSTAT</a>
-
-显示网络状态
-
-```bash
-❯ netstat -i
-Name       Mtu   Network       Address            Ipkts Ierrs    Opkts Oerrs  Coll
-lo0        16384 <Link#1>                       1912550     0  1912550     0     0
-lo0        16384 127           localhost        1912550     -  1912550     -     -
-lo0        16384 localhost   ::1                1912550     -  1912550     -     -
-lo0        16384 chenpeeldem fe80:1::1          1912550     -  1912550     -     -
-```
-
-如👆显示网卡列表
-
-通过netstat可以显示socket、路由器配置的快取信息、显示TCP传输协议的连线状况等等信息
-
-
-
-###### <a id="snr">SERVICE NETWORK RESTART</a>
-
-用来重启网络服务
-
-```bash
-❯ service network restart
-==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
-Authentication is required to restart 'network.service'.
-Authenticating as: Beta,,, (beta)
-Password:*******
-```
-
-
-
 ###### <a id="hostname">HOSTNAME</a>
 
 使用hostname输出当前所处的用户的用户名,也可以为其更改用户名
@@ -1326,7 +1189,9 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 
 
 
-##### <a id="apt">APT (Advanced Packaging Tools) 包管理</a>
+##### <a id="apt">APT 包管理</a>
+
+> Advanced Packaging Tools
 
 - 更改apt安装源(以ubuntu20.04为例)
 
@@ -1356,8 +1221,9 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 
 
 
+###### 包管理工具RPM 
 
-###### 包管理工具RPM (Redhat Package Manager)
+> Redhat Package Manager
 
 - firefox-102.10.0-1.el9.aarch64
   - `app_name - version . 硬件平台. rpm`
@@ -1366,7 +1232,9 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 - `rpm -e --nodeps app_name`  (no depandence) 卸载程序
 - `rpm -ivh --nodeps app_name` install with verbose and hash\
 
-###### yum (Yellow dog Updater Modified)
+###### yum 
+
+> Yellow dog Updater Modified
 
 - ` yum  -y  install/update/check-update/remove/list/clean/deplist  `
 - 配置yum源
@@ -1374,6 +1242,309 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 
 <hr>
 
+
+##### 网络通信
+
+###### <a id="ping">PING</a>
+
+ping指令经常用于测试网络状况,通过ping其他主机来排除自己主机的一些网络问题
+
+使用ICMP传输协议,发出要求回应的信息
+
+```bash
+❯ ping -i 1 -c 10  -R baidu.com
+PING baidu.com (39.156.66.10): 56 data bytes
+64 bytes from 39.156.66.10: icmp_seq=0 ttl=50 time=23.591 ms
+64 bytes from 39.156.66.10: icmp_seq=1 ttl=50 time=23.733 ms
+64 bytes from 39.156.66.10: icmp_seq=2 ttl=50 time=23.670 ms
+64 bytes from 39.156.66.10: icmp_seq=3 ttl=50 time=23.742 ms
+64 bytes from 39.156.66.10: icmp_seq=4 ttl=50 time=23.639 ms
+64 bytes from 39.156.66.10: icmp_seq=5 ttl=50 time=23.683 ms
+64 bytes from 39.156.66.10: icmp_seq=6 ttl=50 time=23.661 ms
+64 bytes from 39.156.66.10: icmp_seq=7 ttl=50 time=23.666 ms
+64 bytes from 39.156.66.10: icmp_seq=8 ttl=50 time=23.708 ms
+64 bytes from 39.156.66.10: icmp_seq=9 ttl=50 time=23.692 ms
+
+--- baidu.com ping statistics ---
+10 packets transmitted, 10 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 23.591/23.678/23.742/0.042 ms
+
+
+ping google.com
+```
+
+笔者通常ping两个主机以确定网络状况
+
+
+
+###### <a id="ifconfig">IFCONFIG</a>
+
+> configure your network interface parameters
+> 用于配置网卡的IP地址信息等网络参数信息，或者用于查看网络接口信息
+> 还能够临时性配置IP地址、子网掩码、广播地址、网关信息等
+
+基本信息显示
+
+```bash
+❯ ifconfig
+# 网卡信息
+eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C 
+     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0
+     inet6 addr: fe80::250:56ff:fe0a:b0c/64 Scope:Link
+     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0
+     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0
+     collisions:0 txqueuelen:1000 
+     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)
+     Interrupt:185 Base address:0x2024 
+
+# 本地回环信息
+lo    Link encap:Local Loopback 
+     inet addr:127.0.0.1 Mask:255.0.0.0
+     inet6 addr: ::1/128 Scope:Host
+     UP LOOPBACK RUNNING MTU:16436 Metric:1
+     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0
+     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0
+     collisions:0 txqueuelen:0 
+     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)
+
+
+	
+```
+
+关闭网卡
+
+```bash
+❯ ifconfig eth0 down
+	# 关闭网卡
+	...
+```
+
+配置网卡IP地址
+
+```bash
+❯ ifconfig eth0 192.168.1.56/24
+	# 配置IP地址
+```
+
+
+
+###### <a id="route">ROUTE</a>
+
+> [静态路由](https://en.wikipedia.org/wiki/Static_routing)和[动态路由](https://en.wikipedia.org/wiki/Dynamic_routing)
+> 手动操作的是静态
+
+路由信息
+
+```bash
+❯ route -n
+# -n 是显示Gateway为IP地址的形式
+Kernel IP routing table
+
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.31.1    0.0.0.0         UG    100    0        0 eth0
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 eth0
+172.31.0.0      0.0.0.0         255.255.255.0   U     0      0        0 docker0
+192.168.31.0    0.0.0.0         255.255.255.0   U     100    0        0 eth0
+```
+
+创建/删除路由信息
+
+```bash
+route add/del default
+# 删除默认网关
+```
+
+
+
+###### <a id="ip">IP</a>
+
+> IP 信息管理
+
+```bash
+❯ ip --help
+Usage: ip [ OPTIONS ] OBJECT { COMMAND | help }
+       ip [ -force ] -batch filename
+where  OBJECT := { address | addrlabel | fou | help | ila | ioam | l2tp | link |
+                   macsec | maddress | monitor | mptcp | mroute | mrule |
+                   neighbor | neighbour | netconf | netns | nexthop | ntable |
+                   ntbl | route | rule | sr | tap | tcpmetrics |
+                   token | tunnel | tuntap | vrf | xfrm }
+       OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |
+                    -h[uman-readable] | -iec | -j[son] | -p[retty] |
+                    -f[amily] { inet | inet6 | mpls | bridge | link } |
+                    -4 | -6 | -M | -B | -0 |
+                    -l[oops] { maximum-addr-flush-attempts } | -br[ief] |
+                    -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] |
+                    -rc[vbuf] [size] | -n[etns] name | -N[umeric] | -a[ll] |
+                    -c[olor]}
+                    
+# link： 网络设备
+# address：定义IPv4、IPv6地址
+# neighbor：查看arp缓存(MAC地址映射)
+# route：路由表对象 -> ip route
+# maddress：多播地址
+# tunel：IP上的通道
+```
+
+显示IP地址信息
+
+```bash
+❯ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+3: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr 2e1d:4d23:4b20::
+4: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether fc:7c:02:ec:d7:2b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.31.2/24 brd 192.168.31.255 scope global dynamic noprefixroute eth0
+       valid_lft 25736sec preferred_lft 25736sec
+    inet 192.168.31.250/24 brd 192.168.31.255 scope global secondary eth0:1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::7586:9c06:781c:e1d7/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+5: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq state DOWN group default qlen 1000
+    link/ether 9e:61:9c:ad:18:02 brd ff:ff:ff:ff:ff:ff
+6: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:8f:fc:71:76 brd ff:ff:ff:ff:ff:ff
+    inet 172.31.0.1/24 brd 172.31.0.255 scope global docker0
+       valid_lft forever preferred_lft forever
+```
+
+显示eth0设备信息
+
+```bash
+❯ ip -s link show dev eth0
+
+4: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether fc:7c:02:ec:d7:2b brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast
+     171354734 2838307      0       0       0       0
+    TX:  bytes packets errors dropped carrier collsns
+       3273718   36406      0       0       0       0
+```
+
+给网卡添加别名
+
+```bash
+ ip addr add 192.168.31.250/24 dev eth0 lable eth0:1
+```
+
+
+
+###### <a id="ssh">SSH</a>
+
+>  使用本地主机进行ssh远程登录
+
+远程连接我的N1盒子
+
+> beta是用户名也可以使用root用户进行登录
+
+```bash
+❯ ssh beta@192.168.31.2
+beta@192.168.31.2's password:*******
+    _              _      ____  ___   ___  ____      _
+   / \   _ __ ___ | |    / ___|/ _ \ / _ \| ___|  __| |
+  / _ \ | '_ ` _ \| |____\___ \ (_) | | | |___ \ / _` |
+ / ___ \| | | | | | |_____|__) \__, | |_| |___) | (_| |
+/_/   \_\_| |_| |_|_|    |____/  /_/ \___/|____/ \__,_|
+
+Welcome to Armbian 23.08.0-trunk Jammy with Linux 5.15.117-ophub
+
+System load:   2%           	Up time:       2 days 16:54
+Memory usage:  10% of 1.77G  	IP:	       172.31.0.1 192.168.31.2
+CPU temp:      49°C           	Usage of /:    89% of 6.4G
+RX today:      631.1 KiB
+
+[ 48 security updates available, 61 updates total: apt upgrade ]
+Last check: 2023-09-16 00:00
+```
+
+
+
+###### <a id="netstat">NETSTAT</a>
+
+显示网络状态
+
+```bash
+❯ netstat -an
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN
+tcp        0    172 192.168.31.2:22         192.168.31.252:61288    ESTABLISHED
+tcp6       0      0 :::22                   :::*                    LISTEN
+tcp6       0      0 :::111                  :::*                    LISTEN
+udp        0      0 127.0.0.53:53           0.0.0.0:*
+udp        0      0 192.168.31.2:68         192.168.31.1:67         ESTABLISHED
+udp        0      0 0.0.0.0:111             0.0.0.0:*
+udp        0      0 127.0.0.1:323           0.0.0.0:*
+udp6       0      0 :::111                  :::*
+udp6       0      0 ::1:323                 :::*
+raw6       0      0 :::58                   :::*                    7
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+# Proto： socket协议 
+# Recv-Q： 连接这个socket的用户，还未copy的字节数
+# Send-Q： 远程主机还未确认的字节数
+# Local Address： socket的本地地址和端口
+# Foreign Address：socket的远程主机地址和端口
+# State： 运行状况
+```
+
+查看正在运行的端口状况
+
+```bash
+❯ netstat -tunlp
+# t : tcp
+# u : udp
+# l : listen
+# p : process
+
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -
+tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      23514/busybox
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      -
+tcp6       0      0 :::22                   :::*                    LISTEN      -
+tcp6       0      0 :::111                  :::*                    LISTEN      -
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
+udp6       0      0 :::111                  :::*                                -
+udp6       0      0 ::1:323                 :::*                                -
+```
+
+如👆显示网卡列表
+
+通过netstat可以显示socket、路由器配置的快取信息、显示TCP传输协议的连线状况等等信息
+
+
+
+
+
+###### <a id="snr">SERVICE NETWORK RESTART</a>
+
+用来重启网络服务
+
+```bash
+❯ service network restart
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to restart 'network.service'.
+Authenticating as: Beta,,, (beta)
+Password:*******
+```
 
 
 

@@ -5,7 +5,7 @@
     padding: 20px;
     margin: 0 auto;
     text-align: center;
-    background-color: #f0f9f0;
+    background-color: rgba(0,0,0,0.1);;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -16,8 +16,7 @@
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
 }
 .copyright{
-    background-color: #f0f9f0; 
-    color: #000; 
+    background-color: rgba(0,0,0,0.1); 
     text-align: center; 
     padding: 10px 0; 
     font-size: 14px;
