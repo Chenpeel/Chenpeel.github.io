@@ -1358,17 +1358,18 @@ Proto RefCnt Flags       Type       State         I-Node   Path
 
 查看正在运行的端口状况
 
+- t : tcp
+- u : udp
+- l : listen
+- p : process
+
 ```bash
 ❯ netstat -tunlp
-# t : tcp
-# u : udp
-# l : listen
-# p : process
 
 (Not all processes could be identified, non-owned process info
  will not be shown, you would have to be root to see it all.)
 Active Internet connections (only servers)
-
+ 
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -
 tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      23514/busybox
@@ -1735,7 +1736,7 @@ awk参数
 </div>
 
 
-
+<br><br><br><br><br><br><br>
 
 
 ## <a id = "All_Commands">Linux 命令大全</a>
