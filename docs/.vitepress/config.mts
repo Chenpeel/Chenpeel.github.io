@@ -21,8 +21,10 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Friends', link: '/links.md' }
     ],
-
+    
+    // 左侧边栏
     sidebar: [
+      // 工具🔧
       {
         collapsed:true,
         text: 'Tools',
@@ -34,30 +36,62 @@ export default defineConfig({
           { text: 'Text-Input', link: '/tools/wubi' }
         ]
       },
+      // 笔记📒
       {
         collapsed:true,
         text: 'Notes',
         items: [
           { text: 'Assembly', link: '/notes/assembly' },
-          { text: 'Linux & Shell', link: '/notes/linux_shell' },
+          {
+            collapsed:true,
+            text: 'Algorithms',
+            items: [
+              { text: 'README', link: '/notes/algorithms/index' },
+              { text: 'Recursion', link: '/notes/algorithms/analysis/recursion' },
+              { text: 'Divide_Conquer', link: '/notes/algorithms/analysis/divide_conquer' },
+              { text: 'Dynamic_Programing', link: '/notes/algorithms/analysis/dynamic_programing' },
+              { text: 'Greedy', link: '/notes/algorithms/analysis/greedy' },
+              { text: 'Back_Track', link: '/notes/algorithms/analysis/back_track' }
+            ]
+          },
+          { 
+            collapsed:true,
+            text: 'Linux',
+            items: [
+              {
+                text: 'Linux Basic',
+                link: '/notes/linux/linux-basic'
+              },
+              {
+                text: 'Linux Command Basic',
+                link: '/notes/linux/linux-command-basic'
+              },
+              {
+                text: 'Linux Command Pro',
+                link: '/notes/linux/linux-command-pro'
+              },
+              {
+                text: 'Shell Programing',
+                link: '/notes/linux/linux-shell-programing'
+              },
+              //linux src 
+              // {
+              //   text: 'Linux Source Codes',
+              //   link: '/notes/linux/linux-src'
+              // },
+            ]
+          },
           { text: 'Machine_Learn', link: '/notes/machine_learn' },
           { text: 'MySQL', link: '/notes/mysql' },
           { text: 'POCC', link: '/notes/POCC' },
-          { text: 'Web', link: '/notes/web' }
+          { text: 'Web', link: '/notes/web' },
+          
+
         ]
+        
       },
-      {
-        collapsed:true,
-        text: 'Algorithms',
-        items: [
-          { text: 'README', link: '/notes/algorithms/algos' },
-          { text: 'Recursion', link: '/notes/algorithms/analysis/recursion' },
-          { text: 'Divide_Conquer', link: '/notes/algorithms/analysis/divide_conquer' },
-          { text: 'Dynamic_Programing', link: '/notes/algorithms/analysis/dynamic_programing' },
-          { text: 'Greedy', link: '/notes/algorithms/analysis/greedy' },
-          { text: 'Back_Track', link: '/notes/algorithms/analysis/back_track' }
-        ]
-      },
+      
+      // 数学🔬
       {
         text: 'Math',
         collapsed:true,
@@ -71,6 +105,7 @@ export default defineConfig({
           }
         ]
       },
+      // 文学
       {
         text: 'Literature',
         collapsed:true,
@@ -91,6 +126,7 @@ export default defineConfig({
           }
         ]
       },
+      // 书库📖
       {
         text: 'Boooooook',
         collapsed:true,
@@ -100,6 +136,7 @@ export default defineConfig({
       }
 
     ],
+    // 底部跳转
     docFooter: {
       prev: '上一篇',
       next: '下一篇',
