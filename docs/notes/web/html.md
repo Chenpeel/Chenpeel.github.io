@@ -1,176 +1,72 @@
 
-<h1>Web前端</h1>
-<br>
-<hr>
-
->;; Web标准
-
-1. **结构** ：<a href="#html">HTML</a> -> 页面元素
-2. **表现** ： <a href="#css">CSS</a> -> 页面样式
-3. **行为** ：<a href="#js"> JavaScript </a> -> 页面交互的动态效果
-
-<br>
-<hr>
-
 # <a id="html"> HTML </a>
 
 > 超文本标记语言（Hyper Text Markup Language）
 >
-> 载入内容,包括文本、音频、图片等等
+> 载入内容,包括文本、音频、图片等等。是页面的主要元素的标记语言
 
+## 标记类型
 
+- 单标记：单标记元素没有结束标记，通常用于表示没有内容的元素。
+- 双标记：双标记元素有开始和结束标记，用于表示包围在标记中的内容。
 
+## 标签间的关系
 
+> 父子关系（嵌套关系）
 
-## 注明文件
+```html
+<head>
+	<title> son </title>
+</head>
+```
+
+> 兄弟关系（并列关系）
+
+```html
+<head></head>
+<body></body>
+```
+
+## 注释
+
+- `<!-- 语句注释内容 -->`
+- `<comment> 段落注释内容 </comment>`
+
+## 元素
+
+### 注明文件
 
 - `<!DOCTYPE element-name DTD-type DTD-name DTD-urk>`：位于`<html>`标记之前，标记使用的规范类型
 - DTD三种类型
+  
+  三者之间的区别在于：
+  
+  对于你所写的html的规范性进行约束，约束标准相对宽松或是严格，允不允许使用不同时期的规范在同一文件内。
+  
   - 严格型：HTML Strict DTD
+  
+    严格型DTD要求按照较高标准，通常用于要求文档严格符合XML或HTML规范的应用中
+    不允许使用过渡性或框架性的元素和属性。
   - 过渡型：HTML Transitional DTD
+  
+    过渡型DTD要求相对较为宽松，允许一些不符合最新规范的元素和属性，以适应不同浏览器或解析器的差异，确保向前兼容。
   - 框架型：HTML Frameset DTD
-
+  
+    框架型DTD用于定义具有框架的文档，框架被用于创建分割式的布局，通常用于划分页面内容为不同框架。
+  
 - `<!DOCTYPE html>` ：注明文件类型为html
-
-
-## 元信息标记
-
-- `<meta name="NAME" content="CONTENT">`
-<div class="to-center">
-    <table>
-        <thead>
-            <tr>
-                <th>Value</th>
-                <th>Explaination</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>author</td>
-                <td>网页作者</td>
-            </tr>
-            <tr>
-                <td>description</td>
-                <td>网页简短描述</td>
-            </tr>
-            <tr>
-                <td>keywords</td>
-                <td>网页关键词</td>
-            </tr>
-            <tr>
-                <td>generator</td>
-                <td>编辑器</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="to-center">
-  <table>
-  <thead>
-      <tr>
-          <th>Attribute</th>
-          <th>Value</th>
-          <th>Explaination</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>content</td>
-          <td>some_text</td>
-          <td>定义与http-equiv或name属性相关的元信息</td>
-      </tr>
-  </tbody>
-  </table>
-
-</div>
-
-
-```html
-  
-  <meta name = "keywords" content = "CONTENT">
-  <!-- 网页关键词 -->
-  
-  <meta name = "description" content = "CONTENT">
-  <!-- 网页简要说明 -->
-  
-  <meta name = "author" content = "CONTENT">
-  <!-- 作者信息 -->
-  
-  <meta name = "generator" content = "CONTENT">
-  <!-- 指明生成页面工具 -->
-  
-  <meta name = "copyright" content = "CONTENT">
-  <!-- 页面版权信息 -->
-  
-  <meta name = "robots" content = "CONTENT">
-```
-
-
-  - robots告诉搜素引擎机器人抓取哪些页面
-
-<div class="to-center"> 
-<table>
-<thead>
-    <tr>
-        <th>Value</th>
-        <th>Explain</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>all</td>
-        <td>文件将被检索，且页面上的链接可以被查询</td>
-    </tr>
-    <tr>
-        <td>none</td>
-        <td>文件将不被检索，网页上的链接不可以被查询</td>
-    </tr>
-    <tr>
-        <td>index</td>
-        <td>文件将被检索</td>
-    </tr>
-    <tr>
-        <td>noindex</td>
-        <td>文件将不被检索，但网页上的链接可以被查询</td>
-    </tr>
-    <tr>
-        <td>follow</td>
-        <td>页面上的链接可以被查询</td>
-    </tr>
-    <tr>
-        <td>nofollow</td>
-        <td>文件将被检索，但页面上的链接不可以被查询</td>
-    </tr>
-</tbody>
-</table>
-</div>
-
-
-
-- `<mata http-equiv>`
-
-- 用于提供http协议的响应头报文
-```html
-  
-  <meta http-equiv = "cache-control " content = "no-cache">
-  <!-- 设置限制，仅从服务器获取资源而不是从本地cache中 -->
-  <meta http-equiv = "refresh" content = "5; url = https://chenpeel.github.io">
-  <!-- 5s后重定向到指定的网页 -->
-  <meta http-equiv = "content-type" content="text/html;charset=utf-8"/>
-  <!-- 指定编码字符集 -->
-  <meta http-equiv = "expires" content="Sat, 26 Feb 2022 08:00:00 GMT"/>
-  <!-- 指定到期时间 -->
-```
-
 
 
 
 ### 语言
 
-- `<html lang="en">`
+语言标签，向浏览器指明网页主要使用的语言
 
-- 语言标签，向浏览器指明网页主要使用的语言
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+</html>
+```
 
 <div class="to-center"> 
     <table>
@@ -213,25 +109,227 @@
 
 
 
-## 注释
+### head标签
 
-- `<!-- 语句注释内容 -->`
-- `<comment> 段落注释内容 </comment>`
+`<head> 元信息、样式、脚本、同外部资源的关系等信息 </head>`
 
-## 标题
+```html
+<!DOCTYPE html>
+	<html>
+		<head>
+      ...
+    </head>
+</html>
+```
 
-- `<title>显示在网址栏标题</title>`
 
-## 主体
+
+#### 元信息标记
+
+常见的元信息元素有
+
+`<meta>`  、`<title>`
+
+head标签中的其他常见元素
+
+`<link>` 、`<base>`、`<style>` 、`<script>` 
+
+
+
+<div class="to-center">
+    <table>
+        <thead>
+            <tr>
+                <th>Label</th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&lt;title&gt;</td>
+                <td>定义网页的标题</td>
+            </tr>
+            <tr>
+                <td>&lt;meta&gt;</td>
+                <td>用于提供关于文档的元信息，字符集、作者、关键词等</td>
+            </tr>
+            <tr>
+                <td>&lt;link&gt;</td>
+                <td>用于定义与外部资源的关系，如样式表和图标</td>
+            </tr>
+            <tr>
+                <td>&lt;base&gt;</td>
+                <td>定义文档中相对URL的基本URL</td>
+            </tr>
+            <tr>
+                <td>&lt;style&gt;</td>
+                <td>包含内部级联样式，定义文档的样式信息</td>
+            </tr>
+            <tr>
+                <td>&lt;script&gt;</td>
+                <td>包含脚本代码，可用于定义交互性和功能</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+#### meta标签
+
+`<meta name="NAME" content="CONTENT">`
+
+<div class="to-center">
+    <table>
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>author</td>
+                <td>网页作者</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>网页简短描述</td>
+            </tr>
+            <tr>
+                <td>keywords</td>
+                <td>网页关键词</td>
+            </tr>
+            <tr>
+                <td>generator</td>
+                <td>编辑器</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="to-center">
+  <table>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+          <th>Explaination</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>content</td>
+          <td>some_text</td>
+          <td>定义与http-equiv或name属性相关的元信息</td>
+      </tr>
+  </tbody>
+  </table>
+</div>
+```html
+<!DOCTYPE html>
+	<html>
+		<head>
+      <meta name = "keywords" content = "CONTENT">
+      <!-- 网页关键词 -->
+
+      <meta name = "description" content = "CONTENT">
+      <!-- 网页简要说明 -->
+
+      <meta name = "author" content = "CONTENT">
+      <!-- 作者信息 -->
+
+      <meta name = "generator" content = "CONTENT">
+      <!-- 指明生成页面工具 -->
+
+      <meta name = "copyright" content = "CONTENT">
+      <!-- 页面版权信息 -->
+
+      <meta name = "robots" content = "CONTENT">
+      <!-- 如👇 -->
+    </head>
+</html>
+```
+
+###### robots
+
+>  告诉搜素引擎机器人抓取哪些页面
+
+<div class="to-center"> 
+<table>
+<thead>
+    <tr>
+        <th>Value</th>
+        <th>Explain</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>all</td>
+        <td>文件将被检索，且页面上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>none</td>
+        <td>文件将不被检索，网页上的链接不可以被查询</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>文件将被检索</td>
+    </tr>
+    <tr>
+        <td>noindex</td>
+        <td>文件将不被检索，但网页上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>follow</td>
+        <td>页面上的链接可以被查询</td>
+    </tr>
+    <tr>
+        <td>nofollow</td>
+        <td>文件将被检索，但页面上的链接不可以被查询</td>
+    </tr>
+</tbody>
+</table>
+</div>
+###### http-equiv
+
+
+- 用于提供http协议的响应头报文
+
+```html
+  
+  <meta http-equiv = "cache-control " content = "no-cache">
+  <!-- 设置限制，仅从服务器获取资源而不是从本地cache中 -->
+  <meta http-equiv = "refresh" content = "5; url = https://chenpeel.github.io">
+  <!-- 5s后重定向到指定的网页 -->
+  <meta http-equiv = "content-type" content="text/html;charset=utf-8"/>
+  <!-- 指定编码字符集 -->
+  <meta http-equiv = "expires" content="Sat, 26 Feb 2022 08:00:00 GMT"/>
+  <!-- 指定到期时间 -->
+```
+
+> 响应头报文包含了关于响应的元数据，如响应的状态码、服务器信息、日期等，它们会在服务器接收到 HTTP 请求后，一起发送给客户端作为响应。响应头的目的是提供关于响应的信息，以便客户端能够正确处理和渲染响应的内容。
+
+
+
+
+
+
+### 主体
 
 
 - 主体样式
 
 ```html
-  
-  <body>
-  <!-- 主体内容 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="" content="">
+    <title>This is A Title</title>
+  </head>
+	<body>
+  	<!-- 主体内容 -->
   </body>
+</html>
 ```
 
 
@@ -240,8 +338,7 @@
   - 设置body的标记属性可以改变页面的样式
 
 ```html
-  
-  <body leftmargin="50px" topmargin="50px" text="#000000" bgcolor="#339999" link="red" alink="black" vlink="blue" background="../imags/1.jpg">
+ <body leftmargin="50px" topmargin="50px" text="#000000" bgcolor="#339999" link="red" alink="black" vlink="blue" background="../imags/1.jpg">
 ```
 
 
@@ -260,7 +357,7 @@
             <tr>
                 <td>text</td>
                 <td><a
-                        href="#color">rgb(r,g,b)<br />rgb(r%,g%,b%)<br />#rrggbb或#rgb<br />colorname</a></td>
+                        href="./css.md/#color">rgb(r,g,b)<br />rgb(r%,g%,b%)<br />#rrggbb或#rgb<br />colorname</a></td>
                 <td>
                     rgb函数（Int，取值0～255）<br />rgb函数（percent，取值0～100）<br />十六进制数（6位或3位，0～9，A～F）<br />颜色英文名（red,green,blue
                     etc. ）</td>
@@ -305,33 +402,12 @@
 </div>
 
 
-## 标记类型
 
-- 单标记：单标记元素没有结束标记，通常用于表示没有内容的元素。
-- 双标记：双标记元素有开始和结束标记，用于表示包围在标记中的内容。
+#### 行元素
 
-## 标签间的关系
+> 个人分类方式
 
-> 父子关系（嵌套关系）
-
-```html
-<head>
-	<title> son </title>
-</head>
-```
-
-> 兄弟关系（并列关系）
-
-```html
-<head></head>
-<body></body>
-```
-
-## 行
-
-> 个人记忆标记，非正式
-
-### H系列 
+##### H系列 
 
 > 六种标题
 
@@ -347,11 +423,11 @@
 
 - `<h6></h6>`
 
-### 段落
+##### 段落
 
 - `<p align = center> central paragraph </p>`
 
-### 换行&水平线
+##### 换行&水平线
 
 - `<br>` or `<br/>`
 - `<hr width="" size="" color="">`
@@ -378,7 +454,7 @@
     </tr>
     <tr>
         <td>color</td>
-        <td>同<a href="#color">颜色</a></td>
+        <td>同<a href="./css.md/#color">颜色</a></td>
         <td>设置颜色</td>
     </tr>
     <tr>
@@ -390,7 +466,8 @@
 </table>
 </div>
 
-### 文本格式
+
+##### 文本格式
 
 - 文本位置
 
@@ -638,7 +715,7 @@
   
 
 
-### 字体
+##### 字体
 
 - `<font key1="" key2="" ...> ... </>`
 
@@ -661,8 +738,8 @@
     </tr>
     <tr>
         <td>color</td>
-        <td>同<a href="#color">颜色</a></td>
-        <td>同<a href="#color">颜色</a></td>
+        <td>同<a href="./css.md/#color">颜色</a></td>
+        <td>同<a href="./css.md/#color">颜色</a></td>
     </tr>
     <tr>
         <td>face</td>
@@ -673,7 +750,8 @@
 </table>
 </div>
 
-### 滚动文字
+
+##### 滚动文字
 
 > 为文字添加滚动的效果，丰富页面内容
 
@@ -689,7 +767,7 @@
 ```
 
 - 宽度，高度：width,height
-- 背景色：bgcolor，值同<a href="#color">颜色</a>
+- 背景色：bgcolor，值同<a href="./css.md/#color">颜色</a>
 - 方向：direction 上下左右
 - 表现：behavior平滑，滚动，交替
 - 边距：hspace,vspace
@@ -699,7 +777,7 @@
 
 
 
-### 链接
+##### 链接
 
 - 链接的路径
 
@@ -797,16 +875,16 @@
   
 ```
 
+<hr>
+
+
+#### 块元素
+
+> 个人分类方式
 
 
 
-## 块
-
-> 个人记忆方式，非正式
-
-
-
-### 列表
+##### 列表
 
 > 为网页进行合理布局，有序列表和无序列表组合嵌套使用，使页面层次分明
 
@@ -948,7 +1026,7 @@
 ```
 
 
-### 表格
+##### 表格
 
 - 表：`<table> </table>`
 - 表题：`<caption> name </caption>`
@@ -977,10 +1055,11 @@
     <!--<caption>当然写在这也是可以的</caption>-->
 </table>
 ```
-> 合并单元格
+###### 合并单元格
 
-- 行合并：删掉其中一个单元格的代码，在另一个`<td></td>`中添加属性`colspan`即column span
-- 列合并：删掉其中一个单元格的代码，在另一个`<td></td>`中添加属性`rowspan`
+行合并：删掉其中一个单元格的代码，在另一个`<td></td>`中添加属性`colspan`即column span
+
+列合并：删掉其中一个单元格的代码，在另一个`<td></td>`中添加属性`rowspan`
 
 ```html
 <table border="200" width="1000" height="500" align="center">
@@ -1016,7 +1095,7 @@
 
 
 
-### <a id="div">div图层</a>
+##### <a id="div">div图层</a>
 
 > 分区/分节，会自动开始新一行，与<a href="#span">span标记</a> 向对照
 >
@@ -1048,7 +1127,7 @@
     </tr>
     <tr>
         <td>background-color</td>
-        <td>同<a href="#color">颜色</a></td>
+        <td>同<a href="./css.md/#color">颜色</a></td>
         <td>背景颜色</td>
     </tr>
     <tr>
@@ -1099,14 +1178,13 @@
 </tbody>
 </table>
 </div>
-
 > div 图层可以嵌套和层叠使用
 >
 > 层叠使用时必须将position设置成绝对位置
 
 
 
-### <a id="span">span</a>标记
+##### <a id="span">span</a>标记
 
 > span标记是行内标记，不回自动换行。 与<a href="#div">div图层</a>相对应
 >
@@ -1155,9 +1233,7 @@
 
 
 
-
-
-### 图片
+##### 图片
 
 - 单标记
 
@@ -1265,34 +1341,37 @@
 </tr>
 </table>
 </div>
+##### 音频
 
-### 音频
+> 基本同img
 
-- `<audio src="" alt="">`
-- 同img
+`<audio src="" alt="">`
 
-### 视频
+##### 视频
 
-- `<video src="" alt="">`
+`<video src="" alt="">`
+
 - 显示播放的控件：Control 
 - 自动播放：autoplay 
 - 循环播放：loop 
 
-### 多媒体
+##### 多媒体
 
-- 包含Midi、Mav、AIFF、SWF、AV、MP3、MOV、AVI等等
+>  包含Midi、Mav、AIFF、SWF、AV、MP3、MOV、AVI等等
+
 - `<embed src="" ... > </embed>`
 - 自动播放：atuostart （true/false）
 - 循环播放：loop（true/false）
 
+<hr>
 
-## 域
+#### 域元素
 
-> 个人记忆标记，非正式
+> 个人分类方式
 
 
 
-### 结构元素
+##### 结构元素
 
 > HTML5中新增了一些结构元素，用于给页面布局
 
@@ -1333,13 +1412,12 @@
   </table>
 </div>
 
-### 表单
+##### 表单
 
 > 表单元素
 
 - input
 ```html
-
 <input type="">
 ```
 
@@ -1438,8 +1516,7 @@
   >  label标签和input共同作用
 
 ```html
-  
-  <label for="text"> 用户名：</label><input type="text" id = "text"> 
+<label for="text"> 用户名：</label><input type="text" id = "text"> 
 ```
 
 ![](/imgs/image-20230723193656094.jpg)
@@ -1448,7 +1525,6 @@
 
 - select
 ```html
-
 <select>
   <option selected="selected">default</option>
   <option>选项1</option>
@@ -1469,7 +1545,7 @@
 
 
 
-### 浮动框架
+##### 浮动框架
 
 > 内嵌框架可以在网页中直接插入其他网页或内容
 
@@ -1496,786 +1572,4 @@
 
 
 
-
-
-<br>
-<hr>
-
-# <a id="css"> CSS </a>
-
-> 级联样式表 （Cascading Style Sheet）
-
-- 外观格式设计，解决网页内容和表现分离
-- 由选择器和声明构成
-
-
-
-
-
-## 样式表
-
-### 内联样式表
-
-> 行内样式表
-
-- 内联样式是在单行内使用的样式
-- 直接作用于单行
-
-### 内部样式表
-
-- 内部样式是在文件内生效的，对于选择器所选择的进行样式更改
-- 复用性低
-
-### 外部样式表
-
-- 外部样式通过link的方式，从另外的、非html文件而是css文件来表现样式
-
-```html
-  
-  <link rel="stylesheet" src="source_path">
-```
-
-
-- 一个css文件可以作用于多个html
-
-
-
-
-
-## 选择器
-
-## 标记选择器（元素选择器）
-
-- 包含html中的标记类型，如h1/h2/... , p , div ,  ...
-
-## <a id="class">类选择器</a>
-
-- 以 ` .class_name` 命名，通过`class="class_name"` 使用
-
-- 可重复使用，对多个作用，可以联合使用
-
-```html
-  
-  <!DOCTYPE html>
-  <html>
-  <head>
-      ...
-      <style>
-          p {
-              text-align: center;
-          }
-          .box {
-              width: 200px;
-              height: 200px;
-          }
-          .red {
-              background-color: red;
-          }
-          .gre {
-              background-color: green;
-          }
-      </style>
-  </head>
-  <body>
-      <div class="box red">
-          <p> <img src="../imags/1.jpeg" width="100px" height="100px" hspace="50" vspace="50"> </p>
-      </div>
-      <div class="box gre">
-          <p> <img src="../imags/2.jpeg" width="100px" height="100px" hspace="50" vspace="50"> </p>
-      </div>
-      <div class="box red">
-          <p> <img src="../imags/1.jpeg" width="100px" height="100px" hspace="50" vspace="50"> </p>
-      </div>
-  </body>
-  </html>
-```
-
-
-
-
-## <a id="id">id选择器</a>
-
-- 以`#id_name` 命名，通过`id= "id_name"`使用
-- 和类选择器类似，但id选择器只能使用一次
-
-## 通配符选择器
-
-- 以`*`命名，意为全选
-
-
-
-## 后代选择器
-
-- 在层级关系中逐层选择 
-```html
-  
-  <!DOCTYPE html>
-  <html>
-  
-  <head>
-      <style>
-          ol li {
-              color: red;
-          }
-      </style>
-  </head>
-  
-  <body>
-      <ol>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-      </ol>
-      <ul>
-          <li>1u</li>
-          <li>2u</li>
-          <li>3u</li>
-          <li>4u</li>
-      </ul>
-  </body>
-  
-  </html>
-```
-
-
-
-
-## 子元素选择器
-
-- 在层级关系中只选择最近的一层 使用 `elem1 > elem2 {}`
-
-```html
-  
-  <!DOCTYPE html>
-  <html>
-  
-  <head>
-      <style>
-          div>a {
-              color: blue;
-          }
-      </style>
-  </head>
-  
-  <body>
-      <div>
-          <a href="#son"></a>
-          <p>
-              <a href="grand son"></a>
-          </p>
-      </div>
-  </body>
-  
-  </html>
-```
-
-
-## 并集选择器
-
-- 即类似于类选择器的复用，通过`,` 分隔
-```html
-  
-  <!DOCTYPE html>
-  <html>
-  
-  <head>
-      <style>
-          div,
-          p {
-              color: green;
-          }
-      </style>
-  </head>
-  
-  <body>
-  
-      <div> </div>
-      <p> </p>
-  
-  </body>
-  
-  </html>
-```
-
-
-
-
-## 伪类选择器
-
-- 使用`:`来表示常用的有链接伪类、结构伪类等
-
-
-<div class="to-center">
-    <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Name</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>link</td>
-                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hover</td>
-                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>active</td>
-                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>visited</td>
-                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-letter</td>
-                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-line</td>
-                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-child</td>
-                    <td style='text-align:center;'>设置第一个子标记的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>lang</td>
-                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
-
-​        
-```html
-  
-  <!DOCTYPE html>
-  <html>
-  
-  <head>
-    <style>
-      a:link {
-        color:gray ; text-decoration:none;
-      }
-      a:visited{
-        color:red; text-decoration:none;
-      }
-      a:hover{
-        color:deeppink; text-decoration:none;
-      }
-      a:active{
-        color:yellow; text-decoration:none;
-      }
-      p:first-letter{
-        font-weight:bold;font-family:"黑体";
-      }
-      p:first-line{
-        font-size:32px;
-      }
-    </style>
-  </head>
-  
-  <body>
-    <p>
-          qwertyuiopasdfghjklzxcvbnm
-          qwertyuiopasdfghjklzxcvbnm
-          qwertyuiopasdfghjklzxcvbnm
-          qwertyuiopasdfghjklzxcvbnm
-          qwertyuiopasdfghjklzxcvbnm
-          qwertyuiopasdfghjklzxcvbnm
-      
-    </p>
-    <a href="https://zachary.world"> my blog </a>
-  
-  </body>
-  
-  </html>
-```
-
-
-- 值的注意的是：关于链接伪类的使用是有先后次序的，一般按照LVHA的次序即`link->visited->hover->active`
-
-- 另外还有focus伪类用于获取表单的光标焦点
-
-
-
-## 属性选择器
-
-- 对于低版本的浏览器可能不支持
-- 可以使用`[Attribute]`的方式来进行选择
-
-
-
-## CSS盒模型
-
->  网页中的每一个元素都可以看作一个矩形盒子，通常使用DIV+ CSS的方式来定义一个盒子的元素和样式
-
-- CSS盒模型，将特定的元素描述为盒子，并实现对这个盒子包装进行美化，其中重要的概念**MBPC**
-  - Margin：外边界，多个盒子、或盒子与其他物体堆放其之间的间隔
-  - Border：边界，盒子的实在的边界，如纸盒子的纸皮（纸皮厚度可以是0，假想皮）
-  - Padding：填充，承载玻璃时，盒子里常用泡沫或减压泡泡减震，这些泡沫减压层就是填充物
-  - Content：内容，每一个盒子，都是为了包装存在，没有了被包装物，盒子也就不存在了
-  - 四周：每个盒子都是完整的包围content的，即MBPC有四个基本边界属性（top、right、bottom、left），他们都可以使用长度单位、百分比单位、auto这样的样式值调整边界宽度
-
-#### Margin
-
->  一般是盒子外面的那一层空气，只有厚度没有颜色
-
-#### Border
-
-> 可以使用不同颜色、不同材质的材料的盒子将内容包装起来
-
-同样的，可以使用诸如样式、颜色、宽度等来设置border边界
-
-###### border
-
-> 可以使用一个复合定义粗细、样式、颜色
-
-```css
-#default{
-  border: /* border-width */ 2px /* border-style */ thin  /* border-color */ red;
-}
-```
-
-###### border-style
-
-<div class="to-center">
-  <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Key</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>none</td>
-                    <td style='text-align:center;'>定义无边框</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hidden</td>
-                    <td style='text-align:center;'>与none相同，用于表时例外，用于解决边界冲突</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>dotted</td>
-                    <td style='text-align:center;'>定义点状边框</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>dashed</td>
-                    <td style='text-align:center;'>定义虚线</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>solid</td>
-                    <td style='text-align:center;'>定义实线</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>double</td>
-                    <td style='text-align:center;'>定义双线。宽度等于border-width</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>groove</td>
-                    <td style='text-align:center;'>定义3D凹槽边框。效果取决于border-color</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>ridge</td>
-                    <td style='text-align:center;'>定义山脊状边框。效果取决于border-color</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>inset</td>
-                    <td style='text-align:center;'>定义使页面沉入感边框。效果取决于border-color</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>outset</td>
-                    <td style='text-align:center;'>定义使页面浮出感边框。效果取决于border-color</td>
-                </tr>
-            </tbody>
-      </table>
-</div>
-
-###### border-color
-
-<a href="#color">颜色</a>
-
-> 可以指定单独一边的颜色
-
-```css
-#default{
-  border-color:pink;
-}
-#side-color-set{
-  border-top-color:red;
-  border-left-color:rgb(254,20,35);
-  .
-  .
-  .
-}
-```
-
-###### border-width
-
-> 设置边框宽度
-
-默认medium，thin小于默认、thick大于默认、length可见<a href="unit">单位</a>
-
-#### Padding
-
-> 盒子的填充物样式也可控制
-
-
-
-## 页面布局
-
-> 规整的页面布局看上去十分赏心悦目
-
-- 经典的布局方式是三行模式（header、main、footer）、三列模式（sidebar、main、info）
-
-- 两者可以相结合（header、main{main_leftside、main_content、main_rightside}、footer），即三行三列
-- 三行两列模式是三行三列去除leftside或rightside列的结果
-
-> 在一些网站，会有多行多列的样式
-
-这里是三行三列的基本元素定义
-
-```html
-<!doctype html>
-<html>
-
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width initial-scale=1'>
-    <title>cache</title>
-</head>
-
-<body>
-    <div id="container">
-        <div id="header">
-            <div id="logo"></div>
-            <div id="nav"></div> /* 导航栏 */
-        </div>
-        <div id="main">
-            <div id="left"></div>
-            <div id="content"></div>
-            <div id="right"></div>
-        </div>
-
-        <div class="clearfloat"></div> /*清除浮动*/
-        
-        <div id="footer">
-
-        </div>
-    </div>
-</body>
-
-</html>
-```
-
-
-
-## <a id="unit">单位</a>
-
-## 绝对单位
-
-> 绝对单位在网页中很少使用，一般应用于平面印刷
-
-- 英寸（in）：使用最广泛的长度单位（1 in = 2.54cm）
-- 厘米（cm）：生活中最常用的单位
-- 毫米（mm）：在研究领域使用较为广泛
-- 磅（pt）：在印刷领域使用广泛，也称点。CSS也常用pt设置字体大小（1 pt = 1/72 in）
-- pica（pc）：印刷领域使用较多（1 pc = 12 pt）
-
-## 相对单位
-
-> 相对单位的大小是不固定的
-
-- em：表示元素的字体高度
-- ex：表示以所使用的字体中小写字母x的高度作为参考。在实际使用中，浏览器通过em/2来取得ex
-- px：表示根据屏幕的像素点来确定的
-- 百分比%：相对单位值，通过另一个值来计算
-
-
-
-## 文字文本样式
-
-## 文字
-
-<div class="to-center">
-      <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Name</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>link</td>
-                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hover</td>
-                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>active</td>
-                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>visited</td>
-                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-letter</td>
-                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-line</td>
-                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-child</td>
-                    <td style='text-align:center;'>设置第一个子标记的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>lang</td>
-                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>        
-
-## 文本
-
-<div class="to-center">
-    <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Name</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>link</td>
-                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hover</td>
-                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>active</td>
-                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>visited</td>
-                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-letter</td>
-                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-line</td>
-                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-child</td>
-                    <td style='text-align:center;'>设置第一个子标记的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>lang</td>
-                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
-
-
-
-
-
-## <a id="color">颜色</a>
-
-> 关于颜色的渲染千篇一律
->
-> 常用颜色编码如下
-
-<div class="to-center">
-      <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Name</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>link</td>
-                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hover</td>
-                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>active</td>
-                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>visited</td>
-                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-letter</td>
-                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-line</td>
-                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-child</td>
-                    <td style='text-align:center;'>设置第一个子标记的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>lang</td>
-                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
-
-## 背景
-
-> 指定背景色彩、图案等，可以直接使用复合属性background
-
-<div class="to-center">
-    <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Name</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>link</td>
-                    <td style='text-align:center;'>设置a标记在未被访问前的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>hover</td>
-                    <td style='text-align:center;'>设置a标记在鼠标悬停时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>active</td>
-                    <td style='text-align:center;'>设置a标记在被点击和释放之间时的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>visited</td>
-                    <td style='text-align:center;'>设置a标记在被访问后的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-letter</td>
-                    <td style='text-align:center;'>作用于块，设置第一个字符的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-line</td>
-                    <td style='text-align:center;'>作用于块，设置第一行的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>first-child</td>
-                    <td style='text-align:center;'>设置第一个子标记的样式</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>lang</td>
-                    <td style='text-align:center;'>设置具有lang属性的标记的样式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
-###### background-image
-
-> 设置背景图片
-
-```css
-#default{
-  background-image:url("Path");
-}
-```
-
-###### background-repeat
-
-> 背景重复
-
-<div class="to-center">
-    <table>
-            <thead>
-                <tr>
-                    <th style='text-align:center;'>Key</th>
-                    <th style='text-align:center;'>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style='text-align:center;'>repeat</td>
-                    <td style='text-align:center;'>使用背景图完全覆盖</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>repeat-x</td>
-                    <td style='text-align:center;'>背景水平方向从左到右重叠覆盖</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>repeat-y</td>
-                    <td style='text-align:center;'>背景垂直方向从上到下重叠覆盖</td>
-                </tr>
-                <tr>
-                    <td style='text-align:center;'>no-repeat</td>
-                    <td style='text-align:center;'>不使用重复方式</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
-
-###### background-attachment
-
-> 背景附件，是否随着图像一起滚动
-
-```css
-#default{
-  background-attachment:scroll /* 文字页面滚动时，跟随滚动 */ ;
-}
-#static{
-  background-attachment:fixed /* 固定 */;
-}
-
-```
-
-###### background-position
-
-> 定位方式可以是百分比、px、两者混用等方式
-
-```css
-#default{
-  background: 50%px/* 横向 */ 50%-100px /* 纵向 */
-}
-```
-
-
-
-
-<br>
-<hr>
-
-# <a name="js"> JavaScript </a>
-
-> 客户端脚本语言
-
-- 核心（ECMAScript）
-- 文档对象模型（Document Object Model,DOM）
-- 浏览器对象模型（Brower Object Model,BOM）
 

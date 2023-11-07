@@ -84,7 +84,24 @@ export default defineConfig({
           { text: 'Machine_Learn', link: '/notes/machine_learn' },
           { text: 'MySQL', link: '/notes/mysql' },
           { text: 'POCC', link: '/notes/POCC' },
-          { text: 'Web', link: '/notes/web' },
+          { 
+            collapsed:true,
+            text: 'Web',
+            items: [
+              {
+                text: 'HTML',
+                link: '/notes/web/html'
+              },
+              {
+                text: 'CSS',
+                link: '/notes/web/css'
+              },
+              {
+                text: 'JavaScript',
+                link: '/notes/web/javascript'
+              },
+            ]
+          },
           
 
         ]
