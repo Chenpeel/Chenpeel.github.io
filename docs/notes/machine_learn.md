@@ -27,6 +27,10 @@
 
 <br><br>
 
+数学基础PDF
+
+>  ML-Math - PDF
+
 <div class="book"
     onclick="
     var pdfContainer = document.getElementById('pdf-container');
@@ -192,7 +196,7 @@ $b =\cfrac{1}{m}\displaystyle\sum_{i=1}^{m}(y_i -wx_i)$
 
 #### 2. 多元(multi-variate)线性回归
 
-$y \backsimeq  w_0 + w^1x^1+w^2x^2 +\cdot \cdot \cdot+w^nx^n $
+$y \backsimeq  w_0 + w^1x^1+w^2x^2 +\cdot \cdot \cdot+w^nx^n$
 
 $=\displaystyle \sum_{i=0}^{m}w^{i}x^{i} = W^{T}X$
 
