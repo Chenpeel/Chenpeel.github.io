@@ -207,6 +207,7 @@ head标签中的其他常见元素
         </tbody>
     </table>
 </div>
+
 <div class="to-center">
   <table>
   <thead>
@@ -225,27 +226,28 @@ head标签中的其他常见元素
   </tbody>
   </table>
 </div>
+
 ```html
 <!DOCTYPE html>
 	<html>
 		<head>
-      <meta name = "keywords" content = "CONTENT">
-      <!-- 网页关键词 -->
+          <meta name = "keywords" content = "CONTENT">
+          <!-- 网页关键词 -->
 
-      <meta name = "description" content = "CONTENT">
-      <!-- 网页简要说明 -->
+          <meta name = "description" content = "CONTENT">
+          <!-- 网页简要说明 -->
 
-      <meta name = "author" content = "CONTENT">
-      <!-- 作者信息 -->
+          <meta name = "author" content = "CONTENT">
+          <!-- 作者信息 -->
 
-      <meta name = "generator" content = "CONTENT">
-      <!-- 指明生成页面工具 -->
+          <meta name = "generator" content = "CONTENT">
+          <!-- 指明生成页面工具 -->
 
-      <meta name = "copyright" content = "CONTENT">
-      <!-- 页面版权信息 -->
+          <meta name = "copyright" content = "CONTENT">
+          <!-- 页面版权信息 -->
 
-      <meta name = "robots" content = "CONTENT">
-      <!-- 如👇 -->
+          <meta name = "robots" content = "CONTENT">
+          <!-- 如👇 -->
     </head>
 </html>
 ```
