@@ -81,9 +81,6 @@ export default defineConfig({
               // },
             ]
           },
-          { text: 'Machine_Learn', link: '/notes/machine_learn' },
-          { text: 'MySQL', link: '/notes/mysql' },
-          { text: 'POCC', link: '/notes/POCC' },
           { 
             collapsed:true,
             text: 'Web',
@@ -102,6 +99,10 @@ export default defineConfig({
               },
             ]
           },
+          { text: 'Machine_Learn', link: '/notes/machine_learn' },
+          { text: 'MySQL', link: '/notes/mysql' },
+          { text: 'POCC', link: '/notes/POCC' },
+
           
 
         ]
@@ -143,15 +144,6 @@ export default defineConfig({
           }
         ]
       },
-      // 书库📖
-      {
-        text: 'Boooooook',
-        collapsed:true,
-        items:[
-        ]
-
-      }
-
     ],
     // 底部跳转
     docFooter: {
