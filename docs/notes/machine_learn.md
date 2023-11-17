@@ -99,7 +99,7 @@ NFL定理: 具体问题, 具体分析.
   - 包外估计(out-of-bag estimation)
 
 $$
-\lim_\limits{m\to \infty} {(1-\cfrac{1}{m})} = \cfrac{1}{e} \approx 0.368
+\lim_\limits{m\to \infty} {(1-\cfrac{1}{m})}^m = \cfrac{1}{e} \approx 0.368
 $$
 
 #### 参数
