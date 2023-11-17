@@ -292,6 +292,7 @@ head标签中的其他常见元素
 </tbody>
 </table>
 </div>
+
 ###### http-equiv
 
 
@@ -980,7 +981,7 @@ head标签中的其他常见元素
 
 
   - `start` ：数值，有序列表中的起始数值
-  - `typr` ：可以是 数字、大小写的字母、大小写的罗马字母
+  - `type` ：可以是 数字、大小写的字母、大小写的罗马字母的首位（如使用a、A、I、i、1来使用相应的类型）
 
 <div class="to-center"> 
 <table>
@@ -1099,7 +1100,7 @@ head标签中的其他常见元素
 
 ##### <a id="div">div图层</a>
 
-> 分区/分节，会自动开始新一行，与<a href="#span">span标记</a> 向对照
+> （division/Section）分区/分节，会自动开始新一行，与<a href="#span">span标记</a> 向对照
 >
 > 可以被标记属性<a href="#id">id</a>、<a href="#class">class</a>、style
 
@@ -1180,8 +1181,8 @@ head标签中的其他常见元素
 </tbody>
 </table>
 </div>
+
 > div 图层可以嵌套和层叠使用
->
 > 层叠使用时必须将position设置成绝对位置
 
 
