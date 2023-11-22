@@ -274,19 +274,19 @@ $\Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y
 
 $ \max  ln{\left( P(True-Postive)P(Postive)+ P(True-Negtive)P(Negtive) \right)}$
 
-即$\max ln\left( y\cdot\cfrac{e^{W^TX}}{1+e^{W^TX}} + (1-y)\cdot\cfrac{1}{e^{W^TX}}\right)$
+即$\max ln\left( y\times\cfrac{e^{W^TX}}{1+e^{W^TX}} + (1-y)\cfrac{1}{e^{W^TX}}\right)$
 
 简化之后可得
 
-$\max \bigl( ln ( y\cdot{e^{W^TX}} +1 - y ) - ln (1+{e^{W^TX}}) \bigr)$
+$\max \bigl( ln ( y\times{e^{W^TX}} +1 - y ) - ln (1+{e^{W^TX}}) \bigr)$
 
 由于y=0或y=1
 
 那么$\max \begin{cases} {W^TX} - ln(1+{e^{W^TX}} ), &\text{y=1} \\  \qquad\quad - ln(1+{e^{W^TX}}), &\text{y=0} \end{cases}$
 
-合并上述分值讨论可得函数$\max \quad \bigl( y \cdot W^TX - ln(1+{e^{W^TX}}) \bigr)$
+合并上述分值讨论可得函数$\max \quad \bigl( y \times W^TX - ln(1+{e^{W^TX}}) \bigr)$
 
-$\to \quad z = \min \quad \bigl( ln \cfrac{1+{e^{W^TX}}}{{e^{y\cdot W^TX}}} \bigr) \to z= \min\quad \bigl( ln \cfrac{1+{e^{f(x)}}}{{e^{y\cdot f(x)}}} \bigr) $
+$\to \quad z = \min \quad \bigl( ln \cfrac{1+{e^{W^TX}}}{{e^{y\times W^TX}}} \bigr) \to z= \min\quad \bigl( ln \cfrac{1+{e^{f(x)}}}{{e^{y\times f(x)}}} \bigr) $
 
  一般情况下，到此处使用梯度下降法求解，更适合计算机迭代，可以使用二阶导得到，但并不通用
 
@@ -299,8 +299,6 @@ $\to \quad z = \min \quad \bigl( ln \cfrac{1+{e^{W^TX}}}{{e^{y\cdot W^TX}}} \big
 #### 5. 线性鉴别分析（Linear Discriminant Analysis）
 
  
-
-##### 
 
 
 
