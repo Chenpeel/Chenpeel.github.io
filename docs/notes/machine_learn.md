@@ -268,37 +268,32 @@ $\Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y
 - 可以得到“类别”的近似概率预测
 - 可直接应用现有数值优化算法求取最优解
 
-######  通过极大似然法求解
+###### 通过极大似然法求解
 
 > 不能通过求梯度为零得极值点，因为目标函数，并不是凸函数
 
-$ \max  ln{\left( P(True-Postive)P(Postive)+ P(True-Negtive)P(Negtive) \right)}$
+$\max \ln{\left( P(\text{True-Positive})P(\text{Positive}) + P(\text{True-Negative})P(\text{Negative}) \right)} $
 
-即$\max ln\left( y\times\cfrac{e^{W^TX}}{1+e^{W^TX}} + (1-y)\cfrac{1}{e^{W^TX}}\right)$
+即 $\max \ln\left( y \cdot \cfrac{e^{W^TX}}{1+e^{W^TX}} + (1-y)\cfrac{1}{e^{W^TX}}\right)$
 
 简化之后可得
 
-$\max \bigl( ln ( y\times{e^{W^TX}} +1 - y ) - ln (1+{e^{W^TX}}) \bigr)$
+$\max \bigl( \ln ( y \cdot {e^{W^TX}} +1 - y ) - \ln (1+{e^{W^TX}}) \bigr)$
 
-由于y=0或y=1
+由于 $y=0$ 或 $y=1$
 
-那么$\max \begin{cases} {W^TX} - ln(1+{e^{W^TX}} ), &\text{y=1} \\  \qquad\quad - ln(1+{e^{W^TX}}), &\text{y=0} \end{cases}$
+那么 $\max \begin{cases} {W^TX} - \ln(1+{e^{W^TX}} ), & \text{if } y=1 \\  \qquad\quad - \ln(1+{e^{W^TX}}), & \text{if } y=0 \end{cases}$
 
-合并上述分值讨论可得函数$\max \quad \bigl( y \times W^TX - ln(1+{e^{W^TX}}) \bigr)$
+合并上述讨论可得函数 $\max \quad \bigl( y \cdot W^TX - \ln(1+{e^{W^TX}}) \bigr)$
 
-$\to \quad z = \min \quad \bigl( ln \cfrac{1+{e^{W^TX}}}{{e^{y\times W^TX}}} \bigr) \to z= \min\quad \bigl( ln \cfrac{1+{e^{f(x)}}}{{e^{y\times f(x)}}} \bigr) $
+$\to \quad z = \min \quad \bigl( \ln \cfrac{1+{e^{W^TX}}}{{e^{y \cdot W^TX}}} \bigr) \to z= \min\quad \bigl( \ln \cfrac{1+{e^{f(x)}}}{{e^{y \cdot f(x)}}} \bigr)$
 
- 一般情况下，到此处使用梯度下降法求解，更适合计算机迭代，可以使用二阶导得到，但并不通用
-
+一般情况下，到此处使用梯度下降法求解，更适合计算机迭代，可以使用二阶导得到，但并不通用。
 
 - 梯度下降法
-  如果矩阵不是满秩,没有逆矩阵,就无法使用最小二乘法
-
-
+  如果矩阵不是满秩，没有逆矩阵，就无法使用最小二乘法。
 
 #### 5. 线性鉴别分析（Linear Discriminant Analysis）
-
- 
 
 
 
