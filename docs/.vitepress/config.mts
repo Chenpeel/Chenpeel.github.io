@@ -138,7 +138,8 @@ export default defineConfig({
               { text: '《苍耳》', link: '/literature/POEM/苍耳'},
               { text: '《樛木》', link: '/literature/POEM/樛木'},
               { text: '《螽斯》', link: '/literature/POEM/螽斯'},
-              { text: '《桃夭》', link: '/literature/POEM/桃夭'}
+              { text: '《桃夭》', link: '/literature/POEM/桃夭'},
+              { text: '《兔罝》', link: '/literature/POEM/兔罝'}
             ]
           }
         ]
