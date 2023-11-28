@@ -114,12 +114,17 @@ export default defineConfig({
         collapsed:true,
         items:[
           {
-            text: 'Mathematics\' Analysis',
-        collapsed:true,    
+            text: 'Mathematics\' Analysis',collapsed:true,    
             items:[
               { text: 'Peano', link: '/math/MA/Peano',},
             ]
-          }
+          },
+          {
+            text: 'Matrix', collapsed:true,
+            items:[
+              {text:'Matrix\'s Derivation',link:'/math/Matrix/matrix_derivation'},
+            ],
+          },
         ]
       },
       // 文学
