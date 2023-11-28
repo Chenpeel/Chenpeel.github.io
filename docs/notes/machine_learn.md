@@ -272,7 +272,7 @@ $\Longrightarrow  y = \cfrac{1}{1+e^{-(W^TX)}} \Longrightarrow \ln \cfrac{y}{1-y
 
 > 不能通过求梯度为零得极值点，因为目标函数，并不是凸函数
 
-$\max \ln{\left( P(\text{True-Positive})P(\text{Positive}) + P(\text{True-Negative})P(\text{Negative}) \right)} $
+$\max \ln{\left( P(\text{True-Positive})P(\text{Positive}) + P(\text{True-Negative})P(\text{Negative}) \right)}$
 
 即 $\max \ln\left( y \cdot \cfrac{e^{W^TX}}{1+e^{W^TX}} + (1-y)\cfrac{1}{e^{W^TX}}\right)$
 

@@ -144,6 +144,14 @@ export default defineConfig({
           }
         ]
       },
+      {
+        text: 'Stories',
+        collapsed:true,
+        items:[
+          {text: '《贴吧老哥流浪篇》', link:'/stories/tiebaliulang'},
+          {text: '《菊花三弄——母（公）鸡篇》', link:'/stories/meihuasannong'}
+        ]
+      }
     ],
     // 底部跳转
     docFooter: {
