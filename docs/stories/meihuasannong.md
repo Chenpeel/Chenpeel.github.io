@@ -1,1 +1,1 @@
-![meihuasannong](/i/meihuasannong.jpg)
+![meihuasannong](/public/imgs/meihuasannong.jpg)
