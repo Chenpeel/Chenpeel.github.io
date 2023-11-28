@@ -295,7 +295,55 @@ $\to \quad z = \min \quad \bigl( \ln \cfrac{1+{e^{W^TX}}}{{e^{y \cdot W^TX}}} \b
 
 #### 5. 线性鉴别分析（Linear Discriminant Analysis）
 
+> 目标：最大化广义瑞利商
+>
+> 尽可能的<u>**最小化同类之间的距离，最大化异类之间的距离**</u>
 
+$\min (w^T\Sigma_0w + w^T\Sigma_1w)$
+
+$\max(\| w^T\mu_0-w^T\mu_1 \|_2^2)$
+
+于是 可求解$\max J$
+
+$\max J = \max  \bigg ( \cfrac{\| w^T\mu_0-w^T\mu_1 \| _2^2}{w^T\Sigma_0w + w^T\Sigma_1w} \bigg) = \max \bigg( \cfrac{w^T(\mu_0 - \mu_1)(\mu_0-\mu_1)^T w}{w^T(\Sigma_0+\Sigma_1)w} \bigg)$
+
+>  类内散度矩阵（within-class scatter matrix）
+
+$S_w = \Sigma_0 + \Sigma_1$
+
+$= \sum_\limits{x \in X_0} (x-\mu_0)(x-\mu_0)^T + \sum_\limits{x\in X_1}(x-\mu_1)(x-\mu_1)^T$
+
+>  类间散度矩阵（between-class scatter matrix）
+
+$S_b=(\mu_0-\mu_1)(\mu_0 - \mu_1)^T$
+
+因此就有：
+
+$\max J = \max \bigg( \cfrac{w^TS_bw}{w^TS_ww} \bigg)$
+
+其等价于
+
+$\min_\limits{w} -w^TS_bw\\ s.t. \quad w^TS_ww =1$
+
+ 由拉格朗日子乘法
+
+$g(x) = -w^TS_bw + \lambda (w^TS_ww -1 )$
+
+令$g'(x) = 0$ 且其相关系数矩阵是对称 即得 $-(S_b+S_b^T)w  + \lambda (S_w+S_w^T)w = -2S_bw + 2\lambda S_w w  = 0$
+
+易得$S_bw= (\mu_0 - \mu_1)(\mu_0 -\mu_1)^T w$
+
+注意到求解的$w$关注的是线性方程的方向，而$(\mu_0- \mu_1)^Tw$为标量
+
+于是可令$\lambda = (\mu_0-\mu_1)^Tw$
+
+$w = S_w^{-1}(\mu_0-\mu_1)$
+
+> 然而
+
+通常情况下进行奇异值分解更加快速便捷$S_w= U \Sigma V^T$
+
+然后：$S_w^{-1} = V\Sigma^{-1}U^T$
 
 
 
