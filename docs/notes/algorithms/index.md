@@ -6,7 +6,7 @@
 * 把所有经典算法、数据结构手搓一遍 
 * 理解源码   STL源码，各种库，推荐使用[cppreference](https://zh.cppreference.com/w/)、[cplusplus](https://cplusplus.com) 。 
 * 看经典书籍 （《C++ Primer中文版》、《Essential C++》、《More Effective C++（中文版）》、《提高C++性能的编程技术》、《C++ Templates中文版》、《STL源码剖析》等等） 
-* 刷题   (主刷[<etcode](https://<etcode.cn/u/chen___chen/))
+* 刷题   (主刷[leetcode](https://<etcode.cn/u/chen___chen/))
 
 
 
@@ -80,47 +80,77 @@ $ < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O(n!)$
 
 [基本数据结构](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/)
 
-
-
 ## [线性表](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/liner_list/sequeue_list.hpp)、数组
 
 #### Linear List Info
 
 ##### 线性表的逻辑结构
 
-* 定义：线性表是具有相同数据类型的n（n≥0）个数据元素的有限序列。其中n为表长。当n=0时 线性表是一个空表
-* 特点：线性表中第一个元素称为表头元素；最后一个元素称为表尾元素。
-  除第一个元素外，每个元素有且仅有一个直接前驱。
-  除最后一个元素外，每个元素有且仅有一个直接后继。
+###### 定义
+
+线性表是具有相同数据类型的n（n≥0）个数据元素的有限序列。其中n为表长。当n=0时 线性表是一个空表
+
+###### 特点
+
+- 线性表中第一个元素称为表头元素；最后一个元素称为表尾元素。
+- 除第一个元素外，每个元素有且仅有一个直接前驱。除最后一个元素外，每个元素有且仅有一个直接后继。
 
 ##### 线性表的顺序存储结构
 
-* 线性表的顺序存储又称为顺序表。
-  它是用一组地址连续的存储单元（比如C语言里面的数组），依次存储线性表中的数据元素，从而使得逻
-  辑上相邻的两个元素在物理位置上也相邻。
-* 建立顺序表的三个属性: 
-  1.存储空间的起始位置（数组名data）
-  2.顺序表最大存储容量（MaxSize）
-  3.顺序表当前的长度（length）
-* 其实数组还可以动态分配空间，存储数组的空间是在程序执行过程中通过动态存储分配语句分配
+###### 顺序表
 
->  数组是一种定长的线性表，数组和链表结构是基础结构，散列表、栈、队列、堆、树、图等等各种数据结构都基于数组和链表结构实现。
+用一组地址连续的存储单元（比如C语言里面的数组），依次存储线性表中的数据元素，从而使得逻
+辑上相邻的两个元素在物理位置上也相邻。
 
-总结：
+###### 顺序表三属性 
 
-* 顺序表最主要的特点是随机访问（C语言中基于数组），即通过首地址和元素序号可以在O(1)的时间内找到指定的元素。
-* 顺序表的存储密度高，每个结点只存储数据元素。无需给表中元素花费空间建立它们之间的逻辑关系（因为物理位置相邻特性决定）
-* 顺序表逻辑上相邻的元素物理上也相邻，所以插入和删除操作需要移动大量元素。
+- 存储空间的起始位置（数组名Name）
+- 顺序表最大存储容量（MaxSize）
+- 顺序表当前的长度（length）
+
+###### 顺序表特点
+
+- 随机访问（a[i]），即通过首地址和元素序号可以在O(1)的时间内找到指定的元素
+- 存储连续，物理位置顺序=逻辑位置顺序，信息相对密集
+- 无需大量操作即可完成插入和删除
+
+###### 数组
+
+>  数组是一种定长的线性表，其扩充空间时需要重新申请一块较大的空间以存储
+
+数组可以动态分配空间，存储数组的空间是在程序执行过程中通过动态存储分配语句分配
+
+数组和链表结构是基础结构，散列表、栈、队列、堆、树、图等等各种数据结构都基于数组和链表结构实现。
 
 
 
 #### Linear List & Array Examples
 
-- 遍历、元素统计、改变移动
-- 二维数组、滚动数组
-- 数组的旋转
-- 前缀和数组
-  
+###### 遍历、元素统计、改变移动、旋转轮换
+
+- Cpp中的`std::vector` 
+- [移动零](https://leetcode.cn/problems/move-zeroes/)
+- [数组循环轮换 ](https://leetcode.cn/problems/rotate-array/)、 [旋转函数](https://leetcode.cn/problems/rotate-function/)
+- [最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements/)
+- [非递减数列](https://leetcode.cn/problems/non-decreasing-array/)
+
+###### 二维数组、滚动数组
+
+Loading...
+
+
+
+###### 前缀和数组 & 差分数组
+
+> 规定一维，原数组$a_n$ 、前缀和数组$prefix\_sum_{n+1}$、差分数组$diffence_{n+1}$
+
+由前缀和数组定义可知$prefix\_sum[i] = prefix[i-1] + a[i]$（其中$prefix\_sum[0]=0$）
+
+由差分数组定义可知$diffence[i] = a[i]-a[i-1]$ （其中$diffence[0]=a[0]$）
+
+> 对前缀和数组，做一次差分即得原数组，反之亦然。
+
+-  [用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid/) 
 
 ## [链表](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/liner_list/)
 
@@ -128,31 +158,59 @@ $ < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O(n!)$
 
 >  线性表的链式存储结构
 
-* 线性表的链式存储是指通过一组任意的（即**可以非连续**）存储单元来存储线性表中的数据元素。
-* 头结点和头指针的区别？
-  * 头指针始终指向链表的第一个结点，不管有无头结点
-  * 头结点是带头结点链表中的第一个结点，结点内通常不存储信息
-* 为什么要设置头结点？
-  * 处理操作起来方便 
-  * 头节点可以无须关注链表元素个数影响
+###### 定义
+
+线性表的链式存储是指通过一组任意的（即**可以非连续**）存储单元来存储线性表中的数据元素。
+
+###### 特点
+
+- 逻辑上呈链式，而真实的物理位置不一定呈相邻
+- 仅维护头指针（尾指针），无需关注链表的（逻辑）长度，即结点数量。
+
+###### 头结点和头指针的区别
+
+* 头指针始终指向链表的第一个结点，不管有无头结点
+* 头结点是带头结点链表中的第一个结点，结点内通常不存储信息
+
+>  链表中，一个结点所指向的其他结点的指针数目，不一定只有一个
+
+如果指向两个结点，那么链表可以演化为双向链表或者树
 
 #### Linked List Examples
+
+###### 自定链表数据结构
 
 * [单向链表](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/liner_list/singly_linked_list.hpp)
 * [双向链表](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/liner_list/doubly_linked_list.hpp)
 * [循环链表](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/liner_list/circular_linked_list.hpp)
 
+###### 链表的旋转、合并
+
+- [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
+- [旋转链表](https://leetcode.cn/problems/rotate-list/)、[ 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/) 、[K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
+- [合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+- [ 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)、[环形链表](https://leetcode.cn/problems/linked-list-cycle/)
+
+
+
+
+
+
+
 ## [队列](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/queue)
 
 #### Queue Info
 
-* 队列
-  >  只允许在一端进行插入，而在另一端进行删除的线性表
-* 队头（Front）
-  >  允许删除的一端，又称为队首。
-* 队尾（Rear）
-  > 允许插入的一端。
-* FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In First Out）
+队列
+>  只允许在一端进行插入，而在另一端进行删除的线性表
+
+队头（Front）
+>  允许删除的一端，又称为队首。
+
+队尾（Rear）
+> 允许插入的一端。
+
+FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In First Out）
 
 ##### 顺序队列
 
@@ -605,7 +663,7 @@ $ < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O(n!)$
 * 定义：排序就是将原本无序的序列重新排列成有序的序列。
 * 排序的稳定性
     * 如果待排序表中有两个元素 $R_i、R_j$，其对应的关键字 $key_i=key_j$，且在排序前 $R_i$ 在 $R_j$ 前面，如果使用某一排序算法排序后，$R_i$ 仍然在 $R_j$ 的前面，则称这个排序算法是稳定的，否则称排序算法是不稳定的。
-  
+
 ##### 插入类排序
 * 直接插入排序
     * 直接插入排序：首先以一个元素为有序的序列，然后将后面的元素依次插入到有序的序列中合适的位置直到所有元素都插入有序序列。

@@ -34,13 +34,12 @@
   | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
   | 0.22 | 0.13 | 0.07 | 0.06 | 0.2  | 0.1  | 0.07 | 0.06 | 0.1  | 0.07 |
 
-- 分析：字符在T中的深度记为： $d_T(c)$  ，平均码长  $B(T) = \sum\limits_{\begin{subarray}{1} c \in C \end{subarray}} {f(c) \cdot d_T(c)}$
+- 分析：字符在T中的深度记为： $d_T(c)$  ，平均码长  $B(T) = \sum\limits_{\begin{subarray}{1} c \in C \end{subarray}} {f(c) \cdot d_T(c)}$  ， [huffman_tree.hpp](https://github.com/Chenpeel/Codes/blob/master/Cpp/algo_codes/struct/tree/huffman_tree.hpp) 
 
 - 题目代码：
 
   - [huffmancode.cpp](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/huffmancode.cpp)
   - [huffmancode.py](https://github.com/Chenpeel/Codes/tree/master/Python/algo_codes/huffmancode.py)
-
 
 
 

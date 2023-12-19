@@ -122,6 +122,7 @@ export default defineConfig({
           {
             text: 'Matrix', collapsed:true,
             items:[
+              {text:'Matrix\'s SVD',link:'/math/Matrix/SVD'},
               {text:'Matrix\'s Derivation',link:'/math/Matrix/matrix_derivation'},
             ],
           },

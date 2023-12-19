@@ -780,5 +780,27 @@ CSS盒模型，将特定的元素描述为盒子，并实现对这个盒子包�
 
 <br>
 <hr>
-
-
+```css
+  .ball{
+      position:absolute;
+      top:0;
+      left:0;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background-color:skyblue;
+      animation: 
+          hor 3.6s infinite linear alternate;
+          ver 2.4s infinite linear alternate 
+  }
+  @keyframes hor{
+      to{
+          left:calc(100vw-10px);
+      }
+  }
+  @keyframes ver{
+      to{
+          top:calc(100vh-10px);
+      }
+  }
+```
