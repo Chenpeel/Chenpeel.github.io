@@ -120,6 +120,12 @@ export default defineConfig({
             ]
           },
           {
+            text: 'PT&MS',collapsed:true,    
+            items:[
+              { text: 'Conv&\\rho', link: '/math/PT&MS/CCC.md',},
+            ]
+          },
+          {
             text: 'Matrix', collapsed:true,
             items:[
               {text:'Matrix\'s SVD',link:'/math/Matrix/SVD'},
