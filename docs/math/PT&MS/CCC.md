@@ -24,7 +24,7 @@ $D(X ± Y) = D(X)+D(Y)±Cov(X,Y)$
 
 ###### 协方差矩阵
 
-对于矩阵$A = [X_1, X_2, \ldots, X_n],(X_i=[x_{i1},x_{i2},\ldots,x_{in}]^T)$， 期望向量$[\mu_1,\mu_2,\ldots,\mu_n]$
+对于矩阵$A = [X_1, X_2, \ldots, X_n]$ ， $(X_i=[x_{i1},x_{i2},\ldots,x_{in}]^T)$， 期望向量$[\mu_1,\mu_2,\ldots,\mu_n]$
 
 其协方差矩阵元素：$\Sigma_{ij}=Cov(X_i,X_j) = E[(X_i-\mu_i)(X_j-\mu_j)]$
 
@@ -50,7 +50,11 @@ $\hat\Sigma_{ij} = \cfrac{1}{N-1}\sum\limits_{i=1}^{N}(A_{ki}-\bar A_i)(A_{kj}-\
 
 令$X^* = \cfrac{X-E(X)}{\sqrt{D(X)}}, \quad Y^* = \cfrac{Y-E(Y)}{\sqrt{D(Y)}}$，对$X,Y$进行标准化
 
-因此$Cov(X^*,Y^*) = E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\cdot \cfrac{Y-E(Y)}{\sqrt{D(Y)}} \Big) - E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\Big)E\Big(\cfrac{Y-E(Y)}{\sqrt{D(Y)}}\Big) = \cfrac{E\Big(\big(X-E(X)\big)\big(Y-E(Y) \big)\Big)}{\sqrt{D(X)D(Y)}}$
+因此$Cov(X^*,Y^*)$
+
+$= E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\cdot \cfrac{Y-E(Y)}{\sqrt{D(Y)}} \Big) - E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\Big)E\Big(\cfrac{Y-E(Y)}{\sqrt{D(Y)}}\Big)$
+
+$= \cfrac{E\Big(\big(X-E(X)\big)\big(Y-E(Y) \big)\Big)}{\sqrt{D(X)D(Y)}}$
 
 令$\rho = Cov(X^*,Y^*) = \cfrac{Cov(X,Y)}{\sqrt{D(X)D(Y)}}$，其中$\|\rho\| \le 1 \to \big(E(XY)\big)^2 \le E(X)^2E(Y)^2$
 
@@ -59,7 +63,7 @@ $\hat\Sigma_{ij} = \cfrac{1}{N-1}\sum\limits_{i=1}^{N}(A_{ki}-\bar A_i)(A_{kj}-\
 
 ###### 相关系数矩阵
 
-对于矩阵$A = [X_1, X_2, \ldots, X_n],(X_i=[x_{i1},x_{i2},\ldots,x_{in}]^T)$
+对于矩阵$A = [X_1, X_2, \ldots, X_n]$， $(X_i=[x_{i1},x_{i2},\ldots,x_{in}]^T)$
 
 其相关系数矩阵元素$R_{ij} = \rho(X_i,X_j) = \cfrac{\sigma_{ij}}{\sqrt{\sigma_{ii}\sigma_{jj}}}$
 

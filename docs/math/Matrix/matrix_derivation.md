@@ -32,7 +32,9 @@ $\cfrac{\partial f(\vec y)}{\partial \vec y}=\begin{bmatrix} \cfrac{\partial f(\
 
 对其求导可得
 
-$\cfrac {\partial \vec f(\vec y)}{\partial \vec y} = \begin{bmatrix}  \cfrac{\partial f_1(\vec y)}{\partial y_1}\quad \cfrac{\partial f_2(\vec y)}{\partial y_1} \quad \cdots \quad  \cfrac{\partial f_n(\vec y)}{\partial y_1} \\ \cfrac{\partial f_1(\vec y)}{\partial y_2}  \qquad \quad \qquad \qquad  \qquad  \qquad \\ \vdots \qquad \qquad \quad\ddots\qquad\qquad \vdots \\ \cfrac{\partial f_1(\vec y)}{\partial y_m}  \quad \quad   \quad \cdots\qquad\quad \cfrac{\partial f_n(\vec y)}{\partial y_m}\end{bmatrix}$
+$\cfrac {\partial \vec f(\vec y)}{\partial \vec y} =$
+
+$\begin{bmatrix}  \cfrac{\partial f_1(\vec y)}{\partial y_1}\quad \cfrac{\partial f_2(\vec y)}{\partial y_1} \quad \cdots \quad  \cfrac{\partial f_n(\vec y)}{\partial y_1} \\ \cfrac{\partial f_1(\vec y)}{\partial y_2}  \qquad \quad \qquad \qquad  \qquad  \qquad \\ \vdots \qquad \qquad \quad\ddots\qquad\qquad \vdots \\ \cfrac{\partial f_1(\vec y)}{\partial y_m}  \quad \quad   \quad \cdots\qquad\quad \cfrac{\partial f_n(\vec y)}{\partial y_m}\end{bmatrix}$
 
 
 
