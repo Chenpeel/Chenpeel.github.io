@@ -52,7 +52,9 @@ $\hat\Sigma_{ij} = \cfrac{1}{N-1}\sum\limits_{i=1}^{N}(A_{ki}-\bar A_i)(A_{kj}-\
 
 因此$Cov(X^*,Y^*)$
 
-$= E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\cdot \cfrac{Y-E(Y)}{\sqrt{D(Y)}} \Big) - E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\Big)E\Big(\cfrac{Y-E(Y)}{\sqrt{D(Y)}}\Big)$
+$= E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\cdot \cfrac{Y-E(Y)}{\sqrt{D(Y)}} \Big)$
+
+$- E\Big(\cfrac{X-E(X)}{\sqrt{D(X)}}\Big)\cdot E\Big(\cfrac{Y-E(Y)}{\sqrt{D(Y)}}\Big)$
 
 $= \cfrac{E\Big(\big(X-E(X)\big)\big(Y-E(Y) \big)\Big)}{\sqrt{D(X)D(Y)}}$
 
