@@ -293,8 +293,10 @@ $\to \quad z = \min \quad \bigl( \ln \cfrac{1+{e^{W^TX}}}{{e^{y \cdot W^TX}}} \b
 - 梯度下降法
   如果矩阵不是满秩，没有逆矩阵，就无法使用最小二乘法。
 
-#### 5. 线性鉴别分析（Linear Discriminant Analysis）
+#### 5. 线性鉴别分析
 
+> Linear Discriminant Analysis
+>
 > 目标：最大化广义瑞利商
 >
 > 尽可能的<u>**最小化同类之间的距离，最大化异类之间的距离**</u>
@@ -346,6 +348,8 @@ $w = S_w^{-1}(\mu_0-\mu_1)$
 然后：$S_w^{-1} = V\Sigma^{-1}U^T$
 
 
+
+#### 类别不平衡
 
 ## KNN
 ——K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
