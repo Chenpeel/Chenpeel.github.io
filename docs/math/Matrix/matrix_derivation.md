@@ -26,7 +26,9 @@ $\cfrac{\partial f(\vec y)}{\partial \vec y}=\begin{bmatrix} \cfrac{\partial f(\
 
 ##### 2. 向量方程对向量的导数
 
-对于$\vec f(\vec y) = \begin{bmatrix} f_1(\vec y) \\ f_2(\vec y) \\ \vdots  \\ f_n (\vec y)\end{bmatrix}$  其中 $\vec y = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_m \end{bmatrix}$
+对于$\vec f(\vec y) = \begin{bmatrix} f_1(\vec y) \\ f_2(\vec y) \\ \vdots  \\ f_n (\vec y)\end{bmatrix}$
+
+其中 $\vec y = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\y_m \end{bmatrix}$
 
 > 这里采用分母布局，$n \times m$的矩阵
 
