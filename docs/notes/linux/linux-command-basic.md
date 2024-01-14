@@ -62,7 +62,7 @@ man页面一般可以分为8种命令类型
 8. 系统管理员命令和后台运行命令
 9. 内核开发者手册
 
-没错，👆的就是
+没错，如👆的就是，这一部分的内容
 
 ```bash
 The sections of the manual are:
@@ -77,7 +77,7 @@ The sections of the manual are:
            9.   Kernel Developer's Manual
 ```
 
-这一部分的内容
+
 
 
 
@@ -94,6 +94,7 @@ PWD(1)                           General Commands Manual                        
 
 NAME
      pwd – return working directory name
+     # 注：  返回工作目录
 
 SYNOPSIS
      pwd [-L | -P]

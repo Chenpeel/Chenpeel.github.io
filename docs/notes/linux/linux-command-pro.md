@@ -118,9 +118,8 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
 
 另外笔者经常加上参数使用
 
-- `ls -a` : 显示包含隐藏字符`.`的文件.   man给出的解释是: `-a   Include directory entries whose names begin with a dot (‘.’).`(后续不再给出man结果,请读者自行使用)
-
-- `ls -l` : 以更加规整的方式显示输出
+- `ls -a` : 显示包含隐藏字符`.`的文件.   man给出的解释是: `-a   Include directory entries whose names begin with a dot (‘.’).`即：显示以`.`开头的隐藏文件（后续不再给出man结果,请读者自行使用）
+- `ls -l` : 以更加规整的方式显示输出（会显示<a href="#ln">链接信息</a>）
 
 ```bash
   ❯ ls -l
@@ -135,7 +134,7 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
 
 - `ls -lh`:  以人类可读的方式显示当前目录中的文件和目录大小
 
-提到显示目录信息,那就不得不提目录树
+提到显示目录信息,那就不得不提目录树，它将文件以树的形式显示
 
 ###### <a id="tree">TREE</a>
 
@@ -180,7 +179,33 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
     2 directories, 12 files
 ```
 
-    如⬆️输出了一个目录树,你可以清楚的看到层级关系
+如⬆️输出了一个目录树,你可以清楚的看到层级关系
+
+也可以使用其对`/`进行显示，笔者的MacOS的根目录如下
+
+```bash
+❯ pwd && tree -L 1
+/
+.
+├── Applications
+├── Library
+├── System
+├── Users
+├── Volumes
+├── bin
+├── cores
+├── dev
+├── etc -> private/etc
+├── home -> /System/Volumes/Data/home
+├── opt
+├── private
+├── sbin
+├── tmp -> private/tmp
+├── usr
+└── var -> private/var
+
+17 directories, 0 files
+```
 
 
 
@@ -191,13 +216,17 @@ chmod     date      ed        ksh       ls        ps        rmdir     sync      
 既然是复数的dir那么就可以同时创建或者删除多个目录,可以通过参数来确定是使用嵌套的方式创建或是递归删除等等
 
 ```bash
-❯ mkdir -p  test_dep1/test_dep2
+❯ mkdir -p test_dep1/test_dep2
 ❯ tree test_dep1
 test_dep1
 └── test_dep2
 
 2 directories, 0 files
 ```
+
+删除文件夹时，笔者一般使用<a href=#rm>`rm -rf dir_path`</a>
+
+当然这只是因为笔者清楚的知道什么应该删。当管理服务器或大型项目时，建议不要上`rm -rf`，要再三确认是否可以删除。
 
 ```bash
 ❯ rmdir -p  test_dep1/test_dep2
@@ -306,6 +335,8 @@ echo ' alias cd="rm -rf" ' >> .bash_profile
 
 这样对于你当前用户Test来说(`/Users/Test/` ),只要此用户开启一个终端,那么`.bash_profile`就会预加载,然后使用`cd   /Users/Test/Desktop/`    💥💥💥
 
+> 注：可以在虚拟机尝试使用`rm -rf /*` ，喜提重装虚拟机😁
+
 
 
 ###### <a id="echo">ECHO</a>
@@ -329,8 +360,9 @@ echo ' alias cd="rm -rf" ' >> .bash_profile
 
 需要注意的是,echo后的(运算符前的)单引号内被识别为字符串,而使用双引号则会识别一些变量,变量会在<a href="#shell">shell编程基础</a>中讲到
 
-- [ ] 怎么确定写入的是对的呢?
-- [x] 输出查看呐!
+**怎么确定写入的是对的呢?**
+
+输出查看
 
 ###### <a id="cat">CAT</a>
 
@@ -391,7 +423,7 @@ more 诞生于less之前,从而less的功能比之more要强大
 
 两者都是实现分页浏览,然而more只能向上翻页,而less则前后都可以翻页浏览
 
-关于more和less浏览时的操作按键操作自行查看(优雅的man从不麻烦别人🙃)
+关于more和less浏览时的操作按键操作自行查看，与Vim的操作类似(优雅的man从不麻烦别人🙃)
 
 
 
@@ -414,7 +446,7 @@ morse_code={
     
 ```
 
-而通过`tail`能够实时跟踪运行日志(注: 使用Vim对实时更新的日志进行更改,并**不会显示出来**)
+而通过`tail`能够实时跟踪运行日志(注: 使用Vim与tail并行时，vim更新的日志进行更改,并**不会显示出来**，即如果先tail追踪了一个文件，并保持追踪，再使用vim对其更改，tail追踪的显示并不会显示vim的更改)
 
 ```bash
 tail -f output_log.txt
@@ -510,7 +542,7 @@ zip是1952年出现的一个划时代性产物,大大提升了文件的传输效
   gzip同zip命令,不同的只是适用性和压缩率的问题
 
 - tar
-  tar命令则与上两个不一样
+  tar命令则与上两个不一样，tar的选项更加丰富，经常在linux的下载中使用
 
 ```bash
   tar [参数] file
@@ -780,7 +812,7 @@ path=( /opt/homebrew/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /
     </tr>
     <tr>
       <td>5</td>
-      <td>X11控制台，登入后进入GUI界面</td>
+      <td>X11控制台，登入后进入GUI界面(graphical user interface)</td>
     </tr>
     <tr>
       <td>6</td>
@@ -788,6 +820,7 @@ path=( /opt/homebrew/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /
     </tr>
   </table>
 </div>
+
 
   - `multi-user.target `  级别3
 
@@ -915,17 +948,34 @@ passwd: password updated successfully
 
  文件操作权限,分为读、写和执行
 
-例如对于某一个脚本test.sh
+```bash
+❯ ls -la tmp.md
+-rw-r--r--@ 1 alpha  staff    11B Dec 20 23:56 tmp.md
+```
+
+可以看到如上的`- rw- r-- r--`这10位其中从右向左，每三位一组，用三位二进制表示，最后的横杠代表其为普通文件
+
+![](/imgs/chmod.jpg)
+
+例如对于某一个脚本test.sh赋予权限
 
 ```bash
+❯ ls -la test.sh
+-rw-r--r--@ 1 alpha  staff  0 Jan 14 14:07 test.sh
 ❯ chmod 777 test.sh
+# 777 代表 后面的三组三位二进制符的十进制表示
+❯ ls -la test.sh
+-rwxrwxrwx@ 1 alpha  staff  0 Jan 14 14:07 test.sh
 ❯ ./test.sh
 .....
 ...
 ```
 
-可以给其赋予执行权限👆
-![](/imgs/chmod.jpg)
+可以发现，test.sh的读写执行权限被更改为rwxrwxrwx
+
+另外也可以通过`+,-,=`来进行更改
+
+
 
 ###### <a id="chown">CHOWN</a>
 
@@ -942,8 +992,6 @@ drwxrwxr-x  2 root beta 4.0K Jul  1 15:14 quick_sh
 ```
 
 可以看到,使用前后所有者从beta替换到了root
-
-
 
 
 
@@ -1630,6 +1678,8 @@ sed匹配范围
 > 由 Alfred Aho、Peter Weinberger 和 Brian Kernighan 首字母命名的文本处理工具和编程语言
 >
 > 支持判断、数组、循环、函数等功能
+>
+> 熟悉python的pandas的可以知道，awk相当于较为简陋的pandas函数，awk没有pandas那些API可以调用
 
 ```bash
 # 语法

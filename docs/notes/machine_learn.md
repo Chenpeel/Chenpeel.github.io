@@ -25,27 +25,7 @@
 
 <h1 class="article-title">机器学习(ML )</h1>
 
-<br><br>
-
-数学基础PDF
-
->  ML-Math - PDF
-
-<div class="book"
-    onclick="
-    var pdfContainer = document.getElementById('pdf-container');
-    if (pdfContainer.style.display === 'none') {
-      pdfContainer.style.display = 'block';
-    } else {
-      pdfContainer.style.display = 'none';
-    }
-    ">
-  <p>ML - Math</p>
-  <div class="pdf-container" id="pdf-container" style="display: none;">
-    <iframe src="https://drive.google.com/file/d/1R_fta4L7-cNN1mgJHJNlXO0wIb7c0FIL/view?usp=drive_link" width="100%" height="1000"></iframe>
-  </div>
-</div>
-
+<br>
 
 ## 概率近似正确 - PAC(Probably Approximately Correct)
 
@@ -158,11 +138,9 @@ $\text{当} \begin{cases}
 
 
 
+<br>
 
-
-
-
-## 线性回归(Linear Regression)
+## 线性模型
 
 #### 1. 线性回归
 
@@ -240,7 +218,7 @@ $$
 
 <img src="/imgs/func1.png" />
 
-
+<br>
 
 #### 4. 对率回归:
 
@@ -293,6 +271,8 @@ $\to \quad z = \min \quad \bigl( \ln \cfrac{1+{e^{W^TX}}}{{e^{y \cdot W^TX}}} \b
 - 梯度下降法
   如果矩阵不是满秩，没有逆矩阵，就无法使用最小二乘法。
 
+<br>
+
 #### 5. 线性鉴别分析
 
 > Linear Discriminant Analysis
@@ -341,15 +321,82 @@ $g(x) = -w^TS_bw + \lambda (w^TS_ww -1 )$
 
 $w = S_w^{-1}(\mu_0-\mu_1)$
 
-> 然而
-
 通常情况下进行奇异值分解更加快速便捷$S_w= U \Sigma V^T$
 
-然后：$S_w^{-1} = V\Sigma^{-1}U^T$
+然后可得：$S_w^{-1} = V\Sigma^{-1}U^T$
 
 
 
-#### 类别不平衡
+#### 6. 多分类问题
+
+> 现实中常使用多分类来解决分类问题
+
+###### OvO & OvR
+
+对于$N$个类别$C_1,C_2,C_3,\dots,C_N$，可以将其折分成二分类问题，这将会产生$\cfrac{N\cdot(N-1)}{2}$次分类
+
+或者拆分成非均衡的二分类，即一对其余（One v.s. Rest），仅需$N$个分类器
+
+虽然OvO进行多次分类，但OvR每个分类器都使用全部的样例，所以两者在多数情况下时间开销相近
+
+###### MvM
+
+>  多对多分类（Many v.s. Many）
+
+OvO & OvR显然是MvM的特例
+
+针对多对多的分类问题，常采用**纠错输出码**（error correction output codes ECOC）
+
+###### ECOC
+
+> ECOC工作过程主要分为编码和解码两步
+
+- 编码
+  对$N$个类别做$M$次划分，每次划分，将一部分类别化为正类，一部分化为反类，从而形成一个二分类训练机；这样一共有$M$个训练集，可以训练出$M$个分类器
+- 解码
+  $M$个分类器分别对样本进行预测，这些预测标记组成一个编码，将这个预测编码与每个类别各自比较，返回其中距离最小的类别作为最终预测结果
+
+
+
+#### 7. 类别不平衡问题
+
+> 之前的分类学习方法都有一个共同基本假设，不同类别的训练样例数目 ***相当***
+
+如果不同类别的训练样例数目稍稍不同，通常影响不大
+
+但若是差别很大，会对学习过程造成困扰，例如十分极端的训练样例$正例:反例=99:1或者 998:2$ 
+
+模型的训练时，只需一直返回多数方即可达到$99\%,99.8\%$ 但是这样的学习器没有任何价值，它无法预测任何反例。
+
+**类别不平衡** 就是指在分类任务中不同类别的训练样例数目差别较大的情况。
+
+> 在拿到新的数据进行预测时，预测结果的决策，需要依靠所训练出的分类规则
+
+对于线性模型，当进行决策时，预测结果为正类，就是根据其预测为正类的概率大于负类的概率，换言之：
+
+$\cfrac{y}{1-y} > 1$ 
+
+然而在类别不平衡的条件下，训练出的分类器并不是这样，如正类小于负类的情况下，当预测的符合$\cfrac{y}{1-y} > ? > 1$ 才会被鉴别为正类，显然这样的分类器并不“公平”
+
+因此在类别不平衡学习中，对于分类器的决策执行时，可以对其进行“再缩放”
+
+即$\cfrac{y'}{1-y'} = \cfrac{y}{1-y} \cdot\cfrac{1}{?}$使之平衡
+
+但实际上实现起来却很难，因为我们认为的训练集是总体的无偏采样，能够代表总体概率。但实际上训练集数据抽取是随机的，它的偏差可能很大。
+
+- 欠（下）采样——减少多的一方
+- 过（上）采样——增加少的一方
+- 阈值移动——采用缩放使之平衡
+
+
+
+### 决策树模型
+
+
+
+
+
+
 
 ## KNN
 ——K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
@@ -367,9 +414,7 @@ $w = S_w^{-1}(\mu_0-\mu_1)$
 
 ##### Codes
 
-<a href="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/KNN.ipynb"> KNN Python </a>
-
-<!-- <a href="./"> KNN C++ </a> -->
+<a href="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/KNN.ipynb"> KNN with Jupyter Notebook </a>
 
 
 
