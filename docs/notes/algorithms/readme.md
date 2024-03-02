@@ -6,7 +6,7 @@
 * 把所有经典算法、数据结构手搓一遍 
 * 理解源码   STL源码，各种库，推荐使用[cppreference](https://zh.cppreference.com/w/)、[cplusplus](https://cplusplus.com) 。 
 * 看经典书籍 （《C++ Primer中文版》、《Essential C++》、《More Effective C++（中文版）》、《提高C++性能的编程技术》、《C++ Templates中文版》、《STL源码剖析》等等） 
-* 刷题   (主刷[leetcode](https://<etcode.cn/u/chen___chen/))
+* 刷题   (主刷[leetcode](https://leetcode.cn/u/chen___chen/))
 
 
 
@@ -469,7 +469,7 @@ FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In
 
 
 
-#### Tree Exap<s
+#### Tree Exaples
 
 * [二叉树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/binary_tree.hpp)
   *   [快速排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/quick_sort.h)就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历  
@@ -645,7 +645,7 @@ FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In
 * 关键路径
     * AOE(Activity On Edge):在一个表示工程的带权有向图中，用顶点表示事件，用有向边表示活动，用边上的权值表示活动的持续时间，这种有向图的边表示活动的网称为AOE网。
 
-#### Map Exap<s
+#### Map Exaples
 
 * 图的存储结构和基本操作（建立，遍历，删除节点，添加节点）   
 * 最小生成树  
@@ -1112,7 +1112,7 @@ FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In
 
 ### 编程网站
 
-* [<etcode](https://<etcode.cn/u/chen___chen/)个人主页
+* [Leetcode](https://leetcode.cn/u/chen___chen/)个人主页
 * [AcWing](https://www.acwing.com/prob<m/) 刷题
 * [codetop](https://codetop.cc/home) 企业高频面试题库，刷题必备
 * [openjudge](http://openjudge.cn/)  开放在线程序评测平台，可以创建自己的OJ小组   
@@ -1121,7 +1121,7 @@ FIFO: 先进入队列的元素必然先离开队列，即先进先出（First In
 
 ### 竞赛网站
 
-- [<etcode竞赛](https://<etcode.cn/contest/)
+- [Leetcode竞赛](https://leetcode.cn/contest/)
 - [AtCoder](https://atcoder.jp/) 英国网站，作息阴间的可以一试
 - [ForceCd](https://codeforces.com/) 同上
 

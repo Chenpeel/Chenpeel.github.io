@@ -46,7 +46,7 @@ export default defineConfig({
             collapsed:true,
             text: 'Algorithms',
             items: [
-              { text: 'README', link: '/notes/algorithms/index' },
+              { text: 'README', link: '/notes/algorithms/readme' },
               { text: 'Recursion', link: '/notes/algorithms/analysis/recursion' },
               { text: 'Divide_Conquer', link: '/notes/algorithms/analysis/divide_conquer' },
               { text: 'Dynamic_Programing', link: '/notes/algorithms/analysis/dynamic_programing' },
@@ -161,7 +161,7 @@ export default defineConfig({
         collapsed:true,
         items:[
           {text: '《贴吧老哥流浪篇》', link:'/stories/tiebaliulang'},
-          {text: '《菊花三弄——母（公）鸡篇》', link:'/stories/meihuasannong'}
+          {text: '《菊花三弄》', link:'/stories/juhuasannong'}
         ]
       }
     ],
