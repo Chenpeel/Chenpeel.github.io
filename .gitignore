@@ -3,4 +3,5 @@
 .DS_Store
 cache
 dist
-push.sh
+format.sh
+update.sh
