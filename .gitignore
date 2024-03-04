@@ -5,3 +5,4 @@ cache
 dist
 format.sh
 update.sh
+.linux
