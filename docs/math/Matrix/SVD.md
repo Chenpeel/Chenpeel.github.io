@@ -46,7 +46,7 @@ $AA^T \quad\& \quad A^TA$的特征值分别为$\lambda 、 \mu$ 对应的奇异�
 
 
 
-###### Result
+###### 结论
 
 $A_{SVD} = U \Sigma V^T$ 
 

@@ -157,6 +157,16 @@ export default defineConfig({
         ]
       },
       {
+        text:'Article-En',
+        collapsed:true,
+        items:[
+          {text:'2024-03-13',link:'/en/paper_to_re/daily_tmp_2024-03-13.md'},
+          {text:'2024-03-14',link:'/en/paper_to_re/daily_tmp_2024-03-14.md'},
+          
+        ]
+
+      },
+      {
         text: 'Stories',
         collapsed:true,
         items:[
