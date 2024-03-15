@@ -515,7 +515,7 @@ $\Delta w_{hj} = - \eta \cfrac{\partial E_k}{\partial w_{hj}} = \eta g_j b_h$
 
 $\Delta\theta_j =-\eta g_j$
 
-$e_h&= -\cfrac{\partial E_k}{\partial b_h} \cdot \cfrac{\partial b_h }{\partial \alpha_{h}}\\$
+$e_h= -\cfrac{\partial E_k}{\partial b_h} \cdot \cfrac{\partial b_h }{\partial \alpha_{h}}$
 $=-\sum\limits_{j=1}^{l} \cfrac{\partial E_k}{\partial \beta_j}\cdot\cfrac{\partial \beta_j}{\partial b_h}\cdot f'(\alpha_h - \gamma_h)$
 $=\quad \sum\limits_{j=1}^{l} w_{hj}g_jf'(\alpha_h - \gamma_h)$
 $=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$
