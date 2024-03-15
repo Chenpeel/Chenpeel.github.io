@@ -474,7 +474,7 @@ $y= f(\sum\limits_{i=1}^{n}w_ix_i - \theta_j)$
 > 基于梯度下降的策略，以负方向对参数进行调整
 
 为方便讨论，做如下规定：
-给定训练集$D={(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)},x_i\in \R^d , y_i \in \R^l$
+给定训练集$D={(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)},x_i\in R^d , y_i \in R^l$
 输入：$d$维向量
 输出：$l$个输出值
 隐层：$q$个隐层神经元
@@ -491,32 +491,32 @@ $\hat y_j^k = f(\beta_j - \theta_j)$
 则共需学习的参数数目为$(d+l+1)q+l$
 
 误差导致$\Delta v$需要进行改变，因此通过梯度下降的方式调整
-$\Delta w_{hj} = -\eta \cfrac{\part E_k}{\part w_{hj}}$
+$\Delta w_{hj} = -\eta \cfrac{\partial E_k}{\partial w_{hj}}$
 其中$\eta \in (0,1)$表示每次进行改变的**幅度**，**不宜过大，否则在后期易发生振荡，也不宜过小，导致迭代次数过多**
 
 
 
-$\cfrac{\part E_k}{\part w_{hj}} =\cfrac{\part E_k}{\part \hat y_{j}^k} \cdot \cfrac{\part \hat y_j^k}{\part \beta_{j}} \cdot \cfrac{\part \beta_j}{\part w_{hj}}$
+$\cfrac{\partial E_k}{\partial w_{hj}} =\cfrac{\partial E_k}{\partial \hat y_{j}^k} \cdot \cfrac{\partial \hat y_j^k}{\partial \beta_{j}} \cdot \cfrac{\partial \beta_j}{\partial w_{hj}}$
 
 注意到 
 
-$\cfrac{\part E_k}{\part \hat y_j^k} = (\hat y_j^k - y_j^k)$
+$\cfrac{\partial E_k}{\partial \hat y_j^k} = (\hat y_j^k - y_j^k)$
 
 $\hat y_j^k = f(\beta_j-\theta_j)$
 
 对Sigmoid函数有 $f'(x)=f(x)\cdot\big(1-f(x)\big)$ 
 
-令 $g_j = - \cfrac{\part E_k}{\part \hat y_{j}^k} \cdot \cfrac{\part \hat y_j^k}{\part \beta_{j}}=\hat y_j^k(1-\hat y_j^k)(y_j^k -\hat y_j^k)$
+令 $g_j = - \cfrac{\partial E_k}{\partial \hat y_{j}^k} \cdot \cfrac{\partial \hat y_j^k}{\partial \beta_{j}}=\hat y_j^k(1-\hat y_j^k)(y_j^k -\hat y_j^k)$
 
 于是有
-$\Delta w_{hj} = - \eta \cfrac{\part E_k}{\part w_{hj}} = \eta g_j b_h$
+$\Delta w_{hj} = - \eta \cfrac{\partial E_k}{\partial w_{hj}} = \eta g_j b_h$
 
 类似地
 
 $\Delta\theta_j =-\eta g_j$
 
-$e_h&= -\cfrac{\part E_k}{\part b_h} \cdot \cfrac{\part b_h }{\part \alpha_{h}}\\$
-$=-\sum\limits_{j=1}^{l} \cfrac{\part E_k}{\part \beta_j}\cdot\cfrac{\part \beta_j}{\part b_h}\cdot f'(\alpha_h - \gamma_h)$
+$e_h&= -\cfrac{\partial E_k}{\partial b_h} \cdot \cfrac{\partial b_h }{\partial \alpha_{h}}\\$
+$=-\sum\limits_{j=1}^{l} \cfrac{\partial E_k}{\partial \beta_j}\cdot\cfrac{\partial \beta_j}{\partial b_h}\cdot f'(\alpha_h - \gamma_h)$
 $=\quad \sum\limits_{j=1}^{l} w_{hj}g_jf'(\alpha_h - \gamma_h)$
 $=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$
 
