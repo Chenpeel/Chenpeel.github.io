@@ -408,6 +408,7 @@ $\cfrac{y}{1-y} > 1$
 > Entropy 用于度量信息的混乱和纯净程度
 
 在集合$D$中，第k类样本占比$p_k$,则$D$的信息熵为
+
 $Ent(D) = - \sum\limits_{k=1}^{|y|}p_{k} \cdot log_2{p_k}$
 
 #### 信息增益
@@ -416,21 +417,20 @@ $Ent(D) = - \sum\limits_{k=1}^{|y|}p_{k} \cdot log_2{p_k}$
 
 对离散属性a：${a^1,a^2,...,a^V}$
 $D_v (a = a^v) \subseteq D$
+
 $Gain(D,a) = Ent(D) - \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|}\cdot Ent(D^v)$
 
 #### 增益率
 
 > 当编号考虑为属性，那么上述信息增益的划分方式泛化会非常糟糕，因此引入一个分支数目作为分母，抵消分支数目过多的问题
 
-$Gain\_ratio(D,a)=\cfrac{Gain(D,a)}{IV(a)}$，$IV(a) = - \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|} \cdot  log_2 \cfrac{|D^V|}{|D|}$
-(C4.5算法)
+$Gain\_ratio(D,a)=\cfrac{Gain(D,a)}{IV(a)}$，$IV(a) = - \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|} \cdot  log_2 \cfrac{|D^V|}{|D|}$ （C4.5算法)
 
 #### 基尼指数(Gini index)
 
 $Gini(D) = 1 - \sum\limits_{k=1}^{|y|} p_k^2$
 
 属性a的基尼指数：$Gini_index(D,a)= \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|} \cdot Gini(D^v)$
-
 
 #### 剪枝
 
@@ -443,25 +443,100 @@ $Gini(D) = 1 - \sum\limits_{k=1}^{|y|} p_k^2$
 
 > 直接丢弃的方式在高维度数据时十分浪费
 
+- 如何进行划分属性选择
+- 给定划分属性，若样本在该属性值缺失，如何划分
+
+> 基本思路：样本赋权，权重划分
 
 
-## KNN
-——K近邻算法，表示一个标本时，使用其最接近的K个近邻来决定。
 
-- 可以用于分类和回归
+### 神经网络
 
-##### 过程
+> 简单的神经元模型：激活信号达到反应阈值，就产生输出。
 
-- 从训练集中选择离待预测样本最近的K个样本
-- 更具K个样本计算待预测样本的值
+$y= f(\sum\limits_{i=1}^{n}w_ix_i - \theta_j)$
 
-##### 实现
+> 理想的映射法则是间断的$y = sgn(x)$ , 然而更长用的是其替代函数：Sigmoid函数
 
-- 根据iris花样例实现, Download from [Kaggle DataSets](https://www.kaggle.com/datasets) 或者从笔者[Github](https://github.com/Chenpeel/Codes/raw/master/Jupyter/ML/files/iris.zip) / [Gitee](https://gitee.com/chenyh43/ML/tree/master/files/iris.zip)
+多层网络：包含隐层的网络。前馈网络：神经元之间不存在同层连接、跨层连接。
 
-##### Codes
+> 隐层和输出层神经元也称为 功能单元
 
-<a href="https://github.com/Chenpeel/Codes/blob/master/Jupyter/ML/KNN.ipynb"> KNN with Jupyter Notebook </a>
+设置隐层数目需要进行试错
+
+- 万有逼近性 说明了 **神经网络的可行性**
+
+
+
+#### BP算法
+
+> 误差逆传播算法（BackPropagation），使用广义感知机学习规则：$v \leftarrow v + \Delta v$
+> 基于梯度下降的策略，以负方向对参数进行调整
+
+为方便讨论，做如下规定：
+给定训练集$D={(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)},x_i\in \R^d , y_i \in \R^l$
+输入：$d$维向量
+输出：$l$个输出值
+隐层：$q$个隐层神经元
+输入层权值：$v_{1h},v_{2h},\dots,v_{ih}$
+隐层权值：$w_{h1},w_{h2},\dots,w_{hj}$
+
+第$h$个隐层神经元的输入：$\alpha_h = \sum\limits_{i=1}^{d} v_{ih} x_i$
+第$h$个隐层神经元的输出：$b_h$
+第$j$个输出神经元的输入：$\beta_j = \sum\limits_{h=1}^{q}w_{hj}b_h$
+网络实际输出$\hat y_k = (\hat y_1^k, \hat y_2^k,\dots,\hat y_l^k)$
+$\hat y_j^k = f(\beta_j - \theta_j)$
+均方误差：$E_k = \cfrac{1}{2} \sum\limits_{j=1}^{l} (\hat y_j^k - y_j^k)^2$
+
+则共需学习的参数数目为$(d+l+1)q+l$
+
+误差导致$\Delta v$需要进行改变，因此通过梯度下降的方式调整
+$\Delta w_{hj} = -\eta \cfrac{\part E_k}{\part w_{hj}}$
+其中$\eta \in (0,1)$表示每次进行改变的**幅度**，**不宜过大，否则在后期易发生振荡，也不宜过小，导致迭代次数过多**
+
+
+
+$\cfrac{\part E_k}{\part w_{hj}} =\cfrac{\part E_k}{\part \hat y_{j}^k} \cdot \cfrac{\part \hat y_j^k}{\part \beta_{j}} \cdot \cfrac{\part \beta_j}{\part w_{hj}}$
+
+注意到 
+
+$\cfrac{\part E_k}{\part \hat y_j^k} = (\hat y_j^k - y_j^k)$
+
+$\hat y_j^k = f(\beta_j-\theta_j)$
+
+对Sigmoid函数有 $f'(x)=f(x)\cdot\big(1-f(x)\big)$ 
+
+令 $g_j = - \cfrac{\part E_k}{\part \hat y_{j}^k} \cdot \cfrac{\part \hat y_j^k}{\part \beta_{j}}=\hat y_j^k(1-\hat y_j^k)(y_j^k -\hat y_j^k)$
+
+于是有
+$\Delta w_{hj} = - \eta \cfrac{\part E_k}{\part w_{hj}} = \eta g_j b_h$
+
+类似地
+
+$\Delta\theta_j =-\eta g_j$
+
+$e_h&= -\cfrac{\part E_k}{\part b_h} \cdot \cfrac{\part b_h }{\part \alpha_{h}}\\$
+$=-\sum\limits_{j=1}^{l} \cfrac{\part E_k}{\part \beta_j}\cdot\cfrac{\part \beta_j}{\part b_h}\cdot f'(\alpha_h - \gamma_h)$
+$=\quad \sum\limits_{j=1}^{l} w_{hj}g_jf'(\alpha_h - \gamma_h)$
+$=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$
+
+$\Delta v_{ih} = \eta e_h x_i$
+$\Delta\gamma_h = -\eta e_h$
+
+
+
+#### 其它算法
+
+- RBF算法
+- ART网络
+- SOM网络
+- 级联相关网络
+- Elman网络
+- Boltzmann机
+
+
+
+[支持向量机](https://funglee.github.io/ml/ref/svmhao.pdf)
 
 
 
