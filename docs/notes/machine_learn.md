@@ -283,11 +283,11 @@ $\to \quad z = \min \quad \bigl( \ln \cfrac{1+{e^{W^TX}}}{{e^{y \cdot W^TX}}} \b
 
 $\min (w^T\Sigma_0w + w^T\Sigma_1w)$
 
-$\max(\| w^T\mu_0-w^T\mu_1 \|_2^2)$
+$\max(| w^T\mu_0-w^T\mu_1 |_2^2)$
 
 于是 可求解$\max J$
 
-$\max J = \max  \bigg ( \cfrac{\| w^T\mu_0-w^T\mu_1 \| _2^2}{w^T\Sigma_0w + w^T\Sigma_1w} \bigg) = \max \bigg( \cfrac{w^T(\mu_0 - \mu_1)(\mu_0-\mu_1)^T w}{w^T(\Sigma_0+\Sigma_1)w} \bigg)$
+$\max J = \max  \bigg ( \cfrac{| w^T\mu_0-w^T\mu_1 | _2^2}{w^T\Sigma_0w + w^T\Sigma_1w} \bigg) = \max \bigg( \cfrac{w^T(\mu_0 - \mu_1)(\mu_0-\mu_1)^T w}{w^T(\Sigma_0+\Sigma_1)w} \bigg)$
 
 >  类内散度矩阵（within-class scatter matrix）
 
@@ -392,9 +392,56 @@ $\cfrac{y}{1-y} > 1$
 
 ### 决策树模型
 
+> 分而治之，对属性进行判断从而划分
+
+停止条件
+
+- 当前结点包含的样本全属于同一类别，无需划分
+- 当前节点属性集为空，或者所有样本在属性上取值相同，无法划分
+- 当前结点包含的样本集为空，不能划分
+
+> 决策树的核心在于，使用什么划分方式，能使得属性得到最优划分
+> 决策树是从信息论的基础上发展而来
+
+#### 信息熵
+
+> Entropy 用于度量信息的混乱和纯净程度
+
+在集合$D$中，第k类样本占比$p_k$,则$D$的信息熵为
+$Ent(D) = - \sum\limits_{k=1}^{|y|}p_{k} \cdot log_2{p_k}$
+
+#### 信息增益
+
+> 信息增益是进行划分后信息熵减小所获得的收益量
+
+对离散属性a：${a^1,a^2,...,a^V}$
+$D_v (a = a^v) \subseteq D$
+$Gain(D,a) = Ent(D) - \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|}\cdot Ent(D^v)$
+
+#### 增益率
+
+> 当编号考虑为属性，那么上述信息增益的划分方式泛化会非常糟糕，因此引入一个分支数目作为分母，抵消分支数目过多的问题
+
+$Gain\_ratio(D,a)=\cfrac{Gain(D,a)}{IV(a)}$，$IV(a) = - \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|} \cdot  log_2 \cfrac{|D^V|}{|D|}$
+(C4.5算法)
+
+#### 基尼指数(Gini index)
+
+$Gini(D) = 1 - \sum\limits_{k=1}^{|y|} p_k^2$
+
+属性a的基尼指数：$Gini_index(D,a)= \sum\limits_{v=1}^{V} \cfrac{|D^v|}{|D|} \cdot Gini(D^v)$
 
 
+#### 剪枝
 
+> pruning 用于对抗过拟合
+
+- 预剪(pre-pruning)：预先设置条件，防止生长
+- 后剪枝(post-pruning)：生成后再剪枝
+
+#### 缺失值处理
+
+> 直接丢弃的方式在高维度数据时十分浪费
 
 
 
