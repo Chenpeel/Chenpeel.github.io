@@ -163,6 +163,7 @@ export default defineConfig({
           {text:'2024-03-13',link:'/en/paper_to_re/daily_tmp_2024-03-13'},
           {text:'2024-03-14',link:'/en/paper_to_re/daily_tmp_2024-03-14'},
           {text:'2024-03-15',link:'/en/paper_to_re/daily_tmp_2024-03-15'},
+          {text:'2024-03-17',link:'/en/paper_to_re/daily_tmp_2024-03-17'},
         ]
 
       },
