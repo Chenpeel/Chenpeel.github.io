@@ -1,7 +1,7 @@
 <div>
     <h2 class="header"><span class="ring ring-2"></span>努力撰写</h2>
     <div class="card" >
-        <a href="/tools/Markdown">
+        <a href="/tools/markdown">
             <div class="link-card">
                 Tools
             </div>

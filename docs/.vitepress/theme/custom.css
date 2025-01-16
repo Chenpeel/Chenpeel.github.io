@@ -570,8 +570,3 @@
 a {
     text-decoration: none !important;
 }
-
-/* 如果需要特定样式的链接，可以单独定义 */
-a:hover {
-    text-decoration: underline !important; /* 悬停时显示下划线 */
-}
