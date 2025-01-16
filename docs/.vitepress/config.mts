@@ -11,7 +11,63 @@ export default defineConfig({
     lineNumbers: true,
     math: true,
   },
-  head: [["link", { rel: "icon", href: "logo.svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "logo.svg" }][
+      ("script",
+      {
+        type: "text/javascript",
+        src: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+      })
+    ],
+    [
+      "script",
+      {},
+      `
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                autoload: {
+                  color: [],
+                  colorV2: ['color']
+                },
+                tags: 'ams',
+                tagSide: 'right',
+                tagIndent: '0.8em',
+                useLabelIds: true
+              },
+              options: {
+                renderActions: {
+                  addMenu: [0, '', '']
+                }
+              },
+              chtml: {
+                displayAlign: 'center',
+                displayIndent: '0em',
+                scale: 1,
+                minScale: 0.5,
+                mtextInheritFont: true,
+                merrorInheritFont: true,
+                mtextFont: '',
+                merrorFont: '',
+                unknownFamily: 'serif',
+                mathmlSpacing: false,
+                skipAttributes: {},
+                exFactor: 0.5,
+                displayWidth: '100%',
+                linebreaks: {
+                  automatic: true,
+                  width: 'container'
+                }
+              }
+            };
+          `,
+    ],
+    // 引入自定义 CSS
+    ["link", { rel: "stylesheet", href: "./theme/mathjax.css" }],
+  ],
   themeConfig: {
     logo: "logo.svg",
 
