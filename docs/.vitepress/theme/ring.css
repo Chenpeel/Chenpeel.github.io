@@ -1,0 +1,55 @@
+/* used in /about.md each point icon */
+.ring {
+    width: 18px;
+    height: 36px;
+    border: 1.5px solid;
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: grid;
+    animation: l2 2.8s infinite linear;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.ring:before,
+.ring:after {
+    content: "";
+    grid-area: 1/1;
+    border: inherit;
+    border-radius: 50%;
+    animation: inherit;
+    animation-duration: 4.2s;
+}
+
+.ring:after {
+    --s: -1;
+}
+
+@keyframes l2 {
+    100% {
+        transform: rotate(calc(var(--s, 1) * 1turn));
+    }
+}
+.ring:hover {
+    animation-play-state: paused;
+}
+
+.ring-1 {
+    animation-delay: 0s;
+}
+
+.ring-2 {
+    animation-delay: 0.2s;
+}
+
+.ring-3 {
+    animation-delay: 0.4s;
+}
+.ring-4 {
+    animation-delay: 0.6s;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}

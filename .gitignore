@@ -1,0 +1,19 @@
+/.history
+/node_modules
+.DS_Store
+
+# local build display
+cache
+dist
+
+# push script
+format.sh
+update.sh
+.makefile
+
+# The Serial Novel
+docs/stories/NEW
+
+NEW
+txt_pages
+test

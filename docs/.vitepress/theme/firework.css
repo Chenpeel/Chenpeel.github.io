@@ -1,0 +1,25 @@
+/**
+* used in globally click
+* firework.css
+*/
+
+.firework-particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 1;
+    background-color: currentColor;
+    will-change: transform, opacity;
+    animation: firework-animation 2s ease-out forwards;
+}
+
+@keyframes firework-animation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translate(100px, 100px); /* 扩散效果 */
+        opacity: 0;
+    }
+}
