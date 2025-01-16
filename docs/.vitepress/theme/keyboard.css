@@ -86,8 +86,8 @@
         gap: 2px;
     }
     .tooltip {
-        top: -300%;
-        left: -50%;
+        top: -550%;
+        left: -120%;
         width: 120px;
         padding: 6px;
         font-size: 10px;
