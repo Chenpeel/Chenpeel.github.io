@@ -66,3 +66,20 @@
     display: block;
     margin: 0 auto;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .key {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .tooltip {
+        width: 150px;
+    }
+    .row1,
+    .row2,
+    .row3 {
+        gap: 4px;
+    }
+}
