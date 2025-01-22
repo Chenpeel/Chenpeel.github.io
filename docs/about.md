@@ -6,17 +6,17 @@
                 Tools
             </div>
         </a>
-        <a href="/cs/basicCS/ca">
+        <a href="/cs/basic/ca/index">
             <div class="link-card">
                 Computer Science
             </div>
         </a>
-        <a href="/math/LR/concept">
+        <a href="/math/LR/index">
             <div class="link-card">
                 Math
             </div>
         </a>
-        <a href="/literature/POEM/pre">
+        <a href="/literature/POEM/index">
             <div class="link-card">
                 Literature
             </div>

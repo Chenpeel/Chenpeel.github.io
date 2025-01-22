@@ -3,9 +3,9 @@
 
 
 
-* 把所有经典算法、数据结构手搓一遍 
-* 理解源码   STL源码，各种库，推荐使用[cppreference](https://zh.cppreference.com/w/)、[cplusplus](https://cplusplus.com) 。 
-* 看经典书籍 （《C++ Primer中文版》、《Essential C++》、《More Effective C++（中文版）》、《提高C++性能的编程技术》、《C++ Templates中文版》、《STL源码剖析》等等） 
+* 把所有经典算法、数据结构手搓一遍
+* 理解源码   STL源码，各种库，推荐使用[cppreference](https://zh.cppreference.com/w/)、[cplusplus](https://cplusplus.com) 。
+* 看经典书籍 （《C++ Primer中文版》、《Essential C++》、《More Effective C++（中文版）》、《提高C++性能的编程技术》、《C++ Templates中文版》、《STL源码剖析》等等）
 * 刷题   (主刷[leetcode](https://leetcode.cn/u/chen___chen/))
 
 
@@ -19,11 +19,11 @@ $O(1)  < O(log_2n) < O(n)  < O( \sqrt n) < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O
 # 算法设计思想
 
 
-* [递归](./analysis/recursion.md)
-* [分治算法](./analysis/divide_conquer.md) 
-* [动态规划](./analysis/dynamic_programing.md)
-* [回溯法](./analysis/back_track.md)
-* [贪心算法](./analysis/greedy.md) 
+* [递归](./recursion.md)
+* [分治算法](./divide_conquer.md)
+* [动态规划](./dynamic_programing.md)
+* [回溯法](./back_track.md)
+* [贪心算法](./greedy.md)
 
 <br><br><br>
 
@@ -31,7 +31,7 @@ $O(1)  < O(log_2n) < O(n)  < O( \sqrt n) < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O
 
 > 基本概念
 
-#### 算法的五个特征 
+#### 算法的五个特征
 
 * 有穷性：有限步之后结束
 * 确定性：不存在二义性，即没有歧义
@@ -52,7 +52,7 @@ $O(1)  < O(log_2n) < O(n)  < O( \sqrt n) < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O
 * 常用的时间复杂度大小关系：
 * 复杂度如何计算
     * 时间复杂度计算（单个循环体）
-        * 直接关注循环体的执行次数，设为k 
+        * 直接关注循环体的执行次数，设为k
     * 时间复杂度计算（多个循环体）
         * 两个运算规则：乘法规则，加法规则。
 
@@ -65,7 +65,7 @@ $O(1)  < O(log_2n) < O(n)  < O( \sqrt n) < O(nlog_2^{n})  < O(n^c) < O(c^n)  < O
 
 ###### 遍历、元素统计、改变移动、旋转轮换
 
-- Cpp中的`std::vector` 
+- Cpp中的`std::vector`
 - [移动零](https://leetcode.cn/problems/move-zeroes/)
 - [数组循环轮换 ](https://leetcode.cn/problems/rotate-array/)、 [旋转函数](https://leetcode.cn/problems/rotate-function/)
 - [最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements/)
@@ -85,7 +85,7 @@ Loading...
 
 > 对前缀和数组，做一次差分即得原数组，反之亦然。
 
--  [用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid/) 
+-  [用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid/)
 
 #### Linked List
 
@@ -115,51 +115,51 @@ Loading...
 #### Tree
 
 * [二叉树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/binary_tree.hpp)
-  *   [快速排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/quick_sort.h)就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历  
+  *   [快速排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/quick_sort.h)就是个二叉树的前序遍历，归并排序就是个二叉树的后序遍历
 * [二叉查找树BST](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/binary_search_tree.hpp)  有序的二叉树，中序遍历结果是递增的
 * [平衡二叉树 AVL树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/avl_tree.hpp)   绝对平衡二叉树；
 * [红黑树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/redblack_tree.hpp)  弱平衡二叉树；使用广泛
 * [B树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/b_tree.hpp)
-* [B+树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/bplus_tree.hpp)  mysql 索引使用 B+树 的数据结构	  
+* [B+树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/bplus_tree.hpp)  mysql 索引使用 B+树 的数据结构
 * [字典树trie](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/trie.hpp) 字典树也叫前缀树，单词查找树
-* [二叉堆](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/binary_heap.hpp)  
+* [二叉堆](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/binary_heap.hpp)
 * [伸展树](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/splay_tree.hpp)
-* [后缀树](https://oi-wiki.org/string/suffix-tree/) 
+* [后缀树](https://oi-wiki.org/string/suffix-tree/)
   * [Ukkonen's Algorithm](https://cceh.github.io/suffix-tree/builder/ukkonen.html) （[动画演示](https://brenden.github.io/ukkonen-animation/)）
   * [McCreight's Algorithm](https://cceh.github.io/suffix-tree/builder/mccreight.html)
 
 * [斐波那契堆(Fibonacci Heap)  ](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/fibonacci_heap.hpp)
 * [最优二叉树（哈夫曼树）](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/tree/huffman_tree.hpp)
-  * <a href="./analysis/greedy.md/#huffman">哈夫曼编码</a>
+  * <a href="./greedy.md/#huffman">哈夫曼编码</a>
 
 #### String
 
 * [字符串](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/struct/string/string.hpp)
 * 子串查找
-  * BF算法  
-  * KMP算法  
-  * BM算法  
+  * BF算法
+  * KMP算法
+  * BM算法
 * 正则表达式
 * 数据压缩
 * 排序
 
 #### Map
 
-* 图的存储结构和基本操作（建立，遍历，删除节点，添加节点）   
-* 最小生成树  
-* 拓扑排序  
-* 关键路径  
-* 最短路径: Floyd,Dijkstra,bellman-ford,spfa  
+* 图的存储结构和基本操作（建立，遍历，删除节点，添加节点）
+* 最小生成树
+* 拓扑排序
+* 关键路径
+* 最短路径: Floyd,Dijkstra,bellman-ford,spfa
 
 #### Sort
 
-* [冒泡排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/bubble_sort.h) 
+* [冒泡排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/bubble_sort.h)
 * [插入排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/insert_sort.h)
 * [选择排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/selection_sort.h)
 * [希尔排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/shell_sort.h)
 * [快速排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/quick_sort.h)
 * [归并排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/merge_sort.h)
-* [堆排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/heap_sort.h) 
+* [堆排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/heap_sort.h)
 * [桶排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/bucket_sort.h)
 * [计数排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/counting_sort.h)
 
@@ -171,9 +171,9 @@ Loading...
 * 哈希表： O(1)  hashtab<实现参考这里
 * 散列函数
 * 碰撞解决
-* 有序表查找：二分查找 
-* 顺序表查找：顺序查找, 复杂度O(N)  
-* 分块查找： 块内无序，块之间有序；可以先二分查找定位到块，然后再到**块**中顺序查找  
+* 有序表查找：二分查找
+* 顺序表查找：顺序查找, 复杂度O(N)
+* 分块查找： 块内无序，块之间有序；可以先二分查找定位到块，然后再到**块**中顺序查找
 * 动态查找:  二叉排序树，AVL树，B- ，B+（这里之所以叫**动态查找表**，是因为表结构是查找的过程中动态生成的）
 
 
@@ -206,7 +206,7 @@ Loading...
 * 海量数据处理
 * 智力思维训练
 * 系统设计
-  
+
 
 # 海量数据处理
 
@@ -243,17 +243,17 @@ Loading...
 * KMP 字符串匹配算法
 * Hash
 * [快速排序](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sort/quick_sort.h)
-* 快速选择SELECT 
+* 快速选择SELECT
 * 红黑树 （一种弱/自平衡的“二叉查找树”）
 * BFS/DFS （广度/深度优先遍历）
 * 寻路算法： 求解最短路径
 * Dijkstra：最短路径算法
-* `SPFA(Shortest Path Faster Algorithm)` 单元最短路径算法  
+* `SPFA(Shortest Path Faster Algorithm)` 单元最短路径算法
 * 启发式搜索
-* 遗传算法 `GA`  
-* [DP (动态规划 dynamic programming)](./analysis/dynamic_programing.md)
-* 图像特征提取之`SIFT` 算法 , 广泛的应用于图像识别，图像检索，3D重建等CV的各种领域 
-* 傅立叶变换  
+* 遗传算法 `GA`
+* [DP (动态规划 dynamic programming)](./dynamic_programing.md)
+* 图像特征提取之`SIFT` 算法 , 广泛的应用于图像识别，图像检索，3D重建等CV的各种领域
+* 傅立叶变换
 
 
 
@@ -262,65 +262,65 @@ Loading...
 
 # 推荐阅读
 
-### 刷题必备  
+### 刷题必备
 
-* 《剑指offer》  
-* 《编程之美》  
-* 《编程之法:面试和算法心得》      
-* 《算法谜题》 都是思维题 
+* 《剑指offer》
+* 《编程之美》
+* 《编程之法:面试和算法心得》
+* 《算法谜题》 都是思维题
 
 ### 基础
 
-* 《编程珠玑》Programming Pearls   
-* 《编程珠玑(续)》   
-* 《数据结构与算法分析》   
-* 《Algorithms》 这本近千页的书只有6章,其中四章分别是排序，查找，图，字符串，足见介绍细致     
+* 《编程珠玑》Programming Pearls
+* 《编程珠玑(续)》
+* 《数据结构与算法分析》
+* 《Algorithms》 这本近千页的书只有6章,其中四章分别是排序，查找，图，字符串，足见介绍细致
 
-### 算法设计 
+### 算法设计
 
-* 《算法设计与分析基础》    
-* 《算法引论》 告诉你如何创造算法   断货        
-* 《Algorithm Design Manual》算法设计手册 红皮书  
-* 《算法导论》 是一本对算法介绍比较全面的经典书籍     
-* 《Algorithms on Strings,Trees and Sequences》    
-* 《Advanced Data Structures》 各种诡异高级的数据结构和算法 如元胞自动机、斐波纳契堆、线段树  600块    
-  
+* 《算法设计与分析基础》
+* 《算法引论》 告诉你如何创造算法   断货
+* 《Algorithm Design Manual》算法设计手册 红皮书
+* 《算法导论》 是一本对算法介绍比较全面的经典书籍
+* 《Algorithms on Strings,Trees and Sequences》
+* 《Advanced Data Structures》 各种诡异高级的数据结构和算法 如元胞自动机、斐波纳契堆、线段树  600块
 
-### 延伸阅读 
 
-* 《深入理解计算机系统》    
-* 《TCP/IP详解三卷》    
-* 《UNIX网络编程二卷》  
-* 《UNIX环境高级编程：第2版》  
-* 《The practice of programming》   Brian Kernighan和Rob Pike    
-* 《writing efficient programs》  优化   
+### 延伸阅读
+
+* 《深入理解计算机系统》
+* 《TCP/IP详解三卷》
+* 《UNIX网络编程二卷》
+* 《UNIX环境高级编程：第2版》
+* 《The practice of programming》   Brian Kernighan和Rob Pike
+* 《writing efficient programs》  优化
 * 《The science of programming》 证明代码段的正确性   800块一本
 
-   
+
 
 
 # 参考链接和学习网站
 
 
 
-- [July 博客](http://blog.csdn.net/v_july_v) 
+- [July 博客](http://blog.csdn.net/v_july_v)
 
 
 
-* 《数学建模十大经典算法》    
-* 《数据挖掘领域十大经典算法》    
-* 《十道海量数据处理面试题》      
-* 《数字图像处理领域的二十四个经典算法》    
-* 《精选微软等公司经典的算法面试100题》 
+* 《数学建模十大经典算法》
+* 《数据挖掘领域十大经典算法》
+* 《十道海量数据处理面试题》
+* 《数字图像处理领域的二十四个经典算法》
+* 《精选微软等公司经典的算法面试100题》
 * [The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July)
-* [微软面试100题](http://blog.csdn.net/column/details/ms100.html)    
-* [程序员编程艺术](http://blog.csdn.net/v_JULY_v/artic</details/6460494)   
+* [微软面试100题](http://blog.csdn.net/column/details/ms100.html)
+* [程序员编程艺术](http://blog.csdn.net/v_JULY_v/artic</details/6460494)
 
 
 
-### 基本算法演示 
+### 基本算法演示
 
-- http://www.cs.usfca.edu/~gal<s/visualization/Algorithms.html  
+- http://www.cs.usfca.edu/~gal<s/visualization/Algorithms.html
 
 
 ### 编程网站
@@ -328,9 +328,9 @@ Loading...
 * [Leetcode](https://leetcode.cn/u/chen___chen/)个人主页
 * [AcWing](https://www.acwing.com/prob<m/) 刷题
 * [codetop](https://codetop.cc/home) 企业高频面试题库，刷题必备
-* [openjudge](http://openjudge.cn/)  开放在线程序评测平台，可以创建自己的OJ小组   
-* [九度OJ](http://ac.jobdu.com/index.php)     
-* 这有个[ACM训练方案](http://www.java3z.com/cwbwebhome/artic</artic<19/res041.html)   
+* [openjudge](http://openjudge.cn/)  开放在线程序评测平台，可以创建自己的OJ小组
+* [九度OJ](http://ac.jobdu.com/index.php)
+* 这有个[ACM训练方案](http://www.java3z.com/cwbwebhome/artic</artic<19/res041.html)
 
 ### 竞赛网站
 

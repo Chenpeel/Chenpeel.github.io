@@ -5,8 +5,10 @@ category: CS
 published: true
 ---
 
-## <a id="linux">Linux</a>
-### To Do List
+# <a id="linux">Linux</a>
+### Target
+
+在本系列，将叙述如下内容 
 
 <ul>
   <li>
@@ -31,15 +33,14 @@ published: true
 
 
 
-
-
 <hr><hr>
+<br><br><br>
 
-<br><br>
 
-##### 什么是Linux
 
->  要明白这个问题，首先要观望计算机操作系统的发展历史，或者直接跳转到<a href="#what-is-linux">Here</a>
+什么是Linux
+
+>  要明白这个问题，首先要观望计算机操作系统的发展历史，如果时间有限，可以直接跳转到<a href="#what-is-linux">什么是linux？</a>
 
 <hr>
 
@@ -146,8 +147,6 @@ shell解释器，我们无需知道内核是如何工作的，只需要提交需
 Linux操作系统通常支持多个解释器，Bash、Zsh、Fish等，可自行选择下载喜好的解释器，它们的语法会有一定区别
 
 <hr>
-
-
 
 
 

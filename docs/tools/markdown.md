@@ -218,4 +218,4 @@ $\vartheta,\varkappa,\varsigma,\varrho,\varphi,\varpi,\varTheta,\varSigma,\varPi
 
 
 
-[^1]: /cs/basicCS/algorithms/analysis/recursion.md
+[^1]: /cs/algorithms/recursion.md
