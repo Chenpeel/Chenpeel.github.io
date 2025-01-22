@@ -8,7 +8,7 @@ import "./article.css";
 import "./book.css";
 import "./keyboard.css";
 import "./keyboard.js";
-import "./mathjax.css";
+import "./lantern.css";
 
 export default {
   ...DefaultTheme,

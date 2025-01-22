@@ -1,4 +1,6 @@
 import { defineConfig } from "vitepress";
+import mermaid from "mermaid";
+import mermaidPlugin from "./plugins/markdown-it-mermaid.mjs";
 import rssPlugin from "./rss-plugin.mjs";
 import { sidebar } from "./sidebar.mts";
 export default defineConfig({
@@ -10,8 +12,21 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
     math: true,
+    config: (md) => {
+      md.use(mermaidPlugin);
+    },
   },
-  head: [["link", { rel: "icon", href: "logo.svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "logo.svg" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://unpkg.com/mermaid/11.4.1/dist/mermaid.min.css",
+      },
+    ],
+  ],
+
   themeConfig: {
     logo: "logo.svg",
 
