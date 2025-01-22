@@ -1,6 +1,6 @@
 import { defineConfig } from "vitepress";
 import mermaid from "mermaid";
-import mermaidPlugin from "./plugins/markdown-it-mermaid.mjs";
+import mermaidPlugin from "./plugins/mermaidPlugin.ts";
 import rssPlugin from "./rss-plugin.mjs";
 import { sidebar } from "./sidebar.mts";
 export default defineConfig({
@@ -19,11 +19,19 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", href: "logo.svg" }],
     [
-      "link",
+      "script",
       {
-        rel: "stylesheet",
-        href: "https://unpkg.com/mermaid/11.4.1/dist/mermaid.min.css",
+        src: "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js",
       },
+    ],
+    [
+      "script",
+      {},
+      `
+        document.addEventListener('DOMContentLoaded', function() {
+          mermaid.initialize({ startOnLoad: true });
+        });
+        `,
     ],
   ],
 

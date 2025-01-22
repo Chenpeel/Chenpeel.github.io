@@ -1,16 +1,20 @@
 import DefaultTheme from "vitepress/theme";
-import "./custom.css";
-import "./firework.js";
-import "./firework.css";
-import "./ring.css";
-import "./card.css";
-import "./article.css";
-import "./book.css";
-import "./keyboard.css";
-import "./keyboard.js";
-import "./lantern.css";
+import "./script/firework.js";
+import "./script/keyboard.js";
+import "./css/article.css";
+import "./css/book.css";
+import "./css/card.css";
+import "./css/custom.css";
+import "./css/firework.css";
+import "./css/keyboard.css";
+import "./css/lantern.css";
+import "./css/ring.css";
+import "../plugins/mermaidPlugin.ts";
+import Mermaid from "../../../components/Mermaid.vue";
 
 export default {
-  ...DefaultTheme,
-  enhanceApp({ app }) {},
+  extends: DefaultTheme,
+  enhanceApp: async ({ app }) => {
+    app.component("Mermaid", Mermaid);
+  },
 };
