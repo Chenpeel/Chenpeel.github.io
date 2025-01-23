@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       pages: write
       id-token: write
@@ -30,7 +30,7 @@ jobs:
       - name: List build output
         run: ls -la docs/.vitepress/dist
       - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v2
         with:
           path: docs/.vitepress/dist
       - name: Deploy
