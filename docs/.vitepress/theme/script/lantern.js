@@ -82,14 +82,16 @@ function createLanternContainer(customText) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded and parsed");
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
 
-  // 引用 lantern.css 文件
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "./theme/css/lantern.css";
-  document.head.appendChild(link);
+    // 引用 lantern.css 文件
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./theme/css/lantern.css";
+    document.head.appendChild(link);
 
-  createLanternContainer("新年快乐");
-});
+    createLanternContainer("新年快乐");
+  });
+}
