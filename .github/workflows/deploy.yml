@@ -32,16 +32,7 @@ jobs:
       - uses: actions/configure-pages@v2
       - uses: actions/upload-artifact@v4
         with:
-          name: pages-artifact
           path: docs/.vitepress/dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
-        with:
-          artifact_name: pages-artifact
-          token: ${{ secrets.GITHUB_TOKEN }}
-          timeout: 600000
-          error_count: 10
-          reporting_interval: 5000
-        env:
-          GITHUB_PAGES: true
