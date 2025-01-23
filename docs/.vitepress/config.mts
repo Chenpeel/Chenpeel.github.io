@@ -69,6 +69,6 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [rssPlugin(), recentPostsPlugin()],
+    plugins: [rssPlugin()],
   },
 });
