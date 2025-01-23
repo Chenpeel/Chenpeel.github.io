@@ -1,8 +1,11 @@
 import { defineConfig } from "vitepress";
 import mermaid from "mermaid";
 import mermaidPlugin from "./plugins/mermaidPlugin.ts";
+import markdownItTaskLists from "markdown-it-task-lists";
 import rssPlugin from "./rss-plugin.mjs";
 import { sidebar } from "./sidebar.mts";
+import lanternPlugin from "./plugins/lanternPlugin.js";
+
 export default defineConfig({
   title: "Chenpeel",
   lang: "zh-CN",
@@ -33,6 +36,7 @@ export default defineConfig({
         });
         `,
     ],
+    ["link", { rel: "stylesheet", href: "./theme/css/lantern.css" }],
   ],
 
   themeConfig: {
@@ -69,6 +73,6 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [rssPlugin()],
+    plugins: [rssPlugin(), lanternPlugin()],
   },
 });

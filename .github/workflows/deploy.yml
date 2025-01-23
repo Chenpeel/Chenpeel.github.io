@@ -26,7 +26,9 @@ jobs:
       - name: Build
         run: npm run docs:build
       - name: Generate Recent Posts
-        run: node genRecentPosts.js
+        run: node blog/genRecentPosts.js
+      - name: Copy Recent Posts to Dist
+        run: cp docs/recent-posts.json docs/.vitepress/dist/recent-posts.json
       - name: List build output
         run: ls -la docs/.vitepress/dist
       - uses: actions/configure-pages@v2
