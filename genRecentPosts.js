@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 function getPosts(dir) {
   let posts = [];
@@ -20,10 +20,7 @@ function getPosts(dir) {
 
       // 只处理 published: true 的文件
       if (data.published) {
-        const relativePath = path.relative(
-          path.resolve(__dirname, "./docs"),
-          filePath,
-        );
+        const relativePath = path.relative(path.resolve("./docs"), filePath);
         const urlPath = `/${relativePath.replace(/\.md$/, "")}`;
         posts.push({
           title: data.title,
@@ -39,7 +36,7 @@ function getPosts(dir) {
 }
 
 function generateRecentPosts() {
-  const postsDir = path.resolve(__dirname, "./docs");
+  const postsDir = path.resolve("./docs");
   let posts = getPosts(postsDir);
 
   // Sort posts by date
@@ -49,7 +46,7 @@ function generateRecentPosts() {
   posts = posts.slice(0, 6);
 
   // Ensure the output directory exists
-  const outputDir = path.resolve(__dirname, "./docs/.vitepress/dist");
+  const outputDir = path.resolve("./docs/.vitepress/dist");
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
