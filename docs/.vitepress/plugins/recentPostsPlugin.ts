@@ -54,11 +54,14 @@ export default function recentPostsPlugin(): Plugin {
       // Return the latest 6 posts
       posts = posts.slice(0, 6);
 
+      // Ensure the output directory exists
+      const outputDir = path.resolve(__dirname, "../../docs/.vitepress/dist");
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+
       // Write the posts to a JSON file
-      const outputPath = path.resolve(
-        __dirname,
-        "../../docs/.vitepress/dist/recent-posts.json",
-      );
+      const outputPath = path.join(outputDir, "recent-posts.json");
       fs.writeFileSync(outputPath, JSON.stringify(posts, null, 2));
     },
   };
