@@ -36,5 +36,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
-        with:
-          artifact-name: pages-artifact
