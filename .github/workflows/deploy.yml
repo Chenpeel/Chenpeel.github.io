@@ -18,10 +18,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.17.1
+          node-version: 20
           cache: npm
+      - uses: actions/configure-pages@v4
       - run: npm ci
       - name: Build
         run: npm run docs:build
@@ -29,10 +30,9 @@ jobs:
         run: node genRecentPosts.js
       - name: List build output
         run: ls -la docs/.vitepress/dist
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
