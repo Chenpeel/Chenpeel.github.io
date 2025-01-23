@@ -46,7 +46,7 @@ function generateRecentPosts() {
   posts = posts.slice(0, 6);
 
   // Ensure the output directory exists
-  const outputDir = path.resolve("./docs");
+  const outputDir = path.resolve("./docs/.vitepress/dist");
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
