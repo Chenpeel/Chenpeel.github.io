@@ -25,6 +25,8 @@ jobs:
       - run: npm ci
       - name: Build
         run: npm run docs:build
+      - name: Generate Recent Posts
+        run: node generateRecentPosts.js
       - name: List build output
         run: ls -la docs/.vitepress/dist
       - uses: actions/configure-pages@v2
