@@ -1,7 +1,6 @@
 import { defineConfig } from "vitepress";
 import mermaid from "mermaid";
 import mermaidPlugin from "./plugins/mermaidPlugin.ts";
-import recentPostsPlugin from "./plugins/recentPostsPlugin.ts";
 import rssPlugin from "./rss-plugin.mjs";
 import { sidebar } from "./sidebar.mts";
 export default defineConfig({
