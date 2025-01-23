@@ -42,22 +42,24 @@ function getPosts(dir: string): any[] {
 export default function recentPostsPlugin(): Plugin {
   return {
     name: "vitepress-recent-posts",
-    configureServer(server) {
-      server.middlewares.use("/api/recent-posts", (req, res) => {
-        const postsDir = path.resolve(__dirname, "../../");
-        let posts = getPosts(postsDir);
+    buildEnd() {
+      const postsDir = path.resolve(__dirname, "../../");
+      let posts = getPosts(postsDir);
 
-        // Sort posts by date
-        posts.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-        );
+      // Sort posts by date
+      posts.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+      );
 
-        // Return the latest 6 posts
-        posts = posts.slice(0, 6);
+      // Return the latest 6 posts
+      posts = posts.slice(0, 6);
 
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify(posts));
-      });
+      // Write the posts to a JSON file
+      const outputPath = path.resolve(
+        __dirname,
+        "../../docs/.vitepress/dist/recent-posts.json",
+      );
+      fs.writeFileSync(outputPath, JSON.stringify(posts, null, 2));
     },
   };
 }

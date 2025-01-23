@@ -21,7 +21,7 @@ import { ref, onMounted } from "vue";
 const posts = ref([]);
 
 onMounted(async () => {
-    const response = await fetch("/api/recent-posts");
+    const response = await fetch("/recent-posts.json");
     posts.value = await response.json();
 });
 </script>
