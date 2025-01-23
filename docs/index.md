@@ -23,3 +23,11 @@ features:
   - title: 通过Telegram联系
     link: https://t.me/Chenpeel
 ---
+
+<br>
+<br>
+<RecentPost />
+
+<script setup>
+import RecentPost from '../components/RecentPost.vue';
+</script>
