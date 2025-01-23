@@ -28,6 +28,8 @@ jobs:
         run: npm run docs:build
       - name: Generate Recent Posts
         run: node genRecentPosts.js
+      - name: Copy Recent Posts to Dist
+        run: cp docs/recent-posts.json docs/.vitepress/dist/recent-posts.json
       - name: List build output
         run: ls -la docs/.vitepress/dist
       - uses: actions/upload-pages-artifact@v3
