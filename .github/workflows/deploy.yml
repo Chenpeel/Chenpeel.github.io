@@ -29,18 +29,21 @@ jobs:
         run: node genRecentPosts.js
       - name: List build output
         run: ls -la docs/.vitepress/dist
-      - name: Debug build output
-        run: |
-          echo "Contents of docs/.vitepress/dist:"
-          ls -la docs/.vitepress/dist
       - uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
+          name: pages-artifact
           path: docs/.vitepress/dist
-      - name: Debug artifact upload
-        run: |
-          echo "Artifact upload completed"
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
+        with:
+          artifact_name: pages-artifact
+          emit_telemetry: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
+          preview: false
+        env:
+          GITHUB_PAGES: true
