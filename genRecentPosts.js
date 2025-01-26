@@ -54,7 +54,6 @@ function generateRecentPosts() {
   // Write the posts to a JSON file
   const outputPath = path.join(outputDir, "recent-posts.json");
   fs.writeFileSync(outputPath, JSON.stringify(posts, null, 2));
-  console.log(`Recent posts written to ${outputPath}`);
 }
 
 generateRecentPosts();

@@ -47,7 +47,14 @@ const members = [
     avatar: 'https://www.moxuan.xin/wp-content/uploads/2025/01/file-ALwFCQUHSXbAwqNcA6LeUK.webp',
     name: '风中的轩语',
     links: [
-      { icon: {svg:blog}, link: 'https://www.moxuan.xin' }
+      { icon: {svg:blog}, link: 'https://www.moxuan.xin' },
+    ]
+  },
+  {
+    avatar: "https://big-event-mingchen.oss-cn-hangzhou.aliyuncs.com/mingchen.jpg",
+    name: "MingChen",
+    links:[
+      {icon: {svg:blog}, link: "https://www.itmingchen.cn"},
     ]
   }
 ]

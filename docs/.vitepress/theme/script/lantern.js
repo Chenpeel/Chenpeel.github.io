@@ -12,9 +12,6 @@ function isWithinLunarNewYearRange() {
     leap: false,
   });
 
-  console.log("Current Date:", currentDate);
-  console.log("Lunar New Year:", lunarNewYear);
-
   // 确保 lunarNewYear 是一个有效的 Date 对象
   const lunarNewYearDate = new Date(lunarNewYear);
 
@@ -23,9 +20,6 @@ function isWithinLunarNewYearRange() {
 
   const endRange = new Date(lunarNewYearDate);
   endRange.setDate(endRange.getDate() + 10);
-
-  console.log("Start Range:", startRange);
-  console.log("End Range:", endRange);
 
   return currentDate >= startRange && currentDate <= endRange;
 }
@@ -84,8 +78,6 @@ function createLanternContainer(customText) {
 
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded and parsed");
-
     // 引用 lantern.css 文件
     const link = document.createElement("link");
     link.rel = "stylesheet";
