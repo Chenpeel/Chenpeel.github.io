@@ -29,6 +29,7 @@ export const sidebar = {
               items: [
                 { text: "开启C/C++之旅", link: "/cs/basic/c_cpp/" },
                 { text: "0x00 Simple Main", link: "/cs/basic/c_cpp/0x00" },
+                { text: "0x01 细细品味", link: "/cs/basic/c_cpp/0x01" },
               ],
             },
             {
