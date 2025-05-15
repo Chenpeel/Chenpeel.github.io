@@ -1,0 +1,91 @@
+/* 表格样式 - 确保表格填满上层容器且容器居中 */
+
+/* 表格容器样式 */
+.vp-doc .table-wrapper,
+.table-wrapper {
+    margin: 20px auto !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow-x: auto !important;
+    align-items: center !important;
+}
+
+/* 表格基本样式 */
+.vp-doc table,
+table {
+    display: table !important;
+    width: 100% !important; /* 填满上层容器 */
+    margin: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: auto !important;
+    text-align: center !important;
+}
+
+/* 表格行样式 */
+.vp-doc tr,
+tr {
+    border-top: 1px solid var(--vp-c-divider) !important;
+}
+
+/* 表头样式 */
+.vp-doc th,
+th {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    font-weight: 600 !important;
+    border: 1px solid var(--vp-c-divider) !important;
+    padding: 8px 16px !important;
+    text-align: center !important;
+}
+
+/* 单元格样式 */
+.vp-doc td,
+td {
+    border: 1px solid var(--vp-c-divider) !important;
+    padding: 8px 16px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+/* 条纹行背景 */
+.vp-doc tr:nth-child(2n),
+tr:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 确保特定对齐方式生效 */
+.vp-doc th[align="left"],
+.vp-doc td[align="left"],
+th[align="left"],
+td[align="left"] {
+    text-align: left !important;
+}
+
+.vp-doc th[align="center"],
+.vp-doc td[align="center"],
+th[align="center"],
+td[align="center"] {
+    text-align: center !important;
+}
+
+.vp-doc th[align="right"],
+.vp-doc td[align="right"],
+th[align="right"],
+td[align="right"] {
+    text-align: right !important;
+}
+
+/* 覆盖VitePress默认样式中可能导致问题的部分 */
+.vp-doc table,
+table {
+    display: table !important;
+    overflow: visible !important;
+}
+
+/* 强制表格在容器中居中且填满容器 */
+.vp-doc .table-wrapper > table,
+.table-wrapper > table {
+    width: 100% !important;
+    max-width: 100% !important;
+}

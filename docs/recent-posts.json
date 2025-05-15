@@ -1,5 +1,10 @@
 [
   {
+    "title": "C/C++ 程序之惑",
+    "date": "2025-04-20",
+    "path": "/cs/basic/c_cpp/0x01"
+  },
+  {
     "title": "C/C++ ENV & 小试牛刀",
     "date": "2025-01-24",
     "path": "/cs/basic/c_cpp/0x00"
@@ -23,10 +28,5 @@
     "title": "《桃夭》",
     "date": "2024-06-08",
     "path": "/literature/POEM/桃夭"
-  },
-  {
-    "title": "《螽斯》",
-    "date": "2024-06-07",
-    "path": "/literature/POEM/螽斯"
   }
 ]
