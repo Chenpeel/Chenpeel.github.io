@@ -10,8 +10,8 @@ import "./css/keyboard.css";
 import "./css/lantern.css";
 import "./css/ring.css";
 import "./css/table.css";
-import "../plugins/mermaidPlugin.ts";
-import Mermaid from "../../../components/Mermaid.vue";
+import "./plugins/mermaidPlugin.ts";
+import Mermaid from "./components/Mermaid.vue";
 import "./css/lantern.css";
 import "./script/lantern.js";
 

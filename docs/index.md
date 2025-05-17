@@ -5,8 +5,8 @@ layout: home
 
 hero:
   name: Chenpeel
-  text: 乐只君子,福履将之
-  tagline: 料峭春风吹酒醒,微冷,山头斜照却相迎
+  text: 乐只君子&nbsp&nbsp福履将之
+  tagline: 料峭春风吹酒醒，微冷，山头斜照却相迎
   image:
       src: /logo.png
       alt: Chenpeel
@@ -25,9 +25,12 @@ features:
 ---
 
 <br>
+
+
 <br>
 <RecentPost />
 
 <script setup>
-import RecentPost from '../components/RecentPost.vue';
+import RecentPost from './.vitepress/theme/components/RecentPost.vue';
+import CustomTextCloud from './.vitepress/theme/components/TextCloud.vue';
 </script>

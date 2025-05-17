@@ -1,0 +1,101 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="2000" height="600" fill="#f9f9f9"/>
+
+    <!-- 标题 -->
+    <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">浅拷贝 vs 深拷贝</text>
+
+    <!-- 浅拷贝部分 -->
+    <g transform="translate(100, 100)">
+        <text x="150" y="-20" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold" fill="#2c3e50">浅拷贝 (Shallow Copy)</text>
+
+        <!-- 对象A -->
+        <rect x="0" y="0" width="140" height="160" rx="5" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+        <text x="70" y="30" font-family="Arial" font-size="18" text-anchor="middle" fill="white">对象A</text>
+
+        <!-- 对象A的成员 -->
+        <rect x="20" y="50" width="100" height="30" rx="3" fill="white" stroke="#2980b9" stroke-width="1"/>
+        <text x="70" y="70" font-family="Arial" font-size="14" text-anchor="middle">int value = 5</text>
+
+        <rect x="20" y="90" width="100" height="30" rx="3" fill="white" stroke="#2980b9" stroke-width="1"/>
+        <text x="70" y="110" font-family="Arial" font-size="14" text-anchor="middle">char* ptr</text>
+
+        <!-- 指针 -->
+        <line x1="70" y1="120" x2="70" y2="170" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- 堆内存 -->
+        <rect x="40" y="170" width="120" height="40" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+        <text x="100" y="195" font-family="Arial" font-size="14" text-anchor="middle" fill="white">堆上的字符串</text>
+
+        <!-- 对象B -->
+        <rect x="220" y="0" width="140" height="160" rx="5" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+        <text x="290" y="30" font-family="Arial" font-size="18" text-anchor="middle" fill="white">对象B (拷贝)</text>
+
+        <!-- 对象B的成员 -->
+        <rect x="240" y="50" width="100" height="30" rx="3" fill="white" stroke="#2980b9" stroke-width="1"/>
+        <text x="290" y="70" font-family="Arial" font-size="14" text-anchor="middle">int value = 5</text>
+
+        <rect x="240" y="90" width="100" height="30" rx="3" fill="white" stroke="#2980b9" stroke-width="1"/>
+        <text x="290" y="110" font-family="Arial" font-size="14" text-anchor="middle">char* ptr</text>
+
+        <!-- 指针 - 指向同一个内存 -->
+        <line x1="290" y1="120" x2="100" y2="170" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+    </g>
+
+    <!-- 深拷贝部分 -->
+    <g transform="translate(430, 100)">
+        <text x="150" y="-20" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold" fill="#2c3e50">深拷贝 (Deep Copy)</text>
+
+        <!-- 对象A -->
+        <rect x="0" y="0" width="140" height="160" rx="5" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+        <text x="70" y="30" font-family="Arial" font-size="18" text-anchor="middle" fill="white">对象A</text>
+
+        <!-- 对象A的成员 -->
+        <rect x="20" y="50" width="100" height="30" rx="3" fill="white" stroke="#27ae60" stroke-width="1"/>
+        <text x="70" y="70" font-family="Arial" font-size="14" text-anchor="middle">int value = 5</text>
+
+        <rect x="20" y="90" width="100" height="30" rx="3" fill="white" stroke="#27ae60" stroke-width="1"/>
+        <text x="70" y="110" font-family="Arial" font-size="14" text-anchor="middle">char* ptr</text>
+
+        <!-- 指针 -->
+        <line x1="70" y1="120" x2="70" y2="170" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- 堆内存 -->
+        <rect x="10" y="170" width="120" height="40" rx="3" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+        <text x="70" y="195" font-family="Arial" font-size="14" text-anchor="middle" fill="white">堆上的字符串</text>
+
+        <!-- 对象B -->
+        <rect x="220" y="0" width="140" height="160" rx="5" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+        <text x="290" y="30" font-family="Arial" font-size="18" text-anchor="middle" fill="white">对象B (拷贝)</text>
+
+        <!-- 对象B的成员 -->
+        <rect x="240" y="50" width="100" height="30" rx="3" fill="white" stroke="#27ae60" stroke-width="1"/>
+        <text x="290" y="70" font-family="Arial" font-size="14" text-anchor="middle">int value = 5</text>
+
+        <rect x="240" y="90" width="100" height="30" rx="3" fill="white" stroke="#27ae60" stroke-width="1"/>
+        <text x="290" y="110" font-family="Arial" font-size="14" text-anchor="middle">char* ptr</text>
+
+        <!-- 指针 - 指向新的内存 -->
+        <line x1="290" y1="120" x2="290" y2="170" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- 堆内存 - 新的副本 -->
+        <rect x="230" y="170" width="120" height="40" rx="3" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+        <text x="290" y="195" font-family="Arial" font-size="14" text-anchor="middle" fill="white">堆上的字符串</text>
+        <text x="290" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#8e44ad">(新分配的内存)</text>
+    </g>
+
+    <!-- 箭头标记 -->
+    <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+        </marker>
+    </defs>
+
+    <!-- 浅拷贝问题说明 -->
+    <text x="200" y="330" font-family="Arial" font-size="14" text-anchor="middle" fill="#e74c3c">问题：两个对象共享同一内存区域</text>
+    <text x="200" y="350" font-family="Arial" font-size="14" text-anchor="middle" fill="#e74c3c">任一对象修改或释放内存都会影响另一个</text>
+
+    <!-- 深拷贝优势说明 -->
+    <text x="600" y="330" font-family="Arial" font-size="14" text-anchor="middle" fill="#27ae60">优势：对象拥有独立的内存区域</text>
+    <text x="600" y="350" font-family="Arial" font-size="14" text-anchor="middle" fill="#27ae60">避免了释放或修改时的冲突</text>
+</svg>

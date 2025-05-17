@@ -1,10 +1,13 @@
 import { defineConfig } from "vitepress";
 import mermaid from "mermaid";
-import mermaidPlugin from "./plugins/mermaidPlugin.ts";
+import mermaidPlugin from "./theme/plugins/mermaidPlugin.ts";
 import markdownItTaskLists from "markdown-it-task-lists";
-import rssPlugin from "./rss-plugin.mjs";
 import { sidebar } from "./sidebar.mts";
-import lanternPlugin from "./plugins/lanternPlugin.js";
+import lanternPlugin from "./theme/plugins/lanternPlugin.ts";
+// RSS will be handled in the buildEnd hook
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 export default defineConfig({
   title: "Chenpeel",
@@ -21,6 +24,15 @@ export default defineConfig({
   },
   head: [
     ["link", { rel: "icon", href: "logo.svg" }],
+    [
+      "link",
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        href: "/rss.xml",
+        title: "Chenpeel - RSS Feed",
+      },
+    ],
     [
       "script",
       {
@@ -73,6 +85,22 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [rssPlugin(), lanternPlugin()],
+    plugins: [lanternPlugin()],
+  },
+  buildEnd: async (siteConfig) => {
+    try {
+      // Get directory paths
+      const __dirname = path.dirname(fileURLToPath(import.meta.url));
+      const distDir = path.resolve(__dirname, "dist");
+      
+      // Generate RSS
+      console.log("Generating RSS feed at build end");
+      const { generateRSS } = await import("./rss-plugin.mjs");
+      await generateRSS();
+      
+      console.log("RSS generation complete");
+    } catch (error) {
+      console.error("Error in buildEnd hook:", error);
+    }
   },
 });
