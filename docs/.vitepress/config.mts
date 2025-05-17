@@ -92,12 +92,12 @@ export default defineConfig({
       // Get directory paths
       const __dirname = path.dirname(fileURLToPath(import.meta.url));
       const distDir = path.resolve(__dirname, "dist");
-      
+
       // Generate RSS
       console.log("Generating RSS feed at build end");
-      const { generateRSS } = await import("./rss-plugin.mjs");
+      const { generateRSS } = await import("./theme/plugins/rss-plugin.mjs");
       await generateRSS();
-      
+
       console.log("RSS generation complete");
     } catch (error) {
       console.error("Error in buildEnd hook:", error);

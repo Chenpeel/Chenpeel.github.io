@@ -5,29 +5,44 @@ import { fileURLToPath } from "url";
 import matter from "gray-matter";
 import RSS from "rss";
 import { createMarkdownRenderer } from "vitepress";
+import { processMermaidInMarkdown } from "../script/mermaid-preprocessor.mjs";
 
 // 替换 __dirname 的获取方式
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const baseUrl = "https://chenpeel.github.io/";
-const contentBase = path.join(__dirname, "..");
+const contentBase = path.join(__dirname, "../../..");
+const mermaidImagesDir = path.join(contentBase, "public", "mermaid-images");
 
 async function generateFeedItems() {
   const categories = ["Tools", "CS", "Math", "Literature", "Stories"];
   const items = [];
   const md = await createMarkdownRenderer();
 
-  function addItemToFeed(filePath) {
+  // 确保 mermaid 图片目录存在
+  if (!fs.existsSync(mermaidImagesDir)) {
+    fs.mkdirSync(mermaidImagesDir, { recursive: true });
+  }
+
+  async function addItemToFeed(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
     const { data, content: body } = matter(content);
 
     if (categories.includes(data.category) && data.published !== false) {
-      const htmlContent = md.render(body);
+      // 处理 Markdown 中的 Mermaid 图表
+      const processedBody = await processMermaidInMarkdown(
+        body,
+        mermaidImagesDir,
+        baseUrl,
+      );
+
+      const htmlContent = md.render(processedBody);
+      const relativePath = path.relative(contentBase, filePath);
       const item = {
-        title: data.title,
+        title: data.title || "Untitled",
         description: htmlContent,
-        link: `${baseUrl}${filePath.replace(contentBase, "").replace(/\.md$/, ".html")}`,
-        date: new Date(data.date),
+        link: `${baseUrl}${relativePath.replace(/\.md$/, ".html")}`,
+        date: new Date(data.date || Date.now()),
       };
 
       // Check for duplicates
@@ -40,26 +55,34 @@ async function generateFeedItems() {
     }
   }
 
-  function walkDir(dir) {
+  async function walkDir(dir) {
     const files = fs.readdirSync(dir);
+    const promises = [];
 
-    files.forEach((file) => {
+    for (const file of files) {
       const filePath = path.join(dir, file);
       const stat = fs.statSync(filePath);
 
       if (stat.isDirectory()) {
         // Skip .vitepress directory and node_modules
-        if (file === ".vitepress" || file === "node_modules") {
-          return;
+        if (
+          file === ".vitepress" ||
+          file === "node_modules" ||
+          file === "dist" ||
+          file === ".git"
+        ) {
+          continue;
         }
-        walkDir(filePath);
+        promises.push(walkDir(filePath));
       } else if (filePath.endsWith(".md")) {
-        addItemToFeed(filePath);
+        promises.push(addItemToFeed(filePath));
       }
-    });
+    }
+
+    await Promise.all(promises);
   }
 
-  walkDir(contentBase);
+  await walkDir(contentBase);
   return items;
 }
 
@@ -79,7 +102,7 @@ export async function generateRSS() {
   items.forEach((item) => feed.item(item));
 
   // Write to the standard VitePress output directory
-  const outputDir = path.resolve(__dirname, "dist");
+  const outputDir = path.resolve(contentBase, ".vitepress/dist");
   const outputPath = path.join(outputDir, "rss.xml");
 
   if (!fs.existsSync(outputDir)) {
@@ -90,7 +113,7 @@ export async function generateRSS() {
   console.log(`RSS feed written to: ${outputPath}`);
 
   // Also copy to docs/public directory to ensure it's accessible during development
-  const publicDir = path.resolve(__dirname, "..", "public");
+  const publicDir = path.resolve(contentBase, "public");
   const publicPath = path.join(publicDir, "rss.xml");
 
   if (!fs.existsSync(publicDir)) {
