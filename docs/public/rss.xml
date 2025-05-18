@@ -4,7 +4,7 @@
         <description><![CDATA[乐只君子,福履将之 feedId:80283127044613120+userId:68880753051241472]]></description>
         <link>https://chenpeel.github.io/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 17 May 2025 20:10:53 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 18 May 2025 07:06:18 GMT</lastBuildDate>
         <atom:link href="https://chenpeel.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[zh-CN]]></language>
         <item>
@@ -7158,61 +7158,6 @@ $$</p>
             <pubDate>Sun, 08 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[C/C++ ENV & 小试牛刀]]></title>
-            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
-<blockquote>
-<p>编译程序是用来
-将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
-</blockquote>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-7719cdea68cfa284d1f83c8155bf4973.png" alt="Mermaid Diagram"></p>
-<h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
-<ol>
-<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
-</ol>
-<blockquote>
-<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
-否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
-</blockquote>
-<ol start="2">
-<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
-</ol>
-<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><ol start="3">
-<li>编译成可执行文件</li>
-</ol>
-<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC，VSCode run code等</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span></code></pre>
-</div><p>该方式将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序</p>
-<ol start="4">
-<li>执行测试</li>
-</ol>
-<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
-</div><p>🎉🎉🎉</p>
-<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
-<hr>
-<ul>
-  <li>
-    <input type="checkbox" id="task1" name="task1" checked><label for="task1">  尝试理解上述编译的过程</label>
-  </li>
-  <br />
-  <li>
-    <input type="checkbox" id="task1" name="task2"><label for="task2">  为什么在命令行，机器能理解我输入的编译命令：<code>gcc main.c -o main</code></label>
-  </li>
-  <br />
-  <li>
-    <input type="checkbox" id="task1" name="task3"><label for="task3">  编译器是如何做到解析人类写的代码并转译成可执行的程序的？</label>
-	</li>
-</ul>
-]]></description>
-            <guid isPermaLink="false">C/C++ ENV &amp; 小试牛刀</guid>
-            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[计算机的结构和发展]]></title>
             <description><![CDATA[<h2 id="计算机的结构和发展" tabindex="-1">计算机的结构和发展 <a class="header-anchor" href="#计算机的结构和发展" aria-label="Permalink to &quot;计算机的结构和发展&quot;">&ZeroWidthSpace;</a></h2>
 <h4 id="计算机的发展历程" tabindex="-1">计算机的发展历程 <a class="header-anchor" href="#计算机的发展历程" aria-label="Permalink to &quot;计算机的发展历程&quot;">&ZeroWidthSpace;</a></h4>
@@ -7291,6 +7236,61 @@ $$</p>
 ]]></description>
             <guid isPermaLink="false">计算机的结构和发展</guid>
             <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[C/C++ ENV & 小试牛刀]]></title>
+            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
+<blockquote>
+<p>编译程序是用来
+将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
+</blockquote>
+<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-7719cdea68cfa284d1f83c8155bf4973.png" alt="Mermaid Diagram"></p>
+<h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
+<ol>
+<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
+</ol>
+<blockquote>
+<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
+否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
+</blockquote>
+<ol start="2">
+<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
+</ol>
+<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+</div><ol start="3">
+<li>编译成可执行文件</li>
+</ol>
+<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC，VSCode run code等</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span></code></pre>
+</div><p>该方式将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序</p>
+<ol start="4">
+<li>执行测试</li>
+</ol>
+<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
+</div><p>🎉🎉🎉</p>
+<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
+<hr>
+<ul>
+  <li>
+    <input type="checkbox" id="task1" name="task1" checked><label for="task1">  尝试理解上述编译的过程</label>
+  </li>
+  <br />
+  <li>
+    <input type="checkbox" id="task1" name="task2"><label for="task2">  为什么在命令行，机器能理解我输入的编译命令：<code>gcc main.c -o main</code></label>
+  </li>
+  <br />
+  <li>
+    <input type="checkbox" id="task1" name="task3"><label for="task3">  编译器是如何做到解析人类写的代码并转译成可执行的程序的？</label>
+	</li>
+</ul>
+]]></description>
+            <guid isPermaLink="false">C/C++ ENV &amp; 小试牛刀</guid>
+            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[C/C++ 程序之惑]]></title>
