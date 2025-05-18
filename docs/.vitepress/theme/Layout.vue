@@ -7,7 +7,7 @@ import { watch } from "vue";
 
 const { Layout } = DefaultTheme;
 const showComponents = ref(false);
-const apiUrl = "https://106.15.182.22:8812/api/chat"; // 您的API URL
+const apiUrl = "https://106.15.182.22/api/chat"; // 您的API URL
 
 // 创建聊天历史记录 ref
 const chatHistory = ref([]);
