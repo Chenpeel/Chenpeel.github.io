@@ -141,7 +141,7 @@ export default {
         // 后端API地址
         apiUrl: {
             type: String,
-            default: "https://106.15.182.22/api/chat", // 默认本地开发地址
+            default: "https://106.15.182.22/api/chat",
         },
     },
 

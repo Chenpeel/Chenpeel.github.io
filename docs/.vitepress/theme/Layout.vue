@@ -7,7 +7,6 @@ import { watch } from "vue";
 
 const { Layout } = DefaultTheme;
 const showComponents = ref(false);
-const apiUrl = "https://106.15.182.22/api/chat"; // 您的API URL
 
 // 创建聊天历史记录 ref
 const chatHistory = ref([]);
@@ -52,11 +51,7 @@ const isBrowser = typeof window !== "undefined";
             <!-- 使用简单的条件渲染替代ClientOnly -->
             <div v-if="isBrowser">
                 <NahidaLive2D v-if="showComponents" />
-                <NahidaChat
-                    v-if="showComponents"
-                    :api-url="apiUrl"
-                    :initial-open="false"
-                />
+                <NahidaChat v-if="showComponents" :initial-open="false" />
             </div>
         </template>
     </Layout>
