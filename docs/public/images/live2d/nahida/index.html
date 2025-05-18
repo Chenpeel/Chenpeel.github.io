@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nahida Live2D Widget</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 您的页面内容 -->
+    
+    <!-- 引入live2d-widget -->
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    
+    <script>
+        // 配置live2d-widget
+        L2Dwidget.init({
+            model: {
+                jsonPath: './nahida/nahida.model3.json',
+            },
+            display: {
+                position: 'right', // 位置
+                width: 300,  // 宽度
+                height: 400  // 高度
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+    "Version": 3,
+    "FileReferences": {
+        "Moc": "nahida.moc3",
+        "Textures": ["textures/texture_00.png"],
+        "Physics": "nahida.physics3.json",
+        "DisplayInfo": "nahida.cdi3.json",
+        "Expressions": [
+            {
+                "Name": "black.exp3.json",
+                "File": "expressions/black.exp3.json"
+            },
+            {
+                "Name": "shy.exp3.json",
+                "File": "expressions/shy.exp3.json"
+            },
+            {
+                "Name": "angry.exp3.json",
+                "File": "expressions/angry.exp3.json"
+            },
+            {
+                "Name": "star.exp3.json",
+                "File": "expressions/star.exp3.json"
+            },
+            {
+                "Name": "tear.exp3.json",
+                "File": "expressions/tear.exp3.json"
+            },
+            {
+                "Name": "pose1.exp3.json",
+                "File": "expressions/pose1.exp3.json"
+            },
+            {
+                "Name": "pose2.exp3.json",
+                "File": "expressions/pose2.exp3.json"
+            },
+            {
+                "Name": "pose3.exp3.json",
+                "File": "expressions/pose3.exp3.json"
+            },
+            {
+                "Name": "leaf.exp3.json",
+                "File": "expressions/leaf.exp3.json"
+            },
+            {
+                "Name": "shine.exp3.json",
+                "File": "expressions/shine.exp3.json"
+            }
+        ]
+    },
+    "Groups": [
+        {
+            "Target": "Parameter",
+            "Name": "EyeBlink",
+            "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+        },
+        {
+            "Target": "Parameter",
+            "Name": "LipSync",
+            "Ids": ["ParamMouthOpenY"]
+        }
+    ],
+    "HitAreas": []
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nahida Live2D</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        #canvas-container {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- 添加Cubism核心库 -->
+    <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+    
+    <!-- 使用CDN引入必要的库 -->
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pixi/utils@6.5.2/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pixi/math@6.5.2/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js"></script>
+    
+    <script>
+        window.onload = async function() {
+            // 创建PIXI应用
+            const app = new PIXI.Application({
+                width: 300,
+                height: 400,
+                backgroundColor: 0xf8f8f8,
+                antialias: true
+            });
+            document.getElementById('canvas-container').appendChild(app.view);
+
+            // 设置模型路径
+            const modelPath = './nahida.model3.json';
+            
+            try {
+                console.log('开始加载模型:', modelPath);
+                
+                // 加载Cubism 4模型
+                const model = await PIXI.live2d.Live2DModel.from(modelPath);
+                
+                console.log('模型加载成功!', model);
+                console.log('模型原始尺寸:', model.width, model.height);
+                
+                // 完全重新调整模型位置和缩放
+                
+                // 1. 重置锚点为中心
+                model.anchor.set(0.5, 0.5);
+                
+                // 2. 设置适当的缩放 - 使用较小的值让模型完全显示
+                // 根据nahida模型的比例，可能需要较小的缩放值
+                const scale = 0.078; // 尝试一个小得多的缩放值
+                model.scale.set(scale);
+                
+                // 3. 将模型放在画布中央偏下的位置
+                model.x = app.renderer.width / 2;
+                model.y = app.renderer.height / 2 + 15; // 稍微下移一点
+                
+                console.log('调整后尺寸:', model.width * scale, model.height * scale);
+                console.log('位置:', model.x, model.y);
+                
+                // 添加模型到舞台
+                app.stage.addChild(model);
+                
+                // 添加交互功能
+                model.on('pointerdown', () => {
+                    console.log('模型被点击');
+                    // 尝试播放所有可用的动作
+                    if (model.internalModel && model.internalModel.motionManager) {
+                        // 获取所有动作组
+                        const groups = Object.keys(model.internalModel.settings.motions || {});
+                        if (groups.length > 0) {
+                            const randomGroup = groups[Math.floor(Math.random() * groups.length)];
+                            console.log('播放动作组:', randomGroup);
+                            model.motion(randomGroup);
+                        } else {
+                            console.log('没有可用的动作');
+                        }
+                    }
+                });
+                
+                // 启用拖拽功能 - 可以拖动模型
+                model.buttonMode = true;
+                model.interactive = true;
+                model.on('pointerdown', (e) => {
+                    model.dragging = true;
+                    model._dragOffset = { x: e.data.global.x - model.x, y: e.data.global.y - model.y };
+                });
+                model.on('pointermove', (e) => {
+                    if (model.dragging) {
+                        model.x = e.data.global.x - model._dragOffset.x;
+                        model.y = e.data.global.y - model._dragOffset.y;
+                    }
+                });
+                model.on('pointerupoutside', () => { model.dragging = false; });
+                model.on('pointerup', () => { model.dragging = false; });
+                
+            } catch (error) {
+                console.error('模型加载失败:', error);
+            }
+        };
+    </script>
+</body>
+</html>

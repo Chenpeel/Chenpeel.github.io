@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "@mermaid-js/mermaid-cli": "^11.4.2",
+        "@vueuse/core": "^13.2.0",
         "cheerio": "^1.0.0",
         "chinese-lunar": "^0.1.4",
         "esbuild": "^0.25.4",
@@ -23,6 +24,8 @@
         "markdown-it-task-lists": "^2.1.1",
         "mathjax": "^3.2.2",
         "mermaid": "^11.4.1",
+        "pixi-live2d-display": "^0.4.0",
+        "pixi.js": "^8.9.2",
         "puppeteer": "^23.11.1",
         "rss": "^1.2.2",
         "vue": "^3.5.13",

@@ -14,10 +14,15 @@ import "./plugins/mermaidPlugin.ts";
 import Mermaid from "./components/Mermaid.vue";
 import "./css/lantern.css";
 import "./script/lantern.js";
-
+import NahidaLive2D from "./components/NahidaLive2D.vue";
+import NahidaChat from "./components/NahidaChat.vue";
+import Layout from "./Layout.vue";
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp: async ({ app }) => {
     app.component("Mermaid", Mermaid);
+    app.component("NahidaLive2D", NahidaLive2D);
+    app.component("NahidaChat", NahidaChat);
   },
 };

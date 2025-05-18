@@ -25,12 +25,13 @@ features:
 ---
 
 <br>
-
-
 <br>
 <RecentPost />
 
+<br>
+<br>
+
+
 <script setup>
 import RecentPost from './.vitepress/theme/components/RecentPost.vue';
-import CustomTextCloud from './.vitepress/theme/components/TextCloud.vue';
 </script>
