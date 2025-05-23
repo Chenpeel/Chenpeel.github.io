@@ -142,7 +142,7 @@ export default {
         // 后端API地址
         apiUrl: {
             type: String,
-            default: "https://api.chenpeel.xyz/chat",
+            default: "https://test.164314.xyz/chat",
         },
     },
 
@@ -453,10 +453,10 @@ export default {
             setTimeout(() => {
                 document.addEventListener("click", handleOutsideClick);
             }, 100);
-            
+
             // 添加自定义事件监听
             document.addEventListener("openNahidaChat", handleOpenChatEvent);
-            
+
             chatHistory.value.forEach((message) => {
                 if (!message.timestamp) {
                     message.timestamp = new Date().toISOString();
