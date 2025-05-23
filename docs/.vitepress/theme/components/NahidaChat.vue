@@ -142,7 +142,7 @@ export default {
         // 后端API地址
         apiUrl: {
             type: String,
-            default: "https://test.164314.xyz/chat",
+            default: "https://api.chenpeel.xyz/chat",
         },
     },
 
