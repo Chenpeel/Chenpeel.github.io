@@ -485,16 +485,28 @@ export default {
 }
 
 .chat-trigger {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
     width: 50px;
     height: 50px;
-    border-radius: 60%;
     background-color: var(--vp-c-brand, #68b587);
+    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    z-index: 999;
+}
+
+@media (max-width: 768px) {
+    .chat-trigger {
+        right: 15px; /* 保持在右侧 */
+        bottom: 70px; /* 提高位置，避免与Live2D重叠 */
+    }
 }
 
 .chat-trigger:hover {
@@ -514,20 +526,32 @@ export default {
     bottom: 15px;
     width: 500px;
     height: 700px;
-    background-color: var(--vp-c-bg, white); /* 使用VitePress背景色 */
+    background-color: var(--vp-c-bg, white);
     border-radius: 10px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     animation: slide-up 0.3s ease;
-    color: var(--vp-c-text-1, #213547); /* 使用VitePress文本色 */
-    border: 1px solid var(--vp-c-divider, #e2e2e2); /* 添加边框以在暗色模式中增加对比度 */
+    color: var(--vp-c-text-1, #213547);
+    border: 1px solid var(--vp-c-divider, #e2e2e2);
 }
+
+@media (max-width: 768px) {
+    .chat-window {
+        width: 90%; /* 默认占用90%的屏幕宽度 */
+        max-width: 480px; /* 但不超过480px */
+        height: 70vh; /* 高度设为视口高度的70% */
+        right: 5%; /* 水平居中 */
+        left: 5%;
+        bottom: 10vh; /* 离底部有一定距离，避免与Live2D重叠 */
+    }
+}
+
 @media (max-width: 480px) {
     .chat-window {
-        width: calc(100% - 40px);
-        height: calc(100% - 100px);
+        width: 90%;
+        height: 60vh;
     }
 }
 

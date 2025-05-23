@@ -4,7 +4,7 @@
         <description><![CDATA[乐只君子,福履将之 feedId:80283127044613120+userId:68880753051241472]]></description>
         <link>https://chenpeel.github.io/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 18 May 2025 11:25:05 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 23 May 2025 09:47:38 GMT</lastBuildDate>
         <atom:link href="https://chenpeel.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[zh-CN]]></language>
         <item>
@@ -7158,59 +7158,104 @@ $$</p>
             <pubDate>Sun, 08 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[C/C++ ENV & 小试牛刀]]></title>
-            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
-<blockquote>
-<p>编译程序是用来
-将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
-</blockquote>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-7719cdea68cfa284d1f83c8155bf4973.png" alt="Mermaid Diagram"></p>
-<h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
+            <title><![CDATA[计算机的结构和发展]]></title>
+            <description><![CDATA[<h2 id="计算机的结构和发展" tabindex="-1">计算机的结构和发展 <a class="header-anchor" href="#计算机的结构和发展" aria-label="Permalink to &quot;计算机的结构和发展&quot;">&ZeroWidthSpace;</a></h2>
+<h4 id="计算机的发展历程" tabindex="-1">计算机的发展历程 <a class="header-anchor" href="#计算机的发展历程" aria-label="Permalink to &quot;计算机的发展历程&quot;">&ZeroWidthSpace;</a></h4>
 <ol>
-<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
-</ol>
-<blockquote>
-<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
-否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
-</blockquote>
-<ol start="2">
-<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
-</ol>
-<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><ol start="3">
-<li>编译成可执行文件</li>
-</ol>
-<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC，VSCode run code等</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span></code></pre>
-</div><p>该方式将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序</p>
-<ol start="4">
-<li>执行测试</li>
-</ol>
-<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
-</div><p>🎉🎉🎉</p>
-<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
-<hr>
+<li>
+<p><strong>早期机械计算器（17世纪-19世纪）</strong></p>
 <ul>
-  <li>
-    <input type="checkbox" id="task1" name="task1" checked><label for="task1">  尝试理解上述编译的过程</label>
-  </li>
-  <br />
-  <li>
-    <input type="checkbox" id="task1" name="task2"><label for="task2">  为什么在命令行，机器能理解我输入的编译命令：<code>gcc main.c -o main</code></label>
-  </li>
-  <br />
-  <li>
-    <input type="checkbox" id="task1" name="task3"><label for="task3">  编译器是如何做到解析人类写的代码并转译成可执行的程序的？</label>
-	</li>
+<li>1614年，苏格兰数学家纳皮尔发明了对数表。</li>
+<li>1623年，德国科学家威廉·希卡德建造了世界上第一台机械计算器。</li>
+<li>1642年，法国数学家帕斯卡发明了滚轮式加法器。</li>
 </ul>
+</li>
+<li>
+<p><strong>打孔卡片时代（19世纪-20世纪初）</strong></p>
+<ul>
+<li>1801年，法国人雅卡尔发明了提花织布机，使用打孔卡片控制织花图样。</li>
+<li>1890年，美国统计学家赫尔曼·何乐礼发明了制表机，利用打孔卡片进行数据处理。</li>
+</ul>
+</li>
+<li>
+<p><strong>早期电子计算机（20世纪40年代-50年代）</strong></p>
+<ul>
+<li>1941年，德国科学家楚泽发明了Z3计算机。</li>
+<li>1943年，英国发明了巨像计算机，用于破解德国的密码。</li>
+<li>1946年，美国发明了ENIAC计算机，被认为是第一台通用电子计算机。</li>
+</ul>
+</li>
+<li>
+<p><strong>晶体管计算机（20世纪50年代-60年代）</strong></p>
+<ul>
+<li>1955年，曼彻斯特大学建造了第一台晶体管计算机。</li>
+<li>1960年，CDC 6600超级计算机问世，被认为是第一台超级计算机。</li>
+</ul>
+</li>
+<li>
+<p><strong>集成电路和微处理器时代（20世纪70年代-至今）</strong></p>
+<ul>
+<li>1971年，英特尔发布了第一款微处理器4004。</li>
+<li>1981年，IBM发布了第一台个人电脑（PC）。</li>
+<li>21世纪，计算机技术迅速发展，进入云计算和人工智能时代。</li>
+</ul>
+</li>
+</ol>
+<h4 id="计算机的基本结构" tabindex="-1">计算机的基本结构 <a class="header-anchor" href="#计算机的基本结构" aria-label="Permalink to &quot;计算机的基本结构&quot;">&ZeroWidthSpace;</a></h4>
+<h5 id="冯诺伊曼机结构" tabindex="-1">冯诺伊曼机结构 <a class="header-anchor" href="#冯诺伊曼机结构" aria-label="Permalink to &quot;冯诺伊曼机结构&quot;">&ZeroWidthSpace;</a></h5>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Von_Neumann_Architecture.svg" alt="Von Neumann Architecture"></p>
+<h5 id="现代计算机结构" tabindex="-1">现代计算机结构 <a class="header-anchor" href="#现代计算机结构" aria-label="Permalink to &quot;现代计算机结构&quot;">&ZeroWidthSpace;</a></h5>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mindmap</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  root((主板))</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    CPU</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      控制单元</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      算术逻辑单元</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      寄存器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      主存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      辅助存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    输入设备</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      键盘</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      鼠标</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      ...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    输出设备</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      显示器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      打印机</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      ...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      数据总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      地址总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      控制总线</span></span></code></pre>
+</div><p>现代计算机的发展趋势是以存储为核心，这主要体现在以下几个方面：</p>
+<ol>
+<li>
+<p><strong>大容量存储器</strong></p>
+<ul>
+<li>现代计算机配备了大容量的主存储器和辅助存储器，以满足数据密集型应用的需求。</li>
+</ul>
+</li>
+<li>
+<p><strong>高速缓存</strong></p>
+<ul>
+<li>现代计算机使用多级缓存（L1、L2、L3）来提高数据访问速度，减少CPU等待时间。</li>
+</ul>
+</li>
+<li>
+<p><strong>存储器层次结构</strong></p>
+<ul>
+<li>现代计算机采用存储器层次结构，从高速缓存到主存储器，再到辅助存储器，形成一个高效的数据存储和访问体系。</li>
+</ul>
+</li>
+<li>
+<p><strong>非易失性存储器</strong></p>
+<ul>
+<li>现代计算机逐渐采用非易失性存储器（如SSD）替代传统的机械硬盘，提高数据存储的可靠性和速度。</li>
+</ul>
+</li>
+</ol>
 ]]></description>
-            <guid isPermaLink="false">C/C++ ENV &amp; 小试牛刀</guid>
-            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="false">计算机的结构和发展</guid>
+            <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[C/C++ 程序之惑]]></title>
@@ -7218,21 +7263,116 @@ $$</p>
 <h3 id="解释器" tabindex="-1">解释器 <a class="header-anchor" href="#解释器" aria-label="Permalink to &quot;解释器&quot;">&ZeroWidthSpace;</a></h3>
 <p>当打开cmd、powershell窗口或使用类Unix终端时，背后实际运行了一个cmd.exe/pwsh.exe/shell解释程序。</p>
 <p>它负责接受给定的输入命令及参数，根据内置或下载的二进制程序，查询命令的存在性（合法性），执行相应的二进制程序并响应输出。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-b9e55fc506fca4bc8fdcbb2609422c2e.png" alt="Mermaid Diagram"></p>
-<p>这个过程看似是连续的、不间断的，但机器并不是在接收到你的命令后连续地执行的，机器可能还并发（在极短时间内、ms级切换）的执行图形界面渲染等程序。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">flowchart TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A[用户] -->|输入命令| B[命令行窗口]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    subgraph 解释器处理流程</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B --> C{解释器程序}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|Windows| D[cmd.exe或pwsh.exe]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|Unix/Linux| E[bash/zsh/sh等]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    D --> F[命令解析]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    E --> F</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> G{命令类型判断}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    G -->|内置命令| H[直接执行内置功能]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    G -->|外部命令| I[查找命令位置]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    I --> J{路径搜索}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    J -->|在PATH中找到| K[加载外部程序]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    J -->|未找到| L[显示错误: 命令未找到]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    K --> M[执行程序并传递参数]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    H --> N[处理命令结果]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    M --> N</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    L --> N</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    N --> O[输出结果]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    O --> A</span></span></code></pre>
+</div><p>这个过程看似是连续的、不间断的，但机器并不是在接收到你的命令后连续地执行的，机器可能还并发（在极短时间内、ms级切换）的执行图形界面渲染等程序。</p>
 <p>因此命令行程序能理解并执行输入的<code>gcc main.c -o main</code></p>
 <h3 id="编译器" tabindex="-1">编译器 <a class="header-anchor" href="#编译器" aria-label="Permalink to &quot;编译器&quot;">&ZeroWidthSpace;</a></h3>
 <p>编译程序并不能理解人类较为自然的编程语言，它只是通过预先设置的规则，根据C语言的关键字、标识符、运算符等，对所写程序源码进行处理转为一种标记序列。对标记序列进行词法分析：</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e539e4bb3f1f460aeff0ec23246240e9.png" alt="Mermaid Diagram"></p>
-<p>语法分析：</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-002f7892b417b7b5c0351b7ce60b915e.png" alt="Mermaid Diagram"></p>
-<p>语义分析：</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-ba1e025871779279cca3446a16a1949d.png" alt="Mermaid Diagram"></p>
-<p>再将语法分析结果转化成一种中间代码，方便在编译阶段接受优化参数对源码进行编译优化。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A["源代码"] --> B["词法分析器"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B --> C["标记流"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T1["标记: #include"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T2["标记: &#x3C;stdio.h>"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T3["标记: int"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T4["标记: main"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T5["标记: ("]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T6["标记: )"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T7["标记: {"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T8["标记: printf"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T9["标记: ("]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T10["标记: \"Hello World!\\n\""]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T11["标记: )"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T12["标记: ;"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T13["标记: return"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T14["标记: 0"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T15["标记: ;"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T16["标记: }"]</span></span></code></pre>
+</div><p>语法分析：</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P["程序"] --> I["包含指令: #include &#x3C;stdio.h>"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P --> F["函数定义"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> RT["返回类型: int"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> N["函数名: main"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> PL["参数列表: ()"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> FB["函数体: {...}"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FB --> S1["语句1: printf(...)"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FB --> S2["语句2: return 0;"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S1 --> FC["函数调用"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FC --> FN["函数名: printf"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FC --> A["参数: \"Hello World!\\n\""]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S2 --> RV["返回值: 0"]</span></span></code></pre>
+</div><p>语义分析：</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">flowchart TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P["程序"] --> SB["符号表构建"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    SB --> S1["添加符号: main</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    类型: 函数</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    返回值: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    参数: 无"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    SB --> S2["验证符号: printf</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    类型: 外部函数</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    库: stdio.h"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S1 --> C1["检查1: main函数的返回类型</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    预期: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    实际: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S2 --> C2["检查2: printf调用</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    参数类型: 字符串常量</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C1 --> C3["检查3: return语句</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    函数返回类型: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    返回表达式类型: int常量(0)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C2 --> V1["验证通过"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C3 --> V2["验证通过"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    V1 --> F["最终检查: 所有路径都有返回值"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    V2 --> F</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> R["结果: 程序语义正确"]</span></span></code></pre>
+</div><p>再将语法分析结果转化成一种中间代码，方便在编译阶段接受优化参数对源码进行编译优化。</p>
 <p>最终将优化后的中间代码转换为汇编代码（或特定平台机器码）。</p>
 <p>而汇编代码 与 可执行的机器码是一一对应的，即一条汇编代码直接对应一串二进制序列</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e1b1e3e71ad840ab086aa6d88662de39.png" alt="Mermaid Diagram"></p>
-<p>最后，通过链接程序，将生成的汇编代码与引入的库文件合并，生成最终可执行程序。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A["mov 10 %eax"] --> B[010010100010100100101100]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">C['inc'] --> D[100100000110000000010001]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">E[...] --> F[010.........................................]</span></span></code></pre>
+</div><p>最后，通过链接程序，将生成的汇编代码与引入的库文件合并，生成最终可执行程序。</p>
 <hr>
 <h2 id="逐行解析" tabindex="-1">逐行解析 <a class="header-anchor" href="#逐行解析" aria-label="Permalink to &quot;逐行解析&quot;">&ZeroWidthSpace;</a></h2>
 <ol>
@@ -7243,8 +7383,11 @@ $$</p>
 <p>在C语言中，通过井号<code>#</code>作为特定的标记，与代码实现部分（<code>void main</code>或<code>printf(...)</code>）明显不同。</p>
 <p>在这里，<code>#include</code>所做的操作，就是将后面跟的库，原封不动的**“复制粘贴”**到此程序。</p>
 <p>可以看到，我们导入了一个stdio.h文件即标准输入输出（STanDard I/O），由于使用了其标准输入输出库文件中的一个函数<code>printf()</code>作为展示结果到命令窗口。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-432061c46740ebe47f10b2fefb404943.png" alt="Mermaid Diagram"></p>
-<p>这里的<code>.h</code>表明这是一个头文件(header)，C语言允许你通过头文件的方式，将一些声明与具体实现分离，可在头文件中仅做声明，在<code>.c</code>文件中再具体实现。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A[#include &#x3C; stdio.h >]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">B[...... 与屏幕 键盘 鼠标 交互的库文件.......printf函数实现...........]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A -- "替换" -->B</span></span></code></pre>
+</div><p>这里的<code>.h</code>表明这是一个头文件(header)，C语言允许你通过头文件的方式，将一些声明与具体实现分离，可在头文件中仅做声明，在<code>.c</code>文件中再具体实现。</p>
 <ol start="2">
 <li>
 <h3 id="int-main" tabindex="-1"><code>int main(){}</code> <a class="header-anchor" href="#int-main" aria-label="Permalink to &quot;`int main(){}`&quot;">&ZeroWidthSpace;</a></h3>
@@ -7555,84 +7698,75 @@ $$</p>
             <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[计算机的结构和发展]]></title>
-            <description><![CDATA[<h2 id="计算机的结构和发展" tabindex="-1">计算机的结构和发展 <a class="header-anchor" href="#计算机的结构和发展" aria-label="Permalink to &quot;计算机的结构和发展&quot;">&ZeroWidthSpace;</a></h2>
-<h4 id="计算机的发展历程" tabindex="-1">计算机的发展历程 <a class="header-anchor" href="#计算机的发展历程" aria-label="Permalink to &quot;计算机的发展历程&quot;">&ZeroWidthSpace;</a></h4>
+            <title><![CDATA[C/C++ ENV & 小试牛刀]]></title>
+            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
+<blockquote>
+<p>编译程序是用来
+将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
+</blockquote>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A[编写的main.c程序] --> B[读取源文件]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    subgraph 编译程序工作</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B -->|main.c| C[预处理]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|main.i| D[编译]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    D -->|main.s| E[汇编]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    E -->|main.o| F[链接]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> G[可执行程序main.exe / main]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style A fill:#f9f,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style B fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style C fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style D fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style E fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style F fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style G fill:#f9f,stroke:#333,stroke-width:2px;</span></span></code></pre>
+</div><h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
 <ol>
-<li>
-<p><strong>早期机械计算器（17世纪-19世纪）</strong></p>
-<ul>
-<li>1614年，苏格兰数学家纳皮尔发明了对数表。</li>
-<li>1623年，德国科学家威廉·希卡德建造了世界上第一台机械计算器。</li>
-<li>1642年，法国数学家帕斯卡发明了滚轮式加法器。</li>
-</ul>
-</li>
-<li>
-<p><strong>打孔卡片时代（19世纪-20世纪初）</strong></p>
-<ul>
-<li>1801年，法国人雅卡尔发明了提花织布机，使用打孔卡片控制织花图样。</li>
-<li>1890年，美国统计学家赫尔曼·何乐礼发明了制表机，利用打孔卡片进行数据处理。</li>
-</ul>
-</li>
-<li>
-<p><strong>早期电子计算机（20世纪40年代-50年代）</strong></p>
-<ul>
-<li>1941年，德国科学家楚泽发明了Z3计算机。</li>
-<li>1943年，英国发明了巨像计算机，用于破解德国的密码。</li>
-<li>1946年，美国发明了ENIAC计算机，被认为是第一台通用电子计算机。</li>
-</ul>
-</li>
-<li>
-<p><strong>晶体管计算机（20世纪50年代-60年代）</strong></p>
-<ul>
-<li>1955年，曼彻斯特大学建造了第一台晶体管计算机。</li>
-<li>1960年，CDC 6600超级计算机问世，被认为是第一台超级计算机。</li>
-</ul>
-</li>
-<li>
-<p><strong>集成电路和微处理器时代（20世纪70年代-至今）</strong></p>
-<ul>
-<li>1971年，英特尔发布了第一款微处理器4004。</li>
-<li>1981年，IBM发布了第一台个人电脑（PC）。</li>
-<li>21世纪，计算机技术迅速发展，进入云计算和人工智能时代。</li>
-</ul>
-</li>
+<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
 </ol>
-<h4 id="计算机的基本结构" tabindex="-1">计算机的基本结构 <a class="header-anchor" href="#计算机的基本结构" aria-label="Permalink to &quot;计算机的基本结构&quot;">&ZeroWidthSpace;</a></h4>
-<h5 id="冯诺伊曼机结构" tabindex="-1">冯诺伊曼机结构 <a class="header-anchor" href="#冯诺伊曼机结构" aria-label="Permalink to &quot;冯诺伊曼机结构&quot;">&ZeroWidthSpace;</a></h5>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Von_Neumann_Architecture.svg" alt="Von Neumann Architecture"></p>
-<h5 id="现代计算机结构" tabindex="-1">现代计算机结构 <a class="header-anchor" href="#现代计算机结构" aria-label="Permalink to &quot;现代计算机结构&quot;">&ZeroWidthSpace;</a></h5>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-29141f10ad22096d610465cda8347efd.png" alt="Mermaid Diagram"></p>
-<p>现代计算机的发展趋势是以存储为核心，这主要体现在以下几个方面：</p>
-<ol>
-<li>
-<p><strong>大容量存储器</strong></p>
-<ul>
-<li>现代计算机配备了大容量的主存储器和辅助存储器，以满足数据密集型应用的需求。</li>
-</ul>
-</li>
-<li>
-<p><strong>高速缓存</strong></p>
-<ul>
-<li>现代计算机使用多级缓存（L1、L2、L3）来提高数据访问速度，减少CPU等待时间。</li>
-</ul>
-</li>
-<li>
-<p><strong>存储器层次结构</strong></p>
-<ul>
-<li>现代计算机采用存储器层次结构，从高速缓存到主存储器，再到辅助存储器，形成一个高效的数据存储和访问体系。</li>
-</ul>
-</li>
-<li>
-<p><strong>非易失性存储器</strong></p>
-<ul>
-<li>现代计算机逐渐采用非易失性存储器（如SSD）替代传统的机械硬盘，提高数据存储的可靠性和速度。</li>
-</ul>
-</li>
+<blockquote>
+<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
+否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
+</blockquote>
+<ol start="2">
+<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
 </ol>
+<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+</div><ol start="3">
+<li>编译成可执行文件</li>
+</ol>
+<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC，VSCode run code等</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span></code></pre>
+</div><p>该方式将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序</p>
+<ol start="4">
+<li>执行测试</li>
+</ol>
+<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
+</div><p>🎉🎉🎉</p>
+<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
+<hr>
+<ul>
+  <li>
+    <input type="checkbox" id="task1" name="task1" checked><label for="task1">  尝试理解上述编译的过程</label>
+  </li>
+  <br />
+  <li>
+    <input type="checkbox" id="task1" name="task2"><label for="task2">  为什么在命令行，机器能理解我输入的编译命令：<code>gcc main.c -o main</code></label>
+  </li>
+  <br />
+  <li>
+    <input type="checkbox" id="task1" name="task3"><label for="task3">  编译器是如何做到解析人类写的代码并转译成可执行的程序的？</label>
+	</li>
+</ul>
 ]]></description>
-            <guid isPermaLink="false">计算机的结构和发展</guid>
-            <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="false">C/C++ ENV &amp; 小试牛刀</guid>
+            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
