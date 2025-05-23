@@ -153,11 +153,29 @@ export default {
         const isLoading = ref(false);
         const chatMessagesRef = ref(null);
         const inputRef = ref(null);
+        const sessionId = ref(
+            localStorage.getItem("nahida_session_id") || generateUUID(),
+        );
         const chatWindowRef = ref(null);
         // 系统消息的时间戳（初始化为当前时间）
         const systemMessageTime = ref(new Date().toISOString());
 
+        function generateUUID() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+                /[xy]/g,
+                function (c) {
+                    var r = (Math.random() * 16) | 0,
+                        v = c == "x" ? r : (r & 0x3) | 0x8;
+                    return v.toString(16);
+                },
+            );
+        }
+        function saveSessionId(id) {
+            sessionId.value = id;
+            localStorage.setItem("nahida_session_id", id);
+        }
         onUnmounted(() => {
+            saveSessionId(sessionId.value);
             document.removeEventListener("click", handleOutsideClick);
         });
 
@@ -228,11 +246,17 @@ export default {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        userId: "anonymous", // 使用默认用户ID或从props获取
+                        userId: sessionId.value, // 使用会话ID
                     }),
                 });
 
                 if (response.ok) {
+                    const data = await response.json();
+
+                    // 更新会话ID
+                    if (data.newSessionId) {
+                        saveSessionId(data.newSessionId);
+                    }
                     // 清除本地聊天历史
                     chatHistory.value = [];
                     // 显示系统消息，表明历史已清除
@@ -361,8 +385,9 @@ export default {
                     },
                     body: JSON.stringify({
                         message,
-                        history: chatHistory.value.slice(0, -1), // 发送除了最新消息外的历史记录
-                        timestamp: currentTimestamp, // 添加当前消息的时间戳
+                        history: chatHistory.value.slice(0, -1),
+                        timestamp: currentTimestamp,
+                        userId: sessionId.value, // 使用会话ID替代anonymous
                     }),
                 });
 
@@ -446,6 +471,7 @@ export default {
             formatMessage,
             formatTime,
             clearHistory,
+            sessionId,
         };
     },
 };
