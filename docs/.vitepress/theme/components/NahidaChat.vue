@@ -141,7 +141,7 @@ export default {
         // 后端API地址
         apiUrl: {
             type: String,
-            default: "https://106.15.182.22/api/chat",
+            default: "https://api.chenpeel.xyz/chat",
         },
     },
 
