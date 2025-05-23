@@ -1,18 +1,29 @@
 <template>
-    <div id="live2d-container" ref="containerRef" v-if="showLive2D">
-        <!-- Live2D模型容器，覆盖整个视口 -->
+    <div id="live2d-container" ref="containerRef" v-if="showLive2D" :style="containerStyle">
+        <!-- Live2D模型容器 -->
         <div class="model-viewport" ref="modelViewport">
             <!-- Live2D Canvas将被挂载在这里 -->
         </div>
 
         <!-- 互动菜单，点击模型后显示 -->
         <div class="interaction-menu" v-if="showMenu" @click.stop>
+            <!-- 聊天按钮 -->
+            <div class="menu-section">
+                <button
+                    class="chat-button"
+                    @click.stop="openChat"
+                    title="与纳西妲聊天"
+                >
+                    💬 聊天
+                </button>
+            </div>
+
             <div class="menu-title">表情</div>
             <div class="menu-items">
                 <button
                     v-for="(exp, index) in expressions"
                     :key="'exp-' + index"
-                    @click.stop="setExpression(exp)"
+                    @click.stop="handleExpressionClick(exp)"
                     :title="exp"
                 >
                     {{ getExpressionEmoji(exp) }}
@@ -24,14 +35,14 @@
                 <button
                     v-for="(motion, index) in motions"
                     :key="'motion-' + index"
-                    @click.stop="playMotion(motion)"
+                    @click.stop="handleMotionClick(motion)"
                     :title="motion"
                 >
                     {{ getMotionEmoji(motion) }}
                 </button>
             </div>
 
-            <div class="close-button" @click.stop="showMenu = false">关闭</div>
+            <div class="close-button" @click.stop="closeMenu">关闭</div>
         </div>
     </div>
 </template>
@@ -39,6 +50,7 @@
 <script>
 export default {
     name: "NahidaLive2D",
+    emits: ['openChat'],
     data() {
         return {
             model: null,
@@ -65,15 +77,33 @@ export default {
             expressionInterval: null, // 自动切换表情的计时器
             motionInterval: null, // 自动播放动作的计时器
             lastClickPosition: { x: 0, y: 0 }, // 记录最后点击位置
-            modelPosition: { x: 0, y: 0 }, // 模型在视口中的位置
-            modelRelativePosition: { x: 0.1, y: 0.8 }, // 模型相对于视口的位置比例 (0.1, 0.8 表示左下角)
+            containerPosition: { x: 80, y: 350 }, // container的位置
+            modelWidth: 200, // 模型的显示宽度
+            isDragging: false, // 是否正在拖拽
+            containerSize: { width: 272, height: 400 }, // container的尺寸，使用sidebar的宽度
+            dragOffset: { x: 0, y: 0 }, // 拖拽偏移量
+            animationFrameId: null, // 动画帧ID
         };
+    },
+    computed: {
+        // 计算container样式
+        containerStyle() {
+            return {
+                left: `${this.containerPosition.x}px`,
+                top: `${this.containerPosition.y}px`,
+                width: `${this.containerSize.width}px`,
+                height: `${this.containerSize.height}px`,
+            };
+        },
     },
     mounted() {
         // 在客户端环境下加载Live2D
         if (typeof window !== "undefined") {
             // 初始检查窗口宽度
             this.checkWindowWidth();
+
+            // 初始化container位置
+            this.initializeContainerPosition();
 
             // 使用更简化的方式加载脚本
             this.loadAllScriptsSequentially();
@@ -83,14 +113,9 @@ export default {
 
             // 监听全局点击，用于关闭菜单
             document.addEventListener("click", this.handleDocumentClick);
-
-            // 添加悬停事件监听器，以便使模型可见
-            if (this.$refs.containerRef) {
-                this.$refs.containerRef.addEventListener(
-                    "mouseenter",
-                    this.handleContainerHover,
-                );
-            }
+            
+            // 添加拖拽事件监听
+            this.addDragListeners();
         }
     },
     beforeUnmount() {
@@ -98,12 +123,11 @@ export default {
         if (typeof window !== "undefined") {
             window.removeEventListener("resize", this.handleResizeDebounced);
             document.removeEventListener("click", this.handleDocumentClick);
+            this.removeDragListeners();
 
-            if (this.$refs.containerRef) {
-                this.$refs.containerRef.removeEventListener(
-                    "mouseenter",
-                    this.handleContainerHover,
-                );
+            // 清理动画帧
+            if (this.animationFrameId) {
+                cancelAnimationFrame(this.animationFrameId);
             }
 
             this.clearIntervals();
@@ -111,10 +135,254 @@ export default {
         }
     },
     methods: {
-        // 处理容器悬停 - 提高z-index使模型在最上层
-        handleContainerHover() {
+        // 初始化container位置
+        initializeContainerPosition() {
+            if (typeof window !== "undefined") {
+                this.containerPosition = {
+                    x: 80, // 距离左边80px
+                    y: Math.max(80, window.innerHeight - 480), // 动态计算，但不少于80px
+                };
+                // 立即应用到DOM
+                this.updateContainerPosition();
+            }
+        },
+
+        // 直接更新DOM位置（实时跟随）
+        updateContainerPosition() {
             if (this.$refs.containerRef) {
-                this.$refs.containerRef.classList.add("hover");
+                this.$refs.containerRef.style.left = `${this.containerPosition.x}px`;
+                this.$refs.containerRef.style.top = `${this.containerPosition.y}px`;
+            }
+        },
+
+        // 添加拖拽监听器
+        addDragListeners() {
+            if (this.$refs.containerRef) {
+                this.$refs.containerRef.addEventListener('mousedown', this.handleMouseDown);
+                this.$refs.containerRef.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+            }
+            document.addEventListener('mousemove', this.handleMouseMove);
+            document.addEventListener('mouseup', this.handleMouseUp);
+            document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+            document.addEventListener('touchend', this.handleTouchEnd);
+        },
+
+        // 移除拖拽监听器
+        removeDragListeners() {
+            if (this.$refs.containerRef) {
+                this.$refs.containerRef.removeEventListener('mousedown', this.handleMouseDown);
+                this.$refs.containerRef.removeEventListener('touchstart', this.handleTouchStart);
+            }
+            document.removeEventListener('mousemove', this.handleMouseMove);
+            document.removeEventListener('mouseup', this.handleMouseUp);
+            document.removeEventListener('touchmove', this.handleTouchMove);
+            document.removeEventListener('touchend', this.handleTouchEnd);
+        },
+
+        // 获取事件坐标（统一处理鼠标和触摸事件）
+        getEventCoords(e) {
+            if (e.touches && e.touches.length > 0) {
+                return {
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY
+                };
+            }
+            return {
+                x: e.clientX,
+                y: e.clientY
+            };
+        },
+
+        // 处理鼠标按下 - 开始拖拽container
+        handleMouseDown(e) {
+            this.startDrag(e);
+        },
+
+        // 处理触摸开始
+        handleTouchStart(e) {
+            e.preventDefault();
+            this.startDrag(e);
+        },
+
+        // 开始拖拽
+        startDrag(e) {
+            // 如果点击的是菜单，不启动拖拽
+            if (e.target.closest('.interaction-menu')) {
+                return;
+            }
+
+            const coords = this.getEventCoords(e);
+            
+            this.isDragging = true;
+            
+            // 记录拖拽开始时的精确偏移量
+            this.dragOffset = {
+                x: coords.x - this.containerPosition.x,
+                y: coords.y - this.containerPosition.y,
+            };
+
+            // 记录初始点击位置，用于判断是否为点击
+            this.initialClickPos = {
+                x: coords.x,
+                y: coords.y
+            };
+
+            // 添加dragging类
+            if (this.$refs.containerRef) {
+                this.$refs.containerRef.classList.add('dragging');
+            }
+
+            // 阻止默认行为和事件冒泡
+            e.preventDefault();
+            e.stopPropagation();
+        },
+
+        // 处理鼠标移动 - 拖拽container
+        handleMouseMove(e) {
+            this.continueDrag(e);
+        },
+
+        // 处理触摸移动
+        handleTouchMove(e) {
+            e.preventDefault();
+            this.continueDrag(e);
+        },
+
+        // 继续拖拽（实时更新）
+        continueDrag(e) {
+            if (!this.isDragging) return;
+
+            // 取消之前的动画帧
+            if (this.animationFrameId) {
+                cancelAnimationFrame(this.animationFrameId);
+            }
+
+            // 使用requestAnimationFrame确保平滑更新
+            this.animationFrameId = requestAnimationFrame(() => {
+                const coords = this.getEventCoords(e);
+                
+                // 计算新位置 - 无极跟随鼠标
+                let newX = coords.x - this.dragOffset.x;
+                let newY = coords.y - this.dragOffset.y;
+
+                // 限制在窗口边界内
+                const maxX = window.innerWidth - this.containerSize.width;
+                const maxY = window.innerHeight - this.containerSize.height;
+
+                newX = Math.max(0, Math.min(newX, maxX));
+                newY = Math.max(0, Math.min(newY, maxY));
+
+                // 更新位置数据
+                this.containerPosition.x = newX;
+                this.containerPosition.y = newY;
+
+                // 立即更新DOM（实时跟随）
+                this.updateContainerPosition();
+            });
+        },
+
+        // 处理鼠标释放 - 结束拖拽
+        handleMouseUp(e) {
+            this.endDrag(e);
+        },
+
+        // 处理触摸结束
+        handleTouchEnd(e) {
+            this.endDrag(e);
+        },
+
+        // 结束拖拽
+        endDrag(e) {
+            if (!this.isDragging) return;
+
+            this.isDragging = false;
+            
+            // 清理动画帧
+            if (this.animationFrameId) {
+                cancelAnimationFrame(this.animationFrameId);
+                this.animationFrameId = null;
+            }
+            
+            // 移除dragging类
+            if (this.$refs.containerRef) {
+                this.$refs.containerRef.classList.remove('dragging');
+            }
+
+            const coords = this.getEventCoords(e);
+
+            // 检查是否是点击（而不是拖拽）
+            const clickThreshold = 3; // 3px的移动阈值
+            const moveDistance = Math.sqrt(
+                Math.pow(coords.x - this.initialClickPos.x, 2) +
+                Math.pow(coords.y - this.initialClickPos.y, 2)
+            );
+
+            // 如果移动距离很小，认为是点击
+            if (moveDistance < clickThreshold) {
+                this.handleContainerClick(e);
+            }
+        },
+
+        // 处理container点击
+        handleContainerClick(e) {
+            // 如果点击的是菜单，不处理
+            if (e.target && e.target.closest('.interaction-menu')) {
+                return;
+            }
+
+            console.log("Container被点击");
+
+            // 切换菜单显示状态
+            this.showMenu = !this.showMenu;
+
+            // 如果是打开菜单，设置菜单位置
+            if (this.showMenu) {
+                const coords = this.getEventCoords(e);
+                this.lastClickPosition = {
+                    x: coords.x,
+                    y: coords.y,
+                };
+            }
+        },
+
+        // 处理表情点击 - 立即关闭菜单并设置表情
+        handleExpressionClick(exp) {
+            this.setExpression(exp);
+            this.closeMenu();
+        },
+
+        // 处理动作点击 - 立即关闭菜单并播放动作
+        handleMotionClick(motion) {
+            this.playMotion(motion);
+            this.closeMenu();
+        },
+
+        // 打开聊天窗口
+        openChat() {
+            this.closeMenu(); // 立即关闭选项菜单
+            this.$emit('openChat'); // 通知父组件打开聊天
+            
+            // 尝试直接触发聊天组件的打开
+            this.$nextTick(() => {
+                const event = new CustomEvent('openNahidaChat', {
+                    bubbles: true,
+                    detail: { fromLive2D: true }
+                });
+                document.dispatchEvent(event);
+            });
+        },
+
+        // 关闭菜单
+        closeMenu() {
+            this.showMenu = false;
+        },
+
+        // 计算模型显示宽度
+        calculateModelWidth() {
+            if (this.model && this.model.scale) {
+                // 基于模型的缩放值和原始尺寸估算显示宽度
+                const baseWidth = 300; // 模型原始宽度的估算值
+                this.modelWidth = Math.min(baseWidth * this.model.scale.x, 300);
             }
         },
 
@@ -143,36 +411,6 @@ export default {
                 1: "🎭",
             };
             return emojiMap[motion] || "🎬";
-        },
-
-        // 计算模型在视口中的位置
-        calculateModelPosition() {
-            if (!this.$refs.modelViewport) return { x: 0, y: 0 };
-
-            const viewport = this.$refs.modelViewport;
-            const viewportWidth = viewport.clientWidth;
-            const viewportHeight = viewport.clientHeight;
-
-            // 基于相对位置比例计算实际像素位置
-            return {
-                x: viewportWidth * this.modelRelativePosition.x,
-                y: viewportHeight * this.modelRelativePosition.y,
-            };
-        },
-
-        // 更新模型相对位置比例
-        updateModelRelativePosition() {
-            if (!this.model || !this.$refs.modelViewport) return;
-
-            const viewport = this.$refs.modelViewport;
-            const viewportWidth = viewport.clientWidth;
-            const viewportHeight = viewport.clientHeight;
-
-            // 计算相对位置比例
-            this.modelRelativePosition = {
-                x: this.model.x / viewportWidth,
-                y: this.model.y / viewportHeight,
-            };
         },
 
         // 设置表情
@@ -269,25 +507,9 @@ export default {
 
         // 处理全局点击，关闭菜单
         handleDocumentClick(event) {
-            // 如果点击的不是菜单内的元素，则关闭菜单
-            if (this.showMenu && this.$refs.containerRef) {
-                const menu =
-                    this.$refs.containerRef.querySelector(".interaction-menu");
-                // 获取所有canvas元素而非单一的canvas
-                const canvasElements =
-                    this.$refs.containerRef.querySelectorAll("canvas");
-                let clickedOnCanvas = false;
-
-                // 检查点击是否在任何canvas上
-                canvasElements.forEach((canvas) => {
-                    if (canvas.contains(event.target)) {
-                        clickedOnCanvas = true;
-                    }
-                });
-
-                if (menu && !menu.contains(event.target) && !clickedOnCanvas) {
-                    this.showMenu = false;
-                }
+            // 如果点击的不是容器内的元素，则关闭菜单
+            if (this.showMenu && this.$refs.containerRef && !this.$refs.containerRef.contains(event.target)) {
+                this.closeMenu();
             }
         },
 
@@ -319,9 +541,16 @@ export default {
         },
 
         handleResize() {
-            // 如果模型存在，先保存当前的相对位置
-            if (this.model && this.$refs.modelViewport) {
-                this.updateModelRelativePosition();
+            // 重新调整container位置，确保在可见区域内
+            if (typeof window !== "undefined") {
+                const maxX = window.innerWidth - this.containerSize.width;
+                const maxY = window.innerHeight - this.containerSize.height;
+
+                this.containerPosition.x = Math.max(0, Math.min(this.containerPosition.x, maxX));
+                this.containerPosition.y = Math.max(0, Math.min(this.containerPosition.y, maxY));
+                
+                // 立即更新DOM位置
+                this.updateContainerPosition();
             }
 
             // 先清理之前可能存在的任何Live2D资源
@@ -343,7 +572,7 @@ export default {
         // 彻底销毁Live2D应用
         destroyLive2D() {
             // 关闭菜单
-            this.showMenu = false;
+            this.closeMenu();
 
             // 销毁所有PIXI相关资源
             if (this.app) {
@@ -521,14 +750,10 @@ export default {
                 }
                 this.$refs.modelViewport.innerHTML = "";
 
-                // 获取视口尺寸
-                const viewportWidth = this.$refs.modelViewport.clientWidth;
-                const viewportHeight = this.$refs.modelViewport.clientHeight;
-
-                // 创建PIXI应用 - 尺寸等于视口大小
+                // 创建PIXI应用 - 使用container的尺寸
                 this.app = new window.PIXI.Application({
-                    width: viewportWidth,
-                    height: viewportHeight,
+                    width: this.containerSize.width,
+                    height: this.containerSize.height,
                     backgroundColor: 0x0f0f0f,
                     transparent: true,
                     antialias: true,
@@ -559,21 +784,16 @@ export default {
                 // 配置模型显示
                 this.model.anchor.set(0.5, 0.5);
 
-                // 设置尺寸，根据视口大小缩放
-                let scaleValue;
-                if (viewportWidth <= 768) {
-                    // 在小屏幕上使用稍小的缩放
-                    scaleValue = Math.min(0.065, viewportHeight * 0.0002);
-                } else {
-                    // 在大屏幕上使用正常缩放
-                    scaleValue = Math.min(0.078, viewportHeight * 0.00025);
-                }
+                // 设置尺寸 - 根据container大小调整
+                const scaleValue = Math.min(0.08, this.containerSize.height * 0.0002);
                 this.model.scale.set(scaleValue);
 
-                // 计算模型位置 - 使用相对位置
-                const modelPos = this.calculateModelPosition();
-                this.model.x = modelPos.x;
-                this.model.y = modelPos.y;
+                // 计算并记录模型显示宽度
+                this.calculateModelWidth();
+
+                // 将模型放在container中心
+                this.model.x = this.containerSize.width / 2;
+                this.model.y = this.containerSize.height / 2;
 
                 console.log(`模型位置: ${this.model.x}, ${this.model.y}`);
 
@@ -586,77 +806,6 @@ export default {
                 // 添加交互功能
                 this.model.buttonMode = true;
                 this.model.interactive = true;
-
-                // 添加点击效果 - 显示互动菜单
-                this.model.on("pointerdown", (e) => {
-                    e.stopPropagation(); // 阻止事件冒泡
-                    console.log("模型被点击");
-
-                    // 确保容器在最上层
-                    if (this.$refs.containerRef) {
-                        this.$refs.containerRef.classList.add("hover");
-                    }
-
-                    // 记录点击位置，用于定位菜单
-                    this.lastClickPosition = {
-                        x: e.data.global.x,
-                        y: e.data.global.y,
-                    };
-
-                    // 切换菜单显示状态
-                    this.showMenu = !this.showMenu;
-
-                    // 如果是打开菜单，设置菜单位置
-                    if (this.showMenu) {
-                        // 在下一个tick中设置位置，确保菜单已渲染
-                        this.$nextTick(() => {
-                            const menu =
-                                this.$refs.containerRef.querySelector(
-                                    ".interaction-menu",
-                                );
-                            if (menu) {
-                                // 根据点击位置调整菜单位置
-                                menu.style.left = `${e.data.global.x}px`;
-                                menu.style.top = `${e.data.global.y}px`;
-                            }
-                        });
-                    }
-
-                    // 开始拖动操作
-                    this.model.dragging = true;
-                    this.model._dragOffset = {
-                        x: e.data.global.x - this.model.x,
-                        y: e.data.global.y - this.model.y,
-                    };
-
-                    // 触发自定义事件
-                    const event = new CustomEvent("nahidaClick", {
-                        bubbles: true,
-                        detail: { x: e.data.global.x, y: e.data.global.y },
-                    });
-                    this.$refs.containerRef.dispatchEvent(event);
-                });
-
-                // 添加拖拽功能
-                this.model.on("pointermove", (e) => {
-                    if (this.model.dragging) {
-                        this.model.x =
-                            e.data.global.x - this.model._dragOffset.x;
-                        this.model.y =
-                            e.data.global.y - this.model._dragOffset.y;
-
-                        // 拖动时更新相对位置
-                        this.updateModelRelativePosition();
-                    }
-                });
-
-                this.model.on("pointerupoutside", () => {
-                    this.model.dragging = false;
-                });
-
-                this.model.on("pointerup", () => {
-                    this.model.dragging = false;
-                });
 
                 // 添加到舞台
                 this.app.stage.addChild(this.model);
@@ -678,141 +827,256 @@ export default {
 <style scoped>
 #live2d-container {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw; /* 覆盖整个视口宽度 */
-    height: 100vh; /* 覆盖整个视口高度 */
-    pointer-events: none; /* 默认不捕获事件 */
     z-index: 1000;
-    overflow: hidden;
+    pointer-events: auto; /* container可以接收事件 */
+    cursor: move; /* 显示移动光标 */
+    border-radius: 12px;
+    background: transparent; /* 完全透明背景 */
+    border: 0px solid var(--vp-c-brand-1, #52b788); /* 使用VitePress品牌绿色 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 只对边框和阴影应用过渡，不影响位置 */
+    user-select: none; /* 禁用文本选择 */
+    will-change: transform; /* 优化GPU加速 */
 }
 
-/* 当处于hover或交互状态时，提高z-index */
-#live2d-container.hover {
-    z-index: 10000;
+/* 暗色模式下使用对应的绿色 */
+.dark #live2d-container {
+    border-color: var(--vp-c-green-1, #52b788);
 }
 
-/* 模型视口，覆盖整个容器 */
+#live2d-container:hover {
+    border-color: var(--vp-c-brand-2, #52b788);
+    box-shadow: 0 0 0 1px var(--vp-c-brand-1, #52b788);
+}
+
+.dark #live2d-container:hover {
+    border-color: var(--vp-c-green-2, #52b788);
+    box-shadow: 0 0 0 1px var(--vp-c-green-1, #52b788);
+}
+
+#live2d-container.dragging {
+    cursor: grabbing;
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(82, 183, 136, 0.3); /* 绿色阴影 */
+    border-color: var(--vp-c-brand-3, #52b788);
+    transition: none; /* 拖拽时移除过渡效果，确保实时跟随 */
+}
+
+.dark #live2d-container.dragging {
+    box-shadow: 0 8px 32px rgba(82, 183, 136, 0.4);
+    border-color: var(--vp-c-green-3, #52b788);
+}
+
+/* 模型视口，填充整个container */
 .model-viewport {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    pointer-events: none; /* 让点击事件传递给container */
+    border-radius: 10px; /* 比container稍小，避免重叠 */
+    overflow: hidden;
 }
 
 .model-viewport canvas {
     position: absolute;
-    pointer-events: auto; /* 确保canvas可以接收点击事件 */
+    pointer-events: none; /* canvas不直接接收事件，由container处理 */
 }
 
 /* 互动菜单样式 */
 .interaction-menu {
-    position: fixed; /* 使用fixed定位，相对于视口 */
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    padding: 12px;
-    z-index: 10001; /* 确保在canvas上方 */
-    pointer-events: auto;
-    min-width: 180px;
-    transform: translate(-50%, -100%); /* 定位到鼠标点击位置的上方 */
-    margin-top: -10px; /* 稍微向上偏移 */
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--vp-c-bg, white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    z-index: 10001;
+    pointer-events: auto; /* 菜单可以接收事件 */
+    width: 300px; /* 固定宽度300px */
+    border: 0px solid var(--vp-c-brand-1, #52b788);
+}
+
+/* 暗色模式菜单适配 */
+.dark .interaction-menu {
+    background-color: var(--vp-c-bg-alt, #161618);
+    border-color: var(--vp-c-green-1, #52b788);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 聊天按钮区域 */
+.menu-section {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--vp-c-divider, #e2e2e3);
+}
+
+.dark .menu-section {
+    border-bottom-color: var(--vp-c-divider, #2e2e32);
+}
+
+.chat-button {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--vp-c-brand-1, #52b788);
+    background-color: var(--vp-c-brand-1, #52b788);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.chat-button:hover {
+    background-color: var(--vp-c-brand-2, #52b788);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(82, 183, 136, 0.3);
+}
+
+.chat-button:active {
+    transform: translateY(0);
+}
+
+.dark .chat-button {
+    border-color: var(--vp-c-green-1, #52b788);
+    background-color: var(--vp-c-green-1, #52b788);
+}
+
+.dark .chat-button:hover {
+    background-color: var(--vp-c-green-2, #52b788);
 }
 
 .menu-title {
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
+    margin-bottom: 10px;
+    color: var(--vp-c-text-1, #3c3c43);
+    text-align: center;
+}
+
+.dark .menu-title {
+    color: var(--vp-c-text-1, rgba(255, 255, 245, 0.86));
 }
 
 .menu-title:not(:first-child) {
-    margin-top: 12px;
+    margin-top: 16px;
 }
 
 .menu-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
+    justify-content: center;
 }
 
 .menu-items button {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--vp-c-border, #c2c2c4);
+    background-color: var(--vp-c-bg, white);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .menu-items button:hover {
     transform: scale(1.1);
-    background-color: #f5f5f5;
+    background-color: var(--vp-c-bg-soft, #f6f6f7);
+    border-color: var(--vp-c-brand-1, #52b788);
+}
+
+.menu-items button:active {
+    transform: scale(0.95);
+}
+
+.dark .menu-items button {
+    background-color: var(--vp-c-bg-alt, #161618);
+    border-color: var(--vp-c-border, #3c3f44);
+    color: var(--vp-c-text-1, rgba(255, 255, 245, 0.86));
+}
+
+.dark .menu-items button:hover {
+    background-color: var(--vp-c-bg-soft, #202127);
+    border-color: var(--vp-c-green-1, #52b788);
 }
 
 .close-button {
     text-align: center;
-    margin-top: 12px;
-    padding: 6px 0;
-    background-color: #f0f0f0;
-    border-radius: 6px;
+    margin-top: 16px;
+    padding: 8px 0;
+    background-color: var(--vp-c-bg-soft, #f6f6f7);
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
+    border: 1px solid var(--vp-c-border, #c2c2c4);
+    color: var(--vp-c-text-1, #3c3c43);
 }
 
 .close-button:hover {
-    background-color: #e0e0e0;
+    background-color: var(--vp-c-bg-alt, #f6f6f7);
+    border-color: var(--vp-c-brand-1, #52b788);
+}
+
+.dark .close-button {
+    background-color: var(--vp-c-bg-soft, #202127);
+    color: var(--vp-c-text-1, rgba(255, 255, 245, 0.86));
+    border-color: var(--vp-c-border, #3c3f44);
+}
+
+.dark .close-button:hover {
+    background-color: var(--vp-c-bg-alt, #161618);
+    border-color: var(--vp-c-green-1, #52b788);
 }
 
 /* 响应式样式 */
 @media (max-width: 768px) {
+    #live2d-container {
+        /* 在小屏幕上稍微小一点 */
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+
+    #live2d-container.dragging {
+        transform: scale(0.87);
+    }
+
     .interaction-menu {
-        padding: 8px;
-        min-width: 150px;
+        width: 250px; /* 小屏幕上稍微窄一点 */
+        padding: 12px;
+    }
+
+    .chat-button {
+        padding: 8px 12px;
+        font-size: 13px;
     }
 
     .menu-items button {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         font-size: 16px;
     }
 }
 
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-    .interaction-menu {
-        background-color: rgba(40, 40, 40, 0.9);
+/* 确保在移动设备上的触摸体验 */
+@media (hover: none) and (pointer: coarse) {
+    #live2d-container {
+        cursor: default;
     }
 
-    .menu-title {
-        color: #f0f0f0;
-    }
-
-    .menu-items button {
-        background-color: #444;
-        border-color: #555;
-        color: #fff;
-    }
-
-    .menu-items button:hover {
-        background-color: #555;
-    }
-
-    .close-button {
-        background-color: #333;
-        color: #f0f0f0;
-    }
-
-    .close-button:hover {
-        background-color: #444;
+    #live2d-container.dragging {
+        cursor: default;
     }
 }
 </style>

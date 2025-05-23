@@ -16,13 +16,14 @@
             v-if="isChatOpen"
             ref="chatWindowRef"
             @click.stop
+            @dblclick.stop="handleDoubleClick"
         >
             <!-- 聊天窗口标题栏 -->
             <div class="chat-header">
                 <div class="chat-title">我等你好久啦</div>
                 <div class="chat-actions">
                     <button
-                        class="clearss-history-btn"
+                        class="clear-history-btn"
                         @click="clearHistory"
                         title="清除聊天记录"
                     >
@@ -174,9 +175,19 @@ export default {
             sessionId.value = id;
             localStorage.setItem("nahida_session_id", id);
         }
+
+        // 处理双击事件 - 阻止默认行为
+        const handleDoubleClick = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            // 不执行任何缩小操作
+        };
+
         onUnmounted(() => {
             saveSessionId(sessionId.value);
             document.removeEventListener("click", handleOutsideClick);
+            // 移除自定义事件监听
+            document.removeEventListener("openNahidaChat", handleOpenChatEvent);
         });
 
         // 检查聊天历史中的消息是否都有时间戳
@@ -185,6 +196,14 @@ export default {
                 message.timestamp = new Date().toISOString();
             }
         });
+
+        // 处理来自Live2D的打开聊天事件
+        const handleOpenChatEvent = (event) => {
+            console.log("收到打开聊天事件", event.detail);
+            isChatOpen.value = true;
+            emit("toggle", true);
+        };
+
         // 处理外部点击事件
         const handleOutsideClick = (event) => {
             if (isChatOpen.value && chatWindowRef.value) {
@@ -201,6 +220,7 @@ export default {
                 }
             }
         };
+
         // 监听初始打开状态变化
         watch(
             () => props.initialOpen,
@@ -272,6 +292,12 @@ export default {
         const toggleChat = () => {
             isChatOpen.value = !isChatOpen.value;
             emit("toggle", isChatOpen.value);
+        };
+
+        // 打开聊天窗口（由外部调用）
+        const openChat = () => {
+            isChatOpen.value = true;
+            emit("toggle", true);
         };
 
         // 滚动到聊天底部
@@ -427,33 +453,15 @@ export default {
             setTimeout(() => {
                 document.addEventListener("click", handleOutsideClick);
             }, 100);
+            
+            // 添加自定义事件监听
+            document.addEventListener("openNahidaChat", handleOpenChatEvent);
+            
             chatHistory.value.forEach((message) => {
                 if (!message.timestamp) {
                     message.timestamp = new Date().toISOString();
                 }
             });
-
-            // 添加全局点击看板娘的事件监听
-            const listenToLive2DClick = () => {
-                const live2dContainer =
-                    document.getElementById("live2d-container");
-                if (live2dContainer) {
-                    live2dContainer.addEventListener("click", (e) => {
-                        // 检查是否点击了实际的看板娘而不是容器
-                        if (e.target.tagName === "CANVAS") {
-                            isChatOpen.value = true;
-                        }
-                    });
-                }
-
-                // 监听自定义nahidaClick事件
-                document.addEventListener("nahidaClick", () => {
-                    isChatOpen.value = true;
-                });
-            };
-
-            // 给页面加载一些时间再添加事件监听
-            setTimeout(listenToLive2DClick, 2000);
         });
 
         return {
@@ -466,12 +474,14 @@ export default {
             chatWindowRef,
             systemMessageTime,
             toggleChat,
+            openChat,
             sendMessage,
             handleEnter,
             formatMessage,
             formatTime,
             clearHistory,
             sessionId,
+            handleDoubleClick,
         };
     },
 };
@@ -482,6 +492,7 @@ export default {
     right: 20px;
     bottom: 20px;
     z-index: 1001; /* 确保在看板娘上面 */
+    pointer-events: none; /* 默认不阻挡其他元素 */
 }
 
 .chat-trigger {
@@ -500,6 +511,7 @@ export default {
         transform 0.3s,
         box-shadow 0.3s;
     z-index: 999;
+    pointer-events: auto; /* 按钮可以点击 */
 }
 
 @media (max-width: 768px) {
@@ -535,6 +547,8 @@ export default {
     animation: slide-up 0.3s ease;
     color: var(--vp-c-text-1, #213547);
     border: 1px solid var(--vp-c-divider, #e2e2e2);
+    pointer-events: auto; /* 聊天窗口可以接收事件 */
+    user-select: none; /* 禁用文本选择，防止意外的双击选择 */
 }
 
 @media (max-width: 768px) {
@@ -568,6 +582,35 @@ export default {
     font-weight: bold;
 }
 
+.chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.clear-history-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.clear-history-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.clear-icon {
+    width: 20px;
+    height: 20px;
+}
+
 .chat-close {
     cursor: pointer;
     font-size: 24px;
@@ -581,6 +624,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    user-select: text; /* 在消息区域允许文本选择 */
 }
 
 .message {
@@ -636,6 +680,12 @@ export default {
     position: relative;
 }
 
+/* 用户消息样式 */
+.message.user .message-content {
+    background-color: var(--vp-c-brand, #68b587);
+    color: white;
+}
+
 /* 新增：消息时间样式 */
 .message-time {
     font-size: 12px;
@@ -647,6 +697,10 @@ export default {
 
 .message.system .message-time {
     text-align: center;
+}
+
+.message.user .message-time {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 html.dark .message.user .message-content {
@@ -714,6 +768,7 @@ html.dark .message.ai .message-content {
     line-height: 20px;
     background-color: var(--vp-c-bg, white);
     color: var(--vp-c-text-1, #213547);
+    user-select: text; /* 输入框允许文本选择 */
 }
 
 .chat-input:focus {
@@ -800,53 +855,5 @@ html.dark .message.ai .message-content {
 .nahida-chat-container input,
 .nahida-chat-container textarea {
     font-family: inherit;
-}
-
-.chat-header {
-    padding: 15px;
-    background-color: var(--vp-c-brand, #68b587);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat-title {
-    font-weight: bold;
-}
-
-.chat-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.clear-history-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    transition: all 0.3s;
-}
-
-.clear-history-btn:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.clear-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.chat-close {
-    cursor: pointer;
-    font-size: 24px;
-    line-height: 1;
 }
 </style>

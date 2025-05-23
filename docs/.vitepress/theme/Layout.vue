@@ -11,6 +11,17 @@ const showComponents = ref(false);
 // 创建聊天历史记录 ref
 const chatHistory = ref([]);
 
+// 创建聊天组件的引用
+const nahidaChatRef = ref(null);
+
+// 处理来自Live2D的打开聊天事件
+const handleOpenChat = () => {
+    console.log("接收到来自Live2D的打开聊天请求");
+    if (nahidaChatRef.value && nahidaChatRef.value.openChat) {
+        nahidaChatRef.value.openChat();
+    }
+};
+
 // 确保只在客户端渲染
 onMounted(() => {
     showComponents.value = true;
@@ -50,8 +61,15 @@ const isBrowser = typeof window !== "undefined";
         <template #layout-bottom>
             <!-- 使用简单的条件渲染替代ClientOnly -->
             <div v-if="isBrowser">
-                <NahidaLive2D v-if="showComponents" />
-                <NahidaChat v-if="showComponents" :initial-open="false" />
+                <NahidaLive2D 
+                    v-if="showComponents" 
+                    @openChat="handleOpenChat"
+                />
+                <NahidaChat 
+                    v-if="showComponents" 
+                    ref="nahidaChatRef"
+                    :initial-open="false" 
+                />
             </div>
         </template>
     </Layout>
