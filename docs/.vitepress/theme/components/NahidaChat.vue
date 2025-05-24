@@ -264,9 +264,8 @@ export default {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Origin": window.location.origin,
                     },
-                    credentials: "include",
+                    mode: "cors",
                     body: JSON.stringify({
                         userId: sessionId.value,
                     }),
@@ -410,9 +409,8 @@ export default {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Origin": window.location.origin,
                     },
-                    credentials: "include",
+                    mode: "cors",
                     body: JSON.stringify({
                         message,
                         history: chatHistory.value.slice(0, -1),
