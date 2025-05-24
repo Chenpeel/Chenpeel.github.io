@@ -264,9 +264,11 @@ export default {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Origin": window.location.origin,
                     },
+                    credentials: "include",
                     body: JSON.stringify({
-                        userId: sessionId.value, // 使用会话ID
+                        userId: sessionId.value,
                     }),
                 });
 
@@ -408,12 +410,14 @@ export default {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Origin": window.location.origin,
                     },
+                    credentials: "include",
                     body: JSON.stringify({
                         message,
                         history: chatHistory.value.slice(0, -1),
                         timestamp: currentTimestamp,
-                        userId: sessionId.value, // 使用会话ID替代anonymous
+                        userId: sessionId.value,
                     }),
                 });
 
