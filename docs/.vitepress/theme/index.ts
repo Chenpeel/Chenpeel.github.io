@@ -17,6 +17,7 @@ import "./script/lantern.js";
 import NahidaLive2D from "./components/NahidaLive2D.vue";
 import NahidaChat from "./components/NahidaChat.vue";
 import Layout from "./Layout.vue";
+import LovePage from "./components/LovePage.vue";
 export default {
   extends: DefaultTheme,
   Layout,
