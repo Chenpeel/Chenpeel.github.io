@@ -4,7 +4,7 @@
         <description><![CDATA[乐只君子,福履将之 feedId:80283127044613120+userId:68880753051241472]]></description>
         <link>https://chenpeel.github.io/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 08 Sep 2025 13:41:26 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Sep 2025 12:59:04 GMT</lastBuildDate>
         <atom:link href="https://chenpeel.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[zh-CN]]></language>
         <item>
@@ -7158,6 +7158,54 @@ $$</p>
             <pubDate>Sun, 08 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[C/C++ 初入C++]]></title>
+            <description><![CDATA[<h2 id="第一个c-程序" tabindex="-1">第一个C++程序 <a class="header-anchor" href="#第一个c-程序" aria-label="Permalink to &quot;第一个C++程序&quot;">&ZeroWidthSpace;</a></h2>
+<blockquote>
+<p>在之前的两文中，你已经理解了，C程序是如何编写、编译、执行的，C++作为其衍生和扩展，自然有与之不同的地方，但基本相似</p>
+</blockquote>
+<p>与C语言相似的，C++也封装了一个输入输出库<code>iostream</code>，并使用**命名空间（NameSpace）**来隔绝于开发者的自行函数封装</p>
+<div class="language-cpp vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">cpp</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// #include &#x3C;stdio.h></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C++</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">using</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> namespace</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // 该行也可不写，但要在后续使用时，以std::func的方式显式地指明该函数来自命名空间std</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  cout</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">endl;</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // std::cout&#x3C;&#x3C;"Hello World"&#x3C;&#x3C;std::endl; //显式地指明</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+</div><p>与之不同的是，C++使用g++、clang++等编译指令以区分于C语言</p>
+<h4 id="token与代码规范" tabindex="-1">Token与代码规范 <a class="header-anchor" href="#token与代码规范" aria-label="Permalink to &quot;Token与代码规范&quot;">&ZeroWidthSpace;</a></h4>
+<h5 id="token" tabindex="-1">Token <a class="header-anchor" href="#token" aria-label="Permalink to &quot;Token&quot;">&ZeroWidthSpace;</a></h5>
+<p>源代码中一行代码中最小的<strong>不可分割元素称为Token（标记）</strong>。</p>
+<p>因此通常情况，必须要以<strong>空格、制表符或回车</strong>分开两个不同的token以区分。空格、制表符和回车统称为<strong>空白</strong></p>
+<p>而有些字符（如括号、逗号等）是不需要使用空白分开的Token。</p>
+<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e41e48f245e70e00965fe1c092dda7c6.png" alt="Mermaid Diagram"></p>
+<h6 id="关键字" tabindex="-1">关键字 <a class="header-anchor" href="#关键字" aria-label="Permalink to &quot;关键字&quot;">&ZeroWidthSpace;</a></h6>
+<p>关键字是被保留的特殊的标识符，拥有固定的语法意义，即关键字无法被用作变量名、函数名亦或重定义。</p>
+<iframe 
+        src="https://cppreference.com/w/cpp/keywords.html"
+        width="100%"
+        height="60%"
+        ></iframe>
+<ul>
+<li><code>using</code>关键字用于指明使用的命名空间</li>
+<li><code>int</code>关键字用作于变量的类型声明，能够与其他关键字结合，如<code>short int</code>等</li>
+<li><code>void</code>关键字作为值集合为空的类型，它是不完整的类型，不能完整化。不允许有void类型的对象，但允许指向void的指针和返回void类型的函数，或被用于无参数函数的函数列表。即无法使用<code>void</code>创建一个变量或数组等。</li>
+</ul>
+<blockquote>
+<p><code>cout</code>和<code>endl</code>，二者是命名空间<code>std</code>下的标准输入输出流函数，并非关键字</p>
+</blockquote>
+<p>后续会<a href="./.html">详细展开</a></p>
+<h4 id="命名空间" tabindex="-1">命名空间 <a class="header-anchor" href="#命名空间" aria-label="Permalink to &quot;命名空间&quot;">&ZeroWidthSpace;</a></h4>
+<p>命名空间（NameSpace）是一种隔离不同开发者开发重名函数诞生的作用域声明。它将同一重名的函数区分在不同的命名空间下，从而防止在引用时出现错误。</p>
+<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-9ab44747466f872594a6d3f6d7f31640.png" alt="Mermaid Diagram"></p>
+<p>在上述的程序中即使用了命名空间<code>std</code>中的<code>cout</code>函数和<code>endl</code>函数，以输出字符和换行，准确的说是将字符流和换行插入到输出流中。</p>
+]]></description>
+            <guid isPermaLink="false">C/C++ 初入C++</guid>
+            <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[计算机的结构和发展]]></title>
             <description><![CDATA[<h2 id="计算机的结构和发展" tabindex="-1">计算机的结构和发展 <a class="header-anchor" href="#计算机的结构和发展" aria-label="Permalink to &quot;计算机的结构和发展&quot;">&ZeroWidthSpace;</a></h2>
 <h4 id="计算机的发展历程" tabindex="-1">计算机的发展历程 <a class="header-anchor" href="#计算机的发展历程" aria-label="Permalink to &quot;计算机的发展历程&quot;">&ZeroWidthSpace;</a></h4>
@@ -7236,54 +7284,6 @@ $$</p>
 ]]></description>
             <guid isPermaLink="false">计算机的结构和发展</guid>
             <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[C/C++ 初入C++]]></title>
-            <description><![CDATA[<h2 id="第一个c-程序" tabindex="-1">第一个C++程序 <a class="header-anchor" href="#第一个c-程序" aria-label="Permalink to &quot;第一个C++程序&quot;">&ZeroWidthSpace;</a></h2>
-<blockquote>
-<p>在之前的两文中，你已经理解了，C程序是如何编写、编译、执行的，C++作为其衍生和扩展，自然有与之不同的地方，但基本相似</p>
-</blockquote>
-<p>与C语言相似的，C++也封装了一个输入输出库<code>iostream</code>，并使用**命名空间（NameSpace）**来隔绝于开发者的自行函数封装</p>
-<div class="language-cpp vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">cpp</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// #include &#x3C;stdio.h></span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C++</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">using</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> namespace</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // 该行也可不写，但要在后续使用时，以std::func的方式显式地指明该函数来自命名空间std</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  cout</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">endl;</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // std::cout&#x3C;&#x3C;"Hello World"&#x3C;&#x3C;std::endl; //显式地指明</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>与之不同的是，C++使用g++、clang++等编译指令以区分于C语言</p>
-<h4 id="token与代码规范" tabindex="-1">Token与代码规范 <a class="header-anchor" href="#token与代码规范" aria-label="Permalink to &quot;Token与代码规范&quot;">&ZeroWidthSpace;</a></h4>
-<h5 id="token" tabindex="-1">Token <a class="header-anchor" href="#token" aria-label="Permalink to &quot;Token&quot;">&ZeroWidthSpace;</a></h5>
-<p>源代码中一行代码中最小的<strong>不可分割元素称为Token（标记）</strong>。</p>
-<p>因此通常情况，必须要以<strong>空格、制表符或回车</strong>分开两个不同的token以区分。空格、制表符和回车统称为<strong>空白</strong></p>
-<p>而有些字符（如括号、逗号等）是不需要使用空白分开的Token。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e41e48f245e70e00965fe1c092dda7c6.png" alt="Mermaid Diagram"></p>
-<h6 id="关键字" tabindex="-1">关键字 <a class="header-anchor" href="#关键字" aria-label="Permalink to &quot;关键字&quot;">&ZeroWidthSpace;</a></h6>
-<p>关键字是被保留的特殊的标识符，拥有固定的语法意义，即关键字无法被用作变量名、函数名亦或重定义。</p>
-<iframe 
-        src="https://cppreference.com/w/cpp/keywords.html"
-        width="100%"
-        height="60%"
-        ></iframe>
-<ul>
-<li><code>using</code>关键字用于指明使用的命名空间</li>
-<li><code>int</code>关键字用作于变量的类型声明，能够与其他关键字结合，如<code>short int</code>等</li>
-<li><code>void</code>关键字作为值集合为空的类型，它是不完整的类型，不能完整化。不允许有void类型的对象，但允许指向void的指针和返回void类型的函数，或被用于无参数函数的函数列表。即无法使用<code>void</code>创建一个变量或数组等。</li>
-</ul>
-<blockquote>
-<p><code>cout</code>和<code>endl</code>，二者是命名空间<code>std</code>下的标准输入输出流函数，并非关键字</p>
-</blockquote>
-<p>后续会<a href="./.html">详细展开</a></p>
-<h4 id="命名空间" tabindex="-1">命名空间 <a class="header-anchor" href="#命名空间" aria-label="Permalink to &quot;命名空间&quot;">&ZeroWidthSpace;</a></h4>
-<p>命名空间（NameSpace）是一种隔离不同开发者开发重名函数诞生的作用域声明。它将同一重名的函数区分在不同的命名空间下，从而防止在引用时出现错误。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-9ab44747466f872594a6d3f6d7f31640.png" alt="Mermaid Diagram"></p>
-<p>在上述的程序中即使用了命名空间<code>std</code>中的<code>cout</code>函数和<code>endl</code>函数，以输出字符和换行，准确的说是将字符流和换行插入到输出流中。</p>
-]]></description>
-            <guid isPermaLink="false">C/C++ 初入C++</guid>
-            <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[C/C++ 首次尝试]]></title>

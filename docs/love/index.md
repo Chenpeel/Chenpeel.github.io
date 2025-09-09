@@ -44,45 +44,4 @@ if (typeof window !== 'undefined') {
 }
 </script>
 
-<style>
-/* 完全覆盖 VitePress 默认样式 */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-  height: 100% !important;
-}
-
-/* 隐藏 VitePress 默认布局组件 */
-.Layout,
-.VPApp,
-.VPNav,
-.VPNavBar,
-.VPSidebar,
-.VPLocalNav,
-.VPContent,
-.VPDoc,
-.VPDocFooter,
-.container,
-.content {
-  display: none !important;
-}
-
-/* 确保 love-page 组件占满全屏 */
-#app {
-  height: 100vh !important;
-  overflow: hidden !important;
-}
-
-.love-page {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 99999 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-}
-</style>
+import "../.vitepress/theme/css/love.css"
