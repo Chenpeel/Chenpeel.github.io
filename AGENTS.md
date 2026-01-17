@@ -17,12 +17,14 @@
 - `npm run docs:build`：构建站点到 `docs/.vitepress/dist`，同时刷新 RSS。
 - `npm run docs:preview`：预览构建产物。
 - `npm run generate:skills_cloud`：生成 `docs/skills-cloud.json` 与 `docs/public/skills-cloud.json`。
-- `npm run generate:RP_RSS`：生成近期文章、skills 词云与 RSS。
+- `npm run generate:at_pages`：生成 `docs/at-pages.json` 与 `docs/public/at-pages.json`，用于聊天 `@` 附带页面内容。
+- `npm run generate:RP_RSS`：生成近期文章、skills 词云、`@` 页面索引与 RSS。
 
 ## 编码风格与命名规范
 - JS/TS 延续现有风格：2 空格缩进、双引号、分号；保持与 `docs/.vitepress/` 一致。
 - Markdown 需包含 YAML frontmatter，常用字段：`title`、`date`、`category`、`published`。日期格式 `YYYY-MM-DD`。
 - `skills_cloud` 用于词云收集：`true` 自动取标题，数组用于精确词条（如 `["Linux", "Docker"]`），`false` 直接排除。
+- `at` 默认启用（视为 `true`），用于聊天 `@` 页面收集；如需排除请设置 `at: false`，并运行 `npm run generate:at_pages`。
 - 文件命名遵循目录惯例，例如 `index.md` 或 `0xNN.md` 系列。
 
 ## 测试与验证
