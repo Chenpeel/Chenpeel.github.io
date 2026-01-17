@@ -103,33 +103,85 @@
             </div>
             <!-- 输入区域 -->
             <div class="chat-input-container">
-                <textarea
-                    class="chat-input"
-                    v-model="userInput"
-                    @keydown.enter.prevent="handleEnter"
-                    placeholder="输入消息..."
-                    ref="inputRef"
-                    :disabled="isLoading"
-                ></textarea>
-                <button
-                    class="send-button"
-                    @click="sendMessage"
-                    :disabled="!userInput.trim() || isLoading"
-                >
-                    <svg viewBox="0 0 24 24" class="send-icon">
-                        <path
-                            fill="currentColor"
-                            d="M2,21L23,12L2,3V10L17,12L2,14V21Z"
-                        />
-                    </svg>
-                </button>
+                <div class="at-suggestions" v-if="isAtMenuOpen">
+                    <div
+                        class="at-item"
+                        v-for="(page, index) in filteredAtPages"
+                        :key="page.path"
+                        :class="{ 'is-active': index === selectedAtIndex }"
+                        @click="selectAtPage(page)"
+                        @mouseenter="selectedAtIndex = index"
+                    >
+                        <div class="at-title">
+                            {{ page.title || page.path }}
+                        </div>
+                        <div class="at-path">{{ page.path }}</div>
+                    </div>
+                    <div class="at-empty" v-if="!filteredAtPages.length">
+                        没有可引用的页面（可在 frontmatter 中设置 at: false 排除）
+                    </div>
+                </div>
+                <div class="chat-attachments" v-if="selectedPages.length">
+                    <div
+                        class="attachment"
+                        v-for="page in selectedPages"
+                        :key="page.path"
+                    >
+                        <span class="attachment-title">
+                            {{ page.title || page.path }}
+                        </span>
+                        <button
+                            class="attachment-remove"
+                            @click="removeAttachment(page.path)"
+                            title="移除"
+                        >
+                            ×
+                        </button>
+                    </div>
+                </div>
+                <div class="chat-input-row">
+                    <textarea
+                        class="chat-input"
+                        v-model="userInput"
+                        @keydown="handleKeydown"
+                        @input="handleInput"
+                        @keyup="handleInput"
+                        @click="handleInput"
+                        @compositionstart="handleCompositionStart"
+                        @compositionend="handleCompositionEnd"
+                        placeholder="输入消息..."
+                        ref="inputRef"
+                        :disabled="isLoading"
+                    ></textarea>
+                    <button
+                        class="send-button"
+                        @click="sendMessage"
+                        :disabled="!userInput.trim() || isLoading"
+                    >
+                        <svg viewBox="0 0 24 24" class="send-icon">
+                            <path
+                                fill="currentColor"
+                                d="M2,21L23,12L2,3V10L17,12L2,14V21Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import { ref, onMounted, onUnmounted, nextTick, watch, inject } from "vue"; // 添加 inject
+import {
+    ref,
+    onMounted,
+    onUnmounted,
+    nextTick,
+    watch,
+    inject,
+    computed,
+} from "vue"; // 添加 inject
 import { marked } from "marked";
+import { NAHIDA_SYSTEM_PROMPT } from "../prompts/nahida_prompt.js";
 
 export default {
     name: "NahidaChat",
@@ -142,7 +194,7 @@ export default {
         // 后端API地址
         apiUrl: {
             type: String,
-            default: "https://api.chenpeel.xyz/chat",
+            default: "https://nahida-chat-proxy.chenyahui43.workers.dev/chat",
         },
     },
 
@@ -160,6 +212,19 @@ export default {
         const chatWindowRef = ref(null);
         // 系统消息的时间戳（初始化为当前时间）
         const systemMessageTime = ref(new Date().toISOString());
+        const atPages = ref([]);
+        const atQuery = ref("");
+        const atAnchor = ref({ start: 0, end: 0 });
+        const isAtMenuOpen = ref(false);
+        const selectedPages = ref([]);
+        const currentPath = ref("");
+        const MAX_CONTEXT_CHARS = 2400;
+        const selectedAtIndex = ref(0);
+        const isComposing = ref(false);
+        const AT_MENU_REGEX =
+            /(^|\s)@([A-Za-z0-9_./-]*)$/u;
+        const AT_TOKEN_REGEX =
+            /@([A-Za-z0-9_./-]+)/gu;
 
         function generateUUID() {
             return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -175,6 +240,232 @@ export default {
             sessionId.value = id;
             localStorage.setItem("nahida_session_id", id);
         }
+
+        const normalizePath = (value) => {
+            if (!value) return "/";
+            let normalized = value.replace(/\.html$/, "");
+            if (normalized.length > 1 && normalized.endsWith("/")) {
+                normalized = normalized.slice(0, -1);
+            }
+            return normalized || "/";
+        };
+
+        const loadAtPages = async () => {
+            try {
+                const response = await fetch("/at-pages.json", {
+                    cache: "no-cache",
+                });
+                if (!response.ok) {
+                    throw new Error(
+                        `Failed to load at-pages: ${response.status}`,
+                    );
+                }
+                atPages.value = await response.json();
+            } catch (error) {
+                console.warn(error);
+                atPages.value = [];
+            }
+        };
+
+        const updateAtState = () => {
+            const el = inputRef.value;
+            if (!el) {
+                isAtMenuOpen.value = false;
+                atQuery.value = "";
+                return;
+            }
+            const value = userInput.value;
+            const cursor = el.selectionStart ?? value.length;
+            const before = value.slice(0, cursor);
+            const match = before.match(AT_MENU_REGEX);
+            if (!match) {
+                isAtMenuOpen.value = false;
+                atQuery.value = "";
+                return;
+            }
+            const atIndex = before.lastIndexOf("@");
+            atAnchor.value = { start: atIndex, end: cursor };
+            atQuery.value = match[2] || "";
+            isAtMenuOpen.value = true;
+        };
+
+        const handleInput = () => {
+            updateAtState();
+        };
+
+        const handleCompositionStart = () => {
+            isComposing.value = true;
+        };
+
+        const handleCompositionEnd = () => {
+            isComposing.value = false;
+            updateAtState();
+        };
+
+        const replaceRange = (value, start, end, replacement) => {
+            return `${value.slice(0, start)}${replacement}${value.slice(end)}`;
+        };
+
+        const selectAtPage = (page) => {
+            if (!page) {
+                return;
+            }
+            const mentionPath =
+                page.path && page.path.startsWith("/")
+                    ? page.path.slice(1)
+                    : page.path || "";
+            const mentionText = `@${mentionPath}`;
+            const anchor = atAnchor.value;
+            if (
+                Number.isInteger(anchor.start) &&
+                Number.isInteger(anchor.end)
+            ) {
+                userInput.value = replaceRange(
+                    userInput.value,
+                    anchor.start,
+                    anchor.end,
+                    `${mentionText} `,
+                );
+                nextTick(() => {
+                    if (inputRef.value) {
+                        const cursor = anchor.start + mentionText.length + 1;
+                        inputRef.value.setSelectionRange(cursor, cursor);
+                    }
+                });
+            }
+
+            if (!selectedPages.value.some((item) => item.path === page.path)) {
+                selectedPages.value.push(page);
+            }
+            isAtMenuOpen.value = false;
+            atQuery.value = "";
+            focusInput();
+        };
+
+        const removeAttachment = (pagePath) => {
+            selectedPages.value = selectedPages.value.filter(
+                (item) => item.path !== pagePath,
+            );
+        };
+
+        const buildContextBlock = (pages) => {
+            if (!pages.length) {
+                return "";
+            }
+            let used = 0;
+            const sections = [];
+            pages.forEach((page) => {
+                if (used >= MAX_CONTEXT_CHARS) {
+                    return;
+                }
+                const header = `# ${page.title || page.path}\n${page.path}\n`;
+                const content = page.content || "";
+                const remaining = MAX_CONTEXT_CHARS - used - header.length;
+                if (remaining <= 0) {
+                    return;
+                }
+                const slice = content.slice(0, remaining);
+                sections.push(`${header}${slice}`);
+                used += header.length + slice.length;
+            });
+            if (!sections.length) {
+                return "";
+            }
+            return `\n\n---\nattached_pages:\n${sections.join("\n\n")}\n---`;
+        };
+
+        const findPageByToken = (token) => {
+            if (!token) {
+                return null;
+            }
+            const normalizedToken = normalizePath(
+                token.startsWith("/") ? token : `/${token}`,
+            );
+            let page = atPages.value.find(
+                (item) => normalizePath(item.path) === normalizedToken,
+            );
+            if (!page) {
+                const lowered = token.toLowerCase();
+                page = atPages.value.find(
+                    (item) => (item.title || "").toLowerCase() === lowered,
+                );
+            }
+            return page || null;
+        };
+
+        const collectAttachments = (text) => {
+            const attachments = selectedPages.value.slice();
+            const seen = new Set(attachments.map((item) => item.path));
+            const matches = text.matchAll(AT_TOKEN_REGEX);
+            for (const match of matches) {
+                const token = match[1];
+                const page = findPageByToken(token);
+                if (page && !seen.has(page.path)) {
+                    attachments.push(page);
+                    seen.add(page.path);
+                }
+            }
+            return attachments;
+        };
+
+        const filteredAtPages = computed(() => {
+            const query = atQuery.value.trim().toLowerCase();
+            let list = atPages.value || [];
+            if (query) {
+                list = list.filter((page) => {
+                    const title = (page.title || "").toLowerCase();
+                    const path = (page.path || "").toLowerCase();
+                    return title.includes(query) || path.includes(query);
+                });
+            }
+
+            const current = normalizePath(currentPath.value);
+            const sorted = [...list].sort((a, b) => {
+                const aCurrent = normalizePath(a.path) === current ? 1 : 0;
+                const bCurrent = normalizePath(b.path) === current ? 1 : 0;
+                if (aCurrent !== bCurrent) {
+                    return bCurrent - aCurrent;
+                }
+                return a.path.localeCompare(b.path, "zh");
+            });
+
+            return sorted.slice(0, 12);
+        });
+
+        const handleKeydown = (event) => {
+            if (event.isComposing || isComposing.value) {
+                return;
+            }
+            const list = filteredAtPages.value;
+            if (isAtMenuOpen.value && list.length) {
+                if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    selectedAtIndex.value =
+                        (selectedAtIndex.value + 1) % list.length;
+                    return;
+                }
+                if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    selectedAtIndex.value =
+                        (selectedAtIndex.value - 1 + list.length) %
+                        list.length;
+                    return;
+                }
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    const page = list[selectedAtIndex.value] || list[0];
+                    if (page) {
+                        selectAtPage(page);
+                    }
+                    return;
+                }
+            }
+
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        };
 
         // 处理双击事件 - 阻止默认行为
         const handleDoubleClick = (event) => {
@@ -239,6 +530,31 @@ export default {
                     scrollToBottom();
                     focusInput();
                 });
+                if (typeof window !== "undefined") {
+                    currentPath.value = window.location.pathname || "";
+                }
+            }
+        });
+
+        watch(isAtMenuOpen, (open) => {
+            if (open) {
+                selectedAtIndex.value = filteredAtPages.value.length ? 0 : -1;
+            }
+        });
+
+        watch(filteredAtPages, (list) => {
+            if (!isAtMenuOpen.value) {
+                return;
+            }
+            if (!list.length) {
+                selectedAtIndex.value = -1;
+                return;
+            }
+            if (
+                selectedAtIndex.value < 0 ||
+                selectedAtIndex.value >= list.length
+            ) {
+                selectedAtIndex.value = 0;
             }
         });
 
@@ -257,8 +573,20 @@ export default {
                 return;
             }
 
+            // 先清除本地历史，避免后端失败导致无法清空
+            chatHistory.value = [];
+            systemMessageTime.value = new Date().toISOString();
+            selectedPages.value = [];
+            isAtMenuOpen.value = false;
+            atQuery.value = "";
             try {
-                // 调用后端API清除历史
+                localStorage.removeItem("nahidaChatHistory");
+            } catch (error) {
+                console.warn("无法清理本地聊天历史:", error);
+            }
+
+            try {
+                // 调用后端API清除历史（失败也不影响本地清空）
                 const clearUrl = props.apiUrl.replace(/\/chat$/, "/chat/clear");
                 const response = await fetch(clearUrl, {
                     method: "POST",
@@ -268,6 +596,7 @@ export default {
                     mode: "cors",
                     body: JSON.stringify({
                         userId: sessionId.value,
+                        sessionId: sessionId.value,
                     }),
                 });
 
@@ -278,14 +607,9 @@ export default {
                     if (data.newSessionId) {
                         saveSessionId(data.newSessionId);
                     }
-                    // 清除本地聊天历史
-                    chatHistory.value = [];
-                    // 显示系统消息，表明历史已清除
-                    systemMessageTime.value = new Date().toISOString();
                 }
             } catch (error) {
-                console.error("清除聊天历史失败:", error);
-                alert("清除聊天历史失败，请稍后再试");
+                console.warn("清除聊天历史失败:", error);
             }
         };
 
@@ -389,6 +713,9 @@ export default {
 
             // 获取当前时间戳
             const currentTimestamp = new Date().toISOString();
+            const attachments = collectAttachments(message);
+            const contextBlock = buildContextBlock(attachments);
+            const messageForApi = `${message}${contextBlock}`;
 
             // 添加用户消息到聊天历史（带上时间戳）
             chatHistory.value.push({
@@ -412,10 +739,16 @@ export default {
                     },
                     mode: "cors",
                     body: JSON.stringify({
-                        message,
+                        message: messageForApi,
                         history: chatHistory.value.slice(0, -1),
                         timestamp: currentTimestamp,
                         userId: sessionId.value,
+                        system: NAHIDA_SYSTEM_PROMPT,
+                        systemPrompt: NAHIDA_SYSTEM_PROMPT,
+                        attachments: attachments.map((page) => ({
+                            title: page.title,
+                            path: page.path,
+                        })),
                     }),
                 });
 
@@ -446,6 +779,9 @@ export default {
             } finally {
                 // 隐藏加载状态
                 isLoading.value = false;
+                selectedPages.value = [];
+                isAtMenuOpen.value = false;
+                atQuery.value = "";
             }
         };
 
@@ -458,6 +794,10 @@ export default {
 
             // 添加自定义事件监听
             document.addEventListener("openNahidaChat", handleOpenChatEvent);
+            if (typeof window !== "undefined") {
+                currentPath.value = window.location.pathname || "";
+            }
+            loadAtPages();
 
             chatHistory.value.forEach((message) => {
                 if (!message.timestamp) {
@@ -478,12 +818,21 @@ export default {
             toggleChat,
             openChat,
             sendMessage,
-            handleEnter,
+            handleKeydown,
+            handleInput,
+            handleCompositionStart,
+            handleCompositionEnd,
             formatMessage,
             formatTime,
             clearHistory,
             sessionId,
             handleDoubleClick,
+            isAtMenuOpen,
+            filteredAtPages,
+            selectAtPage,
+            selectedPages,
+            removeAttachment,
+            selectedAtIndex,
         };
     },
 };
@@ -752,7 +1101,87 @@ html.dark .message.ai .message-content {
     padding: 15px;
     border-top: 1px solid var(--vp-c-divider, #eee);
     display: flex;
+    flex-direction: column;
+    gap: 8px;
     background-color: var(--vp-c-bg, white);
+}
+
+.chat-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.at-suggestions {
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1px solid var(--vp-c-divider, #e2e2e2);
+    border-radius: 8px;
+    background-color: var(--vp-c-bg, #fff);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 6px;
+}
+
+.at-item {
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.at-item:hover,
+.at-item.is-active {
+    background-color: rgba(104, 181, 135, 0.12);
+}
+
+.at-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--vp-c-text-1, #213547);
+}
+
+.at-path {
+    font-size: 12px;
+    color: var(--vp-c-text-2, #6b7280);
+}
+
+.at-empty {
+    padding: 10px;
+    font-size: 12px;
+    color: var(--vp-c-text-2, #6b7280);
+}
+
+.chat-attachments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.attachment {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background-color: rgba(104, 181, 135, 0.12);
+    color: var(--vp-c-text-1, #213547);
+    font-size: 12px;
+}
+
+.attachment-title {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.attachment-remove {
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
 }
 
 .chat-input {
@@ -780,7 +1209,6 @@ html.dark .message.ai .message-content {
 .send-button {
     width: 40px;
     height: 40px;
-    margin-left: 10px;
     border: none;
     background-color: var(--vp-c-brand, #68b587);
     border-radius: 50%;

@@ -1,0 +1,22 @@
+name = "nahida-chat-proxy"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+kv_namespaces = [
+  { binding = "RATE_LIMIT_KV", id = "d3dbfd421ea345c1affce490e2aef889", preview_id = "fdbda1326e664890b051338b13cd4b1d" }
+]
+
+[vars]
+ALLOWED_ORIGINS = "https://ovvo.blog,https://www.ovvo.blog,http://127.0.0.1:5173"
+DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
+MODEL = "deepseek-chat"
+MAX_TOKENS = "8000"
+TEMPERATURE = "0.7"
+MAX_HISTORY_MESSAGES = "12"
+MAX_MESSAGE_CHARS = "2000"
+RATE_LIMIT_WINDOW_SECONDS = "600"
+RATE_LIMIT_MAX_IP = "60"
+RATE_LIMIT_MAX_SESSION = "20"
+INCLUDE_TIME = "false"
+REQUIRE_ORIGIN = "true"
