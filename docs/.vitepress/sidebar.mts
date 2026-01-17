@@ -13,6 +13,17 @@ export const sidebar = {
       ],
     },
   ],
+  ////////////////////////////////////////      Tips     ////////////////////////////////////////
+  "/tips/": [
+    {
+      collapsed: false,
+      text: "Tips",
+      items: [
+        { text: "Tips", link: "/tips/" },
+        { text: "Kaggle免费算力指北", link: "/tips/kaggle_train" }
+      ],
+    },
+  ],
   ////////////////////////////////////////Computer Science////////////////////////////////////////
   "/cs/": [
     {

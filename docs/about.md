@@ -11,6 +11,11 @@ skills_cloud: false
                 Tools
             </div>
         </a>
+        <a href="/tips/">
+            <div class="link-card">
+                Tips
+            </div>
+        </a>
         <a href="/cs/basic/ca/index">
             <div class="link-card">
                 Computer Science
