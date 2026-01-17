@@ -6,7 +6,8 @@
     },
     "scripts": {
     "generate:skills_cloud": "node docs/.vitepress/theme/script/genSkillsCloud.js",
-    "generate:RP_RSS": "node docs/.vitepress/theme/script/genRecentPosts.js && node docs/.vitepress/theme/script/genSkillsCloud.js && node docs/.vitepress/theme/script/generate-rss.mjs",
+    "generate:at_pages": "node docs/.vitepress/theme/script/genAtPages.js",
+    "generate:RP_RSS": "node docs/.vitepress/theme/script/genRecentPosts.js && node docs/.vitepress/theme/script/genSkillsCloud.js && node docs/.vitepress/theme/script/genAtPages.js && node docs/.vitepress/theme/script/generate-rss.mjs",
         "docs:dev": "npm run generate:RP_RSS && vitepress dev docs",
         "docs:build": "vitepress build docs && npm run generate:RP_RSS",
         "docs:preview": "npm run generate:RP_RSS && vitepress preview docs"

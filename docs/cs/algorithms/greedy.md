@@ -1,5 +1,21 @@
+---
+title: 贪心算法
+date: 2025-12-01
+category: CS
+published: true
+skills_cloud:
+  - 算法
+at: true
+---
+
+# 贪心算法
+
 
 >  面临决策时，局部最优，即是全局最优
+
+
+
+> 在机器学习中，常常因为局部最优而徘徊，收敛不足，这时候较好的方法是增大学习率或者调整学习率更新策略，从而跳出局部最优解，而达到快速收敛
 
 ##### 三个阶段
 
@@ -40,12 +56,6 @@
 
   - [huffmancode.cpp](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/huffmancode.cpp)
   - [huffmancode.py](https://github.com/Chenpeel/Codes/tree/master/Python/algo_codes/huffmancode.py)
-
-
-
-
-
-
 
 
 

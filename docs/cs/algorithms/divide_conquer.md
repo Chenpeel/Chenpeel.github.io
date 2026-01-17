@@ -1,3 +1,13 @@
+---
+title: 分治
+date: 2023-04-03
+category: CS
+published: true
+skills_cloud:
+  - 算法
+at: true
+---
+
 
 
 # 分治
@@ -25,5 +35,4 @@
 - 题解代码
   - [max_subarray_sum.cpp](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/max_subarray_sum.cpp)
   - [max_subarray_sum.py](https://github.com/Chenpeel/Codes/tree/master/Python/algo_codes/max_subarray_sum.py) 
-
 

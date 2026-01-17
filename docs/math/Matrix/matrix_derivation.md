@@ -6,6 +6,7 @@ published: true
 skills_cloud:
   - 矩阵
   - 线性代数
+at: true
 ---
 
 # 矩阵求导

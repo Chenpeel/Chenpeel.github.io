@@ -5,6 +5,7 @@ if (typeof window !== "undefined") {
     // 移除可能存在的旧事件监听器
     const oldClickHandler = window._fireworkClickHandler;
     if (oldClickHandler) {
+      document.removeEventListener("click", oldClickHandler, true);
       document.removeEventListener("click", oldClickHandler);
 
       // 清除可能存在的其他监听器
@@ -60,7 +61,7 @@ if (typeof window !== "undefined") {
       container.style.width = "100%";
       container.style.height = "100%";
       container.style.pointerEvents = "none";
-      container.style.zIndex = "999999"; // 更高的层级
+      container.style.zIndex = "2147483647";
       document.body.appendChild(container);
 
       // 粒子数量
@@ -92,7 +93,7 @@ if (typeof window !== "undefined") {
         particle.style.borderRadius = "50%";
         particle.style.opacity = "1";
         particle.style.willChange = "transform, opacity";
-        particle.style.zIndex = "999999";
+        particle.style.zIndex = "2147483647";
 
         // 将粒子添加到容器中
         container.appendChild(particle);
@@ -172,7 +173,7 @@ if (typeof window !== "undefined") {
     };
 
     // 添加全局事件监听器
-    document.addEventListener("click", window._fireworkClickHandler);
+    document.addEventListener("click", window._fireworkClickHandler, true);
 
     // 针对VitePress侧边栏的特殊处理
     setTimeout(() => {

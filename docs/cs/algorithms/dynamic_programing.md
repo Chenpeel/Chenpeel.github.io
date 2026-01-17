@@ -1,3 +1,17 @@
+---
+title: 动态规划
+date: 2023-04-03
+category: CS
+published: true
+skills_cloud:
+  - 算法
+at: true
+---
+
+
+
+# 动态规划
+
 
 
 >  递推公式是动态规划的灵魂，dp的含义、初始化以及遍历的顺序也很关键，但最重要是分析问题的思想，在此，将动态规划划分为五个阶段，来自于[代码随想录](https://www.bilibili.com/video/BV13Q4y197Wg/?spm_id_from=333.337.search-card.all.click&vd_source=2ed772ef3c25dca43937d30b2e9c63c9) 
@@ -90,6 +104,7 @@
   - $max_z = g_1(x_1)+g_2(x_2)+...+g_m(x_m),x_1+x_2+...+x_m = a,x_i≥0,i={1,2,3,...,m}$ 
   - $g_i(x)$ 如下图
   
+
 ![资源分配](/imgs/source_reloc.png)
 
 - 分析：很容易得到$dp[i] = \max(dp[i],dp[ j-w[i]+v[i] ])$  ，其中 $w[i]$ 和 $v[i]$  是投入和收益

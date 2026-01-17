@@ -109,6 +109,7 @@
                         v-for="(page, index) in filteredAtPages"
                         :key="page.path"
                         :class="{ 'is-active': index === selectedAtIndex }"
+                        :ref="(el) => setAtItemRef(el, index)"
                         @click="selectAtPage(page)"
                         @mouseenter="selectedAtIndex = index"
                     >
@@ -220,6 +221,7 @@ export default {
         const currentPath = ref("");
         const MAX_CONTEXT_CHARS = 2400;
         const selectedAtIndex = ref(0);
+        const atItemRefs = ref([]);
         const isComposing = ref(false);
         const AT_MENU_REGEX =
             /(^|\s)@([A-Za-z0-9_./-]*)$/u;
@@ -300,6 +302,22 @@ export default {
         const handleCompositionEnd = () => {
             isComposing.value = false;
             updateAtState();
+        };
+
+        const setAtItemRef = (el, index) => {
+            if (el) {
+                atItemRefs.value[index] = el;
+            }
+        };
+
+        const scrollSelectedIntoView = () => {
+            if (!isAtMenuOpen.value) {
+                return;
+            }
+            const el = atItemRefs.value[selectedAtIndex.value];
+            if (el && el.scrollIntoView) {
+                el.scrollIntoView({ block: "nearest" });
+            }
         };
 
         const replaceRange = (value, start, end, replacement) => {
@@ -538,6 +556,7 @@ export default {
 
         watch(isAtMenuOpen, (open) => {
             if (open) {
+                atItemRefs.value = [];
                 selectedAtIndex.value = filteredAtPages.value.length ? 0 : -1;
             }
         });
@@ -546,6 +565,7 @@ export default {
             if (!isAtMenuOpen.value) {
                 return;
             }
+            atItemRefs.value = [];
             if (!list.length) {
                 selectedAtIndex.value = -1;
                 return;
@@ -556,6 +576,11 @@ export default {
             ) {
                 selectedAtIndex.value = 0;
             }
+            nextTick(scrollSelectedIntoView);
+        });
+
+        watch(selectedAtIndex, () => {
+            nextTick(scrollSelectedIntoView);
         });
 
         // 聊天历史变化时滚动到底部
@@ -833,6 +858,7 @@ export default {
             selectedPages,
             removeAttachment,
             selectedAtIndex,
+            setAtItemRef,
         };
     },
 };

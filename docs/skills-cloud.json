@@ -1,5 +1,10 @@
 [
   {
+    "text": "算法",
+    "count": 6,
+    "href": "/cs/algorithms/back_track"
+  },
+  {
     "text": "C/C++",
     "count": 2,
     "href": "/cs/basic/c_cpp/0x00"
@@ -78,11 +83,6 @@
     "text": "数据结构",
     "count": 1,
     "href": "/cs/basic/ds"
-  },
-  {
-    "text": "算法",
-    "count": 1,
-    "href": "/cs/algorithms"
   },
   {
     "text": "五笔",

@@ -1,3 +1,19 @@
+---
+title: 回溯
+date: 2023-04-02
+category: CS
+published: true
+skills_cloud:
+  - 算法
+at: true
+---
+
+
+
+# 回溯
+
+> 基于[树](/cs/basic/ds/index.md#tree-info)的剪枝策略，不断尝试找到优解，否则回溯并剪枝
+
 ##### 两个阶段
 
 - 抽象问题，描绘问题分支
@@ -17,5 +33,4 @@
 - 题目代码：
   - [sudoku.cpp](https://github.com/Chenpeel/Codes/tree/master/Cpp/algo_codes/sudoku.cpp)
   - [sudoku.py](https://github.com/Chenpeel/Codes/tree/master/Python/algo_codes/sudoku.py)
-
 

@@ -5,6 +5,11 @@
     "path": "/cs/linux/0x00"
   },
   {
+    "title": "贪心算法",
+    "date": "2025-12-01",
+    "path": "/cs/algorithms/greedy"
+  },
+  {
     "title": "C/C++ 初入C++",
     "date": "2025-08-29",
     "path": "/cs/basic/c_cpp/0x7d"
@@ -23,10 +28,5 @@
     "title": "计算机的结构和发展",
     "date": "2025-01-22",
     "path": "/cs/basic/ca/0x00"
-  },
-  {
-    "title": "逻辑推理",
-    "date": "2024-08-15",
-    "path": "/math/LR/index"
   }
 ]

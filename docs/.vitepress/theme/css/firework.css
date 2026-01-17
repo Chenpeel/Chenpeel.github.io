@@ -9,5 +9,5 @@
     border-radius: 50% !important;
     opacity: 1 !important;
     will-change: transform, opacity !important;
-    z-index: 999999 !important; /* 增加更高的z-index */
+    z-index: 2147483647 !important; /* 增加更高的z-index */
 }
