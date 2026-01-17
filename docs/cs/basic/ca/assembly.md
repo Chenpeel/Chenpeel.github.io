@@ -3,6 +3,8 @@ title: 汇编语言
 date: 2023-04-20
 category: CS
 published: true
+skills_cloud:
+  - 汇编
 ---
 
 
@@ -374,7 +376,7 @@ published: true
     end
 ```
 
-​
+
 
 - ###### 程序返回
 
@@ -385,7 +387,7 @@ published: true
     int 21H
 ```
 
-​
+
 
 - ###### 语法错误和逻辑错误
 

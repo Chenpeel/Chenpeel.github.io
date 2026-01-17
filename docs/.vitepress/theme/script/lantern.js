@@ -29,6 +29,10 @@ function createLanternContainer(customText) {
     return;
   }
 
+  if (document.querySelector(".lantern-container")) {
+    return;
+  }
+
   const container = document.createElement("div");
   container.className = "lantern-container";
   document.body.appendChild(container);
@@ -78,12 +82,6 @@ function createLanternContainer(customText) {
 
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", function () {
-    // 引用 lantern.css 文件
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./theme/css/lantern.css";
-    document.head.appendChild(link);
-
     createLanternContainer("新年快乐");
   });
 }

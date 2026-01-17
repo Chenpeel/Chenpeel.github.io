@@ -3,6 +3,7 @@ title: "菊花三弄"
 date: "2024-3-2"
 category: "Stories"
 published: true
+skills_cloud: false
 ---
 
 # 《菊花三弄》

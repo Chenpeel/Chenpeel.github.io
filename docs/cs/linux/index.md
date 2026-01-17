@@ -3,6 +3,8 @@ title: What's Linux
 date: 2024-03-12
 category: CS
 published: true
+skills_cloud:
+  - Linux
 ---
 
 # <a id="linux">Linux</a>

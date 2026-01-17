@@ -1,3 +1,8 @@
+---
+skills_cloud:
+  - Docker
+---
+
 ## Docker
 
 Docker是一个开源的容器化平台，用于开发、部署和运行应用程序。
@@ -96,5 +101,4 @@ Docker Compose是一个工具，用于定义和管理多容器的Docker应用。
 Docker Swarm是Docker官方提供的容器编排和集群管理工具，用于在多个Docker主机上管理和调度容器。
 
 可以将多个Docker主机组成一个集群，实现容器的自动化部署、伸缩和管理。
-
 

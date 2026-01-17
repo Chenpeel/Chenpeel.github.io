@@ -4,7 +4,7 @@
         <description><![CDATA[乐只君子,福履将之 feedId:80283127044613120+userId:68880753051241472]]></description>
         <link>https://chenpeel.github.io/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 09 Sep 2025 12:59:04 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 17 Jan 2026 18:22:18 GMT</lastBuildDate>
         <atom:link href="https://chenpeel.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[zh-CN]]></language>
         <item>
@@ -876,8 +876,7 @@ $=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$</p>
 <span class="line"><span>    add ax,ax</span></span>
 <span class="line"><span>    abc ends</span></span>
 <span class="line"><span>    end</span></span></code></pre>
-</div><p>​</p>
-<ul>
+</div><ul>
 <li>
 <h6 id="程序返回" tabindex="-1">程序返回 <a class="header-anchor" href="#程序返回" aria-label="Permalink to &quot;程序返回&quot;">&ZeroWidthSpace;</a></h6>
 <ul>
@@ -887,8 +886,7 @@ $=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$</p>
 </ul>
 <div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>    mov ax ,4c00H</span></span>
 <span class="line"><span>    int 21H</span></span></code></pre>
-</div><p>​</p>
-<ul>
+</div><ul>
 <li>
 <h6 id="语法错误和逻辑错误" tabindex="-1">语法错误和逻辑错误 <a class="header-anchor" href="#语法错误和逻辑错误" aria-label="Permalink to &quot;语法错误和逻辑错误&quot;">&ZeroWidthSpace;</a></h6>
 <ul>
@@ -2076,9 +2074,247 @@ $=b_h(1-b_h)\sum\limits_{j=1}^{l}w_{hj}g_j$</p>
 </div><ul>
 <li>man命令的允许输入选项</li>
 </ul>
-]]></description>
+<p><a id="basic"><strong>Chat with AI</strong> </a></p>
+<blockquote>
+<p>随着大语言模型的发展，现在学习的成本和收益变得无限地低</p>
+<p>所以，我们应善用工具（AI，prompt）</p>
+<p>即使主动学习的收益很低，远不如各种Agent，MCP等等，</p>
+<p>但我们仍需要拥有纵向的、一定深度的知识体系，从而更好的向各种对话模型进行提问辅助</p>
+<p>从而可以快速通过横向对比，学习新的技能，要善于提问，多提问</p>
+<p>对话模型也可能碰到的问题：大语言模型的幻觉、网络问题、兼容问题、API调用等，这是至少需要你知道大致解决方向的</p>
+</blockquote>
+<p>当使用 <code>man [commands]</code> 时，一堆英文的explain，可能看着就头皮发麻</p>
+<p>可是方便的使用一些对话工具从而快速让其解释这些内容</p>
+<p>笔者这里使用的是 <a href="https://github.com/sigoden/aichat" target="_blank" rel="noreferrer">aichat</a> + <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noreferrer">DeepSeek API_KEY</a></p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> man</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "explain it with chinese"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">; } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> aichat</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">这个手册页面介绍了</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">、</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apropos</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 和 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">whatis</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 命令，它们用于显示在线帮助手册（man page）。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 命令概述</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">这三个命令都用于查找和显示系统内置的手册文档。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">1.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 显示指定命令或主题的手册页。</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">2.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apropos</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">或</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -k</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) - 在手册页的 **名称和描述** 中搜索包含关键词的条目。</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">3.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">whatis</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">或</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) - 显示与关键词 **完全匹配** 的手册页的简短描述。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 手册章节 (Sections)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">Unix/Linux</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 手册被分为不同的章节，每个章节涵盖特定类型的主题：</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 用户命令 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">普通用户可执行的命令</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">2</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 系统调用 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">内核提供的函数</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">3</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 库函数 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">程序库中的函数</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">4</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 特殊文件 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">通常指</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/dev</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 目录下的设备文件</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">5</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 文件格式和约定 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">例如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/etc/passwd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的格式</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">6</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 游戏</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">7</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 杂项 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">宏包、约定等</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">8</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 系统管理命令 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">通常需要</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> root</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 权限</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">9</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 内核例程 (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">非标准章节</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 主要选项说明</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#### `man` 命令选项</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-M</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">路径</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定手册页的搜索路径，覆盖默认路径和</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANPATH</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 环境变量。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-P</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">分页器</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定用于显示手册的分页程序</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (如 </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">less</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">more</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)。默认通常是 `less`。</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-S</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">章节列表</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 限制只在指定的章节中搜索（例如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-S</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 1:8`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 只在第1和第8章搜索）。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-a</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 显示所有匹配的手册页，而不仅仅是找到的第一个。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 显示调试信息，不显示手册内容。多次使用</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-dd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) 可增加详细信息。</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 模拟</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">whatis</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 命令的功能。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-k</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 模拟</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apropos</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 命令的功能。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-w</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 只显示手册页的</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">文件路径</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">，而不显示内容。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">troff</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 格式化手册页源文件，通常用于转换为其他格式（如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> PDF、PS）。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-p</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">预处理器列表</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定在运行</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">nroff/troff</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 之前使用的预处理器（如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 用于</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">eqn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 用于</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">tbl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">）。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#### `apropos` 和 `whatis` 命令选项</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 同上，显示调试信息。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">   `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">章节列表</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 同上，限制搜索章节。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 工作原理和注意事项</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#### 1. 本地化搜索 (Locale Specific Searches)</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 支持不同语言的手册页。其搜索行为由环境变量</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LC_ALL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">、</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LC_CTYPE</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 或</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LANG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">（按此顺序，取第一个有值的变量）控制。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">如果设置了本地化环境，</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 会按以下优先级查找对应语言的手册目录：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">语言_国家.字符集</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">> </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">语言.字符集</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">> </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">en.字符集</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">> </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">默认的</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 目录。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">例如</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">，如果 </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">LC_ALL</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">ja_JP.UTF-8`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">，当查找</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 时，</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 可能会依次查找：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/usr/share/man/ja_JP.UTF-8/man1/ls.1.gz</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/usr/share/man/ja.UTF-8/man1/ls.1.gz</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/usr/share/man/en.UTF-8/man1/ls.1.gz</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/usr/share/man/man1/ls.1.gz</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 选项可以强制使用非本地化（通常是英文）的手册页。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#### 2. 显示特定文件</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">如果传递给</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的参数中包含斜杠</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)，它会被视为**文件路径**，`man` 将直接显示该文件的内容。例如：`man ./mymanpage.3`。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 环境变量</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANPATH</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 覆盖默认的手册页搜索路径。可以用冒号分隔多个路径。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANPAGER</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 指定用于显示手册页的分页程序。如果未设置，则使用 </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">PAGER</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 环境变量；如果</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">PAGER</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 也未设置，则默认使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">less</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANSECT</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 指定默认搜索的手册章节顺序，用冒号分隔。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANROFFSEQ</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 指定在格式化手册源文件时要运行的预处理器序列。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANWIDTH</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 设置显示手册页的宽度。如果设为 </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">tty</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 且输出到终端，则会使用终端的全宽。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">MANCOLOR</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 如果设置，则启用彩色输出。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">   本地化相关：</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LC_ALL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LC_CTYPE</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">LANG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 示例</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">1.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">查看</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">stat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 系统调用的手册</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (第2章)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stat</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">2.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">查看所有名为</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">stat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的手册页（可能分布在多个章节）**：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -a</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stat</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">3.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">搜索描述中包含</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "copy"</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 和</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "archive"</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 的手册页</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -k</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'copy.*archive'</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 或</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    apropos</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'copy.*archive'</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">4.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 作为分页器查看</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的手册</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (会一次性滚动到底)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -P</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> cat ls</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">5.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">仅找出</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 手册页的文件位置**：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -w</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ls</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">6.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">查找名为</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">printf</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的命令或函数的简要说明**：</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    whatis</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> printf</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # 或</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    man</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> printf</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 退出状态</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">0</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 成功。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">0</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: 发生错误。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 相关命令和文件</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">相关命令</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">：</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apropos(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">whatis(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mandoc(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">手册页格式化器</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">manpath(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">相关文件</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">：</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/etc/man.conf</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">系统配置文件</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/usr/local/etc/man.d/*.conf</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">本地配置文件</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">各章节介绍</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">：</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">intro(1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">intro(2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">intro(3</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 等，分别介绍了各章节的内容。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">简单来说：</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">man</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">名称</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 查手册，看详细用法。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">whatis</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">名称</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 快速知道这个命令/函数是干什么的。</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">   **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apropos</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">关键词</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> - 当你记不清完整命令名时，用它根据功能描述来查找相关命令。</span></span></code></pre>
+</div><blockquote>
+<p>一些非内置的命令，比如通过包管理apt/dkpg安装的一些指令也可</p>
+</blockquote>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --help</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "explain it with chinese"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">; } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> aichat</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Codex CLI 命令行工具详解</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">这是一个名为</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 的多功能命令行工具，主要用于与</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 代理进行交互。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">## 基本用法</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> [选项] [提示语]</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> [选项] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">命令</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> [参数]</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">如果没有指定子命令，所有选项将转发给交互式</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> CLI。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">## 主要命令</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 核心功能</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">exec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> e</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 非交互式运行</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Codex</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">review</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 非交互式运行代码审查</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">login</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 管理登录</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">logout</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 删除存储的认证凭证</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">resume</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 恢复之前的交互式会话（默认选择器，使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--last</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 继续最近的会话）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">fork</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 复刻之前的交互式会话（默认选择器，使用</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--last</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 复刻最近的会话）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 实验性功能</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">mcp</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [实验性] 将 Codex 作为 MCP 服务器运行并管理 MCP 服务器</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">mcp-server</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [实验性] 运行 Codex MCP 服务器（stdio 传输）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">app-server</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [实验性] 运行应用服务器或相关工具</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">cloud</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [实验性] 浏览 Codex Cloud 的任务并在本地应用更改</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 工具类</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">sandbox</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> debug</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 在</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 提供的沙箱中运行命令</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">apply</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> a</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 将</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 代理生成的最新差异作为</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apply`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> 应用到本地工作树</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">features</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 检查功能标志</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">completion</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 生成</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> shell</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 自动补全脚本</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> **</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">help</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">**</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 打印帮助信息</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">## 主要选项</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 配置相关</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-c,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --config</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">key=value</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 覆盖配置文件中的值（使用点路径如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">foo.bar.baz</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--enable</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">FEATURE</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 启用功能（可重复使用）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--disable</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">FEATURE</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 禁用功能（可重复使用）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-p,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --profile</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">CONFIG_PROFILE</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 使用配置文件中的配置预设</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 模型相关</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-m,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --model</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">MODEL</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定代理使用的模型</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--oss</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 便捷标志，选择本地开源模型提供者</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--local-provider</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">OSS_PROVIDER</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定本地提供者（lmstudio,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ollama</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 或</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ollama-chat）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 沙箱和执行控制</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-s,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --sandbox</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">SANDBOX_MODE</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 选择沙箱策略：</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">read-only</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 只读</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">workspace-write</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 工作区可写</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">danger-full-access</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 完全访问（危险）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-a,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --ask-for-approval</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">APPROVAL_POLICY</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 配置何时需要人工批准：</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">untrusted</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 仅运行"可信"命令（如</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ls,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> cat,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> sed）不询问</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">on-failure</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 所有命令都运行，仅在失败时询问</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">on-request</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 模型决定何时询问</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">never</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 从不询问</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--full-auto</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 便捷别名，用于低摩擦的沙箱自动执行</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--dangerously-bypass-approvals-and-sandbox</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 绕过所有确认提示，无沙箱执行（极度危险！）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 工作环境</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-C,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --cd</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">DIR</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 指定工作目录</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--search</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 启用实时网络搜索</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--add-dir</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">DIR</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 添加可写目录（除了主工作区）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-i,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --image</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">FILE</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 附加图像到初始提示（可多个）</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 界面和其他</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">--no-alt-screen</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 禁用备用屏幕模式（在终端多路复用器中很有用）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-h,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --help</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 打印帮助</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">-V,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --version</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> -</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 打印版本信息</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">## 使用示例</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">```</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 简单启动交互式会话</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 带初始提示启动</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "帮我优化这个代码"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 使用本地开源模型</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --oss</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 使用特定模型</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --model</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "o3"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 在工作区可写的沙箱中自动执行</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --full-auto</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 恢复最近的会话</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> resume </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">--last</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 应用最新的代码变更</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">codex</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apply</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">这个工具特别适合开发者在命令行环境中进行代码编写、审查和自动化任务，同时提供了多种安全控制选项来保护系统安全。</span></span></code></pre>
+</div>]]></description>
             <guid isPermaLink="false">Man</guid>
-            <pubDate>Wed, 13 Mar 2024 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 05 Jan 2026 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Linux Commands]]></title>
@@ -4217,6 +4453,8 @@ tar命令则与上两个不一样，tar的选项更加丰富，经常在linux的
             <title><![CDATA[Linux Shell Programing]]></title>
             <description><![CDATA[<h2 id="shell编程基础" tabindex="-1"><a id="shell">Shell编程基础</a> <a class="header-anchor" href="#shell编程基础" aria-label="Permalink to &quot;&lt;a id=&quot;shell&quot;&gt;Shell编程基础&lt;/a&gt;&quot;">&ZeroWidthSpace;</a></h2>
 <hr>
+<h3 id="all-in-one" tabindex="-1"><a id="all_in_one"> All in One </a> <a class="header-anchor" href="#all-in-one" aria-label="Permalink to &quot;&lt;a id=&quot;all_in_one&quot;&gt; All in One &lt;/a&gt;&quot;">&ZeroWidthSpace;</a></h3>
+<p><img src="/images/linux/shell.png" alt="shell png"></p>
 <h3 id="从第一行开始" tabindex="-1"><a id="from_first_line">从第一行开始</a> <a class="header-anchor" href="#从第一行开始" aria-label="Permalink to &quot;&lt;a id=&quot;from_first_line&quot;&gt;从第一行开始&lt;/a&gt;&quot;">&ZeroWidthSpace;</a></h3>
 <ul>
 <li>此行称为<a href="https://en.wikipedia.org/wiki/Shebang" target="_blank" rel="noreferrer">shebang</a> （sharp(#) + bang(!)的意思），指引操作系统运行文件</li>
@@ -7158,54 +7396,6 @@ $$</p>
             <pubDate>Sun, 08 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[C/C++ 初入C++]]></title>
-            <description><![CDATA[<h2 id="第一个c-程序" tabindex="-1">第一个C++程序 <a class="header-anchor" href="#第一个c-程序" aria-label="Permalink to &quot;第一个C++程序&quot;">&ZeroWidthSpace;</a></h2>
-<blockquote>
-<p>在之前的两文中，你已经理解了，C程序是如何编写、编译、执行的，C++作为其衍生和扩展，自然有与之不同的地方，但基本相似</p>
-</blockquote>
-<p>与C语言相似的，C++也封装了一个输入输出库<code>iostream</code>，并使用**命名空间（NameSpace）**来隔绝于开发者的自行函数封装</p>
-<div class="language-cpp vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">cpp</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// #include &#x3C;stdio.h></span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C++</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">using</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> namespace</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // 该行也可不写，但要在后续使用时，以std::func的方式显式地指明该函数来自命名空间std</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  cout</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">endl;</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // std::cout&#x3C;&#x3C;"Hello World"&#x3C;&#x3C;std::endl; //显式地指明</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>与之不同的是，C++使用g++、clang++等编译指令以区分于C语言</p>
-<h4 id="token与代码规范" tabindex="-1">Token与代码规范 <a class="header-anchor" href="#token与代码规范" aria-label="Permalink to &quot;Token与代码规范&quot;">&ZeroWidthSpace;</a></h4>
-<h5 id="token" tabindex="-1">Token <a class="header-anchor" href="#token" aria-label="Permalink to &quot;Token&quot;">&ZeroWidthSpace;</a></h5>
-<p>源代码中一行代码中最小的<strong>不可分割元素称为Token（标记）</strong>。</p>
-<p>因此通常情况，必须要以<strong>空格、制表符或回车</strong>分开两个不同的token以区分。空格、制表符和回车统称为<strong>空白</strong></p>
-<p>而有些字符（如括号、逗号等）是不需要使用空白分开的Token。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e41e48f245e70e00965fe1c092dda7c6.png" alt="Mermaid Diagram"></p>
-<h6 id="关键字" tabindex="-1">关键字 <a class="header-anchor" href="#关键字" aria-label="Permalink to &quot;关键字&quot;">&ZeroWidthSpace;</a></h6>
-<p>关键字是被保留的特殊的标识符，拥有固定的语法意义，即关键字无法被用作变量名、函数名亦或重定义。</p>
-<iframe 
-        src="https://cppreference.com/w/cpp/keywords.html"
-        width="100%"
-        height="60%"
-        ></iframe>
-<ul>
-<li><code>using</code>关键字用于指明使用的命名空间</li>
-<li><code>int</code>关键字用作于变量的类型声明，能够与其他关键字结合，如<code>short int</code>等</li>
-<li><code>void</code>关键字作为值集合为空的类型，它是不完整的类型，不能完整化。不允许有void类型的对象，但允许指向void的指针和返回void类型的函数，或被用于无参数函数的函数列表。即无法使用<code>void</code>创建一个变量或数组等。</li>
-</ul>
-<blockquote>
-<p><code>cout</code>和<code>endl</code>，二者是命名空间<code>std</code>下的标准输入输出流函数，并非关键字</p>
-</blockquote>
-<p>后续会<a href="./.html">详细展开</a></p>
-<h4 id="命名空间" tabindex="-1">命名空间 <a class="header-anchor" href="#命名空间" aria-label="Permalink to &quot;命名空间&quot;">&ZeroWidthSpace;</a></h4>
-<p>命名空间（NameSpace）是一种隔离不同开发者开发重名函数诞生的作用域声明。它将同一重名的函数区分在不同的命名空间下，从而防止在引用时出现错误。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-9ab44747466f872594a6d3f6d7f31640.png" alt="Mermaid Diagram"></p>
-<p>在上述的程序中即使用了命名空间<code>std</code>中的<code>cout</code>函数和<code>endl</code>函数，以输出字符和换行，准确的说是将字符流和换行插入到输出流中。</p>
-]]></description>
-            <guid isPermaLink="false">C/C++ 初入C++</guid>
-            <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[计算机的结构和发展]]></title>
             <description><![CDATA[<h2 id="计算机的结构和发展" tabindex="-1">计算机的结构和发展 <a class="header-anchor" href="#计算机的结构和发展" aria-label="Permalink to &quot;计算机的结构和发展&quot;">&ZeroWidthSpace;</a></h2>
 <h4 id="计算机的发展历程" tabindex="-1">计算机的发展历程 <a class="header-anchor" href="#计算机的发展历程" aria-label="Permalink to &quot;计算机的发展历程&quot;">&ZeroWidthSpace;</a></h4>
@@ -7253,8 +7443,28 @@ $$</p>
 <h5 id="冯诺伊曼机结构" tabindex="-1">冯诺伊曼机结构 <a class="header-anchor" href="#冯诺伊曼机结构" aria-label="Permalink to &quot;冯诺伊曼机结构&quot;">&ZeroWidthSpace;</a></h5>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Von_Neumann_Architecture.svg" alt="Von Neumann Architecture"></p>
 <h5 id="现代计算机结构" tabindex="-1">现代计算机结构 <a class="header-anchor" href="#现代计算机结构" aria-label="Permalink to &quot;现代计算机结构&quot;">&ZeroWidthSpace;</a></h5>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-29141f10ad22096d610465cda8347efd.png" alt="Mermaid Diagram"></p>
-<p>现代计算机的发展趋势是以存储为核心，这主要体现在以下几个方面：</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mindmap</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  root((主板))</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    CPU</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      控制单元</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      算术逻辑单元</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      寄存器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      主存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      辅助存储器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    输入设备</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      键盘</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      鼠标</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      ...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    输出设备</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      显示器</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      打印机</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      ...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      数据总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      地址总线</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      控制总线</span></span></code></pre>
+</div><p>现代计算机的发展趋势是以存储为核心，这主要体现在以下几个方面：</p>
 <ol>
 <li>
 <p><strong>大容量存储器</strong></p>
@@ -7286,98 +7496,109 @@ $$</p>
             <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[C/C++ 首次尝试]]></title>
-            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
+            <title><![CDATA[C/C++ 初入C++]]></title>
+            <description><![CDATA[<h2 id="第一个c-程序" tabindex="-1">第一个C++程序 <a class="header-anchor" href="#第一个c-程序" aria-label="Permalink to &quot;第一个C++程序&quot;">&ZeroWidthSpace;</a></h2>
 <blockquote>
-<p>编译程序是用来
-将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
+<p>在之前文中，你已经理解了，C程序是如何编写、编译、执行的，C++作为其衍生和扩展，自然有与之不同的地方，但基本相似</p>
 </blockquote>
-<h5 id="编译过程" tabindex="-1">编译过程 <a class="header-anchor" href="#编译过程" aria-label="Permalink to &quot;编译过程&quot;">&ZeroWidthSpace;</a></h5>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-9245a7739ac2c311cf0f689af77b7d11.png" alt="Mermaid Diagram"></p>
-<h5 id="下载安装" tabindex="-1">下载安装 <a class="header-anchor" href="#下载安装" aria-label="Permalink to &quot;下载安装&quot;">&ZeroWidthSpace;</a></h5>
-<blockquote>
-<p>任选一种你喜欢的编译工具</p>
-</blockquote>
-<h6 id="gcc-gnu-compiler-collection" tabindex="-1">GCC（GNU Compiler Collection） <a class="header-anchor" href="#gcc-gnu-compiler-collection" aria-label="Permalink to &quot;GCC（GNU Compiler Collection）&quot;">&ZeroWidthSpace;</a></h6>
-<blockquote>
-<p>开源免费多平台的编译工具</p>
-</blockquote>
-<ul>
-<li>Linux：</li>
-</ul>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Ubuntu/Debian</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> g++</span></span>
+<p>与C语言相似的，C++也封装了一个输入输出库<code>iostream</code>，并使用**命名空间（NameSpace）**来隔绝于开发者的自行函数封装</p>
+<div class="language-cpp vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">cpp</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// #include &#x3C;stdio.h></span></span>
 <span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># CentOS/RHEL</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc-c++</span></span></code></pre>
-</div><ul>
-<li>MacOS:</li>
-</ul>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Xcode Command Line Tools</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">xcode-select</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --install</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 或使用Homebrew</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">brew</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span></span></code></pre>
-</div><ul>
-<li>Windows：</li>
-</ul>
-<p>MinGW-w64或MSYS2</p>
-<h6 id="clang-llvm" tabindex="-1"><a href="https://clang.llvm.org/get_started.html" target="_blank" rel="noreferrer">Clang/LLVM</a> <a class="header-anchor" href="#clang-llvm" aria-label="Permalink to &quot;[Clang/LLVM](https://clang.llvm.org/get_started.html)&quot;">&ZeroWidthSpace;</a></h6>
-<blockquote>
-<p>现代化设计、错误信息清晰、编译速度快</p>
-</blockquote>
-<ul>
-<li>Linux</li>
-</ul>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Ubuntu/Debian</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clang</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># CentOS/RHEL</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clang</span></span></code></pre>
-</div><ul>
-<li>MacOS</li>
-</ul>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 安装Xcode自带</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># homebrew</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">brew</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> llvm</span></span></code></pre>
-</div><h6 id="microsoft-visual-c-msvc" tabindex="-1">Microsoft Visual C++ （MSVC） <a class="header-anchor" href="#microsoft-visual-c-msvc" aria-label="Permalink to &quot;Microsoft Visual C++ （MSVC）&quot;">&ZeroWidthSpace;</a></h6>
-<blockquote>
-<p>Windows平台最佳兼容，微软官方支持</p>
-</blockquote>
-<p><a href="https://visualstudio.microsoft.com/" target="_blank" rel="noreferrer">Visual Stuido Community</a></p>
-<h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
-<ol>
-<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
-</ol>
-<blockquote>
-<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
-否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
-</blockquote>
-<ol start="2">
-<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
-</ol>
-<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// C++</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">using</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> namespace</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> // 该行也可不写，但要在后续使用时，以std::func的方式显式地指明该函数来自命名空间std</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">void</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  cout</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">endl;</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // std::cout&#x3C;&#x3C;"Hello World"&#x3C;&#x3C;std::endl; //显式地指明</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><ol start="3">
-<li>编译成可执行文件</li>
-</ol>
-<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC、Clang、VSCode run code等</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># clang  main.c -o main</span></span></code></pre>
-</div><p>现阶段可将该编译过程简化理解为：翻译。即编译器将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序。</p>
-<ol start="4">
-<li>执行测试</li>
-</ol>
-<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
-<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
-</div><p>🎉🎉🎉</p>
-<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
+</div><p>与之不同的是，C++使用g++、clang++等编译指令以区分于C语言</p>
+<h4 id="token与代码规范" tabindex="-1">Token与代码规范 <a class="header-anchor" href="#token与代码规范" aria-label="Permalink to &quot;Token与代码规范&quot;">&ZeroWidthSpace;</a></h4>
+<h5 id="token" tabindex="-1">Token <a class="header-anchor" href="#token" aria-label="Permalink to &quot;Token&quot;">&ZeroWidthSpace;</a></h5>
+<p>源代码中一行代码中最小的<strong>不可分割元素称为Token（标记）</strong>。</p>
+<p>因此通常情况，必须要以<strong>空格、制表符或回车</strong>分开两个不同的token以区分。空格、制表符和回车统称为<strong>空白</strong></p>
+<p>而有些字符（如括号、逗号等）是不需要使用空白分开的Token。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R[Token 分类] </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->A[关键字]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->B[标识符]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->C[字面量]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->D[运算符]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->E[分割符]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	R-->F[注  释]</span></span></code></pre>
+</div><h6 id="关键字" tabindex="-1">关键字 <a class="header-anchor" href="#关键字" aria-label="Permalink to &quot;关键字&quot;">&ZeroWidthSpace;</a></h6>
+<p>关键字是被保留的特殊的标识符，拥有固定的语法意义，即关键字无法被用作变量名、函数名亦或重定义。</p>
+<iframe 
+        src="https://cppreference.com/w/cpp/keywords.html"
+        width="100%"
+        height="60%"
+        ></iframe>
+<ul>
+<li><code>using</code>关键字用于指明使用的命名空间</li>
+<li><code>int</code>关键字用作于变量的类型声明，能够与其他关键字结合，如<code>short int</code>等</li>
+<li><code>void</code>关键字作为值集合为空的类型，它是不完整的类型，不能完整化。不允许有void类型的对象，但允许指向void的指针和返回void类型的函数，或被用于无参数函数的函数列表。即无法使用<code>void</code>创建一个变量或数组等。</li>
+</ul>
+<blockquote>
+<p><code>cout</code>和<code>endl</code>，二者是命名空间<code>std</code>下的标准输入输出流函数，并非关键字</p>
+</blockquote>
+<p>后续会<a href="./.html">详细展开</a></p>
+<h4 id="命名空间" tabindex="-1">命名空间 <a class="header-anchor" href="#命名空间" aria-label="Permalink to &quot;命名空间&quot;">&ZeroWidthSpace;</a></h4>
+<p>命名空间（NameSpace）是一种隔离不同开发者开发重名函数诞生的作用域声明。它将同一重名的函数区分在不同的命名空间下，从而防止在引用时出现错误。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph TD;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">subgraph 使用NameSpace声明;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph G[include lib];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	K</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	J</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph J[NameSpace B];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		H[func aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph K[NameSpace A];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		I[func aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph L[main函数];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		T[A::aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		P[B::aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		O[others]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	T-->K</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	P-->J</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style G fill:#f9f,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style T fill:#f0f</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style P fill:#aaf</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style H fill:#aaf</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style I fill:#f0f</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style L fill:#9f9,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">subgraph 未声明;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph D[include lib];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	F</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	E</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph F[NameSpace A];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		A[func aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph E[NameSpace B];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		B[func aa]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph C[main函数];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		aa</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		others</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	aa-->|?|E</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	aa-->|?|F</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style D fill:#f9f,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style C fill:#9f9,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style aa fill:#f0f</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style B fill:#f0f</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">style A fill:#f0f</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">end</span></span></code></pre>
+</div><p>在上述的程序中即使用了命名空间<code>std</code>中的<code>cout</code>函数和<code>endl</code>函数，以输出字符和换行，准确的说是将字符流和换行插入到输出流中。</p>
 ]]></description>
-            <guid isPermaLink="false">C/C++ 首次尝试</guid>
-            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="false">C/C++ 初入C++</guid>
+            <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[C/C++ 程序之惑]]></title>
@@ -7388,8 +7609,11 @@ $$</p>
 <p>在C语言中，通过井号<code>#</code>作为特定的标记，与代码实现部分（<code>void main</code>或<code>printf(...)</code>）明显不同。</p>
 <p>在这里，<code>#include</code>所做的操作，就是将后面跟的库，原封不动的**“复制粘贴”**到此程序。</p>
 <p>可以看到，我们导入了一个stdio.h文件即标准输入输出（STanDard I/O），由于使用了其标准输入输出库文件中的一个函数<code>printf()</code>作为展示结果到命令窗口。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-432061c46740ebe47f10b2fefb404943.png" alt="Mermaid Diagram"></p>
-<p>这里的<code>.h</code>表明这是一个头文件(header)，C语言允许你通过头文件的方式，将一些声明与具体实现分离，可在头文件中仅做声明，在<code>.c</code>文件中再具体实现。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A[#include &#x3C; stdio.h >]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">B[...... 与屏幕 键盘 鼠标 交互的库文件.......printf函数实现...........]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A -- "替换" -->B</span></span></code></pre>
+</div><p>这里的<code>.h</code>表明这是一个头文件(header)，C语言允许你通过头文件的方式，将一些声明与具体实现分离，可在头文件中仅做声明，在<code>.c</code>文件中再具体实现。</p>
 <ol start="2">
 <li><code>int main(){}</code></li>
 </ol>
@@ -7495,8 +7719,34 @@ $$</p>
 <h3 id="解释器" tabindex="-1">解释器 <a class="header-anchor" href="#解释器" aria-label="Permalink to &quot;解释器&quot;">&ZeroWidthSpace;</a></h3>
 <p>当打开cmd、powershell窗口或使用类Unix终端时，背后实际运行了一个cmd.exe/pwsh.exe/shell解释程序。</p>
 <p>它负责接受给定的输入命令及参数，根据内置或下载的二进制程序，查询命令的存在性（合法性），执行相应的二进制程序并响应输出。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-cc63ded227f3655386964cdc8f224898.png" alt="Mermaid Diagram"></p>
-<p>这个过程看似是连续的、不间断的，但机器并不是在接收到你的命令后连续地执行的，机器可能还并发（在极短时间内、ms级切换）的执行图形界面渲染等程序。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">flowchart TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A[用户] -->|下一次输入命令| B[命令行窗口]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    subgraph 解释器处理流程</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B --> C{解释器程序}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|Windows| D[cmd.exe或pwsh.exe]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|Unix/Linux| E[bash/zsh/sh等]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    D --> F[命令解析]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    E --> F</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> G{命令类型判断}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    G -->|内置命令/builtin| H[直接执行内置功能]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    G -->|外部命令| I[查找命令位置]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    I --> J{路径搜索}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    J -->|在PATH中找到| K[加载外部程序]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    J -->|未找到| L[显示错误: 命令未找到]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    K --> M[执行程序并传递参数]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    H --> N[处理命令结果]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    M --> N</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    L --> N</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    N --> O[输出结果]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    O --> A</span></span></code></pre>
+</div><p>这个过程看似是连续的、不间断的，但机器并不是在接收到你的命令后连续地执行的，机器可能还并发（在极短时间内、ms级切换）的执行图形界面渲染等程序。</p>
 <p>因此，其能理解并执行输入的<code>gcc main.c -o main</code>命令</p>
 <h3 id="编译过程" tabindex="-1">编译过程 <a class="header-anchor" href="#编译过程" aria-label="Permalink to &quot;编译过程&quot;">&ZeroWidthSpace;</a></h3>
 <p>gcc把预编译和编译合并为一个步骤，对于C使用<em><strong>cc1</strong></em>指令完成，C++则使用<em><strong>cc1plus</strong></em>，gcc是对后台程序的包装，其根据不同参数调用cc1、as、ld（预编译、汇编、链接）</p>
@@ -7519,20 +7769,95 @@ $$</p>
 </blockquote>
 <h4 id="编译" tabindex="-1">编译 <a class="header-anchor" href="#编译" aria-label="Permalink to &quot;编译&quot;">&ZeroWidthSpace;</a></h4>
 <p>将预编译后产生的<code>.i</code>，<code>.ii</code>文件进行一系列处理后，生成汇编代码</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-68a013279a3d1857f73cc6ec2e4bd61c.png" alt="Mermaid Diagram"></p>
-<h5 id="词法分析" tabindex="-1">词法分析 <a class="header-anchor" href="#词法分析" aria-label="Permalink to &quot;词法分析&quot;">&ZeroWidthSpace;</a></h5>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	A[.i或.ii文件]-->B</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	subgraph 分析;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		B[词法分析]-->C[语法分析]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		C-->D[语义分析]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		D-->E[中间代码生成]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		E-->F[目标代码生成]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">		F-->G[目标代码优化]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	end;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">	G-->Z[汇编代码]</span></span></code></pre>
+</div><h5 id="词法分析" tabindex="-1">词法分析 <a class="header-anchor" href="#词法分析" aria-label="Permalink to &quot;词法分析&quot;">&ZeroWidthSpace;</a></h5>
 <p>利用类似于<em><strong>有限状态机</strong></em>的算法，将源码程序输入到扫描机中，将其中的<strong>字符序列划分成一系列标记（记号）</strong></p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e539e4bb3f1f460aeff0ec23246240e9.png" alt="Mermaid Diagram"></p>
-<p>词法分析产生的<strong>标记分类</strong>包含：关键字、标识符、字面量（数字、字符串）、特殊符号（加号、等号等等）</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A["源代码"] --> B["词法分析器"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B --> C["标记流"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T1["标记: #include"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T2["标记: &#x3C;stdio.h>"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T3["标记: int"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T4["标记: main"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T5["标记: ("]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T6["标记: )"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T7["标记: {"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T8["标记: printf"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T9["标记: ("]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T10["标记: \"Hello World!\\n\""]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T11["标记: )"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T12["标记: ;"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T13["标记: return"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T14["标记: 0"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T15["标记: ;"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C --> T16["标记: }"]</span></span></code></pre>
+</div><p>词法分析产生的<strong>标记分类</strong>包含：关键字、标识符、字面量（数字、字符串）、特殊符号（加号、等号等等）</p>
 <h5 id="语法分析" tabindex="-1">语法分析 <a class="header-anchor" href="#语法分析" aria-label="Permalink to &quot;语法分析&quot;">&ZeroWidthSpace;</a></h5>
 <p>语法分析器对词法分析器产生的标记，进行语法分析，产生语法树，如下。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-b40c420b0e92901745907dea6fd985f9.png" alt="Mermaid Diagram"></p>
-<p>与此同时，运算符优先级就确定了下来，如果表达式出现不合法（括号不匹配、表达式缺少操作等），编译器就会报错并返回相应报错信息，即只完成对表达式<strong>语法层面</strong>分析。</p>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P["标记"] --> I["包含指令: #include &#x3C;stdio.h>"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P --> F["函数定义"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> RT["返回类型: int"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> N["函数名: main"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> PL["参数列表: ()"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> FB["函数体: {...}"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FB --> S1["语句1: printf(...)"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FB --> S2["语句2: return 0;"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S1 --> FC["函数调用"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FC --> FN["函数名: printf"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    FC --> A["参数: \"Hello World!\\n\""]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S2 --> RV["返回值: 0"]</span></span></code></pre>
+</div><p>与此同时，运算符优先级就确定了下来，如果表达式出现不合法（括号不匹配、表达式缺少操作等），编译器就会报错并返回相应报错信息，即只完成对表达式<strong>语法层面</strong>分析。</p>
 <h5 id="语义分析" tabindex="-1">语义分析 <a class="header-anchor" href="#语义分析" aria-label="Permalink to &quot;语义分析&quot;">&ZeroWidthSpace;</a></h5>
 <p>对<strong>表达式是否有意义</strong>的判断，分析的是静态语义（编译时即可分析）。相应的动态语义需要在运行期才能确定。</p>
 <p>静态语义通常包括：<strong>声明和类型的匹配，类型的转换</strong>。例如：不合法的类型转换或赋值就由语义分析器检出。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-ba1e025871779279cca3446a16a1949d.png" alt="Mermaid Diagram"></p>
-<h5 id="中间代码生成及优化" tabindex="-1">中间代码生成及优化 <a class="header-anchor" href="#中间代码生成及优化" aria-label="Permalink to &quot;中间代码生成及优化&quot;">&ZeroWidthSpace;</a></h5>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">flowchart TD</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    P["程序"] --> SB["符号表构建"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    SB --> S1["添加符号: main</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    类型: 函数</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    返回值: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    参数: 无"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    SB --> S2["验证符号: printf</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    类型: 外部函数</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    库: stdio.h"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S1 --> C1["检查1: main函数的返回类型</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    预期: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    实际: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    S2 --> C2["检查2: printf调用</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    参数类型: 字符串常量</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C1 --> C3["检查3: return语句</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    函数返回类型: int</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    返回表达式类型: int常量(0)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    结果: 类型匹配"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C2 --> V1["验证通过"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C3 --> V2["验证通过"]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    V1 --> F["最终检查: 所有路径都有返回值"]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    V2 --> F</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> R["结果: 程序语义正确"]</span></span></code></pre>
+</div><h5 id="中间代码生成及优化" tabindex="-1">中间代码生成及优化 <a class="header-anchor" href="#中间代码生成及优化" aria-label="Permalink to &quot;中间代码生成及优化&quot;">&ZeroWidthSpace;</a></h5>
 <p>这里的优化是源代码级别的一个优化过程，源码优化器会将整个语法树转换为中间代码（语法树的顺序表示），十分接近目标代码，而优化就是将语法树的可优化的子树替换为一个优化后的节点。</p>
 <p>中间代码具有多种类型，最常见的是**“三地址码”<strong>和</strong>“P-代码”**</p>
 <ul>
@@ -7553,12 +7878,125 @@ $$</p>
 <h4 id="汇编" tabindex="-1">汇编 <a class="header-anchor" href="#汇编" aria-label="Permalink to &quot;汇编&quot;">&ZeroWidthSpace;</a></h4>
 <p>汇编代码与机器指令是一一对应的，如下，通过as将汇编码一一翻译成机器码，产生<code>.o</code>或<code>.obj</code>文件</p>
 <p>但，变量和数组等类似二次寻址的操作的地址仍没有确定，因此需要链接器将其构建成一个完整程序。</p>
-<p><img src="https://chenpeel.github.io/mermaid-images/mermaid-e1b1e3e71ad840ab086aa6d88662de39.png" alt="Mermaid Diagram"></p>
-<h4 id="链接" tabindex="-1">链接 <a class="header-anchor" href="#链接" aria-label="Permalink to &quot;链接&quot;">&ZeroWidthSpace;</a></h4>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">A["mov 10 %eax"] --> B[010010100010100100101100]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">C['inc'] --> D[100100000110000000010001]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">E[...] --> F[010.........................................]</span></span></code></pre>
+</div><h4 id="链接" tabindex="-1">链接 <a class="header-anchor" href="#链接" aria-label="Permalink to &quot;链接&quot;">&ZeroWidthSpace;</a></h4>
 <p>链接程序ld 将生成的汇编代码与引入的库文件合并，生成最终可执行程序。</p>
 ]]></description>
             <guid isPermaLink="false">C/C++ 程序之惑</guid>
             <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[C/C++ 首次尝试]]></title>
+            <description><![CDATA[<h2 id="安装编译程序" tabindex="-1">安装编译程序 <a class="header-anchor" href="#安装编译程序" aria-label="Permalink to &quot;安装编译程序&quot;">&ZeroWidthSpace;</a></h2>
+<blockquote>
+<p>编译程序是用来
+将人类所写的可读程序 编译成（翻译成）计算机能够理解并执行的二进制程序</p>
+</blockquote>
+<h5 id="编译过程" tabindex="-1">编译过程 <a class="header-anchor" href="#编译过程" aria-label="Permalink to &quot;编译过程&quot;">&ZeroWidthSpace;</a></h5>
+<div class="language-mermaid vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">mermaid</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">graph LR;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    A[编写的main.c程序] --> B[读取源文件]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    subgraph 编译程序工作</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    B -->|main.c| C[预编译]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    C -->|main.i| D[编译]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    D -->|main.s| E[汇编]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    E -->|main.o| F[链接]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    end</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    F --> G[可执行程序main.exe / main]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style A fill:#f9f,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style B fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style C fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style D fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style E fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style F fill:#bbf,stroke:#333,stroke-width:2px;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    style G fill:#f9f,stroke:#333,stroke-width:2px;</span></span></code></pre>
+</div><h5 id="下载安装" tabindex="-1">下载安装 <a class="header-anchor" href="#下载安装" aria-label="Permalink to &quot;下载安装&quot;">&ZeroWidthSpace;</a></h5>
+<blockquote>
+<p>任选一种你喜欢的编译工具</p>
+</blockquote>
+<h6 id="gcc-gnu-compiler-collection" tabindex="-1">GCC（GNU Compiler Collection） <a class="header-anchor" href="#gcc-gnu-compiler-collection" aria-label="Permalink to &quot;GCC（GNU Compiler Collection）&quot;">&ZeroWidthSpace;</a></h6>
+<blockquote>
+<p>开源免费多平台的编译工具</p>
+</blockquote>
+<ul>
+<li>Linux：</li>
+</ul>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Ubuntu/Debian</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> g++</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># CentOS/RHEL</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc-c++</span></span></code></pre>
+</div><ul>
+<li>MacOS:</li>
+</ul>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Xcode Command Line Tools</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">xcode-select</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --install</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 或使用Homebrew</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">brew</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gcc</span></span></code></pre>
+</div><ul>
+<li>Windows：</li>
+</ul>
+<p>MinGW-w64或MSYS2</p>
+<h6 id="clang-llvm" tabindex="-1"><a href="https://clang.llvm.org/get_started.html" target="_blank" rel="noreferrer">Clang/LLVM</a> <a class="header-anchor" href="#clang-llvm" aria-label="Permalink to &quot;[Clang/LLVM](https://clang.llvm.org/get_started.html)&quot;">&ZeroWidthSpace;</a></h6>
+<blockquote>
+<p>现代化设计、错误信息清晰、编译速度快</p>
+</blockquote>
+<ul>
+<li>Linux</li>
+</ul>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Ubuntu/Debian</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clang</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># CentOS/RHEL</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> yum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clang</span></span></code></pre>
+</div><ul>
+<li>MacOS</li>
+</ul>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 安装Xcode自带</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># homebrew</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">brew</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> llvm</span></span></code></pre>
+</div><h6 id="microsoft-visual-c-msvc" tabindex="-1">Microsoft Visual C++ （MSVC） <a class="header-anchor" href="#microsoft-visual-c-msvc" aria-label="Permalink to &quot;Microsoft Visual C++ （MSVC）&quot;">&ZeroWidthSpace;</a></h6>
+<blockquote>
+<p>Windows平台最佳兼容，微软官方支持</p>
+</blockquote>
+<p><a href="https://visualstudio.microsoft.com/" target="_blank" rel="noreferrer">Visual Stuido Community</a></p>
+<h2 id="写一个程序" tabindex="-1">写一个程序 <a class="header-anchor" href="#写一个程序" aria-label="Permalink to &quot;写一个程序&quot;">&ZeroWidthSpace;</a></h2>
+<ol>
+<li>创建一个新文件，将其文件名命名为<code>main.c</code></li>
+</ol>
+<blockquote>
+<p>注意⚠️ 一些 Windows 会默认隐藏后缀，须自行打开显示后缀
+否则可能会命名为<code>main.c.txt</code>，<code>.txt</code>被隐藏</p>
+</blockquote>
+<ol start="2">
+<li>任选一个编辑器，手动键入如下代码并<em>保存</em>（<strong>键盘英文模式</strong>）</li>
+</ol>
+<div class="language-c vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">#include</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> &#x3C;stdio.h></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">int</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(){</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    printf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Hello World!</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  	return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+</div><ol start="3">
+<li>编译成可执行文件</li>
+</ol>
+<p>使用任何你喜欢的方式来将<code>main.c</code>编译，如GCC、Clang、VSCode run code等</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">gcc</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main.c</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># clang  main.c -o main</span></span></code></pre>
+</div><p>现阶段可将该编译过程简化理解为：翻译。即编译器将<code>main.c</code>中人类可理解的字符的内容，翻译成机器可执行的二进制机器码，并在同级目录产生一个可执行程序。</p>
+<ol start="4">
+<li>执行测试</li>
+</ol>
+<p>在使用代码编辑器运行，会直接隐藏可执行程序，默认直接执行，而通过gcc编译则须手动点击或使用命令行</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./main</span></span></code></pre>
+</div><p>🎉🎉🎉</p>
+<p>这样就成功完成了对第一个C程序的编写、编译、执行。</p>
+]]></description>
+            <guid isPermaLink="false">C/C++ 首次尝试</guid>
+            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

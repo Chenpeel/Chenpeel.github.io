@@ -1,3 +1,7 @@
+---
+skills_cloud:
+  - Web
+---
 
 <h1>Web前端</h1>
 <br>

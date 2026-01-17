@@ -3,6 +3,8 @@ title: 五笔输入法
 date: 2023-10-08
 category: Tools
 published: true
+skills_cloud:
+  - 五笔
 ---
 
 # 五笔输入法

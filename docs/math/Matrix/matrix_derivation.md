@@ -3,6 +3,9 @@ title: Matrix Derivation
 date: 2023-12-25
 category: Math
 published: true
+skills_cloud:
+  - 矩阵
+  - 线性代数
 ---
 
 # 矩阵求导

@@ -3,7 +3,6 @@ import mermaid from "mermaid";
 import mermaidPlugin from "./theme/plugins/mermaidPlugin.ts";
 import markdownItTaskLists from "markdown-it-task-lists";
 import { sidebar } from "./sidebar.mts";
-import lanternPlugin from "./theme/plugins/lanternPlugin.ts";
 // RSS will be handled in the buildEnd hook
 import fs from "fs";
 import path from "path";
@@ -48,7 +47,6 @@ export default defineConfig({
         });
         `,
     ],
-    ["link", { rel: "stylesheet", href: "./theme/css/lantern.css" }],
   ],
 
   themeConfig: {
@@ -83,9 +81,6 @@ export default defineConfig({
       copyright:
         'Copyright © 2025-present <a href="https://github.com/chenpeel">Chenpeel</a>',
     },
-  },
-  vite: {
-    plugins: [lanternPlugin()],
   },
   buildEnd: async (siteConfig) => {
     try {

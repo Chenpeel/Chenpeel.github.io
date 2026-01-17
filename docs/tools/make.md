@@ -3,6 +3,8 @@ title: Make
 date: 2023-11-07
 category: Tools
 published: false
+skills_cloud:
+  - Makefile
 ---
 
 
@@ -40,4 +42,3 @@ published: false
     <a href="https://github.com/seisman/how-to-write-makefile">How-to-Write-Makefile</a>
   </div>
 </div>
-

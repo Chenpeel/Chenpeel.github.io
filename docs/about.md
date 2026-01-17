@@ -1,3 +1,8 @@
+---
+title: About
+skills_cloud: false
+---
+
 <div>
     <h2 class="header"><span class="ring ring-2"></span>努力撰写</h2>
     <div class="card" >
@@ -44,72 +49,7 @@
 
 <div>
     <h2 class="header"><span class="ring ring-3"></span> Skills </h2>
-    <div class="skillbox" style="
-        border: 2px solid #0;
-        padding: 2%;
-        margin: 0 auto;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-    ">
-        <div class="skillbar" style="">
-            <div class="skillbar-title" style="
-                background: linear-gradient(
-                    to right,
-                    #ff0066 0%,
-                    #ff00cc 100%
-                );
-                width: 50%;
-                border-radius: 10px;
-            ">
-                <span>C++ 50%</span>
-            </div>
-        </div>
-        <br>
-        <div class="skillbar">
-            <div class="skillbar-title" style="
-                background: linear-gradient(
-                    to right,
-                    #ffeb3b 0%,
-                    #fff176 100%
-                );
-                width: 55%;
-                border-radius: 10px;
-            ">
-                <span>数据结构与算法 55%</span>
-            </div>
-        </div>
-        <br>
-        <div class="skillbar">
-            <div class="skillbar-title" style="
-                background: linear-gradient(
-                    to right,
-                    #728942 0%,
-                    #701002 100%
-                );
-                width: 40%;
-                border-radius: 10px;
-            ">
-                <span>Python 40%</span>
-            </div>
-        </div>
-        <br>
-        <div class="skillbar">
-            <div class="skillbar-title" style="
-                background: linear-gradient(
-                    to right,
-                    #3bf2ff 0%,
-                    #7681ff 100%
-                );
-                width: 33%;
-                border-radius: 10px;
-            ">
-                <span>机器学习 33%</span>
-            </div>
-        </div>
-        <div style="clear:both"></div>
-    </div>
+    <SkillsCloud />
 </div>
 <div>
     <h2 class="header"><span class="ring ring-1"> </span>Music</h2>

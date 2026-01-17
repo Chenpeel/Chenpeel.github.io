@@ -3,6 +3,8 @@ title: Vim Basic
 date: 2023-09-19
 category: Tools
 published: true
+skills_cloud:
+  - Vim
 
 ---
 

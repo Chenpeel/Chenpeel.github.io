@@ -3,6 +3,8 @@ title: Introduce AI
 date: 2024-04-29
 category: CS
 published: true
+skills_cloud:
+  - AI
 ---
 
 # 人工智能 (AI)

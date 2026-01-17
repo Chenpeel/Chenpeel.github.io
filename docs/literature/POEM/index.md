@@ -3,6 +3,8 @@ title: 《诗经》
 date: 2024-06-01
 category: Literature
 published: true
+skills_cloud:
+  - 诗经
 ---
 
 <h1 class="article-title"> 《诗经》 </h1>

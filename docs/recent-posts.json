@@ -1,8 +1,13 @@
 [
   {
+    "title": "Man",
+    "date": "2026-01-05",
+    "path": "/cs/linux/0x00"
+  },
+  {
     "title": "C/C++ 初入C++",
     "date": "2025-08-29",
-    "path": "/cs/basic/c_cpp/0x02"
+    "path": "/cs/basic/c_cpp/0x7d"
   },
   {
     "title": "C/C++ 程序之惑",
@@ -23,10 +28,5 @@
     "title": "逻辑推理",
     "date": "2024-08-15",
     "path": "/math/LR/index"
-  },
-  {
-    "title": "《兔罝》",
-    "date": "2024-06-09",
-    "path": "/literature/POEM/兔罝"
   }
 ]

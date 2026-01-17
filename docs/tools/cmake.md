@@ -3,6 +3,8 @@ title: CMake
 date: 2023-09-22
 category: Tools
 published: true
+skills_cloud:
+  - CMake
 ---
 
 # CMake

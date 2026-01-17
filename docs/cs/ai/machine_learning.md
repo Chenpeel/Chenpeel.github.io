@@ -3,6 +3,8 @@ title: ML推导
 date: 2024-04-24
 category: CS
 published: true
+skills_cloud:
+  - 机器学习
 ---
 
 
