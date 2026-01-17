@@ -19,6 +19,7 @@ export default defineConfig({
     math: true,
     config: (md) => {
       md.use(mermaidPlugin);
+      md.use(markdownItTaskLists, { enabled: true });
     },
   },
   head: [
