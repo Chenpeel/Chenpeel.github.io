@@ -6,43 +6,41 @@
 
 ###### 定义
 
-对于一个矩阵$A_{m \times n}$可以将其进行奇异值分解，即$A = U \Sigma V^T$ 
+对于一个矩阵$A_{m \times n}$，存在正交矩阵$U \in \mathbb{R}^{m \times m}$、$V \in \mathbb{R}^{n \times n}$与对角矩阵$\Sigma \in \mathbb{R}^{m \times n}$，使得
 
-在一般情况下$U$ 为$m \times m$ 的[正交矩阵](https://zh.wikipedia.org/wiki/%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5)（[Orthogonal Matrix](https://en.wikipedia.org/wiki/Orthogonal_matrix)） ， $\Sigma$ 为$m \times n$的[对角矩阵](https://zh.wikipedia.org/zh-cn/%E5%B0%8D%E8%A7%92%E7%9F%A9%E9%99%A3)（[Diagonal Matrix](https://en.wikipedia.org/wiki/Diagonal_matrix)），其对角线上的元素称为奇异值，$V^T$为$n\times n$ 的正交矩阵的转置。
+$$A = U \Sigma V^T$$
+
+$U$、$V$分别为左/右奇异向量矩阵，$\Sigma$的对角元素为奇异值，记为
+$\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_p \ge 0$，其中$p=\min(m,n)$，其余位置为$0$。
 
 
 
 ###### 原理
 
-矩阵运算的本质在于对一个向量空间映射到另一个向量空间，实际上也就是对于坐标轴的变换（大小、方向）实现的。
+矩阵代表线性变换，会把单位球映射为椭球。SVD 将这个变换分解为：
 
-那么对于矩阵$A$，可以认为，其是对于单位阵$E$进行的一次线性变换
+1. 先用$V^T$对输入空间做旋转或反射；
+2. 再用$\Sigma$沿正交轴做缩放；
+3. 最后用$U$对输出空间做旋转或反射。
 
-那么这个线性变换过程就可以分解为：旋转、拉伸、旋转。
+从单位球开始，依次施加 $V^T$ 旋转、$\Sigma$ 缩放、$U$ 旋转。下图用二维单位圆示意（悬浮显示进度条，可拖动）： 
 
-换一个角度，对于一个线性变换$A$再进行一次旋转，就可以得到与之线性变换过程不同的、变换结果却相同的线性变换过程： $AEV =UE\Sigma$ 我们再对其中的$U 、\Sigma、V$（对应旋转、拉伸、旋转）加以约束，即可得到对$A$的奇异值分解
+<SvdScrubber />
+
+| 单位圆 | 旋转 $V^T$ |
+| --- | --- |
+| ![单位圆](/images/math/svd/svd-3d-1-unit.png) | ![旋转 V^T](/images/math/svd/svd-3d-2-rotate-vt.png) |
+| 缩放 $\Sigma$ | 旋转 $U$（A） |
+| ![缩放 Sigma](/images/math/svd/svd-3d-3-scale-sigma.png) | ![旋转 U（A）](/images/math/svd/svd-3d-4-rotate-u.png) |
+
 
 ###### 内涵
 
-对于上述的线性变换，我们关注的就是在变换过程中所未改变的一组单位向量，即[标准正交基](https://zh.wikipedia.org/zh-cn/%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA)（[Orthonormal basis](https://en.wikipedia.org/wiki/Orthonormal_basis)），这组基底在变换前后仍然正交。那么，谁是这组变换过程的标准正交基呢
+右奇异向量$v_i$（$V$的列）与左奇异向量$u_i$（$U$的列）构成两组标准正交基，使得
 
-自然是两次旋转，对于$E$进行的线性变换中，旋转，实际上是对标准正交基的旋转：
+$$A v_i = \sigma_i u_i \quad (i=1,\ldots,p)$$
 
-$AVE = E U \Sigma$
-
-
-
-不妨在二维空间中想象：
-
-原始标准正交基：$V = \begin{bmatrix} \vec v_1  \quad \vec v_2\end{bmatrix}$ 
-
-变换标准正交基：$U = \begin{bmatrix} \vec u_1  \quad  \vec u_2\end{bmatrix}$
-
-矩阵$A$即是对于标准正交基的一次线性变换，换言之，是对两个相互垂直的一维向量的一次线性变换
-
-$AA^T \quad\& \quad A^TA$的特征值分别为$\lambda 、 \mu$ 对应的奇异值即为（$\sqrt{特征值}$）：$\Sigma = \begin{bmatrix} \sigma_1 \quad 0 \\ 0\quad \sigma_2 \end{bmatrix}$ ，其中$\sigma_1=\sqrt{\lambda},\sigma_2 = \sqrt{\mu}$ 
-
-
+也就是说，$A$在这两组基之间只做沿各轴的缩放。
 
 
 
@@ -50,18 +48,44 @@ $AA^T \quad\& \quad A^TA$的特征值分别为$\lambda 、 \mu$ 对应的奇异�
 
 $A_{SVD} = U \Sigma V^T$ 
 
-$AA^T$ 特征值$\mu_1,...,\mu_m$
-$A^TA$特征值$\lambda_1,...,\lambda_n$
+$A^T A$与$A A^T$的非零特征值相同，均为$\sigma_i^2$：
 
-$U = AA^T_{特征向量}，V^T = A^TA_{特征向量转置}$
+$$A^T A v_i = \sigma_i^2 v_i,\quad A A^T u_i = \sigma_i^2 u_i$$
 
-$\Sigma = \begin{bmatrix}  \sigma_1 & 0 & \ldots & 0 \\  0 & \sigma_2 & \ldots & 0 \\  \vdots & \vdots & \ddots & \vdots \\  0 & 0 & \ldots & \sigma_p \\  0 & 0 & \ldots & 0 \end{bmatrix}$，其中$p=\min(m,n)$
+$V$由$A^T A$的特征向量组成，$U$由$A A^T$的特征向量组成。
 
-因此在矩阵运算中就可以自然的算出$A^{-1}$而不用考虑矩阵$A$是否可逆
+$\Sigma = \begin{bmatrix}  \sigma_1 & 0 & \ldots & 0 \\  0 & \sigma_2 & \ldots & 0 \\  \vdots & \vdots & \ddots & \vdots \\  0 & 0 & \ldots & \sigma_p \\  0 & 0 & \ldots & 0 \end{bmatrix}$，其中$p=\min(m,n)$。
 
-
-
+若$A$可逆（$m=n$且满秩），则$A^{-1} = V \Sigma^{-1} U^T$；一般情形可用伪逆$A^+ = V \Sigma^+ U^T$。
 
 
 
 
+
+###### 应用
+
+对于$X=\begin{bmatrix}1&1 \\ 2&2\end{bmatrix},\quad Y=\begin{bmatrix}2&3\\4&5 \end{bmatrix}$
+
+有 $X A = Y$，求 $A$。
+
+1. 易看出$X$的秩$\operatorname{rank}(X)=1$，不可逆，且列空间$\operatorname{Col}(X)=\mathrm{span}\{[1,2]^T\}$ 即该向量张成 $X$。
+
+2. 取一组 SVD：
+   $u_1=\frac{1}{\sqrt5}\begin{bmatrix}1\\2\end{bmatrix},\quad v_1=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\quad \sigma_1=\sqrt{10} \\ \\ X=\sigma_1 u_1 v_1^T$
+   
+3. 伪逆
+   $X^+ = v_1 \frac{1}{\sigma_1} u_1^T= \frac{1}{10}\begin{bmatrix}1&2\\1&2\end{bmatrix}$
+   
+4. 最小二乘解（使 $\|XA-Y\|_F$ 最小）为
+   $A = X^+ Y= \begin{bmatrix}1&1.3\\1&1.3\end{bmatrix}$
+   
+   对应
+   $XA=\begin{bmatrix}2&2.6\\4&5.2\end{bmatrix}$
+   
+5. $Y$ 的第一列 $[2,4]^T$ 在 $\operatorname{Col}(X)$ 中，存在无穷多精确解
+    （例如 $a_1=[1,1]^T + t[1,-1]^T$）；第二列 $[3,5]^T$ 不在
+    $\operatorname{Col}(X)$ 中，因此 $XA=Y$ 无精确解，只能用伪逆给出最小二乘解。
+
+因此：即使某些情况下，某个矩阵不存在逆矩阵，也可以通过$SVD$的方式实现求解
+
+> 这对于一些机器学习的矩阵运算求解非常方便，可以快速迭代的同时，不必考虑矩阵是否可逆
