@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+const skipDirs = new Set([".vitepress", "public", "node_modules", ".git", "gen"]);
+
 function getPosts(dir) {
   let posts = [];
 
@@ -11,6 +13,9 @@ function getPosts(dir) {
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
+      if (skipDirs.has(file)) {
+        return;
+      }
       // 递归遍历子目录
       posts = posts.concat(getPosts(filePath));
     } else if (stat.isFile() && file.endsWith(".md")) {

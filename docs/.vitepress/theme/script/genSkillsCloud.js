@@ -157,7 +157,7 @@ const displayMap = new Map([
   ["cmake", "CMake"],
   ["makefile", "Makefile"],
 ]);
-const skipDirs = new Set([".vitepress", "public", "node_modules", ".git"]);
+const skipDirs = new Set([".vitepress", "public", "node_modules", ".git", "gen"]);
 
 const tokenStore = new Map();
 const segmenter = new Intl.Segmenter("zh", { granularity: "word" });

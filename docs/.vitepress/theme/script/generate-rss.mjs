@@ -89,7 +89,8 @@ async function generateFeedItems() {
                 file === ".vitepress" ||
                 file === "node_modules" ||
                 file === "dist" ||
-                file === ".git"
+                file === ".git" ||
+                file === "gen"
               ) {
                 continue;
               }

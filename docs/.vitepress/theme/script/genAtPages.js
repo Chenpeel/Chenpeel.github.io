@@ -7,7 +7,7 @@ const outputPath = path.join(contentBase, "at-pages.json");
 const publicOutputPath = path.join(contentBase, "public", "at-pages.json");
 const distOutputPath = path.join(contentBase, ".vitepress", "dist", "at-pages.json");
 const MAX_CONTENT_CHARS = 1800;
-const skipDirs = new Set([".vitepress", "public", "node_modules", ".git"]);
+const skipDirs = new Set([".vitepress", "public", "node_modules", ".git", "gen"]);
 
 function extractTitle(content) {
   const match = content.match(/^#{1,3}\s+(.+)$/m);

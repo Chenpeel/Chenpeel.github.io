@@ -14,6 +14,7 @@ export default defineConfig({
   base: "/",
   lastUpdated: true,
   cleanUrls: true,
+  srcExclude: ["**/gen/**"],
   markdown: {
     lineNumbers: true,
     math: true,
