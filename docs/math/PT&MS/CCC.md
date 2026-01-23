@@ -3,6 +3,9 @@ title: 矩阵中的协方差、相关系数
 date: 2023-12-25
 category: Math
 published: true
+skills_cloud:
+  - 线性代数
+at: true
 ---
 
 # 协方差 & 相关系数
