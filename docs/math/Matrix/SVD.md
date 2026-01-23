@@ -2,9 +2,7 @@
 
 >  Singular  Value Decomposition
 
-
-
-###### 定义
+### 定义
 
 对于一个矩阵$A_{m \times n}$，存在正交矩阵$U \in \mathbb{R}^{m \times m}$、$V \in \mathbb{R}^{n \times n}$与对角矩阵$\Sigma \in \mathbb{R}^{m \times n}$，使得
 
@@ -15,7 +13,7 @@ $\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_p \ge 0$，其中$p=\min(m,n)$，�
 
 
 
-###### 原理
+### 原理
 
 矩阵代表线性变换，会把单位球映射为椭球。SVD 将这个变换分解为：
 
@@ -27,14 +25,8 @@ $\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_p \ge 0$，其中$p=\min(m,n)$，�
 
 <SvdScrubber />
 
-| 单位圆 | 旋转 $V^T$ |
-| --- | --- |
-| ![单位圆](/images/math/svd/svd-3d-1-unit.png) | ![旋转 V^T](/images/math/svd/svd-3d-2-rotate-vt.png) |
-| 缩放 $\Sigma$ | 旋转 $U$（A） |
-| ![缩放 Sigma](/images/math/svd/svd-3d-3-scale-sigma.png) | ![旋转 U（A）](/images/math/svd/svd-3d-4-rotate-u.png) |
 
-
-###### 内涵
+### 内涵
 
 右奇异向量$v_i$（$V$的列）与左奇异向量$u_i$（$U$的列）构成两组标准正交基，使得
 
@@ -44,7 +36,7 @@ $$A v_i = \sigma_i u_i \quad (i=1,\ldots,p)$$
 
 
 
-###### 结论
+### 结论
 
 $A_{SVD} = U \Sigma V^T$ 
 
@@ -62,7 +54,7 @@ $\Sigma = \begin{bmatrix}  \sigma_1 & 0 & \ldots & 0 \\  0 & \sigma_2 & \ldots &
 
 
 
-###### 应用
+### 应用
 
 对于$X=\begin{bmatrix}1&1 \\ 2&2\end{bmatrix},\quad Y=\begin{bmatrix}2&3\\4&5 \end{bmatrix}$
 
