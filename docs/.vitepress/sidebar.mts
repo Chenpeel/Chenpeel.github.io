@@ -195,7 +195,12 @@ export const sidebar = {
                 {
                     text: "概率论与数理统计",
                     collapsed: true,
-                    items: [{ text: "Cov&\\rho", link: "/math/PT&MS/CCC.md" }],
+                    items: [
+                        {
+                            text: "协方差与相关系数",
+                            link: "/math/PT&MS/CCC.md",
+                        },
+                    ],
                 },
                 {
                     text: "矩 阵",
