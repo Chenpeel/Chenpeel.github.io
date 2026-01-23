@@ -17,7 +17,7 @@ import NahidaLive2D from "./components/NahidaLive2D.vue";
 import NahidaChat from "./components/NahidaChat.vue";
 import Layout from "./Layout.vue";
 import SkillsCloud from "./components/SkillsCloud.vue";
-import SvdScrubber from "./components/SvdScrubber.vue";
+import ImageSequencePlayer from "./components/ImageSequencePlayer.vue";
 export default {
   extends: DefaultTheme,
   Layout,
@@ -26,6 +26,6 @@ export default {
     app.component("NahidaLive2D", NahidaLive2D);
     app.component("NahidaChat", NahidaChat);
     app.component("SkillsCloud", SkillsCloud);
-    app.component("SvdScrubber", SvdScrubber);
+    app.component("ImageSequencePlayer", ImageSequencePlayer);
   },
 };

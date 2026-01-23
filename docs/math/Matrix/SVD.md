@@ -23,7 +23,12 @@ $\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_p \ge 0$，其中$p=\min(m,n)$，�
 
 从单位球开始，依次施加 $V^T$ 旋转、$\Sigma$ 缩放、$U$ 旋转。下图用二维单位圆示意（悬浮显示进度条，可拖动）： 
 
-<SvdScrubber />
+<ImageSequencePlayer
+  :frame-count="60"
+  :fps="24"
+  path-prefix="/images/math/svd/frames/svd-3d-frame-"
+  aria-label="SVD transform timeline"
+/>
 
 
 ### 内涵

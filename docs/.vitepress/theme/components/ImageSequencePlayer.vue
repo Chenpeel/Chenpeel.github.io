@@ -1,17 +1,58 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { withBase } from "vitepress";
 
-const frameCount = 60;
-const fps = 24;
-const basePath = "/images/math/svd/frames/svd-3d-frame-";
-const pad = (value) => String(value).padStart(3, "0");
+const props = defineProps({
+  frameCount: {
+    type: Number,
+    required: true,
+  },
+  fps: {
+    type: Number,
+    default: 24,
+  },
+  pathPrefix: {
+    type: String,
+    required: true,
+  },
+  pathSuffix: {
+    type: String,
+    default: ".png",
+  },
+  padLength: {
+    type: Number,
+    default: 3,
+  },
+  maxWidth: {
+    type: String,
+    default: "520px",
+  },
+  accentColor: {
+    type: String,
+    default: "#00c2ff",
+  },
+  autoPlay: {
+    type: Boolean,
+    default: true,
+  },
+  ariaLabel: {
+    type: String,
+    default: "Image sequence timeline",
+  },
+});
+
+const pad = (value) => String(value).padStart(Math.max(1, props.padLength), "0");
+const maxFrameIndex = computed(() => Math.max(0, props.frameCount - 1));
+const rootStyle = computed(() => ({
+  "--sequence-player-max-width": props.maxWidth,
+  "--sequence-player-accent": props.accentColor,
+}));
 
 const canvasRef = ref(null);
 const frameIndex = ref(0);
 const scrubbing = ref(false);
 
-const images = new Array(frameCount);
+const images = new Array(props.frameCount);
 let ctx = null;
 let rafId = 0;
 let lastTime = 0;
@@ -51,7 +92,7 @@ const drawFrame = (index) => {
 };
 
 const startAnimation = () => {
-  if (rafId) {
+  if (!props.autoPlay || props.frameCount < 2 || rafId) {
     return;
   }
   lastTime = 0;
@@ -59,14 +100,18 @@ const startAnimation = () => {
 };
 
 const animate = (time) => {
+  if (props.frameCount < 2 || props.fps <= 0) {
+    rafId = window.requestAnimationFrame(animate);
+    return;
+  }
   if (!lastTime) {
     lastTime = time;
   }
-  const frameDuration = 1000 / fps;
+  const frameDuration = 1000 / props.fps;
   const delta = time - lastTime;
   if (!scrubbing.value && delta >= frameDuration) {
     const step = Math.floor(delta / frameDuration);
-    const nextIndex = (frameIndex.value + step) % frameCount;
+    const nextIndex = (frameIndex.value + step) % props.frameCount;
     if (drawFrame(nextIndex)) {
       frameIndex.value = nextIndex;
     }
@@ -76,7 +121,10 @@ const animate = (time) => {
 };
 
 const preloadImages = () => {
-  for (let i = 0; i < frameCount; i += 1) {
+  if (props.frameCount < 1) {
+    return;
+  }
+  for (let i = 0; i < props.frameCount; i += 1) {
     const img = new Image();
     img.decoding = "async";
     img.onload = () => {
@@ -85,12 +133,14 @@ const preloadImages = () => {
       if (i === 0) {
         drawFrame(0);
       }
-      startAnimation();
+      if (props.autoPlay) {
+        startAnimation();
+      }
     };
     img.onerror = () => {
       images[i] = null;
     };
-    img.src = withBase(`${basePath}${pad(i)}.png`);
+    img.src = withBase(`${props.pathPrefix}${pad(i)}${props.pathSuffix}`);
   }
 };
 
@@ -100,14 +150,14 @@ const onSeekStart = () => {
 
 const onSeekEnd = (event) => {
   scrubbing.value = false;
-  const value = Number(event.target.value);
+  const value = Math.min(maxFrameIndex.value, Math.max(0, Number(event.target.value)));
   frameIndex.value = value;
   drawFrame(value);
   lastTime = 0;
 };
 
 const onSeek = (event) => {
-  const value = Number(event.target.value);
+  const value = Math.min(maxFrameIndex.value, Math.max(0, Number(event.target.value)));
   frameIndex.value = value;
   drawFrame(value);
 };
@@ -128,17 +178,17 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="svd-player">
-    <canvas ref="canvasRef" class="svd-player__canvas" />
-    <div class="svd-player__controls">
+  <div class="sequence-player" :style="rootStyle">
+    <canvas ref="canvasRef" class="sequence-player__canvas" role="img" />
+    <div class="sequence-player__controls">
       <input
-        class="svd-player__range"
+        class="sequence-player__range"
         type="range"
         min="0"
-        :max="frameCount - 1"
+        :max="maxFrameIndex"
         step="1"
         :value="frameIndex"
-        aria-label="SVD transform timeline"
+        :aria-label="ariaLabel"
         @input="onSeek"
         @pointerdown="onSeekStart"
         @pointerup="onSeekEnd"
@@ -149,21 +199,21 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.svd-player {
-  width: min(520px, 100%);
+.sequence-player {
+  width: min(var(--sequence-player-max-width), 100%);
   margin: 12px auto;
   position: relative;
   background: transparent;
 }
 
-.svd-player__canvas {
+.sequence-player__canvas {
   width: 100%;
   height: auto;
   display: block;
   background: transparent;
 }
 
-.svd-player__controls {
+.sequence-player__controls {
   position: absolute;
   left: 10px;
   right: 10px;
@@ -176,21 +226,21 @@ onBeforeUnmount(() => {
   transition: opacity 0.2s ease;
 }
 
-.svd-player:hover .svd-player__controls,
-.svd-player:focus-within .svd-player__controls {
+.sequence-player:hover .sequence-player__controls,
+.sequence-player:focus-within .sequence-player__controls {
   opacity: 1;
   pointer-events: auto;
 }
 
 @media (hover: none) {
-  .svd-player__controls {
+  .sequence-player__controls {
     opacity: 1;
     pointer-events: auto;
   }
 }
 
-.svd-player__range {
+.sequence-player__range {
   width: 100%;
-  accent-color: #00c2ff;
+  accent-color: var(--sequence-player-accent);
 }
 </style>
