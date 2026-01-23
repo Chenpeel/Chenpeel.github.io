@@ -1,5 +1,5 @@
 ---
-title: SVD
+title: Matrix Derivation
 date: 2023-12-25
 category: Math
 published: true

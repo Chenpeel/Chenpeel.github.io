@@ -1,5 +1,5 @@
 ---
-title: Matrix Derivation
+title: SVD
 date: 2026-1-22
 category: Math
 published: true
