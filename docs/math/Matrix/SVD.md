@@ -1,3 +1,14 @@
+---
+title: Matrix Derivation
+date: 2026-1-22
+category: Math
+published: true
+skills_cloud:
+  - 矩阵
+  - 线性代数
+at: true
+---
+
 # 奇异值分解（SVD）
 
 >  Singular  Value Decomposition
