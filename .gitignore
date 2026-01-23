@@ -6,6 +6,13 @@
 cache
 dist
 
+# generated content
+docs/public/rss.xml
+docs/recent-posts.json
+docs/public/skills-cloud.json
+docs/at-pages.json
+docs/public/at-pages.json
+
 # push script
 format.sh
 update.sh
