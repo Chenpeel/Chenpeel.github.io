@@ -96,7 +96,7 @@ Turn on以后点击右上角开机，稍作等待即可开始操作这台GPU云�
 
     - 可以通过notebook的魔法指令来执行shell命令
 
-        ```notebook
+        ```bash
         %ls /kaggle/input/
         !ls /kaggle/input/
         ```
