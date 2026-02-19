@@ -81,7 +81,7 @@ export default defineConfig({
 
     footer: {
       copyright:
-        'Copyright © 2025-present <a href="https://github.com/chenpeel">Chenpeel</a>',
+        `Copyright © 2025-${new Date().getFullYear()} <a href="https://github.com/chenpeel">Chenpeel</a>`,
     },
   },
   buildEnd: async (siteConfig) => {
