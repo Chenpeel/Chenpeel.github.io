@@ -133,17 +133,17 @@ $$\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots \quad (|x
 | 被积函数 | 积分结果 |
 |---------|---------|
 | $x^n$（$n \ne -1$）| $\dfrac{x^{n+1}}{n+1} + C$ |
-| $\dfrac{1}{x}$ | $\ln|x| + C$ |
+| $\dfrac{1}{x}$ | $\ln\lvert x\rvert + C$ |
 | $e^x$ | $e^x + C$ |
 | $a^x$ | $\dfrac{a^x}{\ln a} + C$ |
 | $\ln x$ | $x\ln x -x +C$ |
 | $x\ln x$ | $\dfrac{x^2}{2} \ln x - \dfrac{x^2}{4} +C$ |
 | $\sin x$ | $-\cos x + C$ |
 | $\cos x$ | $\sin x + C$ |
-| $\sec{x}$ | $\ln{|\sec x + \tan x|} +C$ |
-| $\csc x$ | $\ln{|\csc x - \cot x |} + C$ |
-| $\tan x$ | $-\ln|\cos x| + C$ |
-| $\cot x$ | $\ln|\sin x| + C$ |
+| $\sec{x}$ | $\ln\lvert\sec x + \tan x\rvert +C$ |
+| $\csc x$ | $\ln\lvert\csc x - \cot x\rvert + C$ |
+| $\tan x$ | $-\ln\lvert\cos x\rvert + C$ |
+| $\cot x$ | $\ln\lvert\sin x\rvert + C$ |
 | $\sec^2 x$ | $\tan x + C$ |
 | $\csc^2 x$ | $-\cot x + C$ |
 | $\sec x \tan x$ | $\sec x + C$ |
@@ -155,11 +155,11 @@ $$\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots \quad (|x
 | $\arctan x$ | $x\arctan x + \ln {(1+x^2)} +C$ |
 | $\dfrac{1}{\sqrt{1-x^2}}$ | $\arcsin x + C$ |
 | $\dfrac{1}{1+x^2}$ | $\arctan x + C$ |
-| $\dfrac{1}{\sqrt{x^2 \pm a^2}}$ | $\ln\!\left|x + \sqrt{x^2 \pm a^2}\right| + C$ |
+| $\dfrac{1}{\sqrt{x^2 \pm a^2}}$ | $\ln\!\left\lvert x + \sqrt{x^2 \pm a^2}\right\rvert + C$ |
 | $\dfrac{1}{\sqrt{a^2-x^2}}$ | $\arcsin \dfrac{x}{a} + C$ |
 | $\dfrac{1}{a^2+x^2}$ | $\dfrac{1}{a} \arctan \dfrac{x}{a} + C$ |
-| $\dfrac{1}{a^2 - x^2}$ | $\dfrac{1}{2a} \ln \left|{\dfrac{x+a}{x-a}}\right| +C$ |
-| $\dfrac{1}{x^2 - a^2}$ | $\dfrac{1}{2a} \ln \left|{\dfrac{x-a}{x+a}}\right| +C$ |
+| $\dfrac{1}{a^2 - x^2}$ | $\dfrac{1}{2a} \ln \left\lvert{\dfrac{x+a}{x-a}}\right\rvert +C$ |
+| $\dfrac{1}{x^2 - a^2}$ | $\dfrac{1}{2a} \ln \left\lvert{\dfrac{x-a}{x+a}}\right\rvert +C$ |
 | $\sqrt{a^2-x^2}$ | $\dfrac{a^2}{2} \arcsin \dfrac{x}{a} + \dfrac{x}{2}\sqrt{a^2 -x^2} +C$ |
 | $\sqrt{a^2+x^2}$ | $\dfrac{a^2}{2} \ln {(x + \sqrt{x^2 + a^2})}  +\dfrac{x}{2}\sqrt{a^2 + x^2}+C$ |
 
