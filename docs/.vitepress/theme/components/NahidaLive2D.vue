@@ -1,5 +1,5 @@
 <template>
-    <div id="live2d-container" ref="containerRef" v-if="showLive2D" :style="containerStyle">
+    <div id="live2d-container" ref="containerRef" v-if="showLive2D && !isHidden" :style="containerStyle">
         <!-- Live2D模型容器 -->
         <div class="model-viewport" ref="modelViewport">
             <!-- Live2D Canvas将被挂载在这里 -->
@@ -42,9 +42,17 @@
                 </button>
             </div>
 
-            <div class="close-button" @click.stop="closeMenu">关闭</div>
+            <div class="menu-actions">
+                <div class="close-button" @click.stop="closeMenu">关闭菜单</div>
+                <div class="hide-button" @click.stop="hideLive2D">隐藏人偶</div>
+            </div>
         </div>
     </div>
+
+    <!-- 隐藏后的恢复按钮 -->
+    <button v-if="showLive2D && isHidden" class="restore-button" @click="isHidden = false" title="显示纳西妲">
+        🌿
+    </button>
 </template>
 
 <script>
@@ -57,6 +65,7 @@ export default {
             app: null,
             loadingError: null,
             showLive2D: true, // 控制Live2D显示的标志
+            isHidden: false, // 用户手动隐藏人偶
             minWidthToShow: 360, // 最小显示宽度
             resizeTimer: null, // 用于防抖处理
             expressions: [
@@ -389,6 +398,12 @@ export default {
         // 关闭菜单
         closeMenu() {
             this.showMenu = false;
+        },
+
+        // 隐藏人偶
+        hideLive2D() {
+            this.showMenu = false;
+            this.isHidden = true;
         },
 
         // 计算模型显示宽度
@@ -1022,31 +1037,82 @@ export default {
     border-color: var(--vp-c-green-1, #52b788);
 }
 
-.close-button {
-    text-align: center;
+/* 菜单底部操作区 */
+.menu-actions {
+    display: flex;
+    gap: 8px;
     margin-top: 16px;
+}
+
+.menu-actions .close-button,
+.menu-actions .hide-button {
+    flex: 1;
+    text-align: center;
     padding: 8px 0;
-    background-color: var(--vp-c-bg-soft, #f6f6f7);
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
     border: 1px solid var(--vp-c-border, #c2c2c4);
     color: var(--vp-c-text-1, #3c3c43);
+    background-color: var(--vp-c-bg-soft, #f6f6f7);
 }
 
-.close-button:hover {
+.menu-actions .close-button:hover {
     background-color: var(--vp-c-bg-alt, #f6f6f7);
     border-color: var(--vp-c-brand-1, #52b788);
 }
 
-.dark .close-button {
+.menu-actions .hide-button:hover {
+    background-color: #fff0f0;
+    border-color: #e05555;
+    color: #e05555;
+}
+
+.dark .menu-actions .close-button,
+.dark .menu-actions .hide-button {
     background-color: var(--vp-c-bg-soft, #202127);
     color: var(--vp-c-text-1, rgba(255, 255, 245, 0.86));
     border-color: var(--vp-c-border, #3c3f44);
 }
 
-.dark .close-button:hover {
+.dark .menu-actions .close-button:hover {
+    background-color: var(--vp-c-bg-alt, #161618);
+    border-color: var(--vp-c-green-1, #52b788);
+}
+
+.dark .menu-actions .hide-button:hover {
+    background-color: #2a1515;
+    border-color: #e05555;
+    color: #e05555;
+}
+
+/* 隐藏后的恢复按钮 */
+.restore-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--vp-c-brand-1, #52b788);
+    background-color: var(--vp-c-bg, white);
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(82, 183, 136, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restore-button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 18px rgba(82, 183, 136, 0.4);
+}
+
+.dark .restore-button {
     background-color: var(--vp-c-bg-alt, #161618);
     border-color: var(--vp-c-green-1, #52b788);
 }
