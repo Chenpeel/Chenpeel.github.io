@@ -217,6 +217,35 @@ export const sidebar = {
                         },
                     ],
                 },
+                {
+                    text: "考研数学一",
+                    collapsed: true,
+                    items: [
+                        { text: "写在前面", link: "/math/pgmath/" },
+                        {
+                            text: "微积分",
+                            collapsed: true,
+                            items: [
+                                { text: "写在前面", link: "/math/pgmath/calculus/" },
+                                { text: "微积分公式速查表", link: "/math/pgmath/calculus/Calculus_Formulas" },
+                            ],
+                        },
+                        {
+                            text: "线性代数",
+                            collapsed: true,
+                            items: [
+                                { text: "写在前面", link: "/math/pgmath/linear-algebra/" },
+                            ],
+                        },
+                        {
+                            text: "概率论",
+                            collapsed: true,
+                            items: [
+                                { text: "写在前面", link: "/math/pgmath/probability/" },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
     ],
