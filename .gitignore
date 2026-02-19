@@ -10,8 +10,10 @@ dist
 docs/public/rss.xml
 docs/recent-posts.json
 docs/public/skills-cloud.json
+docs/skills-cloud.json
 docs/at-pages.json
 docs/public/at-pages.json
+docs/public/mermaid-images/
 
 # push script
 format.sh
