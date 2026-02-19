@@ -155,23 +155,30 @@ export default {
             }
         },
 
-        // 添加拖拽监听器
+        // 添加拖拽监听器（document 级别的 move/up/end）
         addDragListeners() {
-            if (this.$refs.containerRef) {
-                this.$refs.containerRef.addEventListener('mousedown', this.handleMouseDown);
-                this.$refs.containerRef.addEventListener('touchstart', this.handleTouchStart, { passive: false });
-            }
             document.addEventListener('mousemove', this.handleMouseMove);
             document.addEventListener('mouseup', this.handleMouseUp);
             document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
             document.addEventListener('touchend', this.handleTouchEnd);
         },
 
+        // 在 canvas 上注册 down/start（initLive2D 完成后调用）
+        attachCanvasDragListeners() {
+            const canvas = this.$refs.modelViewport && this.$refs.modelViewport.querySelector('canvas');
+            if (canvas) {
+                this._dragCanvas = canvas;
+                canvas.addEventListener('mousedown', this.handleMouseDown);
+                canvas.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+            }
+        },
+
         // 移除拖拽监听器
         removeDragListeners() {
-            if (this.$refs.containerRef) {
-                this.$refs.containerRef.removeEventListener('mousedown', this.handleMouseDown);
-                this.$refs.containerRef.removeEventListener('touchstart', this.handleTouchStart);
+            if (this._dragCanvas) {
+                this._dragCanvas.removeEventListener('mousedown', this.handleMouseDown);
+                this._dragCanvas.removeEventListener('touchstart', this.handleTouchStart);
+                this._dragCanvas = null;
             }
             document.removeEventListener('mousemove', this.handleMouseMove);
             document.removeEventListener('mouseup', this.handleMouseUp);
@@ -797,12 +804,6 @@ export default {
 
                 console.log(`模型位置: ${this.model.x}, ${this.model.y}`);
 
-                // 确保canvas可以被点击
-                const canvas = this.$refs.modelViewport.querySelector("canvas");
-                if (canvas) {
-                    canvas.style.pointerEvents = "auto";
-                }
-
                 // 添加交互功能
                 this.model.buttonMode = true;
                 this.model.interactive = true;
@@ -810,6 +811,9 @@ export default {
                 // 添加到舞台
                 this.app.stage.addChild(this.model);
                 console.log("模型已添加到舞台");
+
+                // 给 canvas 注册拖拽事件（CSS 已设置 pointer-events: auto）
+                this.attachCanvasDragListeners();
 
                 // 设置初始表情
                 setTimeout(() => {
@@ -828,7 +832,7 @@ export default {
 #live2d-container {
     position: fixed;
     z-index: 1000;
-    pointer-events: auto; /* container可以接收事件 */
+    pointer-events: none; /* 透明区域穿透，不拦截背后的点击 */
     cursor: move; /* 显示移动光标 */
     border-radius: 12px;
     background: transparent; /* 完全透明背景 */
@@ -880,7 +884,7 @@ export default {
 
 .model-viewport canvas {
     position: absolute;
-    pointer-events: none; /* canvas不直接接收事件，由container处理 */
+    pointer-events: auto; /* canvas接收触摸/点击 */
 }
 
 /* 互动菜单样式 */
