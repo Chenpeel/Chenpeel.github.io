@@ -194,6 +194,12 @@ export default {
                     y: e.touches[0].clientY
                 };
             }
+            if (e.changedTouches && e.changedTouches.length > 0) {
+                return {
+                    x: e.changedTouches[0].clientX,
+                    y: e.changedTouches[0].clientY
+                };
+            }
             return {
                 x: e.clientX,
                 y: e.clientY
@@ -207,7 +213,6 @@ export default {
 
         // 处理触摸开始
         handleTouchStart(e) {
-            e.preventDefault();
             this.startDrag(e);
         },
 
@@ -240,7 +245,9 @@ export default {
             }
 
             // 阻止默认行为和事件冒泡
-            e.preventDefault();
+            if (e.type !== 'touchstart') {
+                e.preventDefault();
+            }
             e.stopPropagation();
         },
 
