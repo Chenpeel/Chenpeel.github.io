@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+RELEVANT_PATTERN='^(docs/.*\.md|docs/\.vitepress/theme/script/genSidebar\.js|docs/\.vitepress/theme/script/sidebarBlueprint\.js|package\.json)$'
+
+get_matching_files() {
+  git "$@" | grep -E "$RELEVANT_PATTERN" || true
+}
+
+UNSTAGED_FILES=$(get_matching_files diff --name-only --diff-filter=ACMRD -- docs package.json)
+if [ -n "$UNSTAGED_FILES" ]; then
+  echo "pre-commit: 检测到未暂存的文档或 sidebar 配置改动，已停止自动刷新。" >&2
+  echo "$UNSTAGED_FILES" >&2
+  echo "请先 stage 或还原这些文件，再重新提交。" >&2
+  exit 1
+fi
+
+STAGED_FILES=$(get_matching_files diff --cached --name-only --diff-filter=ACMRD -- docs package.json)
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+npm run generate:sidebar >/dev/null
+git add docs/.vitepress/sidebar.mts
