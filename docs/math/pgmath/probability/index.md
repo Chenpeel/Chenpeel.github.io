@@ -1,3 +1,14 @@
+---
+title: 概率论与数理统计
+date: 2024-04-24
+category: Math
+published: true
+skills_cloud:
+- ""
+at: true
+description: ""
+---
+
 # 概率论与数理统计
 
 > Probability Theory & Mathematical Statistics

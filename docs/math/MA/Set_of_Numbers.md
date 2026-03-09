@@ -1,4 +1,13 @@
-
+---
+title: Set of Numbers
+date: 2024-04-24
+category: Math
+published: true
+skills_cloud:
+- ""
+at: true
+description: ""
+---
 
 # 数集、环、域
 

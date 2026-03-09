@@ -1,3 +1,9 @@
+---
+title: 友链
+skills_cloud: false
+published: false
+---
+
 ```yaml
 text: 给个 🔗
 name: Chenpeel

@@ -1,3 +1,14 @@
+---
+title: "SQL"
+date: 2023-06-09
+category: CS
+published: true
+skills_cloud: 
+- sql
+at: true
+description: ""
+---
+
 > #### 写在前面✍️
 >
 > 本篇是学习数据库的基本内容的信息，作为**速览List** 
@@ -901,7 +912,7 @@ select colums from table_name join table_name  on conditions
 
 
 
-    
+​    
 
 - ###### 行子查询
 

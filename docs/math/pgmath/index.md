@@ -1,4 +1,15 @@
-# 考研数学一
+---
+title: Exam - Mathematics I
+date: 2024-04-24
+category: Math
+published: true
+skills_cloud:
+- ""
+at: true
+description: ""
+---
+
+# 考研数学I
 
 > Postgraduate Entrance Exam - Mathematics I
 

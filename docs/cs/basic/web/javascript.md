@@ -1,3 +1,14 @@
+---
+title: "JavaScript"
+date: 2024-04-24
+category: CS
+published: true
+skills_cloud:
+- "js"
+at: true
+description: ""
+---
+
 # <a name="js"> JavaScript </a>
 
 > 客户端脚本语言

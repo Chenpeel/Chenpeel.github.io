@@ -1,3 +1,13 @@
+---
+title: "CSS"
+date: 2024-04-24
+category: CS
+published: true
+skills_cloud:
+- "css"
+at: true
+description: ""
+---
 
 # <a id="css"> CSS </a>
 
@@ -249,7 +259,7 @@
         </table>
 </div>
 
-​
+
 ```html
 
   <!DOCTYPE html>

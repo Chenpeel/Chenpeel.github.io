@@ -1,5 +1,7 @@
 ---
 title: RSS订阅
+skills_cloud: false
+published: false
 layout: doc
 ---
 

@@ -3,6 +3,8 @@ title: 逻辑推理
 date: 2024-08-15
 category: Literature
 published: true
+skills_cloud:
+- "logic"
 ---
 
 

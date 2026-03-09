@@ -4,7 +4,7 @@ date: 2023-04-09
 category: CS
 published: true
 skills_cloud:
-  - 算法
+  - 递归
 at: true
 ---
 

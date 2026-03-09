@@ -1,3 +1,12 @@
+---
+title: 计算机组成原理
+date: 2024-4-23
+category: CS
+published: true
+skills_cloud:
+  - 计算机组成
+---
+
 # 计算机组成原理
 
 

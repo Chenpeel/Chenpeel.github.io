@@ -5,6 +5,7 @@ category: CS
 published: true
 skills_cloud:
   - Linux
+  - kernel
 at: true
 ---
 

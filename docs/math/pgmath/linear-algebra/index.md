@@ -1,3 +1,14 @@
+---
+title: 线性代数
+date: 2024-04-24
+category: Math
+published: true
+skills_cloud:
+- ""
+at: true
+description: ""
+---
+
 # 线性代数
 
 > Linear Algebra

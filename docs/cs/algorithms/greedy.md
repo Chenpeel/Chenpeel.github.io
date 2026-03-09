@@ -4,7 +4,7 @@ date: 2025-12-01
 category: CS
 published: true
 skills_cloud:
-  - 算法
+  - 贪心
 at: true
 ---
 

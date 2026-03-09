@@ -1,3 +1,16 @@
+---
+title: Docker Server
+date: 2024-06-25
+category: CS
+published: true
+skills_cloud:
+    - server
+    - compose
+    - daemon
+at: true
+description: ""
+---
+
 # Quick Deploy Server
 
 

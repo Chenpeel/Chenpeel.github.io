@@ -1,3 +1,8 @@
+---
+title: Stared Pages
+skills_cloud: false
+published: false
+---
 
 # Pages Stared
 

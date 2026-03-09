@@ -4,7 +4,7 @@ date: 2023-04-03
 category: CS
 published: true
 skills_cloud:
-  - 算法
+  - 动态规划
 at: true
 ---
 
