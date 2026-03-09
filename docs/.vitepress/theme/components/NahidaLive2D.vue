@@ -58,6 +58,12 @@
 <script>
 export default {
     name: "NahidaLive2D",
+    props: {
+        minWidthToShow: {
+            type: Number,
+            default: 1024,
+        },
+    },
     emits: ['openChat'],
     data() {
         return {
@@ -66,7 +72,6 @@ export default {
             loadingError: null,
             showLive2D: true, // 控制Live2D显示的标志
             isHidden: false, // 用户手动隐藏人偶
-            minWidthToShow: 360, // 最小显示宽度
             resizeTimer: null, // 用于防抖处理
             expressions: [
                 "default",
@@ -172,22 +177,23 @@ export default {
             document.addEventListener('touchend', this.handleTouchEnd);
         },
 
-        // 在 canvas 上注册 down/start（initLive2D 完成后调用）
-        attachCanvasDragListeners() {
-            const canvas = this.$refs.modelViewport && this.$refs.modelViewport.querySelector('canvas');
-            if (canvas) {
-                this._dragCanvas = canvas;
-                canvas.addEventListener('mousedown', this.handleMouseDown);
-                canvas.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        // 在稳定的视口容器上注册 down/start，避免依赖运行时插入的 canvas
+        attachViewportDragListeners() {
+            if (!this.$refs.modelViewport) {
+                return;
             }
+
+            this._dragSurface = this.$refs.modelViewport;
+            this._dragSurface.addEventListener('mousedown', this.handleMouseDown);
+            this._dragSurface.addEventListener('touchstart', this.handleTouchStart, { passive: false });
         },
 
         // 移除拖拽监听器
         removeDragListeners() {
-            if (this._dragCanvas) {
-                this._dragCanvas.removeEventListener('mousedown', this.handleMouseDown);
-                this._dragCanvas.removeEventListener('touchstart', this.handleTouchStart);
-                this._dragCanvas = null;
+            if (this._dragSurface) {
+                this._dragSurface.removeEventListener('mousedown', this.handleMouseDown);
+                this._dragSurface.removeEventListener('touchstart', this.handleTouchStart);
+                this._dragSurface = null;
             }
             document.removeEventListener('mousemove', this.handleMouseMove);
             document.removeEventListener('mouseup', this.handleMouseUp);
@@ -791,6 +797,10 @@ export default {
 
                 // 挂载到DOM
                 this.$refs.modelViewport.appendChild(this.app.view);
+                // 运行时插入的 canvas 不受 scoped 样式约束，关键尺寸直接以内联样式保证
+                this.app.view.style.display = "block";
+                this.app.view.style.width = "100%";
+                this.app.view.style.height = "100%";
                 console.log("PIXI应用已挂载到DOM");
 
                 // 设置模型路径
@@ -834,8 +844,8 @@ export default {
                 this.app.stage.addChild(this.model);
                 console.log("模型已添加到舞台");
 
-                // 给 canvas 注册拖拽事件（CSS 已设置 pointer-events: auto）
-                this.attachCanvasDragListeners();
+                // 给稳定存在的视口容器注册拖拽与点击入口
+                this.attachViewportDragListeners();
 
                 // 设置初始表情
                 setTimeout(() => {
@@ -899,14 +909,16 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* 让点击事件传递给container */
+    pointer-events: auto; /* 直接作为拖拽与点击交互面 */
+    cursor: move;
     border-radius: 10px; /* 比container稍小，避免重叠 */
     overflow: hidden;
 }
 
 .model-viewport canvas {
     position: absolute;
-    pointer-events: auto; /* canvas接收触摸/点击 */
+    inset: 0;
+    pointer-events: none; /* 统一由视口容器接收事件，避免动态 canvas 事件不稳定 */
 }
 
 /* 互动菜单样式 */

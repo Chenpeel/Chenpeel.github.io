@@ -1,12 +1,24 @@
 <script setup>
-import { ref, provide, onMounted, shallowRef } from "vue";
+import {
+    ref,
+    provide,
+    onMounted,
+    onBeforeUnmount,
+    defineAsyncComponent,
+    watch,
+} from "vue";
 import DefaultTheme from "vitepress/theme";
-import NahidaLive2D from "./components/NahidaLive2D.vue";
 import NahidaChat from "./components/NahidaChat.vue";
-import { watch } from "vue";
 
 const { Layout } = DefaultTheme;
 const showComponents = ref(false);
+const showLive2D = ref(false);
+const LIVE2D_MIN_WIDTH = 1024;
+const LIVE2D_MEDIA_QUERY = `(min-width: ${LIVE2D_MIN_WIDTH}px) and (hover: hover) and (pointer: fine)`;
+const NahidaLive2DAsync = defineAsyncComponent(() =>
+    import("./components/NahidaLive2D.vue"),
+);
+let live2DMediaQuery = null;
 
 // 创建聊天历史记录 ref
 const chatHistory = ref([]);
@@ -22,9 +34,29 @@ const handleOpenChat = () => {
     }
 };
 
+const updateLive2DVisibility = (matches) => {
+    showLive2D.value = matches;
+};
+
+const handleLive2DMediaQueryChange = (event) => {
+    updateLive2DVisibility(event.matches);
+};
+
 // 确保只在客户端渲染
 onMounted(() => {
     showComponents.value = true;
+
+    // 仅在桌面宽屏设备上加载 Live2D，避免手机和平板初始化额外脚本
+    if (typeof window !== "undefined") {
+        live2DMediaQuery = window.matchMedia(LIVE2D_MEDIA_QUERY);
+        updateLive2DVisibility(live2DMediaQuery.matches);
+
+        if (live2DMediaQuery.addEventListener) {
+            live2DMediaQuery.addEventListener("change", handleLive2DMediaQueryChange);
+        } else {
+            live2DMediaQuery.addListener(handleLive2DMediaQueryChange);
+        }
+    }
 
     // 在客户端挂载后加载历史记录
     try {
@@ -49,6 +81,20 @@ onMounted(() => {
     }
 });
 
+onBeforeUnmount(() => {
+    if (!live2DMediaQuery) {
+        return;
+    }
+
+    if (live2DMediaQuery.removeEventListener) {
+        live2DMediaQuery.removeEventListener("change", handleLive2DMediaQueryChange);
+    } else {
+        live2DMediaQuery.removeListener(handleLive2DMediaQueryChange);
+    }
+
+    live2DMediaQuery = null;
+});
+
 // 提供聊天历史给子组件
 provide("chatHistory", chatHistory);
 
@@ -61,14 +107,15 @@ const isBrowser = typeof window !== "undefined";
         <template #layout-bottom>
             <!-- 使用简单的条件渲染替代ClientOnly -->
             <div v-if="isBrowser">
-                <NahidaLive2D 
-                    v-if="showComponents" 
+                <NahidaLive2DAsync
+                    v-if="showComponents && showLive2D"
+                    :min-width-to-show="LIVE2D_MIN_WIDTH"
                     @openChat="handleOpenChat"
                 />
-                <NahidaChat 
-                    v-if="showComponents" 
+                <NahidaChat
+                    v-if="showComponents"
                     ref="nahidaChatRef"
-                    :initial-open="false" 
+                    :initial-open="false"
                 />
             </div>
         </template>
