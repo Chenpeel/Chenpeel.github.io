@@ -1,3 +1,13 @@
+---
+title: "嵌入式系统"
+date: 2025-05-20
+category: CS
+published: true
+skills_cloud: []
+at: true
+description: ""
+---
+
 # 嵌入式系统
 
 ### 简介
