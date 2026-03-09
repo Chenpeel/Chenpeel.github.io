@@ -58,15 +58,14 @@ function buildLinkFromPath(filePath) {
 
 function getTrackedMarkdownFiles() {
   try {
-    const stdout = execFileSync("git", ["ls-files", "--cached", "--", "docs"], {
+    const stdout = execFileSync("git", ["ls-files", "-z", "--cached", "--", "docs"], {
       cwd: repoRoot,
       encoding: "utf-8",
     });
 
     return new Set(
       stdout
-        .split("\n")
-        .map((line) => line.trim())
+        .split("\0")
         .filter(Boolean)
         .filter((file) => file.endsWith(".md"))
         .map((file) => file.replace(/^docs\//, "")),

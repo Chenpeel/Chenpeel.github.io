@@ -32,6 +32,10 @@ export const sidebar = {
       "collapsed": false,
       "items": [
         {
+          "text": "Tips",
+          "link": "/tips/"
+        },
+        {
           "text": "Kaggle免费算力指北",
           "link": "/tips/kaggle_train"
         }
@@ -366,6 +370,38 @@ export const sidebar = {
             {
               "text": "写在前面",
               "link": "/literature/POEM/"
+            },
+            {
+              "text": "《毛诗序》",
+              "link": "/literature/POEM/毛诗序"
+            },
+            {
+              "text": "《关雎》",
+              "link": "/literature/POEM/关雎"
+            },
+            {
+              "text": "《葛覃》",
+              "link": "/literature/POEM/葛覃"
+            },
+            {
+              "text": "《苍耳》",
+              "link": "/literature/POEM/苍耳"
+            },
+            {
+              "text": "《樛木》",
+              "link": "/literature/POEM/樛木"
+            },
+            {
+              "text": "《螽斯》",
+              "link": "/literature/POEM/螽斯"
+            },
+            {
+              "text": "《桃夭》",
+              "link": "/literature/POEM/桃夭"
+            },
+            {
+              "text": "《兔罝》",
+              "link": "/literature/POEM/兔罝"
             }
           ]
         },
